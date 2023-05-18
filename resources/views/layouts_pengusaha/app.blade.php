@@ -24,10 +24,10 @@
 
 <body class="">
     <div class="wrapper ">
-        @include('layouts_admin.sidebar')
+        @include('layouts_pengusaha.sidebar')
         <div class="main-panel">
             {{-- Topbar --}}
-            @include('layouts_admin.topbar')
+            @include('layouts_pengusaha.topbar')
             {{-- End Topbar --}}
 
             {{-- Main Content --}}
@@ -35,7 +35,7 @@
             {{-- End Main Content --}}
 
             {{-- Footer --}}
-            @include('layouts_admin.footer')
+            @include('layouts_pengusaha.footer')
             {{-- End Footer --}}
         </div>
     </div>

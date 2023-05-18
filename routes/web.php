@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PengusahaController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [AdminController::class, 'index'])->name('dashboard.admin');
+Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin');
+Route::get('/pengusaha',[PengusahaController::class,'index'])->name('dashboard.pengusaha');
 
 require __DIR__.'/auth.php';
