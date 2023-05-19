@@ -8,12 +8,13 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-icon">
                             <div class="card-icon" id="icon">
-                                <i class="material-icons">content_copy</i>
+                                {{-- <i class="material-icons">content_copy</i> --}}
+                                <img src="/assets/img/icon/kategori-56.png" alt="" srcset="">
                             </div>
-                            <p class="card-category">Used Space</p>
-                            <h3 class="card-title">49/50
+                            <p class="card-category">Kategori Usaha</p>
+                            {{-- <h3 class="card-title">49/50
                                 <small>GB</small>
-                            </h3>
+                            </h3> --}}
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -26,42 +27,13 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-icon">
                             <div class="card-icon" id="icon">
-                                <i class="material-icons">store</i>
+                                {{-- <i class="material-icons">content_copy</i> --}}
+                                <img src="/assets/img/icon/users-admin-56.png" alt="" srcset="">
                             </div>
-                            <p class="card-category">Revenue</p>
-                            <h3 class="card-title">$34,245</h3>
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <a href="#" type="button" class="btn" id="icon">Buka</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                        <div class="card-header card-header-icon">
-                            <div class="card-icon" id="icon">
-                                <i class="material-icons">info_outline</i>
-                            </div>
-                            <p class="card-category">Fixed Issues</p>
-                            <h3 class="card-title">75</h3>
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <a href="#" type="button" class="btn" id="icon">Buka</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                        <div class="card-header card-header-icon">
-                            <div class="card-icon" id="icon">
-                                <i class="fa fa-twitter"></i>
-                            </div>
-                            <p class="card-category">Followers</p>
-                            <h3 class="card-title">+245</h3>
+                            <p class="card-category">Users Management</p>
+                            {{-- <h3 class="card-title">49/50
+                                <small>GB</small>
+                            </h3> --}}
                         </div>
                         <div class="card-footer">
                             <div class="stats">

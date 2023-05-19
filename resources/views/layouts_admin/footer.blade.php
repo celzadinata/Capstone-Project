@@ -1,35 +1,14 @@
 <footer class="footer">
     <div class="container-fluid">
         <nav class="float-left">
-            <ul>
-                <li>
-                    <a href="https://www.creative-tim.com">
-                        Creative Tim
-                    </a>
-                </li>
-                <li>
-                    <a href="https://creative-tim.com/presentation">
-                        About Us
-                    </a>
-                </li>
-                <li>
-                    <a href="http://blog.creative-tim.com">
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.creative-tim.com/license">
-                        Licenses
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="copyright float-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-        </div>
+            <p class="yokresell-2023-h98">YokResell © 2023</p>
+            {{-- <div class="frame">
+                <img class="ig" src="/assets/img/socmed/ig.png"/>
+                <img class="fb" src="/assets/img/socmed/fb.png"/>
+                <img class="linkedin" src="/assets/img/socmed/linkedin.png"/>
+                <img class="twitter" src="/assets/img/socmed/twitter.png"/>
+                <img class="yt" src="/assets/img/socmed/yt.png"/>
+            </div> --}}
+            </nav>
     </div>
 </footer>

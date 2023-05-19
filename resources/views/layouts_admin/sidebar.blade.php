@@ -4,16 +4,22 @@
         </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item active  ">
-                <a class="nav-link" href="./dashboard.html">
-                    <i class="material-icons">dashboard</i>
+            <li class="nav-item  {{ set_active('dashboard.admin') }}">
+                <a href="{{ route('dashboard.admin') }}" class="nav-link" >
+                    <i><img src="/assets/img/icon/dashboard.png" alt="" srcset=""></i>
                     <p>Dashboard</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./user.html">
-                    <i class="material-icons">person</i>
-                    <p>User Profile</p>
+                <a href="" class="nav-link" >
+                    <i><img src="/assets/img/icon/kategori-30.png" alt="" srcset=""></i>
+                    <p>Kategori Usaha</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link" >
+                    <i><img src="/assets/img/icon/users-admin-30.png" alt="" srcset=""></i>
+                    <p>User Management</p>
                 </a>
             </li>
         </ul>

@@ -24,8 +24,8 @@
 
 <body class="">
     <div class="wrapper ">
-        @include('layouts_admin.sidebar')
         <div class="main-panel">
+            @include('layouts_admin.sidebar')
             {{-- Topbar --}}
             @include('layouts_admin.topbar')
             {{-- End Topbar --}}
