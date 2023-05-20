@@ -9,7 +9,7 @@
                         <div class="card-header card-header-icon">
                             <div class="card-icon" id="icon">
                                 {{-- <i class="material-icons">content_copy</i> --}}
-                                <img src="./assets/img/icon/paket-usaha.png" alt="" srcset="">
+                                <img src="/assets/img/icon/paket-usaha-index.png" alt="" srcset="">
                             </div>
                             <p class="card-category">Paket Usaha</p>
                             {{-- <h3 class="card-title">49/50
