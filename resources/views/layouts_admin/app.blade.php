@@ -1,14 +1,3 @@
-<!--
-=========================================================
-Material Dashboard - v2.1.2
-=========================================================
-
-Product Page: https://www.creative-tim.com/product/material-dashboard
-Copyright 2020 Creative Tim (https://www.creative-tim.com)
-Coded by Creative Tim
-
-=========================================================
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,8 +24,8 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="">
     <div class="wrapper ">
-        @include('layouts_admin.sidebar')
         <div class="main-panel">
+            @include('layouts_admin.sidebar')
             {{-- Topbar --}}
             @include('layouts_admin.topbar')
             {{-- End Topbar --}}
@@ -101,5 +90,5 @@ The above copyright notice and this permission notice shall be included in all c
         });
     </script>
 </body>
-
+@include('sweetalert::alert')
 </html>
