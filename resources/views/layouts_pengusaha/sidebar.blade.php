@@ -11,33 +11,33 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link ">
+                <a class="nav-link" href="">
                     <i><img src="/assets/img/icon/paket-usaha.png" alt="" srcset=""></i>
                     <p>Paket Usaha</p>
                 </a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link ">
+                    <a class="nav-link" href="">
                     <i><img src="/assets/img/icon/transaksi-sidebar.png" alt="" srcset=""></i>
                     <p>Transaksi</p>
                 </a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link">
+                    <a class="nav-link" href="">
                     <i><img src="/assets/img/icon/laporan-sidebar.png" alt="" srcset=""></i>
                     <p>Laporan</p>
                 </a>
             </li>
             <li class="nav-item ">
-                    <a class="nav-link ">
+                    <a class="nav-link" href="">
                     <i><img src="/assets/img/icon/review-sidebar.png" alt="" srcset=""></i>
                     <p>Review</p>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" href="">
                     <a class="nav-link">
                     <i><img src="/assets/img/icon/profil.png" alt="" srcset=""></i>
-                    <p>Profile</p>
+                    <p>Profil</p>
                 </a>
             </li>
         </ul>
