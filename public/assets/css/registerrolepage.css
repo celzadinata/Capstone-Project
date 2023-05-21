@@ -1,0 +1,675 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 136.6rem;
+}.registerrolepage-YM4 {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW {
+  box-sizing: border-box;
+  padding: 3.5rem 14rem 2.8rem 14rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .bar-1Ee {
+  margin-bottom: 2.7rem;
+  box-sizing: border-box;
+  padding: 0rem 42.938rem 0rem 43rem;
+  width: 100%;
+  height: 7.4rem;
+  border-bottom: solid 0.2rem #ce3abd;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .bar-1Ee .logo-jgS {
+  width: 100%;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .bar-1Ee .logo-jgS .icontoko-tpE {
+  margin-right: 0.5rem;
+  width: 5.3617rem;
+  height: 4.5rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .bar-1Ee .logo-jgS .yokresell-Cpv {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti {
+  margin: 0 0.5rem;
+  box-sizing: border-box;
+  padding-top: 6.8368rem;
+  width: calc(100% - 1rem);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(75.83deg, #b400a0 -55.87%, #ce3abd 72.39%);
+  border-radius: 3rem;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .logo-DEE {
+  margin: 0rem 38.6rem 7.637rem 38.5rem;
+  width: calc(100% - 77.1rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .logo-DEE .icontoko-jyG {
+  margin-right: 1.5rem;
+  width: 12.5rem;
+  height: 10.5263rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .logo-DEE .yok-resell-HUz {
+  max-width: 16.5rem;
+  display: flex;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 0.8000000119;
+  color: #ffffff;
+  font-family: Urbanist, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 {
+  box-sizing: border-box;
+  padding: 1.2rem 25.714rem 1.7rem 25.714rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0 0 3rem 3rem;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .pilih-role-8Vc {
+  margin-bottom: 2.3rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .pilih-role-8Vc .role-V5G {
+  margin: 0rem 0rem 1rem 0.1rem;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .pilih-role-8Vc .frame-12-naA {
+  width: 100%;
+  height: 6.2rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .pilih-role-8Vc .frame-12-naA .frame-10-XXk {
+  margin-right: 12rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .pilih-role-8Vc .frame-12-naA .frame-10-XXk .calon-reseller-TRQ {
+  margin-right: 1.5rem;
+  width: 6.5358rem;
+  height: 6.2rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .pilih-role-8Vc .frame-12-naA .frame-11-7kr {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .pilih-role-8Vc .frame-12-naA .frame-11-7kr .pengusaha-Gte {
+  margin-right: 1.5rem;
+  width: 6.5358rem;
+  height: 6.2rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .pilih-role-8Vc .frame-12-naA .role-radio-btn {
+  cursor: pointer;
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .frame-27-k38 {
+  margin: 0rem 14.086rem 0rem 13.986rem;
+  width: calc(100% - 28.0717rem);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .frame-27-k38 .button-fvn {
+  margin: 0rem 4.05rem 2rem 4.05rem;
+  width: calc(100% - 8.1rem);
+  height: 5.5rem;
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3999999364;
+  letter-spacing: 0.02rem;
+  color: #fefcf3;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(75.83deg, #b400a0 -55.87%, #ce3abd 72.39%);
+  border-radius: 1.5rem;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .frame-27-k38 .login-uq8 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .frame-27-k38 .login-uq8 .sudah-punya-akun-TLr {
+  margin-right: 1rem;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3999999364;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .registerrole-5ti .auto-group-jfux-1A6 .frame-27-k38 .login-uq8 .login-MSE {
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3999999364;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-yM8 {
+  box-sizing: border-box;
+  padding: 2.6rem 14rem;
+  width: 100%;
+  height: 7.9rem;
+  background: linear-gradient(75.83deg, #b400a0 -55.87%, #ce3abd 72.39%);
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-yM8 .frame-9-5ux {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.registerrolepage-YM4 .footer-yM8 .frame-9-5ux .yokresell-2023-eCN {
+  margin-right: 72.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-yM8 .frame-9-5ux .frame-1-kmC {
+  height: 100%;
+  display: flex;
+  column-gap: 1.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-yM8 .frame-9-5ux .frame-1-kmC .ig-JXp {
+  width: 2.8rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-yM8 .frame-9-5ux .frame-1-kmC .fb-3kJ {
+  width: 2.8rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-yM8 .frame-9-5ux .frame-1-kmC .linkedin-oUa {
+  width: 2.8rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-yM8 .frame-9-5ux .frame-1-kmC .twitter-MFC {
+  width: 2.9rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-yM8 .frame-9-5ux .frame-1-kmC .yt-W86 {
+  width: 2.7rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border: 1px solid #ce3abd;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.role-radio-btn:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.role-radio-btn input:checked ~ .checkmark {
+  background-color: purple;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.role-radio-btn input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.role-radio-btn .checkmark:after {
+ 	top: 8px;
+	left: 8px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.role-radio-btn input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 136.6rem;
+}.registerrolepage-YM4 {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW {
+  box-sizing: border-box;
+  padding: 3.5rem 14rem 2.8rem 14rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .bar-3QS {
+  margin-bottom: 2.7rem;
+  box-sizing: border-box;
+  padding: 0rem 42.938rem 0rem 43rem;
+  width: 100%;
+  height: 7.4rem;
+  border-bottom: solid 0.2rem #ce3abd;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .bar-3QS .frame-14-Zdg {
+  width: 100%;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .bar-3QS .frame-14-Zdg .icontoko-tfx {
+  margin-right: 0.5rem;
+  width: 5.3617rem;
+  height: 4.5rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .bar-3QS .frame-14-Zdg .yokresell-1Vg {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp {
+  margin: 0rem 0.5rem 0rem 0.5rem;
+  box-sizing: border-box;
+  padding-left: 12.2rem;
+  width: calc(100% - 1rem);
+  height: 52.5rem;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(75.83deg, #b400a0 -55.87%, #ce3abd 72.39%);
+  border-radius: 3rem;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .logo-bTt {
+  margin: 20.987rem 12.1rem 20.987rem 0rem;
+  height: calc(100% - 41.9737rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .logo-bTt .icontoko-WKx {
+  margin-right: 1.5rem;
+  width: 12.5rem;
+  height: 10.5263rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .logo-bTt .yok-resell-r8v {
+  max-width: 16.5rem;
+  display: flex;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 0.8000000119;
+  color: #ffffff;
+  font-family: Urbanist, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA {
+  box-sizing: border-box;
+  padding: 3.362rem 5.15rem 3.758rem 5rem;
+  width: 52.8rem;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0 3rem 3rem 0;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .login-HEE {
+  margin: 0rem 32.75rem 4.738rem 0rem;
+  display: flex;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .input-ysk {
+  margin: 0rem 0rem 5.4rem 0.15rem;
+  width: 42.5rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .input-ysk .input-username-Gbx {
+  margin-bottom: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .input-ysk .input-username-Gbx .email-mBL {
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.3999999364;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .input-ysk .input-username-Gbx .rectangle-4221-ria {
+  width: 100%;
+  height: 4.5rem;
+  border: solid 0.1rem #ce3abd;
+  box-sizing: border-box;
+  background-color: #fffcfc;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  font-size: 2rem;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .input-ysk .input-password-yoC {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .input-ysk .input-password-yoC .password-Ldk {
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.3999999364;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .input-ysk .input-password-yoC .input-Fki {
+  width: 100%;
+  height: 4.5rem;
+  border: solid 0.1rem #ce3abd;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  font-size: 2rem;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .frame-26-ZFc {
+  margin: 0rem 7.95rem 0rem 6.3rem;
+  width: calc(100% - 14.25rem);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .frame-26-ZFc .button-VQA {
+  margin: 0rem 4.2rem 2rem 4.2rem;
+  width: calc(100% - 8.4rem);
+  height: 4.4423rem;
+  cursor: pointer;
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3999999364;
+  letter-spacing: 0.02rem;
+  color: #fefcf3;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(75.83deg, #b400a0 -55.87%, #ce3abd 72.39%);
+  border-radius: 1.5rem;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .frame-26-ZFc .daftar-7Ae {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .frame-26-ZFc .daftar-7Ae .tidak-punya-akun-sQi {
+  margin-right: 1rem;
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.3999999364;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .auto-group-m96e-UkW .login-gbp .auto-group-swk6-NNA .frame-26-ZFc .daftar-7Ae .daftar-NMU {
+  cursor: pointer;
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3999999364;
+  letter-spacing: 0.02rem;
+  color: #ce3abd;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-bzv {
+  box-sizing: border-box;
+  padding: 2.6rem 14rem;
+  width: 100%;
+  height: 7.9rem;
+  background: linear-gradient(75.83deg, #b400a0 -55.87%, #ce3abd 72.39%);
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-bzv .frame-9-7iN {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.registerrolepage-YM4 .footer-bzv .frame-9-7iN .yokresell-2023-dwc {
+  margin-right: 72.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  font-family: Urbanist, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-bzv .frame-9-7iN .frame-1-wxJ {
+  height: 100%;
+  display: flex;
+  column-gap: 1.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-bzv .frame-9-7iN .frame-1-wxJ .ig-6aJ {
+  width: 2.8rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-bzv .frame-9-7iN .frame-1-wxJ .fb-ebp {
+  width: 2.8rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-bzv .frame-9-7iN .frame-1-wxJ .linkedin-c2r {
+  width: 2.8rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-bzv .frame-9-7iN .frame-1-wxJ .twitter-A4N {
+  width: 2.9rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.registerrolepage-YM4 .footer-bzv .frame-9-7iN .frame-1-wxJ .yt-une {
+  width: 2.7rem;
+  height: 2.7rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
