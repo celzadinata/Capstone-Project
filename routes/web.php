@@ -43,4 +43,6 @@ Route::get('/admin/kategori/destroy/{id}',[KategoriController::class,'destroy'])
 
 Route::get('/pengusaha',[PengusahaController::class,'index'])->name('dashboard.pengusaha');
 
+Route::get('/pengusaha/laporan',[LaporanController::class,'index'])->name('laporan');
+
 require __DIR__.'/auth.php';

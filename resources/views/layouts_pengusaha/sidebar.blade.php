@@ -22,8 +22,8 @@
                     <p>Transaksi</p>
                 </a>
             </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="">
+            <li class="nav-item {{ set_active('laporan') }}">
+                    <a class="nav-link" href="{{ route('laporan') }}">
                     <i><img src="/assets/img/icon/laporan-sidebar.png" alt="" srcset=""></i>
                     <p>Laporan</p>
                 </a>

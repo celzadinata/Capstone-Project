@@ -56,7 +56,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="#" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('laporan') }}" type="button" class="btn" id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
