@@ -8,7 +8,6 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-icon">
                             <div class="card-icon" id="icon">
-                                {{-- <i class="material-icons">content_copy</i> --}}
                                 <img src="/assets/img/icon/kategori-56.png" alt="" srcset="">
                             </div>
                             <p class="card-category">Kategori Usaha</p>
@@ -18,7 +17,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="#" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('kategori') }}" type="button" class="btn" id="icon">Buka</a>
                             </div>
                         </div>
                     </div>

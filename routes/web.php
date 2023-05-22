@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengusahaController;
 use App\Http\Controllers\KonfirmasiPaketController;
@@ -39,6 +40,15 @@ Route::get('/admin/user_management/confrim/{id}', [UserController::class, 'edit'
 Route::get('/admin/user_management/destory/{id}', [UserController::class, 'destroy'])->name('destroy_user.admin');
 //  Konfirmasi Produk
 Route::get('/admin/konfirmasi_produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');
+
+//Kategori
+Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('kategori');
+Route::get('/admin/kategori/add', [KategoriController::class, 'create'])->name('kategori.add');
+Route::post('/admin/kategori/create', [KategoriController::class, 'store'])->name('kategori.create');
+Route::get('/admin/kategori/edit/{id}',[KategoriController::class, 'edit'])->name('kategori.edit');
+Route::put('/admin/kategori/update/{id}',[KategoriController::class, 'update'])->name('kategori.update');
+Route::get('/admin/kategori/destroy/{id}',[KategoriController::class,'destroy'])->name('kategori.destroy');
+
 
 Route::get('/pengusaha',[PengusahaController::class,'index'])->name('dashboard.pengusaha');
 

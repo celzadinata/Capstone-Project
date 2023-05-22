@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kategoris', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('nama');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
