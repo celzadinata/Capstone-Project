@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Yok Resell
+        Yok Resell | @yield('title')
     </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -24,8 +24,8 @@
 
 <body class="">
     <div class="wrapper ">
+        @include('layouts_admin.sidebar')
         <div class="main-panel">
-            @include('layouts_admin.sidebar')
             {{-- Topbar --}}
             @include('layouts_admin.topbar')
             {{-- End Topbar --}}

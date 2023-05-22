@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\PengusahaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PengusahaController;
+use App\Http\Controllers\KonfirmasiPaketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +31,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+// Admin
+// User Management
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin');
+Route::get('/admin/user_management', [UserController::class, 'index'])->name('user.admin');
+Route::get('/admin/user_management/confrim/{id}', [UserController::class, 'edit'])->name('confirm_user.admin');
+Route::get('/admin/user_management/destory/{id}', [UserController::class, 'destroy'])->name('destroy_user.admin');
+//  Konfirmasi Produk
+Route::get('/admin/konfirmasi_produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');
+
 Route::get('/pengusaha',[PengusahaController::class,'index'])->name('dashboard.pengusaha');
 
 require __DIR__.'/auth.php';
