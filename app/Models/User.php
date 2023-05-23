@@ -29,6 +29,8 @@ class User extends Authenticatable
         'status',
         'no_hp',
     ];
+    
+    protected $keyType = 'string';
 
     /**
      * The attributes that should be hidden for serialization.

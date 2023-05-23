@@ -67,7 +67,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+        $redirect_path = '';
+        Auth::user()->role === 'admin' ? $redirect_path = '/admin' : (Auth::user()->role === 'pengusaha' ? $redirect_path = '/pengusaha' : $redirect_path = '/reseller');
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect($redirect_path);
     }
 }
