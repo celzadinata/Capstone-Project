@@ -8,9 +8,6 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            {{-- <a href="{{ route('add_user.admin') }}" class="btn mb-3" id="btn_table">
-                                Tambah Admin Baru
-                            </a> --}}
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
