@@ -29,7 +29,7 @@ class User extends Authenticatable
         'status',
         'no_hp',
     ];
-    
+
     protected $keyType = 'string';
 
     /**
@@ -50,13 +50,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function products()
+    public function produk()
     {
-        return $this->hasMany(products::class);
+        return $this->hasMany(produk::class);
     }
-    public function transaction()
+    public function transaksi()
     {
-        return $this->hasMany(transactions::class);
+        return $this->hasMany(transaksi::class);
     }
 }

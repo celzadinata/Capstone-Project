@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('notifikasis', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('judul');
             $table->text('pesan');
             $table->timestamp('created_at')->useCurrent();
