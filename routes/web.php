@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PengusahaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResellerControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +52,8 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
 
 //Role Reseller taro sini
 Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
-    
+    Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
+
 });
 
 require __DIR__ . '/auth.php';

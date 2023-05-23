@@ -28,6 +28,8 @@ class User extends Authenticatable
         'alamat',
         'no_hp',
     ];
+    
+    protected $keyType = 'string';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -47,13 +49,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function getRedirectRoute()
-    {
-        return match((string)$this->role) {
-            'pengusaha' => 'pengusaha.dashboard.index',
-            'admin' => 'admin.dashboard.index',
-            'reseller' => 'reseller.dashboard.index',
-            // ...
-        };
-    }
 }

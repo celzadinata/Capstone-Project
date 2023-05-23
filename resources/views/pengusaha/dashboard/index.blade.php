@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 @section('content')
     <div class="content">
-        {{Auth::user()->role . ' ' . Auth::user()->email }}
+        {{auth()->user()->role . ' ' .  auth()->user()->email}}
 
         <div class="container-fluid">
             <div class="row">
