@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->integer('rate');
             $table->text('review')->nullable();
             $table->timestamp('created_at')->useCurrent();
