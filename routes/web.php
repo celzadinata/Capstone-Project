@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PengusahaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResellerControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,16 +32,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Dashboard Admin
-Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin');
-//Kategori
-Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('kategori');
-Route::get('/admin/kategori/add', [KategoriController::class, 'create'])->name('kategori.add');
-Route::post('/admin/kategori/create', [KategoriController::class, 'store'])->name('kategori.create');
-Route::get('/admin/kategori/edit/{id}',[KategoriController::class, 'edit'])->name('kategori.edit');
-Route::put('/admin/kategori/update/{id}',[KategoriController::class, 'update'])->name('kategori.update');
-Route::get('/admin/kategori/destroy/{id}',[KategoriController::class,'destroy'])->name('kategori.destroy');
+//Role Admin taro sini
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], function () {
+    //Dashboard Admin
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard.admin');
+    //Kategori
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+    Route::get('/kategori/add', [KategoriController::class, 'create'])->name('kategori.add');
+    Route::post('/kategori/create', [KategoriController::class, 'store'])->name('kategori.create');
+    Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
+    Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+    Route::get('/kategori/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+});
 
-Route::get('/pengusaha',[PengusahaController::class,'index'])->name('dashboard.pengusaha');
+//Role Pengusaha taro sini
+Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']], function () {
+    Route::get('/', [PengusahaController::class, 'index'])->name('dashboard.pengusaha');
+});
 
-require __DIR__.'/auth.php';
+//Role Reseller taro sini
+Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
+    Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
+
+});
+
+require __DIR__ . '/auth.php';
