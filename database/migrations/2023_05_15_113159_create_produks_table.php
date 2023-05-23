@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('foto');
             $table->bigInteger('harga');
             $table->integer('stok');
+            $table->string('berkas_1')->nullable();
+            $table->string('berkas_2')->nullable();
+            $table->string('berkas_3')->nullable();
             $table->boolean('status')->nullable()->default(0);
             $table->integer('rate')->nullable();
             $table->timestamp('created_at')->useCurrent();

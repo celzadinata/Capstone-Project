@@ -20,6 +20,9 @@ class produk extends Model
         'foto',
         'harga',
         'stok',
+        'berkas_1',
+        'berkas_2',
+        'berkas_3',
         'status',
         'rate'
     ];
