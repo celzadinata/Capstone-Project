@@ -21,8 +21,11 @@ return new class extends Migration
             $table->string('foto');
             $table->bigInteger('harga');
             $table->integer('stok');
-            $table->boolean('status')->default(0);
-            $table->integer('rate');
+            $table->string('berkas_1')->nullable();
+            $table->string('berkas_2')->nullable();
+            $table->string('berkas_3')->nullable();
+            $table->boolean('status')->nullable()->default(0);
+            $table->integer('rate')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->timestamp('deleted_at')->nullable()->useCurrentOnUpdate();

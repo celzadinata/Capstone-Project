@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class produk extends Model
 {
@@ -19,20 +20,34 @@ class produk extends Model
         'foto',
         'harga',
         'stok',
+        'berkas_1',
+        'berkas_2',
+        'berkas_3',
         'status',
         'rate'
     ];
 
-    public function categories()
+    protected $keyType = 'string';
+
+    protected static function boot()
     {
-        return $this->belongsTo(categories::class);
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->id = 'PRD' . str_pad(produk::count() + 1, 3, '0', STR_PAD_LEFT);
+        });
     }
-    public function users()
+
+    public function kategori()
     {
-        return $this->belongsTo(users::class);
+        return $this->belongsTo(kategori::class, 'id');
     }
-    public function detail_transactions()
+    public function User()
     {
-        return $this->hasMany(detail_transactions::class);
+        return $this->belongsTo(User::class, 'id');
+    }
+    public function detail_transaksi()
+    {
+        return $this->hasMany(detail_transaksi::class);
     }
 }
