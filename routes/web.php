@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin');
 Route::get('/admin/user_management', [UserController::class, 'index'])->name('user.admin');
 Route::get('/admin/user_management/confrim/{id}', [UserController::class, 'edit'])->name('confirm_user.admin');
+Route::put('/admin/user_management/update/{id}', [UserController::class, 'update'])->name('update_user.admin');
 Route::get('/admin/user_management/destory/{id}', [UserController::class, 'destroy'])->name('destroy_user.admin');
 //  Konfirmasi Produk
 Route::get('/admin/konfirmasi_produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');

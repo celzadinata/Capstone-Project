@@ -80,9 +80,14 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $id)
     {
-        //
+        $request->validate([
+            'status'     => 'required',
+        ]);
+
+        $id->update($request->all());
+        return redirect()->route('user.admin')->with('success', 'Berhasil Menambah Admin!');
     }
 
     /**

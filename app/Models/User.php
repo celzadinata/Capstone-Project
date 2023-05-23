@@ -26,6 +26,7 @@ class User extends Authenticatable
         'username',
         'jenis_kelamin',
         'alamat',
+        'status',
         'no_hp',
     ];
 

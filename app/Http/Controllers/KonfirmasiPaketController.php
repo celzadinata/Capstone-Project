@@ -14,7 +14,7 @@ class KonfirmasiPaketController extends Controller
      */
     public function index()
     {
-        $produk = produk::all();
+        $produk = produk::with('users')->get();
         return view('admin.konfirmasi_paket.index',compact('produk'));
     }
 

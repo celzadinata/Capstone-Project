@@ -30,7 +30,7 @@ class produk extends Model
 
     public function users()
     {
-        return $this->belongsTo(users::class);
+        return $this->belongsTo(User::class);
     }
 
     public function detail_transactions()

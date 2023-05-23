@@ -12,8 +12,9 @@
                 </a>
             </li>
             <li class="nav-item {{ set_active(['kategori', 'kategori.add', 'kategori.edit']) }}">
-                <i><img src="/assets/img/icon/kategori-30.png" alt="" srcset=""></i>
-                <p>Kategori Usaha</p>
+                <a href="{{ route('user.admin') }}" class="nav-link">
+                    <i><img src="/assets/img/icon/kategori-30.png" alt="" srcset=""></i>
+                    <p>Kategori Usaha</p>
                 </a>
             </li>
             <li class="nav-item {{ set_active('user.admin') }}">

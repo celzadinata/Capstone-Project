@@ -27,15 +27,15 @@
                                             <tr>
                                                 <td class="text-center">1</td>
                                                 <td>{{ $p->nama_produk }}</td>
-                                                {{-- <td>{{ $u->role }}</td> --}}
+                                                <td>{{ $p->users->nama_depan }}</td>
                                                 <td>{{ $p->status }}</td>
                                                 <td>
-                                                    {{-- <a href="{{ route('confirm_user.admin',$u->id) }}" class="btn" id="btn_table">
+                                                    <a href="#" class="btn" id="btn_table">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
-                                                    <a href="{{ route('destroy_user.admin',$u->id) }}" class="btn" id="btn_table">
+                                                    <a href="#" class="btn" id="btn_table">
                                                         <i class="fa-solid fa-trash-can"></i>
-                                                    </a> --}}
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
