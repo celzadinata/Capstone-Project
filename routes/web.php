@@ -48,13 +48,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::get('/kategori/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
     // User Management
-    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin');
-    Route::get('/admin/user_management', [UserController::class, 'index'])->name('user.admin');
-    Route::get('/admin/user_management/confrim/{id}', [UserController::class, 'edit'])->name('confirm_user.admin');
-    Route::put('/admin/user_management/update/{id}', [UserController::class, 'update'])->name('update_user.admin');
-    Route::get('/admin/user_management/destory/{id}', [UserController::class, 'destroy'])->name('destroy_user.admin');
+    Route::get('/user_management', [UserController::class, 'index'])->name('user.admin');
+    Route::get('/user_management/confrim/{id}', [UserController::class, 'edit'])->name('confirm_user.admin');
+    Route::put('/user_management/update/{id}', [UserController::class, 'update'])->name('update_user.admin');
+    Route::get('/user_management/destory/{id}', [UserController::class, 'destroy'])->name('destroy_user.admin');
     //  Konfirmasi Produk
-    Route::get('/admin/konfirmasi_produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');
+    Route::get('/konfirmasi_produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');
 });
 
 //Role Pengusaha taro sini
