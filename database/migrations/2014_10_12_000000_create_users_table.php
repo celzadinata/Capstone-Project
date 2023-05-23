@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('nama_perusahaan')->nullable();
             $table->string('berkas')->nullable();
-            $table->boolean('status')->default(0);
+            $table->enum('status', ['Aktif', 'Non Aktif']);
             $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
