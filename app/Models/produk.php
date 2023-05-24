@@ -37,7 +37,6 @@ class produk extends Model
             $model->id = 'PRD' . str_pad(produk::count() + 1, 3, '0', STR_PAD_LEFT);
         });
     }
-
     public function kategori()
     {
         return $this->belongsTo(kategori::class, 'id');

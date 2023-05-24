@@ -26,6 +26,7 @@ class User extends Authenticatable
         'username',
         'jenis_kelamin',
         'alamat',
+        'status',
         'no_hp',
     ];
 
@@ -49,7 +50,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
     public function produk()
     {
         return $this->hasMany(produk::class);
