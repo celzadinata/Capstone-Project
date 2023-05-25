@@ -8,9 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class notifikasi extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id',
+        'users_id',
+        'judul',
+        'pesan',
+    ];
 
     public function User()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class);
     }
 }
