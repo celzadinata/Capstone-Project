@@ -39,11 +39,11 @@ class produk extends Model
     }
     public function kategori()
     {
-        return $this->belongsTo(kategori::class, 'id');
+        return $this->belongsTo(kategori::class);
     }
-    public function User()
+    public function users()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class);
     }
     public function detail_transaksi()
     {

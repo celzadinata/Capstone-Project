@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\notifikasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PengusahaController extends Controller
 {
@@ -13,7 +15,9 @@ class PengusahaController extends Controller
      */
     public function index()
     {
-        return view('pengusaha.dashboard.index');
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        return view('pengusaha.dashboard.index',compact('notifikasi'));
     }
 
     /**

@@ -30,6 +30,20 @@ class AdminSeeder extends Seeder
                 'no_hp' => '082876123',
                 'status' => 'Aktif',
             ],
+            [
+                'id'    =>  '2',
+                'role' => 'pengusaha',
+                'avatar' => 'default',
+                'nama_depan' => 'Raihan',
+                'nama_belakang' => 'Jago',
+                'username' => 'raihanjago',
+                'email' => 'raihan@gmail.com',
+                'jenis_kelamin' => 'laki-laki',
+                'password' => bcrypt('raihan'),
+                'alamat' => 'Madura',
+                'no_hp' => '082876123',
+                'status' => 'Aktif',
+            ],
         ];
 
         User::insert($user);

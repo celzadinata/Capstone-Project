@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\produk;
 use App\Models\User;
+use App\Models\produk;
 use App\Models\kategori;
+use App\Models\notifikasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
@@ -17,7 +19,9 @@ class ProdukController extends Controller
     public function index()
     {
         $produks = produk::all();
-        return view('pengusaha.produk.index', compact('produks'));
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        return view('pengusaha.produk.index', compact('produks','notifikasi'));
     }
 
     /**
@@ -29,7 +33,9 @@ class ProdukController extends Controller
     {
         $users = User::all();
         $kategoris = kategori::all();
-        return view('pengusaha.produk.create', compact('users', 'kategoris'));
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        return view('pengusaha.produk.create', compact('users', 'kategoris','notifikasi'));
     }
 
     /**
@@ -95,7 +101,8 @@ class ProdukController extends Controller
         $produk = produk::find($id);
         $kategoris = kategori::all();
         $users = User::all();
-        return view('pengusaha.produk.edit', compact('produk', 'users', 'kategoris'));
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        return view('pengusaha.produk.edit', compact('produk', 'users', 'kategoris','notifikasi'));
     }
 
     /**

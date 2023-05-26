@@ -87,7 +87,7 @@ class UserController extends Controller
         ]);
 
         $id->update($request->all());
-        return redirect()->route('user.admin')->with('success', 'Berhasil Menambah Admin!');
+        return redirect()->route('user.admin')->with('success', 'Berhasil Mengubah Status Akun!');
     }
 
     /**

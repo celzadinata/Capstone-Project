@@ -27,12 +27,12 @@
                                                 <td>{{ $p->users->nama_depan }}</td>
                                                 <td>{{ $p->status }}</td>
                                                 <td>
-                                                    <a href="#" class="btn" id="btn_table">
+                                                    <a href="{{ route('konfirmasi_paket.admin', $p->id) }}" class="btn" id="btn_table">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
-                                                    <a href="#" class="btn" id="btn_table">
+                                                    {{-- <a href="{{ route('konfirmasi_destroy.admin') }}" class="btn" id="btn_table">
                                                         <i class="fa-solid fa-trash-can"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                         @endforeach
