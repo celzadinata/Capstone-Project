@@ -1,5 +1,5 @@
 @extends('layouts_pengusaha.app')
-@section('title', 'Tambah Supply Barang')
+@section('title', 'Tambah Paket Usaha')
 @section('content')
     <style>
         .previewImage {
@@ -38,13 +38,25 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label for="berkas1" class="form-label">Berkas Wajib 1</label>
+                        <input class="form-control" type="file" id="berkas1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="berkas2" class="form-label">Berkas Wajib 2</label>
+                        <input class="form-control" type="file" id="berkas2" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="berkas3" class="form-label">Berkas Opsional</label>
+                        <input class="form-control" type="file" id="berkas3">
+                    </div>
+                    <div class="mb-3">
                         <label for="foto" class="form-label">Foto</label>
                         <input class="form-control chooseBtn" type="file" id="foto" onchange="previewFoto(event)"
                             required>
                     </div>
                     <div id="previewContainer"></div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <a href="{{ route('produk.pengusaha') }}" class="btn btn-primary">Kembali</a>
+                    <a href="#" class="btn btn-primary">Kembali</a>
                 </form>
             </div>
         </div>
