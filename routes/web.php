@@ -67,12 +67,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
 Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']], function () {
     Route::get('/', [PengusahaController::class, 'index'])->name('dashboard.pengusaha');
     //Produk
-    Route::get('/pengusaha/produk', [ProdukController::class, 'index'])->name('produk.pengusaha');
-    Route::get('/pengusaha/produk/create', [ProdukController::class, 'create'])->name('produk.create');
-    Route::post('/pengusaha/produk', [ProdukController::class, 'store'])->name('produk.store');
-    Route::get('/pengusaha/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
-    Route::put('/pengusaha/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
-    Route::get('/pengusaha/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    Route::get('/produk', [ProdukController::class, 'index'])->name('produk.pengusaha');
+    Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk.create');
+    Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store');
+    Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
+    Route::put('/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
+    Route::get('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    Route::get('/profile', [PengusahaController::class, 'show'])->name('pengusaha.profile');
+    Route::put('/profile', [PengusahaController::class, 'update'])->name('pengusaha.profile.update');
 });
 
 //Role Reseller taro sini
