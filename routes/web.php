@@ -23,7 +23,10 @@ use App\Http\Controllers\KonfirmasiPaketController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('reseller.home.home');
+});
+Route::get('/paket_usaha', function () {
+    return view('reseller.paket_usaha.paket-usaha');
 });
 
 Route::get('/dashboard', function () {
