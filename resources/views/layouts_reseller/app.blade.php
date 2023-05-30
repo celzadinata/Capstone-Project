@@ -44,5 +44,6 @@
     {{-- JS File --}}
     <script src="{{ asset('assets/js/reseller/main.js') }}"></script>
 </body>
+@include('sweetalert::alert')
 
 </html>

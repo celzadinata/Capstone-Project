@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\produk;
+use App\Models\kategori;
 use Illuminate\Http\Request;
 
 class ResellerControler extends Controller
@@ -13,9 +15,17 @@ class ResellerControler extends Controller
      */
     public function index()
     {
-        return view('reseller.dashboard.index');
+        $kategori = kategori::paginate(5);
+        $produk = produk::with('users')->get();
+        return view('reseller.home.home', compact('kategori','produk'));
     }
 
+    public function produk()
+    {
+        $kategori = kategori::paginate(5);
+        $produk = produk::with('users')->get();
+        return view('reseller.paket_usaha.paket-usaha', compact('kategori','produk'));
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -5,74 +5,66 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars py-1"></i>
         </button>
-        @guest
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.reseller') }}">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Kategori
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach ($kategori as $k)
+                        <li><a class="dropdown-item" href="#">{{ $k->nama }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('produk.reseller') }}" >Paket Usaha</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto nav-center">
+                @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Home</a>
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart pe-3"></i></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Kategori
+                            {{ auth()->user()->username }} <i class="fas fa-user-circle username"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Pakaian</a></li>
-                            <li><a class="dropdown-item" href="#">Makanan</a></li>
-                            <li><a class="dropdown-item" href="#">Peralatan</a></li>
-                            <li><a class="dropdown-item" href="#">Sport</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('paket_usaha') }}">Paket Usaha</a>
+                    {{-- @if (Auth::user()->role == 'admin')
+                        <li><a href="{{ route('dashboard.admin') }}"><i class="fa fa-wrench"></i> Admin
+                                CMS</a>
+                        @elseif (Auth::user()->role == 'pengusaha')
+                        <li><a href="{{ route('dashboard.admin') }}"><i class="fa fa-wrench"></i> Pengusaha
+                                CMS</a>
+                    @endif --}}
                     </li>
-                </ul>
-                <ul class="navbar-nav ms-auto nav-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart pe-3"></i></a>
-                    </li>
+                @else
+                @endauth
+                @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('role') }}">Register</a>
                     </li>
-                </ul>
-            </div>
-        @endguest
-
-        @auth
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Kategori
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Pakaian</a></li>
-                            <li><a class="dropdown-item" href="#">Makanan</a></li>
-                            <li><a class="dropdown-item" href="#">Peralatan</a></li>
-                            <li><a class="dropdown-item" href="#">Sport</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="paket_usaha.php">Paket Usaha</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto nav-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart pe-3"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Username <i class="fas fa-user-circle username"></i></a>
-                    </li>
-                </ul>
-            </div>
-        @endauth
+                @endguest
+            </ul>
+        </div>
     </div>
 </nav>
 {{-- ./Navbar --}}

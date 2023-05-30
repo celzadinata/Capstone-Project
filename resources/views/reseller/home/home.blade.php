@@ -65,86 +65,21 @@
             </div>
             <div class="col-lg-12 my-5" data-aos="zoom-in">
                 <div class="paket-slider owl-carousel">
-                    <div class="single-box text-center">
-                        <div class="img-area">
-                            <img alt="" class="img-fluid move-animation"
-                                src="assets/img/reseller/paket/paket-adidas.jpg" />
-                        </div>
-                        <div class="info-area">
-                            <h4>Adidas Stores</h4>
-                            <a href="#" class="btn-resell">Resell</a>
-                        </div>
-                    </div>
-                    <div class="single-box text-center">
-                        <div class="img-area">
-                            <img alt="" class="img-fluid move-animation"
-                                src="assets/img/reseller/paket/paket-kyt.jpg" />
-                        </div>
-                        <div class="info-area">
-                            <h4>KYT Helmet</h4>
-                            <a href="#" class="btn-resell">Resell</a>
-                        </div>
-                    </div>
-                    <div class="single-box text-center">
-                        <div class="img-area">
-                            <img alt="" class="img-fluid move-animation"
-                                src="assets/img/reseller/paket/paket-snack.jpg" />
-                        </div>
-                        <div class="info-area">
-                            <h4>Snack Quest</h4>
-                            <a href="#" class="btn-resell">Resell</a>
-                        </div>
-                    </div>
-                    <div class="single-box text-center">
-                        <div class="img-area">
-                            <img alt="" class="img-fluid move-animation"
-                                src="assets/img/reseller/paket/paket-kue.jpg" />
-                        </div>
-                        <div class="info-area">
-                            <h4>My Kue</h4>
-                            <a href="#" class="btn-resell">Resell</a>
-                        </div>
-                    </div>
-                    <div class="single-box text-center">
-                        <div class="img-area">
-                            <img alt="" class="img-fluid move-animation"
-                                src="assets/img/reseller/paket/paket-kripik.jpg" />
-                        </div>
-                        <div class="info-area">
-                            <h4>Kripik Tempe</h4>
-                            <a href="#" class="btn-resell">Resell</a>
-                        </div>
-                    </div>
-                    <div class="single-box text-center">
-                        <div class="img-area">
-                            <img alt="" class="img-fluid move-animation"
-                                src="assets/img/reseller/paket/paket-kerajinan.jpg" />
-                        </div>
-                        <div class="info-area">
-                            <h4>Kerajinan Tangan</h4>
-                            <a href="#" class="btn-resell">Resell</a>
-                        </div>
-                    </div>
-                    <div class="single-box text-center">
-                        <div class="img-area">
-                            <img alt="" class="img-fluid move-animation"
-                                src="assets/img/reseller/paket/paket-sate.jpg" />
-                        </div>
-                        <div class="info-area">
-                            <h4>Sate Enak</h4>
-                            <a href="#" class="btn-resell">Resell</a>
-                        </div>
-                    </div>
-                    <div class="single-box text-center">
-                        <div class="img-area">
-                            <img alt="" class="img-fluid move-animation"
-                                src="assets/img/reseller/paket/paket-minuman.jpg" />
-                        </div>
-                        <div class="info-area">
-                            <h4>Almond Drink</h4>
-                            <a href="#" class="btn-resell">Resell</a>
-                        </div>
-                    </div>
+                    @foreach ($produk as $p)
+                        @if ($p->status == 'Konfirmasi')
+                            <div class="single-box text-center">
+                                <div class="img-area">
+                                    <img alt="" class="img-fluid move-animation"
+                                        src="assets/img/reseller/paket/paket-adidas.jpg" />
+                                </div>
+                                <div class="info-area">
+                                    <h4>{{ $p->nama_produk }}</h4>
+                                    <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                    <a href="#" class="btn-resell">Resell</a>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>

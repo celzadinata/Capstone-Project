@@ -22,13 +22,6 @@ use App\Http\Controllers\KonfirmasiPaketController;
 |
 */
 
-Route::get('/', function () {
-    return view('reseller.home.home');
-});
-Route::get('/paket_usaha', function () {
-    return view('reseller.paket_usaha.paket-usaha');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -80,7 +73,15 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
 
 //Role Reseller taro sini
 Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
+    // Dashboard Reseller
     Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
+    // Paket Usaha
+    Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
 });
+
+// Dashboard Reseller
+Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
+// Paket Usaha
+Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
 
 require __DIR__ . '/auth.php';

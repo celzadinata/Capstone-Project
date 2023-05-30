@@ -13,10 +13,9 @@
                     </form>
                     <h1>Kategori</h1>
                     <ul class="kategori list-unstyled">
-                        <li><a href="#">Pakaian</a></li>
-                        <li><a href="#">Makanan</a></li>
-                        <li><a href="#">Peralatan</a></li>
-                        <li><a href="#">Sport</a></li>
+                        @foreach ($kategori as $k)
+                            <li><a href="#">{{ $k->nama }}</a></li>
+                        @endforeach
                     </ul>
                     <hr class="my-4 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
                     <h1>Urutkan</h1>
@@ -45,71 +44,21 @@
                 </div>
                 <div class="col-md-9 col-lg-10">
                     <div class="row row-cols-1 row-cols-md-5 g-4" data-aos="fade">
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="assets/img/reseller/paket/paket-adidas.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h4 class="card-title">Adidas Store</h4>
-                                    <a href="#" class="btn-resell">Resell</a>
+                        @foreach ($produk as $p)
+                            @if ($p->status == 'Konfirmasi')
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="assets/img/reseller/paket/paket-adidas.jpg" class="card-img-top"
+                                            alt="...">
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{ $p->nama_produk }}</h4>
+                                            <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                            <a href="#" class="btn-resell">Resell</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="assets/img/reseller/paket/paket-kyt.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h4 class="card-title">KYT Helmet</h4>
-                                    <a href="#" class="btn-resell">Resell</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="assets/img/reseller/paket/paket-kripik.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h4 class="card-title">Kripik Tempe</h4>
-                                    <a href="#" class="btn-resell">Resell</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="assets/img/reseller/paket/paket-snack.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h4 class="card-title">Snack Quest</h4>
-                                    <a href="#" class="btn-resell">Resell</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="assets/img/reseller/paket/paket-kue.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h4 class="card-title">My Kue</h4>
-                                    <a href="#" class="btn-resell">Resell</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="assets/img/reseller/paket/paket-minuman.jpg" class="card-img-top"
-                                    alt="...">
-                                <div class="card-body">
-                                    <h4 class="card-title">Almond Drink</h4>
-                                    <a href="#" class="btn-resell">Resell</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="assets/img/reseller/paket/paket-kerajinan.jpg" class="card-img-top"
-                                    alt="...">
-                                <div class="card-body">
-                                    <h4 class="card-title">Kerajinan Tangan</h4>
-                                    <a href="#" class="btn-resell">Resell</a>
-                                </div>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
