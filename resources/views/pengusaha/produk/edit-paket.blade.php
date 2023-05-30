@@ -1,5 +1,5 @@
 @extends('layouts_pengusaha.app')
-@section('title', 'Edit Supply Barang')
+@section('title', 'Edit Paket Usaha')
 @section('content')
     <style>
         .previewImage {
@@ -42,6 +42,18 @@
                                 </option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="berkas1" class="form-label">Berkas Wajib 1</label>
+                        <input class="form-control" type="file" id="berkas1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="berkas2" class="form-label">Berkas Wajib 2</label>
+                        <input class="form-control" type="file" id="berkas2" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="berkas3" class="form-label">Berkas Opsional</label>
+                        <input class="form-control" type="file" id="berkas3">
                     </div>
                     <div class="mb-3">
                         <label for="foto" class="form-label">Foto</label>
