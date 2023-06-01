@@ -73,7 +73,28 @@
                                         src="assets/img/reseller/paket/paket-adidas.jpg" />
                                 </div>
                                 <div class="info-area">
-                                    <h4>{{ $p->nama_produk }}</h4>
+                                    <h4 id="title_card">{{ Str::limit($p->nama_produk, 20) }}</h4>
+                                    @if ($p->rate == 1)
+                                        <i class="fa-solid fa-star" style="color: #ffea00;"></i>
+                                    @elseif($p->rate == 2)
+                                        <i class="fa-solid fa-star" style="color: #ffea00;"></i><i class="fa-solid fa-star"
+                                            style="color: #ffea00;"></i>
+                                    @elseif($p->rate == 3)
+                                        <i class="fa-solid fa-star" style="color: #ffea00;"></i><i class="fa-solid fa-star"
+                                            style="color: #ffea00;"></i><i class="fa-solid fa-star"
+                                            style="color: #ffea00;"></i>
+                                    @elseif($p->rate == 4)
+                                        <i class="fa-solid fa-star" style="color: #ffea00;"></i><i class="fa-solid fa-star"
+                                            style="color: #ffea00;"></i><i class="fa-solid fa-star"
+                                            style="color: #ffea00;"></i><i class="fa-solid fa-star"
+                                            style="color: #ffea00;"></i>
+                                    @elseif($p->rate == 5)
+                                        <i class="fa-solid fa-star" style="color: #ffea00;"></i><i
+                                            class="fa-solid fa-star" style="color: #ffea00;"></i><i
+                                            class="fa-solid fa-star" style="color: #ffea00;"></i><i
+                                            class="fa-solid fa-star" style="color: #ffea00;"></i><i
+                                            class="fa-solid fa-star" style="color: #ffea00;"></i>
+                                    @endif
                                     <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
                                     <a href="#" class="btn-resell">Resell</a>
                                 </div>

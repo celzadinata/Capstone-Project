@@ -75,12 +75,17 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
 Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
     // Dashboard Reseller
     Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
+    // Semua Kategori
+    Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.reseller');
     // Paket Usaha
     Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
 });
 
 // Dashboard Reseller
 Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
+// Semua Kategori
+Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.reseller');
+Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
 // Paket Usaha
 Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
 

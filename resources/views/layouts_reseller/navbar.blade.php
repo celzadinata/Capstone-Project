@@ -16,20 +16,34 @@
                         Kategori
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach ($kategori as $k)
-                        <li><a class="dropdown-item" href="#">{{ $k->nama }}</a></li>
+                        @foreach ($list_kategori as $k)
+                            <li><a class="dropdown-item"
+                                    href="{{ route('produk_kategori.reseller', $k->id) }}">{{ $k->nama }}</a></li>
                         @endforeach
+                        <hr>
+                        <li><a class="dropdown-item" href="{{ route('kategori.reseller') }}"><i
+                                    class="fa-solid fa-bars"></i> Semua Kategori</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('produk.reseller') }}" >Paket Usaha</a>
+                    <a class="nav-link" href="{{ route('produk.reseller') }}">Paket Usaha</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto nav-center">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart pe-3"></i></a>
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
                     </li>
+                    @if (Auth::user()->role == 'admin')
+                        <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.admin') }}"><i
+                                    class="fa fa-wrench"></i> Admin
+                                CMS</a>
+                        @elseif (Auth::user()->role == 'pengusaha')
+                        <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.pengusaha') }}"><i
+                                    class="fa fa-wrench"></i> Pengusaha
+                                CMS</a>
+                        </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,21 +53,13 @@
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     @csrf
                                 </form>
                             </li>
                         </ul>
                     </li>
-                    {{-- @if (Auth::user()->role == 'admin')
-                        <li><a href="{{ route('dashboard.admin') }}"><i class="fa fa-wrench"></i> Admin
-                                CMS</a>
-                        @elseif (Auth::user()->role == 'pengusaha')
-                        <li><a href="{{ route('dashboard.admin') }}"><i class="fa fa-wrench"></i> Pengusaha
-                                CMS</a>
-                    @endif --}}
-                    </li>
-                @else
                 @endauth
                 @guest
                     <li class="nav-item">

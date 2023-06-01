@@ -13,8 +13,8 @@
                     </form>
                     <h1>Kategori</h1>
                     <ul class="kategori list-unstyled">
-                        @foreach ($kategori as $k)
-                            <li><a href="#">{{ $k->nama }}</a></li>
+                        @foreach ($list_kategori as $k)
+                            <li><a href="{{ route('produk_kategori.reseller', $k->id) }}">{{ $k->nama }}</a></li>
                         @endforeach
                     </ul>
                     <hr class="my-4 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
@@ -51,7 +51,7 @@
                                         <img src="assets/img/reseller/paket/paket-adidas.jpg" class="card-img-top"
                                             alt="...">
                                         <div class="card-body">
-                                            <h4 class="card-title">{{ $p->nama_produk }}</h4>
+                                            <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
                                             <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
                                             <a href="#" class="btn-resell">Resell</a>
                                         </div>

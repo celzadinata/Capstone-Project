@@ -193,13 +193,13 @@ Paket Usaha styles
 
 .paket .info-area h4 {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 700;
 }
 
 .paket .single-box {
     border-radius: 15px;
-    border: 3px solid var(--pink);
+    border: 1px solid var(--pink);
 }
 
 .paket .single-box img {
