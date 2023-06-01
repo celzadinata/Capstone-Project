@@ -56,12 +56,18 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('konfirmasi.admin') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('konfirmasi.admin') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=API_KEY
+    &q=Space+Needle,Seattle+WA">
+            </iframe>
         </div>
     </div>
 @endsection

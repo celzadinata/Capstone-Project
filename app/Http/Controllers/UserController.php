@@ -100,6 +100,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+        alert()->error('Berhasil Menghapus Kategori');
         return redirect()->route('user.admin');
     }
 }

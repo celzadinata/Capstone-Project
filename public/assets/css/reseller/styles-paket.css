@@ -10,78 +10,6 @@ body {
 }
 
 /*===============================================================
-Header styles
-=================================================================*/
-.header {
-  color: var(--pink);
-}
-
-.header .logotext {
-  margin-left: 5px;
-  font-weight: bold;
-  font-size: 40px;
-}
-
-.header .logoicon {
-  font-size: 45px;
-  background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.header .hr-header {
-  border-width: 2px;
-}
-
-/*===============================================================
-Navigation styles
-=================================================================*/
-.navbar-toggler i {
-  color: var(--pink);
-}
-
-.navbar-nav .dropdown-item {
-  color: var(--pink);
-  font-weight: 600;
-}
-
-.navbar-nav .nav-link {
-  color: var(--pink);
-  font-weight: 600;
-  transition: color 0.5s ease;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  color: #B500A0;
-}
-
-.navbar-nav .nav-link .username {
-  font-size: 30px;
-  vertical-align: middle;
-}
-
-.navbar-nav .nav-link i {
-  color: var(--pink);
-  transition: color 0.5s ease;
-}
-
-.navbar-nav .nav-link:hover i,
-.navbar-nav .nav-link:focus i {
-  color: #B500A0;
-}
-
-.navbar ul.navbar-nav.ms-auto.nav-center {
-  align-items: center;
-}
-
-@media (max-width: 576px) {
-  .navbar ul.navbar-nav.ms-auto.nav-center {
-    align-items: start;
-  }
-}
-
-/*===============================================================
 Paket Usaha styles
 =================================================================*/
 .paket {
@@ -94,7 +22,7 @@ Paket Usaha styles
 
 .paket .card .card-body h4 {
   color: var(--pink);
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -106,7 +34,7 @@ Paket Usaha styles
 .paket .card {
   text-align: center;
   border-radius: 10px;
-  border: 3px solid var(--pink);
+  border: 1px solid var(--pink);
 }
 
 .paket .card img {
