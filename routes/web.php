@@ -77,8 +77,10 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
     // Semua Kategori
     Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.reseller');
+    Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
     // Paket Usaha
     Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
+    Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
 });
 
 // Dashboard Reseller
@@ -88,5 +90,6 @@ Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.
 Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
 // Paket Usaha
 Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
+Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
 
 require __DIR__ . '/auth.php';

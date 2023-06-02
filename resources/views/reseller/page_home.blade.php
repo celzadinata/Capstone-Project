@@ -96,7 +96,7 @@
                                             class="fa-solid fa-star" style="color: #ffea00;"></i>
                                     @endif
                                     <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                    <a href="#" class="btn-resell">Resell</a>
+                                    <a href="{{ route('produk_detail.reseller', $p->id) }}" class="btn-resell">Resell</a>
                                 </div>
                             </div>
                         @endif
