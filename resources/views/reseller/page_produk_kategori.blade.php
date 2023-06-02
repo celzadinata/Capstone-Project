@@ -30,7 +30,7 @@
                                             <div class="card-body">
                                                 <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
                                                 <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                <a href="#" class="btn-resell">Resell</a>
+                                                <a href="#{{ route('produk_detail.reseller', $p->id) }}" class="btn-resell">Resell</a>
                                             </div>
                                         </div>
                                     </div>
