@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\transaksi;
+use App\Models\produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use File;
+use Illuminate\Http\Response;
 
 class TransaksiController extends Controller
 {
@@ -14,8 +19,19 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        //
+        // Untuk laporan tabel
+        $log = Auth::id();
+        $transaksiModel = transaksi::whereHas('detail_transaksi', function ($query) use ($log) {
+            $query->whereHas('produk', function ($query) use ($log) {
+                $query->where('users_id', $log);
+            }); 
+        })->with('detail_transaksi.produk')->get();
+
+        return view('pengusaha.transaksi.index', compact('transaksiModel'));
+
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -67,9 +83,16 @@ class TransaksiController extends Controller
      * @param  \App\Models\transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, transaksi $transaksi)
+    public function update(Request $request,$id)
     {
-        //
+        $validated = $request->validate([
+            'status' => 'required'
+        ]);
+
+        transaksi::where('id',$id)->update([
+            'status' => $validated['status']
+        ]);
+        return redirect()->back()->with('success', 'Status berhasil diubah');
     }
 
     /**
