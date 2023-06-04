@@ -58,4 +58,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(transaksi::class);
     }
+    public function reviews()
+    {
+        return $this->hasMany(reviews::class);
+    }
 }

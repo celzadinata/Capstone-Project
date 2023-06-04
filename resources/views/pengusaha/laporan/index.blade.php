@@ -3,10 +3,26 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        <div class="card_header">
-            Grafik Pendapatan Perbulan
-        </div>
         <div id="grafik"></div>
+        <hr>
+        <div class="card">
+            <table class="table">
+                <tr>
+                    <th>No</th>
+                    <th>Tahun</th>
+                    <th>Bulan</th>
+                    <th>Total pendapatan</th>
+                </tr>
+                @foreach ($total_harga as $key => $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ ($tanggal[$key]->tahun) }}</td>
+                        <td>{{ ($tanggal[$key]->bulan) }}</td>
+                        <td>Rp. {{ number_format($item), 0, ',', '.' }}</td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
     </div>
 </div>
 <script src="https://code.highcharts.com/highcharts.js"></script>

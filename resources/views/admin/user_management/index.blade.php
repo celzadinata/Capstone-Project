@@ -22,7 +22,7 @@
                                     <tbody>
                                         @foreach ($user as $u)
                                             <tr>
-                                                <td class="text-center">1</td>
+                                                <td class="text-center">{{ $loop ->iteration }}</td>
                                                 <td>{{ $u->nama_depan }}</td>
                                                 <td>{{ $u->role }}</td>
                                                 <td>{{ $u->status }}</td>

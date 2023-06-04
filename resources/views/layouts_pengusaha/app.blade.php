@@ -44,6 +44,8 @@
     <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/core/bootstrap-material-design.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+
     <!-- Plugin for the momentJs  -->
     <script src="{{ asset('assets/js/plugins/moment.min.js') }}"></script>
     <!--  Plugin for Sweet Alert -->

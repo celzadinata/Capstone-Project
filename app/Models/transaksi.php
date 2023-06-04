@@ -8,14 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class transaksi extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+    
 
     public function detail_transaksi()
     {
-        return $this->hasMany(detail_transaksi::class);
+        return $this->hasMany(detail_transaksi::class, 'transaksis_id');
     }
-    public function User()
+    public function users()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class,'user_id');
     }
 
     protected $keyType = 'string';

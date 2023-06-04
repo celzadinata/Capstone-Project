@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('detail_transaksis', function (Blueprint $table) {
-            $table->char('transaksis_id',10)->after('id');
+            $table->char('transaksis_id',10)->after('id')->nullable();
             $table->foreign('transaksis_id')->references('id')->on('transaksis');
         });
     }

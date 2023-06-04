@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KonfirmasiPaketController extends Controller
 {

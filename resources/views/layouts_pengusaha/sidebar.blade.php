@@ -17,20 +17,20 @@
                     <p>Paket Usaha</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">
+            <li class="nav-item {{ set_active('transaksi.pengusaha') }}">
+                <a class="nav-link" href="{{ route('transaksi.pengusaha') }}">
                     <i><img src="/assets/img/icon/transaksi-sidebar.png" alt="" srcset=""></i>
                     <p>Transaksi</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">
+            <li class="nav-item {{ set_active('laporan.pengusaha') }}">
+                <a class="nav-link" href="{{ route('laporan.pengusaha') }}">
                     <i><img src="/assets/img/icon/laporan-sidebar.png" alt="" srcset=""></i>
                     <p>Laporan</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="">
+            <li class="nav-item {{ set_active('review.pengusaha') }}">
+                <a class="nav-link" href="{{ route('review.pengusaha') }}">
                     <i><img src="/assets/img/icon/review-sidebar.png" alt="" srcset=""></i>
                     <p>Review</p>
                 </a>

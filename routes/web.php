@@ -9,6 +9,9 @@ use App\Http\Controllers\PengusahaController;
 use App\Http\Controllers\KonfirmasiPaketController;
 use App\Http\Controllers\ResellerControler;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,12 +64,23 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
 Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']], function () {
     Route::get('/', [PengusahaController::class, 'index'])->name('dashboard.pengusaha');
     //Produk
-    Route::get('/pengusaha/produk', [ProdukController::class, 'index'])->name('produk.pengusaha');
-    Route::get('/pengusaha/produk/create', [ProdukController::class, 'create'])->name('produk.create');
-    Route::post('/pengusaha/produk', [ProdukController::class, 'store'])->name('produk.store');
-    Route::get('/pengusaha/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
-    Route::put('/pengusaha/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
-    Route::get('/pengusaha/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    Route::get('/produk', [ProdukController::class, 'index'])->name('produk.pengusaha');
+    Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk.create');
+    Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store');
+    Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
+    Route::put('/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
+    Route::get('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    // Transaksi
+    Route::get('/transaksi',[TransaksiController::class,'index'])->name('transaksi.pengusaha');
+    Route::put('/transaksi/update/{id}',[TransaksiController::class,'update'])->name('transaksi.update');
+    // Route::get('/transaksi/pdf/{id}',[TransaksiController::class,'showPDF'])->name('transaksi.pdf');
+    
+    //Laporan
+    Route::get('/laporan',[LaporanController::class,'index'])->name('laporan.pengusaha');
+    //Review
+    Route::get('/review',[ReviewController::class,'index'])->name('review.pengusaha');
+    Route::put('/review/update/{id}',[ReviewController::class,'update'])->name('review.update');
+    
 });
 
 //Role Reseller taro sini
