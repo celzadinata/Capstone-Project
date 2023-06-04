@@ -49,4 +49,9 @@ class produk extends Model
     {
         return $this->hasMany(detail_transaksi::class);
     }
+
+    public function review()
+    {
+        return $this->hasMany(review::class);
+    }
 }
