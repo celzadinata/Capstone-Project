@@ -57,9 +57,10 @@ class KonfirmasiPaketController extends Controller
      * @param  \App\Models\produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function edit(produk $produk)
+    public function edit($id)
     {
-        //
+        $produk = produk::find($id);
+        return view('admin.konfirmasi_paket.confirm',compact('produk'));
     }
 
     /**
@@ -69,9 +70,14 @@ class KonfirmasiPaketController extends Controller
      * @param  \App\Models\produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, produk $produk)
+    public function update(Request $request, produk $id)
     {
-        //
+        $request->validate([
+            'status'     => 'required',
+        ]);
+
+        $id->update($request->all());
+        return redirect()->route('konfirmasi.admin')->with('success', 'Berhasil Mengkonfirmasi Produk!');
     }
 
     /**
@@ -80,8 +86,10 @@ class KonfirmasiPaketController extends Controller
      * @param  \App\Models\produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(produk $produk)
+    public function destroy(produk $id)
     {
-        //
+        $produk = produk::find($id);
+        $produk->delete();
+        return redirect()->route('user.admin');
     }
 }

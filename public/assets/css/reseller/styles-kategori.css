@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --pink: #CE3ABD;
+    --light-bg: #EDEDED;
+}
+
+body {
+    font-family: 'Urbanist', sans-serif;
+}
+
+/*===============================================================
+Paket Usaha styles
+=================================================================*/
+.kategori {
+    color: var(--pink);
+}
+
+.kategori .hr-kategori {
+    border-width: 2px;
+}
+
+.kategori .card .card-body h4 {
+    color: var(--pink);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.kategori .row {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.kategori .card {
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+}
+
+.kategori .card img {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.kategori .btn-kategori {
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: var(--pink);
+    background: white;
+}
+
+.kategori .btn-kategori:hover {
+    -webkit-transform: scale(1.05);
+    color: white;
+    border-color: var(--pink);
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+/* Side Panel Paket */
+.side-panel-kategori {
+    margin-top: 40px;
+}
+
+.side-panel-kategori h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.side-panel-kategori li {
+    margin-top: 5px;
+}
+
+.side-panel-kategori .form-control::placeholder {
+    color: var(--light-bg);
+}
+
+.side-panel-kategori .form-control {
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: var(--pink);
+}
+
+.side-panel-kategori .form-control:hover {
+    border-color: var(--pink);
+}
+
+.side-panel-kategori .form-control:focus,
+.form-control.active {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 0.2rem rgba(206, 58, 189, 0.5);
+}
+
+.side-panel-kategori .search-button {
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    color: var(--pink);
+    transition: all 0.25s ease-in-out;
+}
+
+.side-panel-kategori .search-button:hover {
+    background-color: var(--pink);
+    color: white;
+}
+
+.side-panel-kategori .kategori a {
+    color: var(--pink);
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.side-panel-kategori .kategori a:hover {
+    text-decoration: none;
+    -webkit-transform: scale(1.1);
+    color: #B500A0;
+}
+
+.side-panel-kategori .urutkan label {
+    font-weight: 600;
+}
+
+.side-panel-kategori .urutkan .form-check-input:checked {
+    background-color: var(--pink);
+    border-color: var(--pink);
+}
+
+.side-panel-kategori .urutkan li,
+.form-check-input:hover,
+.form-check-label:hover {
+    cursor: pointer;
+}
+
+.side-panel-kategori .urutkan .form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(206, 58, 189, 0.5);
+}
+
+/*===============================================================
+Footer styles
+=================================================================*/
+.footer {
+    color: white;
+    font-size: 16px;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.footer .footer-top .footer-logo {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer .footer-top .footer-logo i {
+    font-size: 40px;
+    margin-left: 5px;
+}
+
+.footer .footer-top .footer-logo span {
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.footer .footer-top .footer-contact {
+    font-size: 20px;
+}
+
+.footer .footer-top .footer-contact p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.footer .footer-top .footer-contact span {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer .footer-top h4 {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer .footer-top h4::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: black;
+    bottom: 0;
+    left: 0;
+}
+
+.footer .footer-top .footer-links {
+    margin-bottom: 30px;
+}
+
+.footer .footer-top .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .footer-top .footer-links ul i {
+    padding-right: 2px;
+    color: white;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.footer .footer-top .footer-links ul li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer .footer-top .footer-links ul li:first-child {
+    padding-top: 0;
+}
+
+.footer .footer-top .footer-links ul a {
+    color: white;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.footer .footer-top .footer-links ul a:hover {
+    text-decoration: none;
+    -webkit-transform: scale(1.1);
+    color: var(--light-bg);
+}
+
+.footer .hr-bold-footer {
+    border-width: 2px;
+    color: white;
+}
+
+.footer .copyright p {
+    font-weight: 500;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer .social-links a {
+    color: white;
+    font-size: 25px;
+    transition: 0.3s;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer .social-links a:hover {
+    -webkit-transform: scale(1.1);
+    color: var(--light-bg);
+}
+
+@media (max-width: 768px) {
+    .footer .footer-top .footer-contact {
+        margin-bottom: 30px;
+    }
+}

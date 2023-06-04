@@ -18,8 +18,12 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS Files -->
-    <link href="{{ asset('assets/css/material-dashboard.css?v=2.1.2') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/admin/material-dashboard.css?v=2.1.2') }}" rel="stylesheet" />
+    <script src="{{ asset('assets/js/preview_img.js')}}"></script>
+    <link href="{{ asset('assets/css/button-berkas.css')}} "  rel="stylesheet" >
     <!-- CSS Just for demo purpose, don't include it in your project -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="{{asset('assets/js/preview_berkas.js')}}"></script>
 </head>
 
 <body class="">

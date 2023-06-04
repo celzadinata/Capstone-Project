@@ -35,7 +35,14 @@ class NotifikasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'users_id'=> 'required',
+            'judul'=> 'required',
+            'pesan'=> 'required',
+        ]);
+
+        notifikasi::create($request->all());
+        return redirect()->route('konfirmasi.admin')->with('success', 'Pesan berhasil dikirim');
     }
 
     /**
