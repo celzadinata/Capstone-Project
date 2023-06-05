@@ -2,43 +2,62 @@
 
 :root {
     --pink: #CE3ABD;
-    --light-bg: #EDEDED;
+    --light-bg: #d5d5d5;
 }
 
 body {
     font-family: 'Urbanist', sans-serif;
-    background-color: #f5f5f5;
+    background-color: white;
 }
 
-/*===============================================================
-Header styles
-=================================================================*/
+svg .logo-pink text {
+    fill: #CE3ABD;
+    font-weight: bold;
+}
+
+svg .logo-pink path {
+    fill: url(#pink-logo);
+}
+
+svg .logo-white text {
+    fill: white;
+    font-weight: bold;
+}
+
+svg .logo-white path {
+    fill: white;
+}
+
+/* Header styles */
 .header {
     color: var(--pink);
 }
 
-.header .logotext {
-    margin-left: 5px;
-    font-weight: bold;
-    font-size: 40px;
+.header svg {
+    height: 50px;
 }
 
-.header .logoicon {
-    font-size: 45px;
-    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.header svg text {
+    font-size: 210px;
 }
 
 .header .hr-header {
     border-width: 2px;
 }
 
-/*===============================================================
-Navigation styles
-=================================================================*/
+/* Navigation styles */
+.navbar-toggler {
+    border: 2px solid var(--pink);
+}
+
 .navbar-toggler i {
     color: var(--pink);
+}
+
+.navbar .navbar-toggler:focus,
+.navbar-toggler.active {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 0.2rem rgba(206, 58, 189, 0.5);
 }
 
 .navbar-nav .dropdown-item {
@@ -54,9 +73,7 @@ Navigation styles
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-    color: #fff;
-    background-color: #B500A0;
-    border-radius: 5px;
+    color: #B500A0;
 }
 
 .navbar-nav .nav-link .username {
@@ -71,21 +88,142 @@ Navigation styles
 
 .navbar-nav .nav-link:hover i,
 .navbar-nav .nav-link:focus i {
-    color: #fff;
+    color: #B500A0;
 }
 
-.navbar ul.navbar-nav.ms-auto.nav-center {
+/* Footer styles */
+.footer {
+    color: white;
+    font-size: 16px;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.footer svg {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+
+.footer svg text {
+    font-size: 210px;
+}
+
+.footer .footer-top .footer-contact {
+    font-size: 20px;
+}
+
+.footer .footer-top .footer-contact p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.footer .footer-top .footer-contact span {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer .footer-top h4 {
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer .footer-top h4::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: white;
+    bottom: 5px;
+    left: 0;
+}
+
+.footer .footer-top .footer-links {
+    margin-bottom: 30px;
+}
+
+.footer .footer-top .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .footer-top .footer-links ul li {
+    padding: 10px 0;
+    display: flex;
     align-items: center;
 }
 
+.footer .footer-top .footer-links ul li:first-child {
+    padding-top: 0;
+}
+
+.footer .footer-top .footer-links ul a {
+    color: white;
+    transition: 0.3s;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.footer .footer-top .footer-links ul a:hover {
+    text-decoration: none;
+    -webkit-transform: scale(1.1);
+    color: var(--light-bg);
+}
+
+.footer .hr-bold-footer {
+    border-width: 2px;
+    color: white;
+}
+
+.footer .copyright p {
+    font-weight: 500;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer .social-links a {
+    color: white;
+    font-size: 25px;
+    transition: 0.3s;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer .social-links a:hover {
+    -webkit-transform: scale(1.1);
+    color: var(--light-bg);
+}
+
+@media (max-width: 768px) {
+    .footer .footer-top .footer-contact {
+        margin-bottom: 30px;
+    }
+}
+
 @media (max-width: 576px) {
-    .navbar ul.navbar-nav.ms-auto.nav-center {
-        align-items: start;
+    .footer .copyright p {
+        margin-bottom: 0;
+    }
+
+    .footer .social-links a {
+        margin-top: 0;
+        margin-bottom: 25px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 }
 
 /*===============================================================
-Banner carousel styles
+Home page styles
 =================================================================*/
 .carousel-caption {
     text-align: center;
@@ -176,9 +314,7 @@ Banner carousel styles
     }
 }
 
-/*===============================================================
-Paket Usaha styles
-=================================================================*/
+/* Home Paket Usaha styles */
 .paket {
     color: var(--pink);
 }
@@ -194,14 +330,13 @@ Paket Usaha styles
 
 .paket .info-area h4 {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
 }
 
 .paket .single-box {
     border-radius: 15px;
-    background: #fff;
-    /* border: 1px solid var(--pink); */
+    border: 3px solid var(--pink);
 }
 
 .paket .single-box img {
@@ -233,7 +368,7 @@ Paket Usaha styles
     background: white;
 }
 
-/* Custom styles for Owl Carousel dots */
+/* Owl Carousel dots styles */
 .paket .owl-dots {
     text-align: center;
     margin-top: 5px;
@@ -258,133 +393,539 @@ Paket Usaha styles
 }
 
 /*===============================================================
-Footer styles
+Auth styles
 =================================================================*/
-.footer {
+/* Login styles */
+.login svg {
+    height: 150px;
+    margin: 30px;
+}
+
+.login svg text {
+    font-size: 280px;
+}
+
+.login .card {
+    color: var(--pink);
+    border: 3px solid var(--pink);
+    border-radius: 20px;
+}
+
+.login .bg-title {
     color: white;
-    font-size: 16px;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+    border-radius: 17px 0 0 17px;
+}
+
+.login h2 {
+    font-weight: 700;
+}
+
+.login .form-label {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.login .form-control {
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: var(--pink);
+}
+
+.login .form-control:focus,
+.form-control.active {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 0.2rem rgba(206, 58, 189, 0.5);
+}
+
+.login .form-control::placeholder {
+    color: var(--light-bg);
+    font-style: italic;
+}
+
+.login .btn-login {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    display: inline-block;
+    padding: 5px 45px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: white;
     background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
 }
 
-.footer .footer-top .footer-logo {
-    padding-top: 30px;
-    padding-bottom: 30px;
+.login .btn-login:hover {
+    -webkit-transform: scale(1.1);
+    color: var(--pink);
+    border-color: var(--pink);
+    background: white;
 }
 
-.footer .footer-top .footer-logo i {
-    font-size: 40px;
-    margin-left: 5px;
-}
-
-.footer .footer-top .footer-logo span {
-    font-size: 35px;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-.footer .footer-top .footer-contact {
-    font-size: 20px;
-}
-
-.footer .footer-top .footer-contact p {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 5px;
-}
-
-.footer .footer-top .footer-contact span {
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.footer .footer-top h4 {
+.login p {
     font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    padding-bottom: 12px;
 }
 
-.footer .footer-top h4::after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: black;
-    bottom: 0;
-    left: 0;
-}
-
-.footer .footer-top .footer-links {
-    margin-bottom: 30px;
-}
-
-.footer .footer-top .footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer .footer-top .footer-links ul i {
-    padding-right: 2px;
-    color: white;
-    font-size: 18px;
-    line-height: 1;
-}
-
-.footer .footer-top .footer-links ul li {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-}
-
-.footer .footer-top .footer-links ul li:first-child {
-    padding-top: 0;
-}
-
-.footer .footer-top .footer-links ul a {
-    color: white;
-    transition: 0.3s;
+.login .btn-daftar {
+    font-weight: 700;
     display: inline-block;
-    line-height: 1;
     text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: var(--pink);
 }
 
-.footer .footer-top .footer-links ul a:hover {
-    text-decoration: none;
+.login .btn-daftar:hover {
     -webkit-transform: scale(1.1);
-    color: var(--light-bg);
-}
-
-.footer .hr-bold-footer {
-    border-width: 2px;
-    color: white;
-}
-
-.footer .copyright p {
-    font-weight: 500;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.footer .social-links a {
-    color: white;
-    font-size: 25px;
-    transition: 0.3s;
-    display: inline-block;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.footer .social-links a:hover {
-    -webkit-transform: scale(1.1);
-    color: var(--light-bg);
+    color: #B500A0;
 }
 
 @media (max-width: 768px) {
-    .footer .footer-top .footer-contact {
-        margin-bottom: 30px;
+    .login .bg-title {
+        color: white;
+        background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+        border-radius: 17px 17px 0 0;
     }
+
+    .login svg {
+        height: 100px;
+        margin: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .login .bg-title {
+        color: white;
+        background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+        border-radius: 17px 17px 0 0;
+    }
+
+    .login svg {
+        height: 75px;
+        margin: 35px;
+    }
+}
+
+/* Register Role styles */
+.role svg {
+    height: 150px;
+    margin: 30px;
+}
+
+.role svg text {
+    font-size: 280px;
+}
+
+.role .card {
+    color: var(--pink);
+    border: 3px solid var(--pink);
+    border-radius: 20px;
+}
+
+.role .bg-title {
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+    border-radius: 17px 0 0 17px;
+}
+
+.role h2 {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.role .rad-label {
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.role .rad-label:hover,
+.rad-label:focus-within {
+    background: hsla(0, 0%, 80%, .14);
+}
+
+.role .rad-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.role .rad-design {
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+    position: relative;
+}
+
+.role .rad-design::before {
+    content: '';
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: var(--light-bg);
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.role .rad-input:checked+.rad-design::before {
+    transform: scale(0);
+}
+
+.role .rad-text {
+    color: hsl(0, 0%, 60%);
+    margin-left: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.role .rad-input:checked~.rad-text {
+    color: #CE3ABD;
+}
+
+.role .btn-role {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    display: inline-block;
+    padding: 5px 30px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.role .btn-role:hover {
+    -webkit-transform: scale(1.1);
+    color: var(--pink);
+    border-color: var(--pink);
+    background: white;
+}
+
+.role p {
+    font-size: 16px;
+}
+
+.role .btn-login {
+    font-weight: 700;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: var(--pink);
+}
+
+.role .btn-login:hover {
+    -webkit-transform: scale(1.1);
+    color: #B500A0;
+}
+
+@media (max-width: 768px) {
+    .role .bg-title {
+        color: white;
+        background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+        border-radius: 17px 17px 0 0;
+    }
+
+    .role svg {
+        height: 100px;
+        margin: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .role .bg-title {
+        color: white;
+        background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+        border-radius: 17px 17px 0 0;
+    }
+
+    .role svg {
+        height: 75px;
+        margin: 35px;
+    }
+}
+
+/* Register styles */
+.register svg {
+    height: 150px;
+    margin: 30px;
+}
+
+.register svg text {
+    font-size: 280px;
+}
+
+.register .card {
+    color: var(--pink);
+    border: 3px solid var(--pink);
+    border-radius: 20px;
+}
+
+.register .bg-title {
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+    border-radius: 17px 0 0 17px;
+}
+
+.register h2 {
+    font-weight: 700;
+}
+
+.register .form-label {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.register .form-control {
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: var(--pink);
+}
+
+.register .form-control:focus,
+.form-control.active {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 0.2rem rgba(206, 58, 189, 0.5);
+}
+
+.register .form-control::placeholder {
+    color: var(--light-bg);
+    font-style: italic;
+}
+
+.register .btn-back {
+    font-weight: 600;
+    font-size: 18px;
+    display: inline-block;
+    padding: 5px 45px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.register .btn-back:hover {
+    -webkit-transform: scale(1.1);
+    color: var(--pink);
+    border-color: var(--pink);
+    background: white;
+}
+
+.register .btn-register {
+    font-weight: 600;
+    font-size: 18px;
+    display: inline-block;
+    padding: 5px 45px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.register .btn-register:hover {
+    -webkit-transform: scale(1.1);
+    color: var(--pink);
+    border-color: var(--pink);
+    background: white;
+}
+
+.register p {
+    font-size: 16px;
+}
+
+.register .btn-login {
+    font-weight: 700;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: var(--pink);
+}
+
+.register .btn-login:hover {
+    -webkit-transform: scale(1.1);
+    color: #B500A0;
+}
+
+@media (max-width: 768px) {
+    .register .bg-title {
+        color: white;
+        background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+        border-radius: 17px 17px 0 0;
+    }
+
+    .register svg {
+        height: 100px;
+        margin: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .register .bg-title {
+        color: white;
+        background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+        border-radius: 17px 17px 0 0;
+    }
+
+    .register svg {
+        height: 75px;
+        margin: 35px;
+    }
+}
+
+/*===============================================================
+Paket Usaha page styles
+=================================================================*/
+.paket-usaha {
+    color: var(--pink);
+}
+
+.paket-usaha .hr-paket {
+    border-width: 2px;
+}
+
+.paket-usaha .card .card-body h4 {
+    color: var(--pink);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.paket-usaha .row {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.paket-usaha .card {
+    text-align: center;
+    border-radius: 10px;
+    border: 3px solid var(--pink);
+}
+
+.paket-usaha .card img {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.paket-usaha .btn-resell {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    padding: 5px 25px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.paket-usaha .btn-resell:hover {
+    -webkit-transform: scale(1.1);
+    color: var(--pink);
+    border-color: var(--pink);
+    background: white;
+}
+
+/* Side Panel Paket */
+.side-panel-paket {
+    margin-top: 40px;
+}
+
+.side-panel-paket h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.side-panel-paket li {
+    margin-top: 5px;
+}
+
+.side-panel-paket .form-control::placeholder {
+    color: var(--light-bg);
+}
+
+.side-panel-paket .form-control {
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: var(--pink);
+}
+
+.side-panel-paket .form-control:hover {
+    border-color: var(--pink);
+}
+
+.side-panel-paket .form-control:focus,
+.form-control.active {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 0.2rem rgba(206, 58, 189, 0.5);
+}
+
+.side-panel-paket .search-button {
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    color: var(--pink);
+    transition: all 0.25s ease-in-out;
+}
+
+.side-panel-paket .search-button:hover {
+    background-color: var(--pink);
+    color: white;
+}
+
+.side-panel-paket .kategori a {
+    color: var(--pink);
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.side-panel-paket .kategori a:hover {
+    text-decoration: none;
+    -webkit-transform: scale(1.1);
+    color: #B500A0;
+}
+
+.side-panel-paket .urutkan label {
+    font-weight: 600;
+}
+
+.side-panel-paket .urutkan .form-check-input:checked {
+    background-color: var(--pink);
+    border-color: var(--pink);
+}
+
+.side-panel-paket .urutkan li,
+.form-check-input:hover,
+.form-check-label:hover {
+    cursor: pointer;
+}
+
+.side-panel-paket .urutkan .form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(206, 58, 189, 0.5);
 }
