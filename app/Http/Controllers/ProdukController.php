@@ -82,10 +82,12 @@ class ProdukController extends Controller
             'foto' => 'mimes:jpg,jpeg,png|max:2048'
         ]);
 
+        $id = Auth::id();
+
         $imgUrl = '';
         if ($request->foto) {
             $imgUrl = time() . '-' . $request->nama_produk . '.' . $request->foto->extension();
-            $request->foto->move(public_path('user'), $imgUrl);
+            $request->foto->move(public_path('assets/users/pengusaha/' . $id), $imgUrl);
         }
 
         // $fotoPath = $request->file('foto')->store('produk_images', 'public');
@@ -93,19 +95,19 @@ class ProdukController extends Controller
         $berkas1Url = '';
         if ($request->hasFile('berkas1')) {
             $berkas1Url = time() . '-' . $request->nama_produk . '-berkas1.' . $request->file('berkas1')->getClientOriginalExtension();
-            $request->file('berkas1')->move(public_path('user'), $berkas1Url);
+            $request->file('berkas1')->move(public_path('assets/users/pengusaha/' . $id . '/berkas'), $berkas1Url);
         }
 
         $berkas2Url = '';
         if ($request->hasFile('berkas2')) {
             $berkas2Url = time() . '-' . $request->nama_produk . '-berkas2.' . $request->file('berkas2')->getClientOriginalExtension();
-            $request->file('berkas2')->move(public_path('user'), $berkas2Url);
+            $request->file('berkas2')->move(public_path('assets/users/pengusaha/' . $id . '/berkas'), $berkas2Url);
         }
 
         $berkas3Url = '';
         if ($request->hasFile('berkas3')) {
             $berkas3Url = time() . '-' . $request->nama_produk . '-berkas3.' . $request->file('berkas3')->getClientOriginalExtension();
-            $request->file('berkas3')->move(public_path('user'), $berkas3Url);
+            $request->file('berkas3')->move(public_path('assets/users/pengusaha/' . $id . '/berkas'), $berkas3Url);
         }
 
         $user = Auth::user();
@@ -117,7 +119,7 @@ class ProdukController extends Controller
             'deskripsi' => $request['deskripsi'],
             'harga' => $request['harga'],
             'stok' => $request['stok'],
-            // 'status' => $request['status'],
+            'status' => 'Belum Konfirmasi',
             // 'rate' => $request['rate'],
             'users_id' => $userId,
             'kategoris_id' => $request['kategoris_id'],
