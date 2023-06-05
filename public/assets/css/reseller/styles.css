@@ -21,6 +21,7 @@ Header styles
     margin-left: 5px;
     font-weight: bold;
     font-size: 40px;
+    color: var(--pink);
 }
 
 .header .logoicon {
@@ -193,13 +194,14 @@ Paket Usaha styles
 }
 
 .paket .info-area h4 {
+    color: black;
     margin-top: 10px;
     font-size: 14px;
     font-weight: 700;
 }
 
 .paket .single-box {
-    border-radius: 15px;
+    /* border-radius: 15px; */
     background: #fff;
     /* border: 1px solid var(--pink); */
 }
@@ -208,7 +210,7 @@ Paket Usaha styles
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 13px 13px 0 0;
+    /* border-radius: 13px 13px 0 0; */
 }
 
 .paket .btn-resell {
@@ -227,7 +229,7 @@ Paket Usaha styles
 }
 
 .paket .btn-resell:hover {
-    -webkit-transform: scale(1.1);
+    /* -webkit-transform: scale(1.1); */
     color: var(--pink);
     border-color: var(--pink);
     background: white;

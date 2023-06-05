@@ -9,7 +9,7 @@ class transaksi extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
-    
+
 
     public function detail_transaksi()
     {
@@ -17,7 +17,7 @@ class transaksi extends Model
     }
     public function users()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     protected $keyType = 'string';

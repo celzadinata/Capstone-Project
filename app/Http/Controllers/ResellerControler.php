@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\produk;
+use App\Models\review;
 use App\Models\kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -100,6 +101,17 @@ class ResellerControler extends Controller
     {
         $list_kategori = kategori::paginate(5);
         $produk = produk::find($id);
-        return view('reseller.page_produk_detail', compact('list_kategori', 'produk'));
+        $review = review::where('produks_id', $id)->with('users')->get();
+        // @dd($review);
+        return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'review'));
+    }
+
+    public function search(Request $request)
+    {
+        $list_kategori = kategori::paginate(5);
+        $searchTerm = $request->input('search');
+        $produk = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+
+        return view('reseller.page_produk', compact('list_kategori', 'produk'));
     }
 }
