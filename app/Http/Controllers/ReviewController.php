@@ -6,6 +6,7 @@ use App\Models\notifikasi;
 use App\Models\review;
 use App\Models\User;
 use App\Models\produk;
+use App\Models\notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -38,6 +39,7 @@ class ReviewController extends Controller
         return view('pengusaha.review.index', compact('reviews','notifikasi'));
 
 
+        return view('pengusaha.review.index', compact('reviews', 'notifikasi'));
     }
     /**
      * Show the form for creating a new resource.
@@ -79,9 +81,9 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-       //
+        //
     }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -96,23 +98,23 @@ class ReviewController extends Controller
             'reply' => 'nullable'
         ]);
 
-        review::where('id',$id)->update([
+        review::where('id', $id)->update([
             'reply' => $validated['reply']
         ]);
         return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
 
-    // $validated = $request->validate([
-    //     'reply' => 'nullable'
-    // ]);
+        // $validated = $request->validate([
+        //     'reply' => 'nullable'
+        // ]);
 
-    // $review = review::findOrFail($id);
-    // $review->reply = $validated['reply'];
-    // $review->save();
+        // $review = review::findOrFail($id);
+        // $review->reply = $validated['reply'];
+        // $review->save();
 
-    // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
-}
+        // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
+    }
 
-        
+
 
     /**
      * Remove the specified resource from storage.

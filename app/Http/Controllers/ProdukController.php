@@ -118,7 +118,7 @@ class ProdukController extends Controller
             'deskripsi' => $request['deskripsi'],
             'harga' => $request['harga'],
             'stok' => $request['stok'],
-            // 'status' => $request['status'],
+            'status' => 'Belum Konfirmasi',
             // 'rate' => $request['rate'],
             'users_id' => $userId,
             'kategoris_id' => $request['kategoris_id'],

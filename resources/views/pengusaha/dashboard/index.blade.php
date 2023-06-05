@@ -14,7 +14,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('produk.pengusaha') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('produk.pengusaha') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
@@ -29,7 +30,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('transaksi.pengusaha') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('transaksi.pengusaha') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
@@ -44,7 +46,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('laporan.pengusaha') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('laporan.pengusaha') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
@@ -59,7 +62,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('review.pengusaha') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('review.pengusaha') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
