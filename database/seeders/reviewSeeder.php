@@ -18,10 +18,10 @@ class reviewSeeder extends Seeder
         $review = [
             [
                 'id'    =>  '1',
-                'users_id' => 'a8ek9665',
+                'users_id' => 'K4uS7368',
                 'produks_id' => 'AYM002',
-                'rate'=> '4',
-                'review'=> 'Mantap saya mau beli lagi',
+                'rate' => '4',
+                'review' => 'Mantap saya mau beli lagi',
                 'reply' => ''
             ],
         ];

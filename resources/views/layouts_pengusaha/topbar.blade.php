@@ -24,14 +24,6 @@
 
             </style>
             <ul class="navbar-nav">
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="javascript:;">
-                        <i class="material-icons">dashboard</i>
-                        <p class="d-lg-none d-md-block">
-                            Stats
-                        </p>
-                    </a>
-                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -58,7 +50,7 @@
                         {{ auth()->user()->username }}&nbsp;<i class="material-icons">person</i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{{ route('pengusaha.profile') }}">Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>

@@ -2,8 +2,6 @@
 @section('title', 'Dashboard')
 @section('content')
     <div class="content">
-        {{ auth()->user()->username}}
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -16,7 +14,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('produk.pengusaha') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('produk.pengusaha') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
@@ -31,7 +30,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('transaksi.pengusaha') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('transaksi.pengusaha') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('laporan.pengusaha') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('laporan.pengusaha') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
@@ -61,7 +62,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('review.pengusaha') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('review.pengusaha') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>
@@ -76,7 +78,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="#" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('pengusaha.profile') }}" type="button" class="btn" id="icon">Buka</a>
                             </div>
                         </div>
                     </div>

@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class review extends Model
+class Review extends Model
 {
     use HasFactory;
-    protected $fillable =[
+
+    protected $fillable = [
         'id',
         'users_id',
         'produk_id',
@@ -17,14 +18,13 @@ class review extends Model
         'reply'
     ];
 
-    protected $keyType = 'users_id';
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'users_id');
     }
 
-    public function produks()
+    public function produk()
     {
-        return $this->belongsTo(produk::class);
+        return $this->belongsTo(Produk::class, 'produk_id');
     }
 }
