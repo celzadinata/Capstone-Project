@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('produks', function (Blueprint $table) {
-            $table->integer('kategoris_id')->after('users_id');
+            $table->foreignId('kategoris_id')->after('users_id');
             $table->foreign('kategoris_id')->references('id')->on('kategoris');
         });
     }

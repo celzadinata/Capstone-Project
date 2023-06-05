@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --pink: #CE3ABD;
+    --light-bg: #EDEDED;
+}
+
+body {
+    font-family: 'Urbanist', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/*===============================================================
+Header styles
+=================================================================*/
+.header {
+    color: var(--pink);
+}
+
+.header .logotext {
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 40px;
+    color: var(--pink);
+}
+
+.header .logoicon {
+    font-size: 45px;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header .hr-header {
+    border-width: 2px;
+}
+
+/*===============================================================
+Navigation styles
+=================================================================*/
+.navbar-toggler i {
+    color: var(--pink);
+}
+
+.navbar-nav .dropdown-item {
+    color: var(--pink);
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link {
+    color: var(--pink);
+    font-weight: 600;
+    transition: color 0.5s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #fff;
+    background-color: #B500A0;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link .username {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.navbar-nav .nav-link i {
+    color: var(--pink);
+    transition: color 0.5s ease;
+}
+
+.navbar-nav .nav-link:hover i,
+.navbar-nav .nav-link:focus i {
+    color: #fff;
+}
+
+.navbar ul.navbar-nav.ms-auto.nav-center {
+    align-items: center;
+}
+
+@media (max-width: 576px) {
+    .navbar ul.navbar-nav.ms-auto.nav-center {
+        align-items: start;
+    }
+}
+
+/*===============================================================
+Banner carousel styles
+=================================================================*/
+.carousel-caption {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel-caption h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+.carousel-caption h2 {
+    color: white;
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    text-shadow: 3px 3px 3px black;
+}
+
+.carousel-caption .btn-resell {
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    padding: 10px 40px;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.carousel-caption .btn-resell:hover {
+    -webkit-transform: scale(1.1);
+    border-color: white;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.carousel-item img {
+    height: 75vh;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption h1 {
+        font-size: 40px;
+    }
+
+    .carousel-caption h2 {
+        font-size: 18px;
+    }
+
+    .carousel-caption .btn-resell {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption h1 {
+        font-size: 30px;
+    }
+
+    .carousel-caption h2 {
+        font-size: 16px;
+    }
+
+    .carousel-caption .btn-resell {
+        font-size: 14px;
+    }
+}
+
+/*===============================================================
+Paket Usaha styles
+=================================================================*/
+.paket {
+    color: var(--pink);
+}
+
+.paket span {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.paket .hr-paket {
+    border-width: 2px;
+}
+
+.paket .info-area h4 {
+    color: black;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.paket .single-box {
+    /* border-radius: 15px; */
+    background: #fff;
+    /* border: 1px solid var(--pink); */
+}
+
+.paket .single-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /* border-radius: 13px 13px 0 0; */
+}
+
+.paket .btn-resell {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    padding: 5px 25px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.paket .btn-resell:hover {
+    /* -webkit-transform: scale(1.1); */
+    color: var(--pink);
+    border-color: var(--pink);
+    background: white;
+}
+
+/* Custom styles for Owl Carousel dots */
+.paket .owl-dots {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.paket .owl-dots button.owl-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--pink);
+    display: inline-block;
+    background: white;
+    margin: 0 3px;
+}
+
+.paket .owl-dots button.owl-dot.active {
+    background-color: var(--pink);
+}
+
+.paket .owl-dots button.owl-dot:focus {
+    outline: none;
+}
+
+/*===============================================================
+Footer styles
+=================================================================*/
+.footer {
+    color: white;
+    font-size: 16px;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.footer .footer-top .footer-logo {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer .footer-top .footer-logo i {
+    font-size: 40px;
+    margin-left: 5px;
+}
+
+.footer .footer-top .footer-logo span {
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.footer .footer-top .footer-contact {
+    font-size: 20px;
+}
+
+.footer .footer-top .footer-contact p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.footer .footer-top .footer-contact span {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer .footer-top h4 {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer .footer-top h4::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: black;
+    bottom: 0;
+    left: 0;
+}
+
+.footer .footer-top .footer-links {
+    margin-bottom: 30px;
+}
+
+.footer .footer-top .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .footer-top .footer-links ul i {
+    padding-right: 2px;
+    color: white;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.footer .footer-top .footer-links ul li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer .footer-top .footer-links ul li:first-child {
+    padding-top: 0;
+}
+
+.footer .footer-top .footer-links ul a {
+    color: white;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.footer .footer-top .footer-links ul a:hover {
+    text-decoration: none;
+    -webkit-transform: scale(1.1);
+    color: var(--light-bg);
+}
+
+.footer .hr-bold-footer {
+    border-width: 2px;
+    color: white;
+}
+
+.footer .copyright p {
+    font-weight: 500;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer .social-links a {
+    color: white;
+    font-size: 25px;
+    transition: 0.3s;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer .social-links a:hover {
+    -webkit-transform: scale(1.1);
+    color: var(--light-bg);
+}
+
+@media (max-width: 768px) {
+    .footer .footer-top .footer-contact {
+        margin-bottom: 30px;
+    }
+}

@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->integer('rate');
+            $table->id();
+            $table->integer('rate')->nullable();
             $table->text('review')->nullable();
+            $table->text('reply')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

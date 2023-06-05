@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\kategori;
+use App\Models\produk;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class KategoriController extends Controller
 {
@@ -14,7 +17,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        $kategori = kategori::paginate(8);
+        
+        return view('admin.kategori.index', compact('kategori'));
     }
 
     /**
@@ -24,7 +29,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kategori.add');
     }
 
     /**
@@ -35,7 +40,13 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama'=> 'required|string|min:2|max:100',
+        ]);
+
+        kategori::create($request->all());
+        return redirect()->route('kategori')->with('success', 'Berhasil Menambah Kategori');
+
     }
 
     /**
@@ -55,9 +66,10 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function edit(kategori $kategori)
+    public function edit($id)
     {
-        //
+        $kategori = kategori::find($id);
+        return view('admin.kategori.edit', compact('kategori'));
     }
 
     /**
@@ -67,9 +79,15 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, kategori $kategori)
+    public function update(Request $request, kategori $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required|string|min:2|max:100'
+        ]);
+
+        $id->update($request->all());
+
+        return redirect()->route('kategori')->with('warning', 'Berhasil Mengupdate Kategori!');
     }
 
     /**
@@ -78,8 +96,16 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function destroy(kategori $kategori)
+    public function destroy( $id)
     {
-        //
+        $produk = produk::where('kategoris_id',$id)->first();
+        if($produk == null){
+            kategori::find($id)->delete();
+            alert()->error('Berhasil Menghapus Kategori');
+            return redirect()->route('kategori');
+            }else{
+                alert()->warning( 'Tidak bisa menghapus kategori karena ada produk yang terkait');
+                return redirect()->route('kategori');
+            }
     }
 }
