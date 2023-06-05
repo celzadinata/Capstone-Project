@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\transaksi;
-use App\Models\produk;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use File;
+use App\Models\User;
+use App\Models\produk;
+use App\Models\transaksi;
+use App\Models\notifikasi;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -24,12 +25,12 @@ class TransaksiController extends Controller
         $transaksiModel = transaksi::whereHas('detail_transaksi', function ($query) use ($log) {
             $query->whereHas('produk', function ($query) use ($log) {
                 $query->where('users_id', $log);
-            }); 
+            });
         })->with('detail_transaksi.produk')->get();
 
-        return view('pengusaha.transaksi.index', compact('transaksiModel'));
+        $notifikasi = notifikasi::where('users_id', $log)->get();
 
-
+        return view('pengusaha.transaksi.index', compact('transaksiModel', 'notifikasi'));
     }
 
 
@@ -83,13 +84,13 @@ class TransaksiController extends Controller
      * @param  \App\Models\transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
             'status' => 'required'
         ]);
 
-        transaksi::where('id',$id)->update([
+        transaksi::where('id', $id)->update([
             'status' => $validated['status']
         ]);
         return redirect()->back()->with('success', 'Status berhasil diubah');

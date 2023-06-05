@@ -18,8 +18,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $produks = produk::all();
         $id = Auth::id();
+        $produks = produk::where('users_id',$id)->get();
+        // @dd($produks);
         $notifikasi = notifikasi::where('users_id', $id)->get();
         return view('pengusaha.produk.index', compact('produks','notifikasi'));
     }

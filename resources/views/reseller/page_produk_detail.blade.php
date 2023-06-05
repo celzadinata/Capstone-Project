@@ -59,6 +59,7 @@
                         </div>
                         <div class="col-md-5 col-lg-7 pt-2">
                             <h5>{{ $r->users->username }}</h5>
+                            <h5>{{ $r->produks->id }}</h5>
                             @if ($r->rate == 1)
                                 1 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
                             @elseif($r->rate == 2)

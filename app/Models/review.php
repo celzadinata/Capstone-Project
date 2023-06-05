@@ -18,13 +18,13 @@ class review extends Model
     ];
 
     protected $keyType = 'users_id';
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class,'users_id');
+        return $this->belongsTo(User::class);
     }
 
-    public function produk()
+    public function produks()
     {
-        return $this->belongsTo(Produk::class,'produk_id','id');
+        return $this->belongsTo(produk::class);
     }
 }

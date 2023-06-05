@@ -101,7 +101,7 @@ class ResellerControler extends Controller
     {
         $list_kategori = kategori::paginate(5);
         $produk = produk::find($id);
-        $review = review::where('produk_id',$id)->with('users')->get();
+        $review = review::where('produks_id', $id)->with('users')->get();
         // @dd($review);
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'review'));
     }
@@ -110,8 +110,8 @@ class ResellerControler extends Controller
     {
         $list_kategori = kategori::paginate(5);
         $searchTerm = $request->input('search');
-        $produk = produk::where('nama_produk', 'like', '%'.$searchTerm.'%')->get();
+        $produk = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
 
-        return view('reseller.page_produk', compact('list_kategori','produk'));
+        return view('reseller.page_produk', compact('list_kategori', 'produk'));
     }
 }

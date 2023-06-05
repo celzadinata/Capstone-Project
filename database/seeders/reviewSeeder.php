@@ -19,7 +19,7 @@ class reviewSeeder extends Seeder
             [
                 'id'    =>  '1',
                 'users_id' => 'a8ek9665',
-                'produk_id' => 'AYM002',
+                'produks_id' => 'AYM002',
                 'rate'=> '4',
                 'review'=> 'Mantap saya mau beli lagi',
                 'reply' => ''
