@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
-
+use App\Models\notifikasi;
 use App\Models\review;
 use App\Models\User;
 use App\Models\produk;
 use App\Models\notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-
+use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
@@ -29,14 +27,16 @@ class ReviewController extends Controller
 
         $log = Auth::id();
         $notifikasi = notifikasi::where('users_id', $log)->get();
-        $reviews = Review::select('reviews.*', 'produks.id as produk_id', 'users.id')
-            ->join('produks', 'reviews.produks_id', '=', 'produks.id')
-            ->join('users', 'produks.users_id', '=', 'users.id')
-            ->where('produks.users_id', $log)
-            ->get();
-        // dd($reviews);
+        $reviews = Review::with('users', 'produk')
+        ->select('reviews.id as review_id', 'produks.id as produk_id', 'reviews.*')
+        ->join('produks', 'reviews.produks_id', '=', 'produks.id')
+        ->where('produks.users_id','=',  DB::raw("'$log'"))
+        ->get();
 
-        return view('pengusaha.review.index', compact('reviews', 'notifikasi'));
+        $notifikasi = notifikasi::where('users_id', $log)->get();
+        $jml_notif = notifikasi::where('users_id', $log)->count();
+
+        return view('pengusaha.review.index', compact('reviews','notifikasi','jml_notifikasi'));
     }
     /**
      * Show the form for creating a new resource.
@@ -110,9 +110,7 @@ class ReviewController extends Controller
 
         // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
     }
-
-
-
+  
     /**
      * Remove the specified resource from storage.
      *

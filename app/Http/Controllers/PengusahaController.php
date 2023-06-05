@@ -20,7 +20,8 @@ class PengusahaController extends Controller
     {
         $id = Auth::id();
         $notifikasi = notifikasi::where('users_id', $id)->get();
-        return view('pengusaha.dashboard.index', compact('notifikasi'));
+        $jml_notif = notifikasi::where('users_id', $id)->count();
+        return view('pengusaha.dashboard.index', compact('notifikasi','jml_notif'));
     }
 
     /**
@@ -94,7 +95,7 @@ class PengusahaController extends Controller
         $pengusaha->alamat = $request->input('alamat');
         if ($request->avatar) {
             $imgUrl = time() . '-' . Auth::user()->username . '.' . $request->avatar->extension();
-            $request->avatar->move(public_path('user'), $imgUrl);
+            $request->avatar->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar'), $imgUrl);
             $pengusaha->avatar = $imgUrl;
         }
         if ($request->password) {
@@ -102,7 +103,7 @@ class PengusahaController extends Controller
         }
         if ($request->berkas) {
             $berkasUrl = time() . '-' . Auth::user()->username . '.' . $request->berkas->extension();
-            $request->berkas->move(public_path('user'), $berkasUrl);
+            $request->berkas->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil'), $berkasUrl);
             $pengusaha->berkas = $berkasUrl;
         }
         $pengusaha->update();

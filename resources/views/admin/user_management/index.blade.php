@@ -30,9 +30,9 @@
                                                     <a href="{{ route('confirm_user.admin',$u->id) }}" class="btn" id="btn_table">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
-                                                    <a href="{{ route('destroy_user.admin',$u->id) }}" class="btn" id="btn_table">
+                                                    {{-- <a href="{{ route('destroy_user.admin',$u->id) }}" class="btn" id="btn_table">
                                                         <i class="fa-solid fa-trash-can"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                         @endforeach

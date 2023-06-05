@@ -13,7 +13,7 @@
                                 <div class="card-body">
                                     <div class="mb-4">
                                         <div class="text-center">
-                                            <img src="{{ asset('user/' . Auth::user()->avatar) }}" id="preview"
+                                            <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}" id="preview"
                                                 class="rounded img-fluid" style="width: 150px; height: 150px;" />
                                             <h5 class="my-3">{{ Auth::user()->nama_depan }}</h5>
                                             <p class="text-muted mb-3">{{ '@' . Auth::user()->username }}</p>
@@ -171,7 +171,7 @@
                                                         <div class="modal-dialog modal-lg">
                                                             <div class="modal-content">
                                                                 <embed type="application/pdf"
-                                                                    src="{{ asset('user/' . Auth::user()->berkas) }}"
+                                                                    src="{{ asset('assets/users/' . Auth::user()->role .'/'. Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"
                                                                     width="100%" height="400"></embed>
                                                             </div>
                                                         </div>

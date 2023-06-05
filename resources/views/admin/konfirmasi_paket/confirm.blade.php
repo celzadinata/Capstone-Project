@@ -32,35 +32,27 @@
                                         <tr>
                                             <td>Berkas 1</td>
                                             <td>&nbsp;:</td>
-                                            <td><button type="button" class="btn btn-sm" id="button_berkas_user"
-                                                    data-toggle="modal" data-target=".bd-example-modal-lg">Lihat
-                                                    Berkas</button></td>
+                                            <td><a href="{{ asset('user/' . $produk->berkas_1) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
+                                                Berkas</a></td>
                                         </tr>
                                         <tr>
                                             <td>Berkas 2</td>
                                             <td>&nbsp;:</td>
-                                            <td><button type="button" class="btn btn-sm" id="button_berkas_user"
-                                                    data-toggle="modal" data-target=".bd-example-modal-lg">Lihat
-                                                    Berkas</button></td>
+                                            <td><a href="{{ asset('user/' . $produk->berkas_2) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
+                                                Berkas</a></td>
                                         </tr>
                                         <tr>
                                             <td>Berkas 3</td>
                                             <td>&nbsp;:</td>
-                                            <td><button type="button" class="btn btn-sm" id="button_berkas_user"
-                                                    data-toggle="modal" data-target=".bd-example-modal-lg">Lihat
-                                                    Berkas</button></td>
+                                            @if($produk->berkas_3 == null)
+                                            <td>Tidak Ada</td>
+                                            @else
+                                            <td><a href="{{ asset('user/' . $produk->berkas_3) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
+                                                Berkas</a></td>
+                                            @endif
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <embed type="application/pdf" src="{{ asset('assets/css/contoh.pdf') }}"
-                                                width="100%" height="400"></embed>
-                                        </div>
-                                    </div>
-                                </div>
                                 <style>
                                     #konfirmasi_user {
                                         border-style: solid;
