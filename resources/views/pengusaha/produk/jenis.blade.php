@@ -65,21 +65,24 @@
         <div class="container-fluid">
             <div class="card px-4">
                 <div class="shadow mb-2">
-                    <h3>Pilih Jenis:</h3>
-                    <div>
-                        <label class="rad-label">
-                            <input type="radio" class="rad-input" name="rad">
-                            <div class="rad-design"></div>
-                            <div class="rad-text">Paket Usaha</div>
-                        </label>
-                        <label class="rad-label">
-                            <input type="radio" class="rad-input" name="rad">
-                            <div class="rad-design"></div>
-                            <div class="rad-text">Supply Barang</div>
-                        </label>
-                    </div>
-                    <a href="#" class="btn btn-primary mb-3">Kembali</a>
-                    <a href="#" class="btn btn-primary mb-3">Berikutnya</a>
+                    <form method="GET" action="{{ route('produk.create') }}">
+                        @csrf
+                        <h3>Pilih Jenis:</h3>
+                        <div>
+                            <label class="rad-label">
+                                <input type="radio" class="rad-input" name="rad" value="paket_usaha">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">Paket Usaha</div>
+                            </label>
+                            <label class="rad-label">
+                                <input type="radio" class="rad-input" name="rad" value="supply">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">Supply Barang</div>
+                            </label>
+                        </div>
+                        <a href="{{ route('produk.pengusaha') }}" class="btn btn-primary mb-3">Kembali</a>
+                        <button type="submit" class="btn btn-primary mb-3">Berikutnya</button>
+                    </form>
                 </div>
             </div>
         </div>

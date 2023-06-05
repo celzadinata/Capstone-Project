@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Yok Resell | @yield('title')
+        YokResell | @yield('title')
     </title>
 
     {{-- CSS File --}}
