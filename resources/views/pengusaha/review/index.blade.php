@@ -9,6 +9,7 @@
                     <div class="card card-stats">
                         <div class="card-header">
                             <h3 class="card-title">
+                                {{-- {{ dd($review->produk) }} --}}
                                 <span><b>{{ $review->produk->nama_produk }} - </b></span>
                                 @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $review->rate)
