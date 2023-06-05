@@ -93,5 +93,7 @@ Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->nam
 // Paket Usaha
 Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
 Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
+// search produk
+Route::get('/search', [ResellerControler::class, 'search'])->name('search');
 
 require __DIR__ . '/auth.php';

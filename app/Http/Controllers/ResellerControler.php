@@ -105,4 +105,13 @@ class ResellerControler extends Controller
         // @dd($review);
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'review'));
     }
+
+    public function search(Request $request)
+    {
+        $list_kategori = kategori::paginate(5);
+        $searchTerm = $request->input('search');
+        $produk = produk::where('nama_produk', 'like', '%'.$searchTerm.'%')->get();
+
+        return view('reseller.page_produk', compact('list_kategori','produk'));
+    }
 }
