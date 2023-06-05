@@ -18,14 +18,14 @@ return new class extends Migration
             $table->enum('jenis',['paket_usaha','supply']);
             $table->string('nama_produk');
             $table->text('deskripsi');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->bigInteger('harga');
             $table->integer('stok');
             $table->string('berkas_1')->nullable();
             $table->string('berkas_2')->nullable();
             $table->string('berkas_3')->nullable();
             $table->enum('status',['Konfirmasi','Belum Konfirmasi']);
-            $table->integer('rate')->nullable();
+            $table->boolean('tampilkan')->nullable()->default(0);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->timestamp('deleted_at')->nullable()->useCurrentOnUpdate();

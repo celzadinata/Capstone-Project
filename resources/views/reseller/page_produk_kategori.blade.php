@@ -7,8 +7,8 @@
             <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
                 <div class="col-md-3 col-lg-2 pe-5 side-panel-paket" data-aos="zoom-in" data-aos-delay="100">
-                    <form class="d-flex mb-4" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex mb-4" action="{{ route('search') }}" method="get" role="search">
+                        <input class="form-control me-2" name="search" type="text" placeholder="Search" aria-label="Search">
                         <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <h1>{{ $kategori->nama }}</h1>

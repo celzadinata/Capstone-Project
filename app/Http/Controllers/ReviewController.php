@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
+
 use App\Models\review;
+use App\Models\User;
+use App\Models\produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class ReviewController extends Controller
 {
@@ -14,9 +21,23 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
-    }
+        // $log = Auth::id();
+        // $reviews = review::with('User','produk')->where('reviews.users_id','=',$log)->join('produks', 'reviews.produk_id', '=', 'produks.id')->get();
+        // dd($reviews);
+        // return view('pengusaha.review.index', compact( 'reviews'));
 
+        $log = Auth::id();
+        $reviews = Review::with('user', 'produk')
+        ->select('reviews.id as review_id', 'produks.id as produk_id', 'reviews.*')
+        ->where('reviews.users_id', '=', $log)
+        ->join('produks', 'reviews.produk_id', '=', 'produks.id')
+        ->get();
+
+
+        return view('pengusaha.review.index', compact('reviews'));
+
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -55,10 +76,11 @@ class ReviewController extends Controller
      * @param  \App\Models\review  $review
      * @return \Illuminate\Http\Response
      */
-    public function edit(review $review)
+    public function edit($id)
     {
-        //
+       //
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -67,10 +89,29 @@ class ReviewController extends Controller
      * @param  \App\Models\review  $review
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, review $review)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $validated = $request->validate([
+            'reply' => 'nullable'
+        ]);
+
+        review::where('id',$id)->update([
+            'reply' => $validated['reply']
+        ]);
+        return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
+
+    // $validated = $request->validate([
+    //     'reply' => 'nullable'
+    // ]);
+
+    // $review = review::findOrFail($id);
+    // $review->reply = $validated['reply'];
+    // $review->save();
+
+    // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
+}
+
+        
 
     /**
      * Remove the specified resource from storage.

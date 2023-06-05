@@ -17,11 +17,8 @@ return new class extends Migration
             $table->char('id',10)->primary();
             $table->dateTime('tanggal');
             $table->bigInteger('total');
-            $table->boolean('status')->default(0);
+            $table->enum('status',['Belum Terverifikasi','Pengiriman','Selesai'])->default('Belum Terverifikasi');
             $table->string('bukti_pembayaran');
-            $table->string('produk');
-            $table->integer('quantity');
-            $table->bigInteger('harga');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

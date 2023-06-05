@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'id';
     protected $fillable = [
         'id',
         'nama_depan',
@@ -52,7 +53,7 @@ class User extends Authenticatable
     ];
     public function produk()
     {
-        return $this->hasMany(produk::class);
+        return $this->hasMany(produk::class,'users_id');
     }
     public function notif()
     {
@@ -61,5 +62,9 @@ class User extends Authenticatable
     public function transaksi()
     {
         return $this->hasMany(transaksi::class);
+    }
+    public function reviews()
+    {
+        return $this->hasMany(review::class,'users_id');
     }
 }

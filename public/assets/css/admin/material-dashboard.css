@@ -19213,7 +19213,7 @@ Copyright (c) 2015 Daniel Eden
         height: 100%;
         width: 100%;
         position: absolute;
-        background-color: #282828;
+        background-color: #fff;
         display: block;
         content: "";
         z-index: 1;
@@ -19788,3 +19788,6 @@ tbody {
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */
+
+
+
