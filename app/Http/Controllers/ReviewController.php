@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\review;
 use App\Models\User;
 use App\Models\produk;
+use App\Models\notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,16 +28,15 @@ class ReviewController extends Controller
         // return view('pengusaha.review.index', compact( 'reviews'));
 
         $log = Auth::id();
-        $reviews = Review::with('user', 'produk')
-        ->select('reviews.id as review_id', 'produks.id as produk_id', 'reviews.*')
-        ->where('reviews.users_id', '=', $log)
-        ->join('produks', 'reviews.produk_id', '=', 'produks.id')
-        ->get();
+        $notifikasi = notifikasi::where('users_id', $log)->get();
+        $reviews = Review::select('reviews.*', 'produks.id as produk_id', 'users.id')
+            ->join('produks', 'reviews.produks_id', '=', 'produks.id')
+            ->join('users', 'produks.users_id', '=', 'users.id')
+            ->where('produks.users_id', $log)
+            ->get();
+        // dd($reviews);
 
-
-        return view('pengusaha.review.index', compact('reviews'));
-
-
+        return view('pengusaha.review.index', compact('reviews', 'notifikasi'));
     }
     /**
      * Show the form for creating a new resource.
@@ -78,9 +78,9 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-       //
+        //
     }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -95,23 +95,23 @@ class ReviewController extends Controller
             'reply' => 'nullable'
         ]);
 
-        review::where('id',$id)->update([
+        review::where('id', $id)->update([
             'reply' => $validated['reply']
         ]);
         return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
 
-    // $validated = $request->validate([
-    //     'reply' => 'nullable'
-    // ]);
+        // $validated = $request->validate([
+        //     'reply' => 'nullable'
+        // ]);
 
-    // $review = review::findOrFail($id);
-    // $review->reply = $validated['reply'];
-    // $review->save();
+        // $review = review::findOrFail($id);
+        // $review->reply = $validated['reply'];
+        // $review->save();
 
-    // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
-}
+        // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
+    }
 
-        
+
 
     /**
      * Remove the specified resource from storage.
