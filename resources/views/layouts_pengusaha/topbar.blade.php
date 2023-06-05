@@ -36,28 +36,29 @@
                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">notifications</i>
-                        {{-- <span class="notification">5</span> --}}
+                        @if ($jml_notif == 0)
+                        @else
+                            <span class="notification">{{ $jml_notif }}</span>
+                        @endif
                         <p class="d-lg-none d-md-block">
                             Some Actions
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         @foreach ($notifikasi as $n)
-                            <a class="dropdown-item" href="#">{{ $n->pesan }}</a>
+                            <a class="dropdown-item" href="{{ route('produk.edit',$n->produks_id) }}">{{ $n->pesan }} -&nbsp;
+                                <span><b>Admin</b></span>
+                            </a>
                         @endforeach
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">person</i>
-                        <p class="d-lg-none d-md-block">
-                            Account
-                        </p>
+                        {{ auth()->user()->username }}&nbsp;<i class="material-icons">person</i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                         <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>

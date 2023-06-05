@@ -74,27 +74,6 @@
                                 </div>
                                 <div class="info-area">
                                     <h4 id="title_card">{{ Str::limit($p->nama_produk, 20) }}</h4>
-                                    @if ($p->rate == 1)
-                                        <i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                    @elseif($p->rate == 2)
-                                        <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                            style="color: #CE3ABD;"></i>
-                                    @elseif($p->rate == 3)
-                                        <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                            style="color: #CE3ABD;"></i>
-                                    @elseif($p->rate == 4)
-                                        <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                            style="color: #CE3ABD;"></i>
-                                    @elseif($p->rate == 5)
-                                        <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                                            class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                                            class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                                            class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                                            class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                    @endif
                                     <p class="price">Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
                                     <a href="{{ route('produk_detail.reseller', $p->id) }}" class="btn-resell">Resell</a>
                                 </div>
@@ -106,4 +85,14 @@
         </div>
     </section>
     {{-- ./Paket Usaha --}}
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('.star-rating').click(function() {
+                var rating = $(this).data('rating');
+                // Kirim rating ke server menggunakan Ajax atau lakukan tindakan lain sesuai kebutuhan Anda
+            });
+        });
+    </script>
 @endsection

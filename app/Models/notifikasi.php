@@ -10,6 +10,7 @@ class notifikasi extends Model
     use HasFactory;
     protected $fillable = [
         'id',
+        'produks_id',
         'users_id',
         'judul',
         'pesan',
@@ -18,5 +19,9 @@ class notifikasi extends Model
     public function User()
     {
         return $this->belongsTo(User::class);
+    }
+    public function produks()
+    {
+        return $this->belongsTo(produk::class);
     }
 }

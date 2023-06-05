@@ -84,7 +84,7 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::get('/transaksi',[TransaksiController::class,'index'])->name('transaksi.pengusaha');
     Route::put('/transaksi/update/{id}',[TransaksiController::class,'update'])->name('transaksi.update');
     // Route::get('/transaksi/pdf/{id}',[TransaksiController::class,'showPDF'])->name('transaksi.pdf');
-    
+
     //Laporan
     Route::get('/laporan',[LaporanController::class,'index'])->name('laporan.pengusaha');
     //Review
@@ -93,13 +93,13 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     //Profile
     Route::get('/profile', [PengusahaController::class, 'show'])->name('pengusaha.profile');
     Route::put('/profile', [PengusahaController::class, 'update'])->name('pengusaha.profile.update');
-    
+
 });
 
 //Role Reseller taro sini
 Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
     // Dashboard Reseller
-    Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
+    Route::get('/', [ResellerControler::class, 'index'])->name('reseller');
     // Semua Kategori
     Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.reseller');
     Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');

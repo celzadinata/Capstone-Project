@@ -11,26 +11,33 @@
                 </div>
                 <div class="col-md-5 col-lg-7 pt-2">
                     <h4 class="title">{{ $produk->nama_produk }}</h4>
-                    @if ($produk->rate == 1)
-                        1 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                    @elseif($produk->rate == 2)
-                        2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"></i>
-                    @elseif($produk->rate == 3)
-                        3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                    @elseif($produk->rate == 4)
-                        4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                            class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                    @elseif($produk->rate == 5)
-                        5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                            class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"></i>
-                    @endif
+                    <table>
+                        <tbody id="text_konfirmasi_user">
+                            <tr>
+                                <td>
+                                    @if ($rating == null)
+                                        0
+                                    @else
+                                        <u>{{ str_replace('...', '', Str::limit($rating, 3)) }}</u>
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $rating)
+                                                <i class="fa fa-star checked"></i>
+                                            @endif
+                                        @endfor
+                                    @endif
+                                </td>
+                                <td>&nbsp|&nbsp</td>
+                                <td>{{ $nilai }} Penilaian</td>
+                                <td>&nbsp|&nbsp</td>
+                                <td>{{ $terjual }} Terjual</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <div class="price p-4">
                         <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
+                    </div>
+                    <div class="col-md-5 col-lg-4">
+                        <a href="#" class="btn-resell">Lihat Lokasi</a>
                     </div>
                     <div class="col-md-3 col-lg-8">
                         <a href="#" class="btn-resell"><i class="fa-solid fa-cart-shopping"
@@ -41,6 +48,12 @@
                     </div>
                 </div>
             </div>
+
+            <style>
+                .checked {
+                    color: #CE3ABDe;
+                }
+            </style>
 
             <div class="description row py-2" id="content">
                 <h4 class="title">Deskripsi</h4>
@@ -53,42 +66,43 @@
                     <h5 class="mt-2">Belum Ada Penilaian</h5>
                 @else
                     @foreach ($review as $r)
-                        <div class="col-md-2 col-lg-1">
-                            <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="40px"
-                                style="border-radius:20px">
+                        <div class="row">
+                            <div class="col-md-2 col-lg-1">
+                                <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="60px"
+                                    style="border-radius:5px">
+                            </div>
+                            <div class="col-md-5 col-lg-7">
+                                <h5>{{ $r->users->username }}</h5>
+                                @if ($r->rate == 1)
+                                    1 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
+                                @elseif($r->rate == 2)
+                                    2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                        style="color: #CE3ABD;"></i>
+                                @elseif($r->rate == 3)
+                                    3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
+                                @elseif($r->rate == 4)
+                                    4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
+                                @elseif($r->rate == 5)
+                                    5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
+                                @endif
+                                <p>{{ $r->review }}</p>
+                            </div>
                         </div>
-                        <div class="col-md-5 col-lg-7 pt-2">
-                            <h5>{{ $r->users->username }}</h5>
-                            <h5>{{ $r->produks->id }}</h5>
-                            @if ($r->rate == 1)
-                                1 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                            @elseif($r->rate == 2)
-                                2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                    style="color: #CE3ABD;"></i>
-                            @elseif($r->rate == 3)
-                                3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                    style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                            @elseif($r->rate == 4)
-                                4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                    style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                                    class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                            @elseif($r->rate == 5)
-                                5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                    style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                                    class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                    style="color: #CE3ABD;"></i>
-                            @endif
-                            <p>{{ $r->review }}</p>
                     @endforeach
                 @endif
             </div>
-        </div>
 
-        <style>
-            #content {
-                background-color: #fff;
-            }
-        </style>
+            <style>
+                #content {
+                    background-color: #fff;
+                }
+            </style>
         </div>
     </section>
     {{-- ./Paket Usaha --}}

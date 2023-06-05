@@ -29,8 +29,9 @@ class TransaksiController extends Controller
         })->with('detail_transaksi.produk')->get();
 
         $notifikasi = notifikasi::where('users_id', $log)->get();
+        $jml_notif = notifikasi::where('users_id', $log)->count();
 
-        return view('pengusaha.transaksi.index', compact('transaksiModel', 'notifikasi'));
+        return view('pengusaha.transaksi.index', compact('transaksiModel', 'notifikasi', 'jml_notif'));
     }
 
 

@@ -65,4 +65,9 @@ class produk extends Model
     {
         return $this->hasMany(review::class,'produks_id');
     }
+
+    public function notif()
+    {
+        return $this->hasMany(notifikasi::class,'produks_id');
+    }
 }

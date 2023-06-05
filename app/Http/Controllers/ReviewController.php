@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 
 
-use App\Models\review;
 use App\Models\User;
 use App\Models\produk;
+use App\Models\review;
+use App\Models\notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,8 +34,11 @@ class ReviewController extends Controller
         ->join('produks', 'reviews.produk_id', '=', 'produks.id')
         ->get();
 
+        $notifikasi = notifikasi::where('users_id', $log)->get();
+        $jml_notif = notifikasi::where('users_id', $log)->count();
 
-        return view('pengusaha.review.index', compact('reviews'));
+
+        return view('pengusaha.review.index', compact('reviews','notifikasi','jml_notifikasi'));
 
 
     }
@@ -80,7 +84,7 @@ class ReviewController extends Controller
     {
        //
     }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -111,7 +115,7 @@ class ReviewController extends Controller
     // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
 }
 
-        
+
 
     /**
      * Remove the specified resource from storage.
