@@ -18,26 +18,26 @@ class produkSeeder extends Seeder
         $produk = [
             // paket usaha
             [
-                'id'=>'AYM001',
-                'users_id'=>'a8ek9665',
-                'kategoris_id'=>'1',
+                'id' => 'AYM001',
+                'users_id' => 'a8ek9665',
+                'kategoris_id' => '1',
                 'jenis' => 'paket_usaha',
                 'nama_produk' => 'Makanan franchise Ayam',
                 'deskripsi' => 'Ayam yang membuat harimu menyenangkan. Dengan bumbu racikan khusus dari usaha kami yang dapat membuat konsumen ketagihan dengan ayam ini',
                 'foto' => 'ayam.png',
                 'harga' => '12500000',
                 'stok' => '10',
-                'berkas_1' => 'file.pdf',
-                'berkas_2' => 'file2.pdf',
-                'berkas_3' => 'file3.pdf',
-                'status' => '1',
-                'tampilkan' => '1'
+                'berkas_1' => 'sad.pdf',
+                'berkas_2' => 'apaan.pdf',
+                'berkas_3' => '',
+                'status' => 'Belum Konfirmasi',
+                'tampilkan' => '0'
             ],
             // supply
             [
-                'id'=>'AYM002',
-                'users_id'=>'a8ek9665',
-                'kategoris_id'=>'1',
+                'id' => 'AYM002',
+                'users_id' => 'a8ek9665',
+                'kategoris_id' => '1',
                 'jenis' => 'supply',
                 'nama_produk' => 'Ayam fillet 200gr',
                 'deskripsi' => 'Ayam yang menemani kekosongan harimu',
@@ -47,11 +47,10 @@ class produkSeeder extends Seeder
                 'berkas_1' => '',
                 'berkas_2' => '',
                 'berkas_3' => '',
-                'status' => '1',
-                'tampilkan' => '1'
+                'status' => '0',
+                'tampilkan' => '0'
             ],
         ];
         produk::insert($produk);
-        
     }
 }
