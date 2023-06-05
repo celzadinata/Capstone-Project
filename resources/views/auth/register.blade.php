@@ -1,120 +1,96 @@
-@extends('auth.app-register')
+@extends('auth.app')
+@section('title', 'Register')
 @section('content')
-    <div class="registerresellerpage-RQi">
-        <div class="auto-group-mqoc-9bc">
-            <div class="bar-eHU">
-                <div class="logo-y4r">
-                    <img class="icontoko-uz6" src="{{ asset('assets/img/icontoko-3tr.png') }}" />
-                    <p class="yokresell-reS">YokResell</p>
+    <div class="container register">
+        <div class="card mt-4 mb-5" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row g-0">
+                <div class="col-md-6 bg-title d-flex justify-content-center align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1"
+                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                        viewBox="0 0 1245 520" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Layer_x0020_1">
+                            <metadata id="CorelCorpID_0Corel-Layer" />
+                            <g id="_1378897322096" class="logo-white">
+                                <path
+                                    d="M517.45 169.8c6.71,10.6 10.57,23.02 10.57,36.3 0,38.91 -33.11,70.45 -73.94,70.45 -26.9,0 -50.44,-13.69 -63.38,-34.15 -12.93,20.46 -36.47,34.15 -63.37,34.15 -26.9,0 -50.44,-13.69 -63.38,-34.15 -12.93,20.46 -36.47,34.15 -63.37,34.15 -26.9,0 -50.44,-13.69 -63.37,-34.15 -12.94,20.46 -36.48,34.15 -63.38,34.15 -40.83,0 -73.94,-31.54 -73.94,-70.45 0,-13.28 3.86,-25.7 10.57,-36.3l78.91 -124.44c4.71,-7.43 12.57,-11.65 21.73,-11.65 101.9,0 203.8,0 305.71,0 9.16,0 17.02,4.22 21.73,11.65l78.91 124.44zm-507 350.02c190.13,-37.24 316.88,-37.24 507,0 -121.67,-74.49 -385.31,-74.49 -507,0zm466.9 -231.37l-13.32 189.39c-114,-41.09 -286.15,-41.09 -400.16,0l-13.31 -189.39c7.32,2.45 15.14,3.77 23.27,3.77 6.64,0 13.07,-0.88 19.18,-2.54l6.22 88.17c0.37,5.2 2.78,9.52 7.01,12.56 4.23,3.04 9.09,3.94 14.12,2.62 85.73,-22.45 201.83,-22.45 287.18,-0.02 5.03,1.32 9.9,0.42 14.12,-2.62 4.23,-3.04 6.65,-7.36 7.02,-12.57l6.22 -88.13c6.11,1.65 12.54,2.53 19.18,2.53 8.13,0 15.95,-1.32 23.27,-3.77zm-366.25 -271.5l305.71 0 0 -8.39c0,-4.62 -7.59,-8.38 -16.9,-8.38l-271.91 0c-9.31,0 -16.9,3.76 -16.9,8.38l0 8.39z" />
+                                <g transform="matrix(1 0 0 1 -87.9943 -16.2203)">
+                                    <text x="622.5" y="260">Yok</text>
+                                </g>
+                                <g transform="matrix(1 0 0 1 -87.9943 -16.2203)">
+                                    <text x="622.5" y="501.26">Resell</text>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
                 </div>
-            </div>
-            <div class="register-ZHx">
-                <div class="logo-6Yn">
-                    <img class="icontoko-dHp" src="{{ asset('assets/img/icontoko-Hkr.png') }}" />
-                    <div class="yok-resell-ZxA">
-                        Yok
-                        <br />
-                        Resell
-                    </div>
-                </div>
-                <form method="POST" action="{{ route('store') }}">
-                    @csrf
-                    <div class="auto-group-xzdp-JPx">
-                        <div class="frame-16-zna">
-                            <div class="nama-vRL">
-                                <x-input-label for="nama" :value="__('Nama Lengkap')" class="nama-fti" />
-                                <x-text-input id="nama" class="rectangle-4221-zg6" type="text" name="nama"
-                                    :value="old('nama')" required autofocus autocomplete="nama" />
-                                <x-input-error :messages="$errors->get('nama')" class="mt-2" />
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h2 class="card-title px-4 pt-4">Register</h2>
+                        <form class="p-4" method="POST" action="{{ route('produk.store') }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    placeholder="Enter your name" required autofocus autocomplete="nama" />
                             </div>
-
-                            <div class="username-KTU">
-                                <x-input-label for="username" :value="__('Username')" class="username-HfC" />
-                                <x-text-input id="username" class="input-Dok" type="text" name="username"
-                                    :value="old('username')" required autofocus autocomplete="username" />
-                                <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="Enter your username" required autofocus autocomplete="username" />
                             </div>
 
                             @if ($role == 'pengusaha')
-                                <div class="username-KTU">
-                                    <x-input-label for="usaha" :value="__('Usaha')" class="username-HfC" />
-                                    <x-text-input id="usaha" class="input-Dok" type="text" name="usaha"
-                                        :value="old('usaha')" required autofocus autocomplete="usaha" />
-                                    <x-input-error :messages="$errors->get('usaha')" class="mt-2" />
+                                <div class="mb-3">
+                                    <label for="usaha" class="form-label">Usaha yang dimiliki</label>
+                                    <input type="text" class="form-control" id="usaha" name="usaha"
+                                        placeholder="Enter your company name" required autofocus autocomplete="usaha" />
                                 </div>
                             @endif
 
-                            <div class="email-xmL">
-                                <x-input-label for="email" :value="__('Email')" class="email-XJe" />
-                                <x-text-input id="email" class="input-f9x" type="email" name="email"
-                                    :value="old('email')" required autocomplete="email" />
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Enter your email" required autocomplete="email" />
                             </div>
-
-                            <div class="no-hp-zi2">
-                                <x-input-label for="hp" :value="__('No HP')" class="password-kBQ" />
-                                <x-text-input id="hp" class="input-rkE" type="text" name="hp"
-                                    :value="old('hp')" required autofocus autocomplete="phone" />
-                                <x-input-error :messages="$errors->get('hp')" class="mt-2" />
+                            <div class="mb-3">
+                                <label for="hp" class="form-label">No HP</label>
+                                <input type="text" class="form-control" id="hp" name="hp"
+                                    placeholder="Enter your phone number" required autofocus autocomplete="phone" />
                             </div>
-
-                            <div class="alamat-Cp6">
-                                <x-input-label for="alamat" :value="__('Alamat')" class="alamat-mcJ" />
-                                <x-text-input id="alamat" class="input-JcE" type="text" name="alamat"
-                                    :value="old('alamat')" required autofocus autocomplete="address" />
-                                <x-input-error :messages="$errors->get('alamat')" class="mt-2" />
+                            <div class="mb-3">
+                                <label for="alamat" class="form-label">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" name="alamat"
+                                    placeholder="Enter your address" required autofocus autocomplete="address" />
                             </div>
-
-                            <div class="password-Rwk">
-                                <x-input-label for="password" :value="__('Password')" class="password-bbL" />
-
-                                <x-text-input id="password" class="input-Xjt" type="password" name="password" required
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Enter your password" required autocomplete="new-password" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                                <input type="password" class="form-control" id="password_confirmation"
+                                    name="password_confirmation" placeholder="Confirm your password" required
                                     autocomplete="new-password" />
-
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
-
-                            <div class="konfirmasi-password-5Fc">
-                                <x-input-label for="password_confirmation" :value="__('Confirm Password')"
-                                    class="konfirmasi-password-EPQ" />
-
-                                <x-text-input id="password_confirmation" class="input-ZRg" type="password"
-                                    name="password_confirmation" required autocomplete="new-password" />
-
-                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-                            </div>
-
-                            <div class="mt-4">
-                                <x-text-input id="role" class="block mt-1 w-full" type="hidden" name="role"
+                            <div class="mb-3">
+                                <input type="hidden" class="form-control" id="role" name="role"
                                     value="{{ $role }}" required autocomplete="role" />
-                                <x-input-error :messages="$errors->get('role')" class="mt-2" />
                             </div>
-
-                        </div>
-                        <div class="frame-19-sxA">
-                            <x-primary-button class="button-abg">
-                                {{ __('Register') }}
-                            </x-primary-button>
-                            <div class="login-1S6">
-                                <div class="sudah-punya-akun-Apn">Sudah Punya Akun?</div>
-                                <a class="login-sjC" href="{{ route('login') }}">
-                                    {{ __('Login') }}
-                                </a>
+                            <div class="text-center mt-4">
+                                <div class="row justify-content-center">
+                                    <div class="col-auto mb-3">
+                                        <a href="{{ route('role') }}" class="btn-back">Kembali</a>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                        <button type="submit" class="btn-register">Register</button>
+                                    </div>
+                                </div>
+                                <p>Sudah Punya Akun? <a href="{{ route('login') }}" class="btn-login">Login</a></p>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="footer-89L">
-            <div class="frame-9-sMp">
-                <p class="yokresell-2023-c4W">YokResell © 2023</p>
-                <div class="frame-1-W9t">
-                    <img class="ig-TL2" src="{{ asset('assets/img/ig-ezJ.png') }}" />
-                    <img class="fb-D4J" src="{{ asset('assets/img/fb-9b4.png') }}" />
-                    <img class="linkedin-mLi" src="{{ asset('assets/img/linkedin-mYA.png') }}" />
-                    <img class="twitter-X4z" src="{{ asset('assets/img/twitter-nqC.png') }}" />
-                    <img class="yt-UF8" src="{{ asset('assets/img/yt-fxz.png') }}" />
                 </div>
             </div>
         </div>

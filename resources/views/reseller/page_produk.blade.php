@@ -1,5 +1,5 @@
 @extends('layouts_reseller.app')
-@section('title', 'Homepage')
+@section('title', 'Paket Usaha')
 @section('content')
     {{-- Paket Usaha --}}
     <section class="paket">
@@ -53,7 +53,8 @@
                                         <div class="card-body">
                                             <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
                                             <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                            <a href="{{ route('produk_detail.reseller', $p->id) }}" class="btn-resell">Resell</a>
+                                            <a href="{{ route('produk_detail.reseller', $p->id) }}"
+                                                class="btn-resell">Resell</a>
                                         </div>
                                     </div>
                                 </div>

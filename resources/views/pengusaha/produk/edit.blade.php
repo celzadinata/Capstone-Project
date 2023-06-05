@@ -1,5 +1,5 @@
 @extends('layouts_pengusaha.app')
-@section('title', 'Edit Supply Barang')
+@section('title', 'Edit Produk')
 @section('content')
     <style>
         .previewImage {
@@ -50,7 +50,7 @@
                     </div>
                     <div id="previewContainer"><img src="{{ $produk->foto }}" class="previewImage"></div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <a href="#" class="btn btn-primary">Kembali</a>
+                    <a href="{{ route('produk.pengusaha') }}" class="btn btn-primary">Kembali</a>
                 </form>
             </div>
         </div>

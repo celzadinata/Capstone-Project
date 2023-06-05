@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('produks', function (Blueprint $table) {
-            $table->char('id',6)->primary();
-            $table->enum('jenis',['paket_usaha','supply']);
+            $table->char('id', 6)->primary();
+            $table->enum('jenis', ['paket_usaha', 'supply']);
             $table->string('nama_produk');
             $table->text('deskripsi');
             $table->string('foto')->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('berkas_1')->nullable();
             $table->string('berkas_2')->nullable();
             $table->string('berkas_3')->nullable();
-            $table->enum('status',['Konfirmasi','Belum Konfirmasi']);
+            $table->enum('status', ['Konfirmasi', 'Belum Konfirmasi'])->nullable();
             $table->boolean('tampilkan')->nullable()->default(0);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="card p-4">
                 <div class="shadow mb-4">
-                    <a href="{{ route('produk.create') }}" class="btn btn-primary mb-3">Tambah Produk</a>
+                    <a href="{{ route('produk.jenis') }}" class="btn btn-primary mb-3">Tambah Produk</a>
                     <table class="table" style="border: 1px solid white;">
                         <thead>
                             <tr style="background-color: #CE3ABD; color: white;">

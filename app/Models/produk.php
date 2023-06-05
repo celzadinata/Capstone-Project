@@ -34,7 +34,18 @@ class produk extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            $model->id = 'PRD' . str_pad(produk::count() + 1, 3, '0', STR_PAD_LEFT);
+            $jenis = $model->jenis;
+
+            if ($jenis == 'paket_usaha') {
+                $prefix = 'PU';
+            } elseif ($jenis == 'supply') {
+                $prefix = 'SP';
+            } else {
+                $prefix = '';
+            }
+
+            $count = produk::where('jenis', $jenis)->count();
+            $model->id = $prefix . str_pad($count + 1, 4, '0', STR_PAD_LEFT);
         });
     }
     public function kategori()
@@ -52,6 +63,6 @@ class produk extends Model
 
     public function reviews()
     {
-        return $this->hasMany(review::class,'produks_id');
+        return $this->hasMany(review::class, 'produks_id');
     }
 }

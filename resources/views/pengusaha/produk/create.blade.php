@@ -1,5 +1,5 @@
 @extends('layouts_pengusaha.app')
-@section('title', 'Tambah Supply Barang')
+@section('title', 'Tambah Produk')
 @section('content')
     <style>
         .previewImage {
@@ -11,8 +11,9 @@
     <div class="content">
         <div class="container-fluid">
             <div class="card p-4">
-                <form action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('produk.store') }}" enctype="multipart/form-data">
                     @csrf
+
                     <div class="form-group">
                         <label for="nama_produk">Nama Produk</label>
                         <input type="text" name="nama_produk" id="nama_produk" class="form-control" required>
@@ -37,12 +38,34 @@
                             @endforeach
                         </select>
                     </div>
+
+                    @if ($jenis == 'paket_usaha')
+                        <div class="mb-3">
+                            <label for="berkas1" class="form-label">Berkas Wajib 1</label>
+                            <input class="form-control" type="file" id="berkas1" name="berkas1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="berkas2" class="form-label">Berkas Wajib 2</label>
+                            <input class="form-control" type="file" id="berkas2" name="berkas2" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="berkas3" class="form-label">Berkas Tambahan (Opsional)</label>
+                            <input class="form-control" type="file" id="berkas3" name="berkas3">
+                        </div>
+                    @endif
+
                     <div class="mb-3">
                         <label for="foto" class="form-label">Foto</label>
-                        <input class="form-control chooseBtn" type="file" id="foto" onchange="previewFoto(event)"
-                            required>
+                        <input class="form-control" type="file" id="foto" name="foto"
+                            onchange="previewFoto(event)">
                     </div>
                     <div id="previewContainer"></div>
+
+                    <div class="mb-3">
+                        <input type="hidden" class="form-control" id="jenis" name="jenis" value="{{ $jenis }}"
+                            required autocomplete="jenis" />
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Simpan</button>
                     <a href="{{ route('produk.pengusaha') }}" class="btn btn-primary">Kembali</a>
                 </form>

@@ -69,10 +69,8 @@ class transaksiSeeder extends Seeder
                 'sub_total' => '240000'
             ],
 
-            
+
         ];
         detail_transaksi::insert($detail_transaksi);
     }
-
-
 }

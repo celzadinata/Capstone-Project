@@ -25,6 +25,13 @@ use App\Http\Controllers\ReviewController;
 |
 */
 
+Route::get('/', function () {
+    return view('reseller.page_home');
+});
+Route::get('/paket_usaha', function () {
+    return view('reseller.paket_usaha');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -67,6 +74,7 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::get('/', [PengusahaController::class, 'index'])->name('dashboard.pengusaha');
     //Produk
     Route::get('/produk', [ProdukController::class, 'index'])->name('produk.pengusaha');
+    Route::get('/produk/jenis', [ProdukController::class, 'jenis'])->name('produk.jenis');
     Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk.create');
     Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store');
     Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
