@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
-
+use App\Models\notifikasi;
 use App\Models\review;
 use App\Models\User;
 use App\Models\produk;
 use App\Models\notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-
+use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
@@ -29,12 +27,17 @@ class ReviewController extends Controller
 
         $log = Auth::id();
         $notifikasi = notifikasi::where('users_id', $log)->get();
-        $reviews = Review::select('reviews.*', 'produks.id as produk_id', 'users.id')
-            ->join('produks', 'reviews.produks_id', '=', 'produks.id')
-            ->join('users', 'produks.users_id', '=', 'users.id')
-            ->where('produks.users_id', $log)
-            ->get();
+        $reviews = Review::with('users', 'produk')
+        ->select('reviews.id as review_id', 'produks.id as produk_id', 'reviews.*')
+        ->join('produks', 'reviews.produks_id', '=', 'produks.id')
+        ->where('produks.users_id','=',  DB::raw("'$log'"))
+        ->get();
+
         // dd($reviews);
+
+
+        return view('pengusaha.review.index', compact('reviews','notifikasi'));
+
 
         return view('pengusaha.review.index', compact('reviews', 'notifikasi'));
     }
