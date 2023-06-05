@@ -20,7 +20,8 @@ class PengusahaController extends Controller
     {
         $id = Auth::id();
         $notifikasi = notifikasi::where('users_id', $id)->get();
-        return view('pengusaha.dashboard.index', compact('notifikasi'));
+        $jml_notif = notifikasi::where('users_id', $id)->count();
+        return view('pengusaha.dashboard.index', compact('notifikasi','jml_notif'));
     }
 
     /**

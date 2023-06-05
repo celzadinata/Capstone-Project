@@ -33,13 +33,10 @@ class ReviewController extends Controller
         ->where('produks.users_id','=',  DB::raw("'$log'"))
         ->get();
 
-        // dd($reviews);
+        $notifikasi = notifikasi::where('users_id', $log)->get();
+        $jml_notif = notifikasi::where('users_id', $log)->count();
 
-
-        return view('pengusaha.review.index', compact('reviews','notifikasi'));
-
-
-        return view('pengusaha.review.index', compact('reviews', 'notifikasi'));
+        return view('pengusaha.review.index', compact('reviews','notifikasi','jml_notifikasi'));
     }
     /**
      * Show the form for creating a new resource.
@@ -113,9 +110,7 @@ class ReviewController extends Controller
 
         // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
     }
-
-
-
+  
     /**
      * Remove the specified resource from storage.
      *

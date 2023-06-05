@@ -20,9 +20,9 @@ class ProdukController extends Controller
     {
         $id = Auth::id();
         $produks = produk::where('users_id', $id)->get();
-        // @dd($produks);
         $notifikasi = notifikasi::where('users_id', $id)->get();
-        return view('pengusaha.produk.index', compact('produks', 'notifikasi'));
+        $jml_notif = notifikasi::where('users_id', $id)->count();
+        return view('pengusaha.produk.index', compact('produks', 'notifikasi', 'jml_notif'));
     }
 
     /**
@@ -35,8 +35,8 @@ class ProdukController extends Controller
     {
         $id = Auth::id();
         $notifikasi = notifikasi::where('users_id', $id)->get();
-
-        return view('pengusaha.produk.jenis', compact('notifikasi'));
+        $jml_notif = notifikasi::where('users_id', $id)->count();
+        return view('pengusaha.produk.jenis', compact('notifikasi', 'jml_notif'));
     }
 
     public function create(Request $request)
@@ -44,15 +44,16 @@ class ProdukController extends Controller
         $users = User::all();
         $id = Auth::id();
         $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
 
         $jenis = $request->input('rad');
 
         if ($jenis == 'paket_usaha') {
             $kategoris = kategori::all();
-            return view('pengusaha.produk.create', compact('users', 'kategoris', 'notifikasi', 'jenis'));
+            return view('pengusaha.produk.create', compact('users', 'kategoris', 'notifikasi', 'jml_notif', 'jenis'));
         } elseif ($jenis == 'supply') {
             $kategoris = kategori::all();
-            return view('pengusaha.produk.create', compact('users', 'kategoris', 'notifikasi', 'jenis'));
+            return view('pengusaha.produk.create', compact('users', 'kategoris', 'notifikasi', 'jml_notif', 'jenis'));
         } else {
             abort(404);
         }
@@ -153,8 +154,10 @@ class ProdukController extends Controller
         $produk = produk::find($id);
         $kategoris = kategori::all();
         $users = User::all();
+        $id = Auth::id();
         $notifikasi = notifikasi::where('users_id', $id)->get();
-        return view('pengusaha.produk.edit', compact('produk', 'users', 'kategoris', 'notifikasi'));
+        $jml_notif = notifikasi::where('users_id', $id)->count();
+        return view('pengusaha.produk.edit', compact('produk', 'users', 'kategoris', 'notifikasi', 'jml_notif'));
     }
 
     /**

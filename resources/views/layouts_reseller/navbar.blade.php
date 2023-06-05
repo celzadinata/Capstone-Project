@@ -34,19 +34,20 @@
                         <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
                     </li>
                     @if (Auth::user()->role == 'admin')
-                        <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.admin') }}"><i
-                                    class="fa fa-wrench"></i> Admin
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard.admin') }}"><i class="fa fa-wrench"></i> Admin
                                 CMS</a>
                         @elseif (Auth::user()->role == 'pengusaha')
-                        <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.pengusaha') }}"><i
-                                    class="fa fa-wrench"></i> Pengusaha
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard.pengusaha') }}"><i class="fa fa-wrench"></i>
+                                Pengusaha
                                 CMS</a>
                         </li>
                     @endif
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ auth()->user()->username }} <i class="fas fa-user-circle username"></i>
+                            {{ auth()->user()->username }} <i class="fas fa-user-circle"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Profile</a></li>

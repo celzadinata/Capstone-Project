@@ -63,7 +63,8 @@ class LaporanController extends Controller
             ->pluck('bulan');
 
         $notifikasi = notifikasi::where('users_id', $log)->get();
+        $jml_notif = notifikasi::where('users_id', $log)->count();
 
-        return view('pengusaha.laporan.index', compact('produk', 'transaksi', 'total_harga', 'tanggal', 'bulan','notifikasi'));
+        return view('pengusaha.laporan.index', compact('produk', 'transaksi', 'total_harga', 'tanggal', 'bulan','notifikasi','jml_notif'));
     }
 }
