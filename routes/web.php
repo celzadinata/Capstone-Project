@@ -10,6 +10,9 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengusahaController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\KonfirmasiPaketController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,8 +72,20 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
     Route::put('/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
     Route::get('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    // Transaksi
+    Route::get('/transaksi',[TransaksiController::class,'index'])->name('transaksi.pengusaha');
+    Route::put('/transaksi/update/{id}',[TransaksiController::class,'update'])->name('transaksi.update');
+    // Route::get('/transaksi/pdf/{id}',[TransaksiController::class,'showPDF'])->name('transaksi.pdf');
+    
+    //Laporan
+    Route::get('/laporan',[LaporanController::class,'index'])->name('laporan.pengusaha');
+    //Review
+    Route::get('/review',[ReviewController::class,'index'])->name('review.pengusaha');
+    Route::put('/review/update/{id}',[ReviewController::class,'update'])->name('review.update');
+    //Profile
     Route::get('/profile', [PengusahaController::class, 'show'])->name('pengusaha.profile');
     Route::put('/profile', [PengusahaController::class, 'update'])->name('pengusaha.profile.update');
+    
 });
 
 //Role Reseller taro sini

@@ -50,8 +50,8 @@ class produk extends Model
         return $this->hasMany(detail_transaksi::class);
     }
 
-    public function review()
+    public function reviews()
     {
-        return $this->hasMany(review::class);
+        return $this->hasMany(Review::class, 'produk_id', 'id');
     }
 }
