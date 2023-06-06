@@ -214,4 +214,21 @@ class ProdukController extends Controller
 
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil dihapus.');
     }
+
+    public function update_tampilan(Request $request, produk $id)
+    {
+        $request->validate([
+            'tampilkan'     => 'required',
+        ]);
+        // $produk = produk::find($id);
+        $id->update($request->all());
+        return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Merubah tampilan Produk!');
+        // if ($produk->tampilkan == 0) {
+        //     $id->update($request->all());
+        //     return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Menampilkan Produk!');
+        // } else {
+        //     $id->update($request->all());
+        //     return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Menampilkan Produk!');
+        // }
+    }
 }

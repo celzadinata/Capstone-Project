@@ -53,9 +53,11 @@ class PengusahaController extends Controller
      */
     public function show()
     {
-        $payload['notifikasi'] = notifikasi::where('users_id', Auth::user()->id)->get();
-        $payload['user'] = User::find(Auth::user()->id);
-        return view('pengusaha.dashboard.profile', $payload);
+        $id = Auth::id();
+        $user = User::find(Auth::user()->id);
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
+        return view('pengusaha.dashboard.profile', compact('notifikasi','user','jml_notif'));
     }
 
     /**

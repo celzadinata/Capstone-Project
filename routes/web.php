@@ -79,6 +79,7 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store');
     Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
     Route::put('/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
+    Route::put('/produk/update_tampilan/{id}', [ProdukController::class, 'update_tampilan'])->name('produk.update_tampilan');
     Route::get('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
     // Transaksi
     Route::get('/transaksi',[TransaksiController::class,'index'])->name('transaksi.pengusaha');
