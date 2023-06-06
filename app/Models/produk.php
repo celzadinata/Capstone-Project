@@ -23,6 +23,7 @@ class produk extends Model
         'berkas_1',
         'berkas_2',
         'berkas_3',
+        'tampilkan',
         'status',
         'rate'
     ];
