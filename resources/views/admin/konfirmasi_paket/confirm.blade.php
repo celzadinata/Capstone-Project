@@ -22,7 +22,7 @@
                                         <tr>
                                             <td>Jenis</td>
                                             <td>&nbsp;:</td>
-                                            <td>{{ $produk->jenis }}</td>
+                                            <td>{{  str_replace('_', ' ', Str::title($produk->jenis)) }}</td>
                                         </tr>
                                         <tr>
                                             <td>Nama Pengusaha</td>
@@ -32,13 +32,13 @@
                                         <tr>
                                             <td>Berkas 1</td>
                                             <td>&nbsp;:</td>
-                                            <td><a href="{{ asset('user/' . $produk->berkas_1) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
+                                            <td><a href="{{asset('assets/users/pengusaha/'. $produk->users_id . '/berkas/' . $produk->berkas_1) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
                                                 Berkas</a></td>
                                         </tr>
                                         <tr>
                                             <td>Berkas 2</td>
                                             <td>&nbsp;:</td>
-                                            <td><a href="{{ asset('user/' . $produk->berkas_2) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
+                                            <td><a href="{{asset('assets/users/pengusaha/'. $produk->users_id . '/berkas/' . $produk->berkas_2) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
                                                 Berkas</a></td>
                                         </tr>
                                         <tr>
@@ -47,7 +47,7 @@
                                             @if($produk->berkas_3 == null)
                                             <td>Tidak Ada</td>
                                             @else
-                                            <td><a href="{{ asset('user/' . $produk->berkas_3) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
+                                            <td><a href="{{asset('assets/users/pengusaha/'. $produk->users_id . '/berkas/' . $produk->berkas_3) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
                                                 Berkas</a></td>
                                             @endif
                                         </tr>

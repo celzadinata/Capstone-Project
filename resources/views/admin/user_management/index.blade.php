@@ -24,7 +24,7 @@
                                             <tr>
                                                 <td class="text-center">{{ $loop ->iteration }}</td>
                                                 <td>{{ $u->nama_depan }}</td>
-                                                <td>{{ $u->role }}</td>
+                                                <td>{{ Str::title($u->role) }}</td>
                                                 <td>{{ $u->status }}</td>
                                                 <td>
                                                     <a href="{{ route('confirm_user.admin',$u->id) }}" class="btn" id="btn_table">
