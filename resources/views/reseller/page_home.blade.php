@@ -67,17 +67,20 @@
                 <div class="paket-slider owl-carousel">
                     @foreach ($produk as $p)
                         @if ($p->status == 'Konfirmasi')
-                            <div class="single-box text-center">
-                                <div class="img-area">
-                                    <img alt="" class="img-fluid move-animation"
-                                        src="assets/img/reseller/paket/paket-adidas.jpg" />
+                            @if ($p->tampilkan == 1)
+                                <div class="single-box text-center">
+                                    <div class="img-area">
+                                        <img alt="" class="img-fluid move-animation"
+                                            src="assets/img/reseller/paket/paket-adidas.jpg" />
+                                    </div>
+                                    <div class="info-area">
+                                        <h4 id="title_card">{{ Str::limit($p->nama_produk, 20) }}</h4>
+                                        <p class="price">Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                        <a href="{{ route('produk_detail.reseller', $p->id) }}"
+                                            class="btn-resell">Resell</a>
+                                    </div>
                                 </div>
-                                <div class="info-area">
-                                    <h4 id="title_card">{{ Str::limit($p->nama_produk, 20) }}</h4>
-                                    <p class="price">Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                    <a href="{{ route('produk_detail.reseller', $p->id) }}" class="btn-resell">Resell</a>
-                                </div>
-                            </div>
+                            @endif
                         @endif
                     @endforeach
                 </div>

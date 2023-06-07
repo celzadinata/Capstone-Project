@@ -26,6 +26,22 @@
                                     <td>Rp. {{ number_format($produk->harga), 0, ',', '.' }}</td>
                                     <td>{{ $produk->stok }}</td>
                                     <td>
+                                        <form action="{{ route('produk.update_tampilan', $produk->id) }}" method="post"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
+                                            @if ($produk->tampilkan == 0)
+                                                <div class="form-group">
+                                                    <input type="hidden" value="1" name="tampilkan">
+                                                </div>
+                                                <button type="submit" class="btn btn-warning btn-sm">Tampilkan</button>
+                                            @else
+                                                <div class="form-group">
+                                                    <input type="hidden" value="0" name="tampilkan">
+                                                </div>
+                                                <button class="btn btn-warning btn-sm">Hilangkan</button>
+                                            @endif
+                                        </form>
                                         <a href="{{ route('produk.edit', $produk->id) }}"
                                             class="btn btn-sm btn-primary">Edit</a>
                                         <a href="{{ route('produk.destroy', $produk->id) }}"
