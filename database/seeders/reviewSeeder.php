@@ -22,7 +22,8 @@ class reviewSeeder extends Seeder
                 'produks_id' => 'AYM002',
                 'rate' => '4',
                 'review' => 'Mantap saya mau beli lagi',
-                'reply' => ''
+                'reply' => '',
+                'review_status' => ''
             ],
         ];
 

@@ -3,6 +3,23 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+        <div class="row">
+        <div class="card text-white bg-dark ml-3 mb-3" style="max-width: 18rem;">
+            <div class="card-header"><h3><b>Produk</b></h3></div>
+            <div class="card-body">
+              <h5 class="card-title">Total produk yang dimiliki</h5>
+              <h2 class="card-text">{{ $produk }}</h2>
+            </div>
+          </div>
+          <div class="card text-white bg-dark ml-3 mb-3" style="max-width: 18rem;">
+            <div class="card-header"><h3><b>Transaksi</b></h3></div>
+            <div class="card-body">
+              <h5 class="card-title">Total Transaksi yang dimiliki</h5>
+              <h2 class="card-text">{{ $transaksi }}</h2>
+            </div>
+          </div>
+        </div>
+        <hr>
         <div id="grafik"></div>
         <hr>
         <div class="card">
