@@ -131,7 +131,7 @@
 
                                             <div class="mb-4">
                                                 <label for="berkas" class="form-label"
-                                                    style="color:#CE3ABD; font-weight: 700">Berkas Pendukung</label>
+                                                    style="color:#CE3ABD; font-weight: 700">KTP</label>
                                                 <div class="row mb-3">
                                                     <div class="col-md-9">
                                                         <div class="file-upload">

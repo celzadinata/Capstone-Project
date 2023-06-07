@@ -21,9 +21,9 @@
                             @foreach ($produks as $produk)
                                 <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
                                     <td class="text-center">{{ $loop->iteration }}</td>
-                                    <td>{{ $produk->jenis }}</td>
+                                    <td>{{ str_replace('_', ' ', Str::title($produk->jenis)) }}</td>
                                     <td>{{ $produk->nama_produk }}</td>
-                                    <td>{{ $produk->harga }}</td>
+                                    <td>Rp. {{ number_format($produk->harga), 0, ',', '.' }}</td>
                                     <td>{{ $produk->stok }}</td>
                                     <td>
                                         <form action="{{ route('produk.update_tampilan', $produk->id) }}" method="post"

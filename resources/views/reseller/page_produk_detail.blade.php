@@ -1,6 +1,11 @@
 @extends('layouts_reseller.app')
 @section('title', 'Homepage')
 @section('content')
+<style>  
+    #map {
+        height: 100%;
+    }
+</style>
     {{-- Paket Usaha --}}
     <section class="paket">
         <div class="container">
@@ -36,9 +41,9 @@
                     <div class="price p-4">
                         <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
                     </div>
-                    <div class="col-md-5 col-lg-4">
-                        <a href="#" class="btn-resell">Lihat Lokasi</a>
-                    </div>
+
+                    <div id="map"></div>
+
                     <div class="col-md-3 col-lg-8">
                         <a href="#" class="btn-resell"><i class="fa-solid fa-cart-shopping"
                                 style="color: #ffffff;"></i> Masukkan Keranjang</a>
@@ -106,4 +111,15 @@
         </div>
     </section>
     {{-- ./Paket Usaha --}}
+    <script>
+        function initMap() {     
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: { lat: -6.9806422, lng: 107.5860216 },
+        })};
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
 @endsection

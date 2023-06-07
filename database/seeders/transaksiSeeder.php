@@ -23,7 +23,7 @@ class transaksiSeeder extends Seeder
                 'user_id' => 'K4uS7368',
                 'tanggal' => '2023-06-01 07:44:04',
                 'total' =>  '12740000',
-                'status' => 'Pengiriman',
+                'status' => 'Menunggu Pembayaran',
                 'bukti_pembayaran' => 'sad.pdf'
             ],
             [
@@ -31,7 +31,7 @@ class transaksiSeeder extends Seeder
                 'user_id' => 'K4uS7368',
                 'tanggal' => '2023-07-01 07:44:04',
                 'total' => '240000',
-                'status' => 'Belum Terverifikasi',
+                'status' => 'Menunggu Pembayaran',
                 'bukti_pembayaran' => 'asd.pdf'
             ]
         ];
