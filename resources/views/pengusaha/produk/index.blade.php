@@ -14,6 +14,7 @@
                                 <th style="border-right: 1px solid white;">Nama Produk</th>
                                 <th style="border-right: 1px solid white;">Harga</th>
                                 <th style="border-right: 1px solid white;">Stok</th>
+                                <th style="border-right: 1px solid white;">Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -22,14 +23,17 @@
                                 <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
                                     <td class="text-center">{{ $loop->iteration }}</td>
                                     <td>{{ str_replace('_', ' ', Str::title($produk->jenis)) }}</td>
-                                    <td>{{ $produk->nama_produk }}</td>
+                                    <td>{{ Str::title($produk->nama_produk) }}</td>
                                     <td>Rp. {{ number_format($produk->harga), 0, ',', '.' }}</td>
                                     <td>{{ $produk->stok }}</td>
+                                    <td>{{ $produk->status }}</td>
                                     <td>
                                         <form action="{{ route('produk.update_tampilan', $produk->id) }}" method="post"
                                             enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
+                                            @if($produk->status == 'Belum Konfirmasi' && $produk->status == null)
+                                            @else
                                             @if ($produk->tampilkan == 0)
                                                 <div class="form-group">
                                                     <input type="hidden" value="1" name="tampilkan">
@@ -40,6 +44,7 @@
                                                     <input type="hidden" value="0" name="tampilkan">
                                                 </div>
                                                 <button class="btn btn-warning btn-sm">Hilangkan</button>
+                                            @endif
                                             @endif
                                         </form>
                                         <a href="{{ route('produk.edit', $produk->id) }}"

@@ -76,9 +76,9 @@ class ProdukController extends Controller
             // 'status' => 'required',
             // 'rate' => 'required',
             'kategoris_id' => 'required',
-            'berkas1' => 'mimes:pdf,doc,docx',
-            'berkas2' => 'mimes:pdf,doc,docx',
-            'berkas3' => 'mimes:pdf,doc,docx',
+            'berkas1' => 'mimes:pdf,doc,docx|max:8048',
+            'berkas2' => 'mimes:pdf,doc,docx|max:8048',
+            'berkas3' => 'mimes:pdf,doc,docx|max:8048',
             'foto' => 'mimes:jpg,jpeg,png|max:2048'
         ]);
 

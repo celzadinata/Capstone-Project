@@ -24,8 +24,12 @@
                             <td>{{ $item->users->username }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td><b><i>{{ $item->status }}</i></b></td>
-                            <td><a href="{{ asset('/assets/users/reseller/' . $item->user_id . '/' . $item->bukti_pembayaran) }}"
-                                    target="_blank">Lihat Bukti</a></td>
+                            <td> @if ($item->bukti_pembayaran)
+                                    <a href="{{ asset('/assets/users/reseller/' . $item->user_id . '/' . $item->bukti_pembayaran) }}" target="_blank">Lihat Bukti</a>
+                                @else
+                                    Belum Ada Bukti Pembayaran
+                                @endif
+                            </td>
                             <td>Rp. {{ number_format($item->total, 0, ',', '.') }}</td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
@@ -59,11 +63,17 @@
                                             <div class="form-group">
                                                 <label for="status">Status:</label>
                                                 <select class="form-control" id="status" name="status">
-                                                    <option value="Belum Terverifikasi"
-                                                        {{ $item->status == 'Belum Terverifikasi' ? 'selected' : '' }}>
-                                                        Belum Terverifikasi</option>
-                                                    <option value="Pengiriman"
-                                                        {{ $item->status == 'Pengiriman' ? 'selected' : '' }}>Pengiriman
+                                                    <option value="Menunggu Pembayaran"
+                                                        {{ $item->status == 'Menunggu Pembayaran' ? 'selected' : '' }}>
+                                                        Menunggu Pembayaran</option>
+                                                    <option value="Pembayaran Diterima"
+                                                        {{ $item->status == 'Pembayaran Diterima' ? 'selected' : '' }}>
+                                                        Pembayaran Diterima</option>
+                                                    <option value="Pesanan Diproses"
+                                                        {{ $item->status == 'Pesanan Diproses' ? 'selected' : '' }}>
+                                                        Pesanan Diproses</option>
+                                                    <option value="Pesanan Dikirim"
+                                                        {{ $item->status == 'Pesanan Dikirim' ? 'selected' : '' }}>Pesanan Dikirim
                                                     </option>
                                                     <option value="Selesai"
                                                         {{ $item->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>

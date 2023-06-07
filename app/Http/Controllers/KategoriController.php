@@ -6,6 +6,7 @@ use App\Models\kategori;
 use App\Models\produk;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 
 class KategoriController extends Controller
@@ -43,8 +44,11 @@ class KategoriController extends Controller
         $request->validate([
             'nama'=> 'required|string|min:2|max:100',
         ]);
-
-        kategori::create($request->all());
+        
+        $data = $request->all();
+        $data['nama'] = Str::title($data['nama']);
+        
+        kategori::create($data);
         return redirect()->route('kategori')->with('success', 'Berhasil Menambah Kategori');
 
     }
