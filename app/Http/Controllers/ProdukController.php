@@ -22,6 +22,10 @@ class ProdukController extends Controller
         $produks = produk::where('users_id', $id)->get();
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
+
+        $title = 'Hapus Produk!';
+        $text = "Apakah Anda Ingin Menghapus Produk?";
+        confirmDelete($title, $text);
         return view('pengusaha.produk.index', compact('produks', 'notifikasi', 'jml_notif'));
     }
 

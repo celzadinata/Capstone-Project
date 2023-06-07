@@ -81,7 +81,7 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
     Route::put('/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
     Route::put('/produk/update_tampilan/{id}', [ProdukController::class, 'update_tampilan'])->name('produk.update_tampilan');
-    Route::get('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    Route::delete('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
     // Transaksi
     Route::get('/transaksi',[TransaksiController::class,'index'])->name('transaksi.pengusaha');
     Route::put('/transaksi/update/{id}',[TransaksiController::class,'update'])->name('transaksi.update');
@@ -108,7 +108,9 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     // Paket Usaha
     Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
     Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
+    // Profile
 });
+Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
 
 // Dashboard Reseller
 Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');

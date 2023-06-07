@@ -38,7 +38,7 @@
                                                 <div class="form-group">
                                                     <input type="hidden" value="1" name="tampilkan">
                                                 </div>
-                                                <button type="submit" class="btn btn-warning btn-sm">Tampilkan</button>
+                                                <button type="submit" class="btn btn-success btn-sm">Tampilkan</button>
                                             @else
                                                 <div class="form-group">
                                                     <input type="hidden" value="0" name="tampilkan">
@@ -50,7 +50,7 @@
                                         <a href="{{ route('produk.edit', $produk->id) }}"
                                             class="btn btn-sm btn-primary">Edit</a>
                                         <a href="{{ route('produk.destroy', $produk->id) }}"
-                                            class="btn btn-sm btn-danger">Hapus</a>
+                                            class="btn btn-sm btn-danger" data-confirm-delete="true">Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach

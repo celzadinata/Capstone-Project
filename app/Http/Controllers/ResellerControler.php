@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\produk;
 use App\Models\review;
 use App\Models\kategori;
-use App\Models\detail_transaksi;
 use Illuminate\Http\Request;
+use App\Models\detail_transaksi;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ResellerControler extends Controller
 {
@@ -120,5 +122,12 @@ class ResellerControler extends Controller
         $produk = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
 
         return view('reseller.page_produk', compact('list_kategori', 'produk'));
+    }
+
+    public function profile(){
+        $id = Auth::id();
+        $user = User::find(Auth::user()->id);
+        $list_kategori = kategori::paginate(5);
+        return view('reseller.page_profile', compact('user','list_kategori'));
     }
 }
