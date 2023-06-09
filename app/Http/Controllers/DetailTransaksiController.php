@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\detail_transaksi;
 use App\Models\produk;
+use App\Models\kategori;
 use Illuminate\Http\Request;
+use App\Models\detail_transaksi;
 
 class DetailTransaksiController extends Controller
 {
@@ -15,7 +16,8 @@ class DetailTransaksiController extends Controller
      */
     public function index()
     {
-        return view('reseller.cart');
+        $list_kategori = kategori::paginate(5);
+        return view('livewire.cart',compact('list_kategori'));
     }
 
     /**

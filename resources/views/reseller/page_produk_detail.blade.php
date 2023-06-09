@@ -42,10 +42,8 @@
                         <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
                     </div>
 
-                    <div id="map"></div>
-
                     <div class="col-md-3 col-lg-8">
-                        <a href="#" class="btn-resell"><i class="fa-solid fa-cart-shopping"
+                        <a href="{{ route('keranjang.add',$produk->id) }}" class="btn-resell"><i class="fa-solid fa-cart-shopping"
                                 style="color: #ffffff;"></i> Masukkan Keranjang</a>
                     </div>
                     <div class="col-md-5 col-lg-2">
