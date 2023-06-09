@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="col-md-3 col-lg-8">
-                        <a href="{{ route('keranjang.add',$produk->id) }}" class="btn-resell"><i class="fa-solid fa-cart-shopping"
+                        <a href="{{route('keranjang.add', $produk->id)}}" class="btn-resell"><i class="fa-solid fa-cart-shopping"
                                 style="color: #ffffff;"></i> Masukkan Keranjang</a>
                     </div>
                     <div class="col-md-5 col-lg-2">
@@ -65,45 +65,9 @@
 
             <div class="review row py-2" id="content">
                 <h4>Penilaian Produk</h4>
-                @if ($review->isEmpty())
-                    <h5 class="mt-2">Belum Ada Penilaian</h5>
-                @else
-                    @foreach ($review as $r)
-                        <div class="row">
-                            <div class="col-md-2 col-lg-1">
-                                @if ($r->users->avatar == 'default')
-                                <img src="{{ asset('assets/img/icon/admin.png') }}" width="60px"
-                                    style="border-radius:5px">
-                                    @else
-                                    <img src="{{ asset('assets/users/' . $r->users->role . '/' . $r->users_id . '/avatar/' . $r->users->avatar) }}" width="60px"
-                                        style="border-radius:5px">
-                                @endif
-                            </div>
-                            <div class="col-md-5 col-lg-7">
-                                <h5>{{ $r->users->username }}</h5>
-                                @if ($r->rate == 1)
-                                    1 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 2)
-                                    2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 3)
-                                    3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 4)
-                                    4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 5)
-                                    5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @endif
-                                <p>{{ $r->review }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
+
+                @livewire('review' , ['produk_id' => $produk->id])
+
             </div>
 
             <style>
