@@ -22,7 +22,7 @@
                                         <tr>
                                             <td>Role</td>
                                             <td>&nbsp;:</td>
-                                            <td>{{ $user->role }}</td>
+                                            <td>{{ Str::title($user->role) }}</td>
                                         </tr>
                                         <tr>
                                             <td>Status Akun</td>
@@ -42,7 +42,7 @@
                                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <embed type="application/pdf" src="{{ asset('assets/css/contoh.pdf') }}"
+                                            <embed type="application/pdf" src="{{asset('assets/users/'. $user->role .'/' . $user->id . '/berkasprofil/' . $user->berkas) }}"
                                                 width="100%" height="400"></embed>
                                         </div>
                                     </div>

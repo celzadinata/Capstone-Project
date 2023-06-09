@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\notifikasi;
 use App\Models\review;
 use App\Models\User;
 use App\Models\produk;
@@ -36,7 +35,7 @@ class ReviewController extends Controller
         $notifikasi = notifikasi::where('users_id', $log)->get();
         $jml_notif = notifikasi::where('users_id', $log)->count();
 
-        return view('pengusaha.review.index', compact('reviews','notifikasi','jml_notifikasi'));
+        return view('pengusaha.review.index', compact('reviews','notifikasi','jml_notif'));
     }
     /**
      * Show the form for creating a new resource.
@@ -110,7 +109,7 @@ class ReviewController extends Controller
 
         // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
     }
-  
+
     /**
      * Remove the specified resource from storage.
      *

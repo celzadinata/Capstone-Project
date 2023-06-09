@@ -8,7 +8,8 @@
             <div class="row">
                 <div class="col-md-3 col-lg-2 pe-5 side-panel-paket" data-aos="zoom-in" data-aos-delay="100">
                     <form class="d-flex mb-4" action="{{ route('search') }}" method="get" role="search">
-                        <input class="form-control me-2" name="search" type="text" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" name="search" type="text" placeholder="Search"
+                            aria-label="Search">
                         <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <h1>Kategori</h1>
@@ -46,18 +47,20 @@
                     <div class="row row-cols-1 row-cols-md-5 g-4" data-aos="fade">
                         @foreach ($produk as $p)
                             @if ($p->status == 'Konfirmasi')
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <img src="assets/img/reseller/paket/paket-adidas.jpg" class="card-img-top"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
-                                            <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                            <a href="{{ route('produk_detail.reseller', $p->id) }}"
-                                                class="btn-resell">Resell</a>
+                                @if ($p->tampilkan == 1)
+                                    <div class="col">
+                                        <div class="card h-100">
+                                            <img src="assets/img/reseller/paket/paket-adidas.jpg" class="card-img-top"
+                                                alt="...">
+                                            <div class="card-body">
+                                                <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
+                                                <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                                <a href="{{ route('produk_detail.reseller', $p->id) }}"
+                                                    class="btn-resell">Resell</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             @endif
                         @endforeach
                     </div>

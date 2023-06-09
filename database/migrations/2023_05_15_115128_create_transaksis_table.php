@@ -17,7 +17,7 @@ return new class extends Migration
             $table->char('id',10)->primary();
             $table->dateTime('tanggal');
             $table->bigInteger('total');
-            $table->enum('status',['Belum Terverifikasi','Pengiriman','Selesai'])->default('Belum Terverifikasi');
+            $table->enum('status',['Menunggu Pembayaran','Pembayaran Diterima','Pesanan Diproses','Pesanan Dikirim','Selesai'])->default('Menunggu Pembayaran');
             $table->string('bukti_pembayaran');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

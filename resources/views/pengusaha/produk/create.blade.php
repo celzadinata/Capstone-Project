@@ -41,21 +41,21 @@
 
                     @if ($jenis == 'paket_usaha')
                         <div class="mb-3">
-                            <label for="berkas1" class="form-label">Berkas Wajib 1</label>
+                            <label for="berkas1" class="form-label">Surat Izin Usaha Perdagangan (SIUP) </label>
                             <input class="form-control" type="file" id="berkas1" name="berkas1" required>
                         </div>
                         <div class="mb-3">
-                            <label for="berkas2" class="form-label">Berkas Wajib 2</label>
+                            <label for="berkas2" class="form-label">Surat Izin Tempat Usaha (SITU)</label>
                             <input class="form-control" type="file" id="berkas2" name="berkas2" required>
                         </div>
                         <div class="mb-3">
-                            <label for="berkas3" class="form-label">Berkas Tambahan (Opsional)</label>
+                            <label for="berkas3" class="form-label"> NPWP, UD, NIB, SKDU dan lain sebagainya (Opsional)</label>
                             <input class="form-control" type="file" id="berkas3" name="berkas3">
                         </div>
                     @endif
 
                     <div class="mb-3">
-                        <label for="foto" class="form-label">Foto</label>
+                        <label for="foto" class="form-label">Foto produk</label>
                         <input class="form-control" type="file" id="foto" name="foto"
                             onchange="previewFoto(event)">
                     </div>

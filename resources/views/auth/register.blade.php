@@ -26,7 +26,7 @@
                 <div class="col-md-6">
                     <div class="card-body">
                         <h2 class="card-title px-4 pt-4">Register</h2>
-                        <form class="p-4" method="POST" action="{{ route('produk.store') }}"
+                        <form id="myForm" class="p-4" method="POST" action="{{ route('store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
@@ -63,6 +63,8 @@
                                 <input type="text" class="form-control" id="alamat" name="alamat"
                                     placeholder="Enter your address" required autofocus autocomplete="address" />
                             </div>
+                            <input type="hidden" id="latitude" name="latitude">
+                            <input type="hidden" id="longitude" name="longitude">
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password"
@@ -95,4 +97,30 @@
             </div>
         </div>
     </div>
+    <script>
+        // Mengambil referensi elemen formulir dan tombol submit
+    var form = document.getElementById('myForm');
+    var submitButton = document.getElementById('submitButton');
+    // Mengikat event listener ke tombol submit
+    submitButton.addEventListener('click', function(event) {
+      event.preventDefault(); // Mencegah pengiriman formulir langsung
+      
+    var alamat = document.getElementById('alamat').value;
+
+    // Lakukan permintaan HTTP ke layanan geokoding
+        fetch('/geocode?address=' + encodeURIComponent(alamat))
+        .then(response => response.json())
+        .then(data => {
+        // Simpan hasil latitude dan longitude
+        document.getElementById('latitude').value = data.latitude;
+        document.getElementById('longitude').value = data.longitude;
+
+        // Setelah data disimpan, melanjutkan pengiriman formulir secara manual
+        form.submit();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  });
+</script>
 @endsection

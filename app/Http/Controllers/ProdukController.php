@@ -76,9 +76,9 @@ class ProdukController extends Controller
             // 'status' => 'required',
             // 'rate' => 'required',
             'kategoris_id' => 'required',
-            'berkas1' => 'mimes:pdf,doc,docx',
-            'berkas2' => 'mimes:pdf,doc,docx',
-            'berkas3' => 'mimes:pdf,doc,docx',
+            'berkas1' => 'mimes:pdf,doc,docx|max:8048',
+            'berkas2' => 'mimes:pdf,doc,docx|max:8048',
+            'berkas3' => 'mimes:pdf,doc,docx|max:8048',
             'foto' => 'mimes:jpg,jpeg,png|max:2048'
         ]);
 
@@ -213,5 +213,22 @@ class ProdukController extends Controller
         $produk->delete();
 
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil dihapus.');
+    }
+
+    public function update_tampilan(Request $request, produk $id)
+    {
+        $request->validate([
+            'tampilkan'     => 'required',
+        ]);
+        // $produk = produk::find($id);
+        $id->update($request->all());
+        return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Merubah tampilan Produk!');
+        // if ($produk->tampilkan == 0) {
+        //     $id->update($request->all());
+        //     return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Menampilkan Produk!');
+        // } else {
+        //     $id->update($request->all());
+        //     return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Menampilkan Produk!');
+        // }
     }
 }
