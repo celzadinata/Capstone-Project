@@ -23,6 +23,7 @@
     <link href="{{ asset('assets/css/reseller/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/styles-paket.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/styles-kategori.css') }}" rel="stylesheet" />
+    @livewireStyles
 </head>
 
 <body>
@@ -50,6 +51,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     {{-- JS File --}}
     <script src="{{ asset('assets/js/reseller/main.js') }}"></script>
+    @livewireScripts
 </body>
 @include('sweetalert::alert')
 

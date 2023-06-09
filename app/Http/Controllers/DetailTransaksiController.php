@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\detail_transaksi;
+use App\Models\produk;
 use Illuminate\Http\Request;
 
 class DetailTransaksiController extends Controller
@@ -14,7 +15,7 @@ class DetailTransaksiController extends Controller
      */
     public function index()
     {
-        //
+        return view('reseller.cart');
     }
 
     /**
@@ -33,9 +34,33 @@ class DetailTransaksiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $produk = produk::find($id);
+
+        if ($produk->stok < 1) {
+            alert()->error('Persediaan barang tidak ada');
+            return back();
+        }
+
+        $ifDuplicate = detail_transaksi::where(['produks_id' => $id, 'transaksis_id' => null])->first();
+
+        if ($ifDuplicate) {
+            $ifDuplicate->qty += 1;
+            $ifDuplicate->sub_total += $produk->harga;
+            $ifDuplicate->update();
+        } else {
+            detail_transaksi::create([
+                'produks_id' => $id,
+                'transaksis_id' => null,
+                'qty' => 1,
+                'nama_produk' => $produk->nama_produk,
+                'harga' => $produk->harga,
+                'sub_total' => $produk->harga,
+            ]);
+        }
+
+        return back()->with('success', 'Berhasil menambahkan ke keranjang');
     }
 
     /**

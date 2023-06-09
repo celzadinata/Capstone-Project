@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\detail_transaksi;
 use File;
 use App\Models\User;
 use App\Models\produk;
@@ -10,6 +11,7 @@ use App\Models\notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 
 class TransaksiController extends Controller
 {
@@ -53,7 +55,43 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = 'TRX'.rand(1000000,9999999);
+        $cart_items = detail_transaksi::where('transaksis_id', null)->get();
+
+        foreach ($cart_items as $keyy => $itemm) {
+            $product = produk::find($itemm->produks_id);
+            $validation = produk::find($itemm->produks_id);
+            if ($product->stok < $itemm->qty) {
+                alert()->error('Ada produk yang kekurangan stok, silahkan cek kembali persediaan produk');
+                return back();
+            }
+        }
+
+        foreach ($cart_items as $item) {
+            $product = produk::find($item->produks_id);
+            if ($product->stok >= $item->qty) {
+                $product->stok -= $item->qty;
+                $item->transaksis_id = $id;
+            } else {
+                alert()->error('Ada produk yang kekurangan stok, silahkan cek kembali persediaan produk');
+                return back();
+            }
+            $product->update();
+        }
+        
+        $transaksi = transaksi::create([
+            'id' => $id,
+            'user_id' => Auth::user()->id,
+            'tanggal' => Date::now(),
+            'total' => $request->total,
+            'bukti_pembayaran' => 'sad.pdf'
+        ]);
+
+        foreach ($cart_items as $item) {
+            $item->update();
+        }
+
+        return back()->with('success', 'Berhasil membeli paket/usaha, silahkan selesaikan proses pembayaran');
     }
 
     /**

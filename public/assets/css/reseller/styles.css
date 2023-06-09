@@ -929,3 +929,30 @@ Paket Usaha page styles
 .side-panel-paket .urutkan .form-check-input:focus {
     box-shadow: 0 0 0 0.2rem rgba(206, 58, 189, 0.5);
 }
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+    
+}
+
+#hapus-item:hover {
+    cursor: pointer;
+}
+
+.text-purple{
+    color: #CE3ABD;
+}
+
+#detail-item:hover {
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.detail-item {
+    background-color: rgb(243, 243, 243);
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+}
