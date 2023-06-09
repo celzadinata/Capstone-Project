@@ -6,7 +6,7 @@
         <div class="container">
             <hr class="hr-profile opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
-                <form action="{{ route('pengusaha.profile.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update.profile.reseller') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="container py-5">
@@ -183,19 +183,36 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <button type="button" class="btn btn-sm"
-                                                                    id="button_berkas_user" data-toggle="modal"
-                                                                    data-target=".ktp">Lihat
-                                                                    Berkas</button>
+                                                                <button type="button" class="btn btn" id="button_berkas_user"
+                                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                    Lihat Berkas
+                                                                </button>
                                                             </div>
-                                                            <div class="ktp modal fade bd-example-modal-lg" tabindex="-1"
-                                                                role="dialog" aria-labelledby="myLargeModalLabel"
-                                                                aria-hidden="true">
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg">
                                                                     <div class="modal-content">
-                                                                        <embed type="application/pdf"
-                                                                            src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"
-                                                                            width="100%" height="400"></embed>
+                                                                        <div class="modal-header">
+                                                                            <h1 class="modal-title fs-5"
+                                                                                id="exampleModalLabel">Berkas KTP</h1>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            @if (Auth::user()->berkas == null)
+                                                                            <h3>Berkas KTP Masih Kosong</h3>
+                                                                            @else
+                                                                            <embed type="application/pdf"
+                                                                                src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"
+                                                                                width="100%" height="400"></embed>
+                                                                            @endif
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>

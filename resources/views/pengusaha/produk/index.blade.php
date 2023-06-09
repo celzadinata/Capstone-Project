@@ -1,6 +1,6 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Produk')
-@section('title_top', 'PAKET USAHA')
+@section('title_top', 'PRODUK')
 @section('content')
 <div class="content">
     <div class="container-fluid">

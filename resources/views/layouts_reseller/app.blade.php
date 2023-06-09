@@ -22,7 +22,9 @@
     <link href="{{ asset('assets/css/reseller/styles-paket.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/styles-kategori.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/styles-profile.css') }}" rel="stylesheet" />
-
+    <script src="{{ asset('assets/js/admin/preview_img.js') }}"></script>
+    <link href="{{ asset('assets/css/admin/button-berkas.css') }}" rel="stylesheet">
+    <!-- CSS Just for demo purpose, don't include it in your project -->
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="{{ asset('assets/js/admin/preview_berkas.js') }}"></script>
 </head>

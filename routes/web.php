@@ -109,6 +109,7 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
     Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
     // Profile
+    Route::put('/profile', [ResellerControler::class, 'profile_update'])->name('update.profile.reseller');
 });
 Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
 

@@ -1,5 +1,6 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Profile')
+@section('title_top', 'PROFILE')
 @section('content')
     <section style="background-color: #eee;">
         <form action="{{ route('pengusaha.profile.update') }}" method="POST" enctype="multipart/form-data">
@@ -13,12 +14,13 @@
                                 <div class="card-body">
                                     <div class="mb-4">
                                         <div class="text-center">
-                                            @if ( Auth::user()->avatar == 'default')
-                                            <img src="{{ asset('assets/img/icon/admin.png') }}" id="preview"
-                                                class="rounded img-fluid" style="width: 150px; height: 150px;" />
+                                            @if (Auth::user()->avatar == 'default')
+                                                <img src="{{ asset('assets/img/icon/admin.png') }}" id="preview"
+                                                    class="rounded img-fluid" style="width: 150px; height: 150px;" />
                                             @else
-                                            <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}" id="preview"
-                                                class="rounded img-fluid" style="width: 150px; height: 150px;" />
+                                                <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
+                                                    id="preview" class="rounded img-fluid"
+                                                    style="width: 150px; height: 150px;" />
                                             @endif
                                             <h5 class="my-3">{{ Auth::user()->nama_depan }}</h5>
                                             <p class="text-muted mb-3">{{ '@' . Auth::user()->username }}</p>
@@ -155,8 +157,8 @@
                                                                     {{ Auth::user()->berkas }}</div>
                                                                 <input type="file"
                                                                     class="form-control @error('berkas') is-invalid @enderror"
-                                                                    name="berkas"
-                                                                    aria-describedby="berkasHelp" id="chooseFile" onchange="PreviewBerkas()">
+                                                                    name="berkas" aria-describedby="berkasHelp"
+                                                                    id="chooseFile" onchange="PreviewBerkas()">
                                                                 @error('berkas')
                                                                     <div id="namaprodukHelp" class="form-text">
                                                                         {{ $message }}
@@ -175,9 +177,13 @@
                                                         aria-hidden="true">
                                                         <div class="modal-dialog modal-lg">
                                                             <div class="modal-content">
-                                                                <embed type="application/pdf"
-                                                                    src="{{ asset('assets/users/' . Auth::user()->role .'/'. Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"
-                                                                    width="100%" height="400"></embed>
+                                                                @if (Auth::user()->berkas == null)
+                                                                    <h3>Berkas KTP Masih Kosong</h3>
+                                                                @else
+                                                                    <embed type="application/pdf"
+                                                                        src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"
+                                                                        width="100%" height="400"></embed>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>

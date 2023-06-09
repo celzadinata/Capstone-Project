@@ -1,5 +1,10 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Tambah Produk')
+@if ($jenis == 'paket_usaha')
+    @section('title_top', 'PAKET USAHA')
+@else
+    @section('title_top', 'SUPPLY')
+@endif
 @section('content')
     <style>
         .previewImage {
@@ -49,7 +54,8 @@
                             <input class="form-control" type="file" id="berkas2" name="berkas2" required>
                         </div>
                         <div class="mb-3">
-                            <label for="berkas3" class="form-label"> NPWP, UD, NIB, SKDU dan lain sebagainya (Opsional)</label>
+                            <label for="berkas3" class="form-label"> NPWP, UD, NIB, SKDU dan lain sebagainya
+                                (Opsional)</label>
                             <input class="form-control" type="file" id="berkas3" name="berkas3">
                         </div>
                     @endif

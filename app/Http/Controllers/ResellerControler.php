@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use App\Models\detail_transaksi;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 class ResellerControler extends Controller
 {
@@ -129,5 +131,40 @@ class ResellerControler extends Controller
         $user = User::find(Auth::user()->id);
         $list_kategori = kategori::paginate(5);
         return view('reseller.page_profile', compact('user','list_kategori'));
+    }
+
+    public function profile_update(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'password' => ['confirmed', Password::default()->sometimes()],
+            // 'jenisKelamin' => 'required',
+            'alamat' => 'required|string|max:255',
+            'no_hp' => 'required|string|max:13',
+            'avatar' => 'mimes:jpg,jpeg,png|max:2048'
+        ]);
+
+        // dd($request->toArray());
+        $reseller = User::find(Auth::user()->id);
+        $reseller->nama_depan = $request->input('nama');
+        $reseller->no_hp = $request->input('no_hp');
+        // $reseller->jenis_kelamin = $request->input('jenisKelamin');
+        $reseller->alamat = $request->input('alamat');
+        if ($request->avatar) {
+            $imgUrl = time() . '-' . Auth::user()->username . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar'), $imgUrl);
+            $reseller->avatar = $imgUrl;
+        }
+        if ($request->password) {
+            $reseller->password = Hash::make($request->input('password'));
+        }
+        if ($request->berkas) {
+            $berkasUrl = time() . '-' . Auth::user()->username . '.' . $request->berkas->extension();
+            $request->berkas->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil'), $berkasUrl);
+            $reseller->berkas = $berkasUrl;
+        }
+        $reseller->update();
+
+        return back()->with('success', 'Berhasil mengubah informasi!');
     }
 }
