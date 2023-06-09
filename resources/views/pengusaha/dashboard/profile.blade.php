@@ -13,8 +13,13 @@
                                 <div class="card-body">
                                     <div class="mb-4">
                                         <div class="text-center">
+                                            @if ( Auth::user()->avatar == 'default')
+                                            <img src="{{ asset('assets/img/icon/admin.png') }}" id="preview"
+                                                class="rounded img-fluid" style="width: 150px; height: 150px;" />
+                                            @else
                                             <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}" id="preview"
                                                 class="rounded img-fluid" style="width: 150px; height: 150px;" />
+                                            @endif
                                             <h5 class="my-3">{{ Auth::user()->nama_depan }}</h5>
                                             <p class="text-muted mb-3">{{ '@' . Auth::user()->username }}</p>
                                             <div class="d-flex justify-content-center mb-2">

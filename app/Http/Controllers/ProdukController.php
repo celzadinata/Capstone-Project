@@ -19,7 +19,7 @@ class ProdukController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $produks = produk::where('users_id', $id)->get();
+        $produks = produk::where('users_id', $id)->paginate(4);
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
 

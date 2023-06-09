@@ -17,19 +17,25 @@
                                         <div class="card-body">
                                             <div class="mb-4">
                                                 <div class="text-center">
-                                                    <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
-                                                        id="preview" class="rounded img-fluid"
-                                                        style="width: 150px; height: 150px;" />
+                                                    @if (Auth::user()->avatar == 'default')
+                                                        <img src="{{ asset('assets/img/icon/admin.png') }}" id="preview"
+                                                            class="rounded img-fluid"
+                                                            style="width: 150px; height: 150px;" />
+                                                    @else
+                                                        <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
+                                                            id="preview" class="rounded img-fluid"
+                                                            style="width: 150px; height: 150px;" />
+                                                    @endif
                                                     <h5 class="my-3">{{ Auth::user()->nama_depan }}</h5>
-                                                    <p class="text-muted text-center mb-3">{{ '@' . Auth::user()->username }}
+                                                    <p class="text-muted text-center mb-3">
+                                                        {{ '@' . Auth::user()->username }}
                                                     </p>
                                                     <div class="d-flex justify-content-center mb-2">
                                                         <input type="file" accept="image/*"
                                                             class="form-control text-muted @error('avatar') is-invalid @enderror"
                                                             name="avatar" id="avatar" aria-describedby="avatarHelp"
                                                             style="display: none" onchange="PreviewImage()">
-                                                        <input type="button" value="Ubah Avatar"
-                                                            class="btn-resell ms-1"
+                                                        <input type="button" value="Ubah Avatar" class="btn-resell ms-1"
                                                             onclick="document.getElementById('avatar').click();" />
                                                     </div>
                                                 </div>

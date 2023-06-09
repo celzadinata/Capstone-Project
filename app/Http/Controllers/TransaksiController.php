@@ -26,7 +26,7 @@ class TransaksiController extends Controller
             $query->whereHas('produk', function ($query) use ($log) {
                 $query->where('users_id', $log);
             });
-        })->with('detail_transaksi.produk')->get();
+        })->with('detail_transaksi.produk')->paginate(10);
 
         $notifikasi = notifikasi::where('users_id', $log)->get();
         $jml_notif = notifikasi::where('users_id', $log)->count();
