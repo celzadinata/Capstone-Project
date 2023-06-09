@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DetailTransaksiController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResellerControler;
@@ -13,7 +14,11 @@ use App\Http\Controllers\KonfirmasiPaketController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ReviewController;
+
+use App\Http\Livewire\Cart;
+
 use GuzzleHttp\Client;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +115,10 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
     // Profile
     Route::put('/profile', [ResellerControler::class, 'profile_update'])->name('update.profile.reseller');
+    // Keranjang
+    Route::get('/keranjang', Cart::class)->name('keranjang');
+    Route::post('/keranjang', [TransaksiController::class, 'store'])->name('keranjang.checkout');
+    Route::get('/add/{id}', [DetailTransaksiController::class, 'store'])->name('keranjang.add');
 });
 Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
 

@@ -27,6 +27,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="{{ asset('assets/js/admin/preview_berkas.js') }}"></script>
+    @livewireStyles
 </head>
 
 <body>
@@ -54,6 +55,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     {{-- JS File --}}
     <script src="{{ asset('assets/js/reseller/main.js') }}"></script>
+    @livewireScripts
 </body>
 @include('sweetalert::alert')
 
