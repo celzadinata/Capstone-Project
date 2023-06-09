@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-absolute fixed-top">
     <div class="container-fluid">
         <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;" style="color:#CE3ABD">Dashboard</a>
+            <a class="navbar-brand" href="javascript:;" style="color:#CE3ABD">@yield('title_top')</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
             aria-expanded="false" aria-label="Toggle navigation">

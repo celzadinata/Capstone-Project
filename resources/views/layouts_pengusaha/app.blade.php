@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/logo-yokresell.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo-yokresell.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Yok Resell
@@ -19,11 +19,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS Files -->
     <link href="{{ asset('assets/css/admin/material-dashboard.css?v=2.1.2') }}" rel="stylesheet" />
-    <script src="{{ asset('assets/js/preview_img.js')}}"></script>
-    <link href="{{ asset('assets/css/button-berkas.css')}} "  rel="stylesheet" >
+    <script src="{{ asset('assets/js/admin/preview_img.js') }}"></script>
+    <link href="{{ asset('assets/css/admin/button-berkas.css') }}" rel="stylesheet">
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="{{asset('assets/js/preview_berkas.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/admin/preview_berkas.js') }}"></script>
 </head>
 
 <body class="">
@@ -85,7 +85,7 @@
     <!--  Notifications Plugin    -->
     <script src="{{ asset('assets/js/plugins/bootstrap-notify.js') }}"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset('assets/js/material-dashboard.js?v=2.1.2') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/admin/material-dashboard.js?v=2.1.2') }}" type="text/javascript"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('assets/demo/demo.js') }}"></script>
     <script>
@@ -97,4 +97,5 @@
     </script>
 </body>
 @include('sweetalert::alert')
+
 </html>

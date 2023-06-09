@@ -27,7 +27,7 @@
                                                 <td>{{ Str::title($u->role) }}</td>
                                                 <td>{{ $u->status }}</td>
                                                 <td>
-                                                    <a href="{{ route('confirm_user.admin',$u->id) }}" class="btn" id="btn_table">
+                                                    <a href="{{ route('confirm_user.admin',$u->id) }}" class="btn btn-warning">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
                                                     {{-- <a href="{{ route('destroy_user.admin',$u->id) }}" class="btn" id="btn_table">
@@ -38,6 +38,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {{ $user->links() }}
                             </div>
                         </div>
                     </div>

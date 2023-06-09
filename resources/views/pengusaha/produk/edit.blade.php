@@ -1,5 +1,10 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Edit Produk')
+@if ($produk->jenis == 'paket_usaha')
+    @section('title_top', 'PAKET USAHA')
+@else
+    @section('title_top', 'SUPPLY')
+@endif
 @section('content')
     <style>
         .previewImage {
@@ -48,7 +53,12 @@
                         <input class="form-control chooseBtn" type="file" id="foto" onchange="previewFoto(event)"
                             required>
                     </div>
-                    <div id="previewContainer"><img src="{{ $produk->foto }}" class="previewImage"></div>
+                    @if ($produk->foto == null)
+                        <div id="previewContainer"><img src="{{ asset('assets/img/default/produk.png') }}"
+                                class="previewImage"></div>
+                    @else
+                        <div id="previewContainer"><img src="{{ $produk->foto }}" class="previewImage"></div>
+                    @endif
                     <button type="submit" class="btn btn-primary">Simpan</button>
                     <a href="{{ route('produk.pengusaha') }}" class="btn btn-primary">Kembali</a>
                 </form>

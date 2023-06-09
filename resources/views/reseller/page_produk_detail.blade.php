@@ -1,7 +1,7 @@
 @extends('layouts_reseller.app')
 @section('title', 'Homepage')
 @section('content')
-<style>  
+<style>
     #map {
         height: 100%;
     }
@@ -67,7 +67,9 @@
 
             <div class="review row py-2" id="content">
                 <h4>Penilaian Produk</h4>
+
                 @livewire('review' , ['produk_id' => $produk->id])
+
             </div>
 
             <style>
@@ -79,7 +81,7 @@
     </section>
     {{-- ./Paket Usaha --}}
     <script>
-        function initMap() {     
+        function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 15,
           center: { lat: -6.9806422, lng: 107.5860216 },
