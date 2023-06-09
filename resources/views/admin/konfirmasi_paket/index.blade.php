@@ -27,7 +27,7 @@
                                                 <td>{{ $p->users->nama_depan }}</td>
                                                 <td>{{ $p->status }}</td>
                                                 <td>
-                                                    <a href="{{ route('konfirmasi_paket.admin', $p->id) }}" class="btn" id="btn_table">
+                                                    <a href="{{ route('konfirmasi_paket.admin', $p->id) }}" class="btn btn-warning">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
                                                     {{-- <a href="{{ route('konfirmasi_destroy.admin') }}" class="btn" id="btn_table">
@@ -38,6 +38,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {{ $produk->links() }}
                             </div>
                         </div>
                     </div>

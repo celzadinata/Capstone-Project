@@ -1,5 +1,6 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Dashboard')
+@section('title_top', 'DASHBOARD')
 @section('content')
     <div class="content">
         <div class="container-fluid">

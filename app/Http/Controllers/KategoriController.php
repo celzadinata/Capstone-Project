@@ -18,8 +18,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = kategori::paginate(8);
-        
+        $kategori = kategori::paginate(10);
+
         return view('admin.kategori.index', compact('kategori'));
     }
 
@@ -44,10 +44,10 @@ class KategoriController extends Controller
         $request->validate([
             'nama'=> 'required|string|min:2|max:100',
         ]);
-        
+
         $data = $request->all();
         $data['nama'] = Str::title($data['nama']);
-        
+
         kategori::create($data);
         return redirect()->route('kategori')->with('success', 'Berhasil Menambah Kategori');
 

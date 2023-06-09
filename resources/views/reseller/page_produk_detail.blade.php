@@ -1,7 +1,7 @@
 @extends('layouts_reseller.app')
 @section('title', 'Homepage')
 @section('content')
-<style>  
+<style>
     #map {
         height: 100%;
     }
@@ -73,8 +73,13 @@
                     @foreach ($review as $r)
                         <div class="row">
                             <div class="col-md-2 col-lg-1">
-                                <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="60px"
+                                @if ($r->users->avatar == 'default')
+                                <img src="{{ asset('assets/img/icon/admin.png') }}" width="60px"
                                     style="border-radius:5px">
+                                    @else
+                                    <img src="{{ asset('assets/users/' . $r->users->role . '/' . $r->users_id . '/avatar/' . $r->users->avatar) }}" width="60px"
+                                        style="border-radius:5px">
+                                @endif
                             </div>
                             <div class="col-md-5 col-lg-7">
                                 <h5>{{ $r->users->username }}</h5>
@@ -112,7 +117,7 @@
     </section>
     {{-- ./Paket Usaha --}}
     <script>
-        function initMap() {     
+        function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 15,
           center: { lat: -6.9806422, lng: 107.5860216 },
