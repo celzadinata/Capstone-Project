@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\detail_transaksi;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Cart extends Component
@@ -12,7 +13,7 @@ class Cart extends Component
     public function render()
     {
         // $this->incrementQty(1);
-        $this->cart_item = detail_transaksi::with('produk')->where('transaksis_id', null)->get();
+        $this->cart_item = detail_transaksi::with('produk')->where(['transaksis_id'=> null, 'users_id' => Auth::user()->id])->get();
         $this->total = 0; 
         $this->subtotal[] = [];
         foreach ($this->cart_item as $key => $item) {

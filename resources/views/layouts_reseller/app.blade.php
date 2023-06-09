@@ -23,6 +23,7 @@
     <link href="{{ asset('assets/css/reseller/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/styles-paket.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/styles-kategori.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/scss/rating.css') }}" rel="stylesheet" />
     @livewireStyles
 </head>
 

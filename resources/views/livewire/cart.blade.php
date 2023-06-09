@@ -2,7 +2,7 @@
     <div class="card mb-5">
         <div class="card-items">
             <div class="row p-5">
-                <a href="{{route('keranjang.add', 'AYM002')}}">add to cart</a>
+                {{-- <a href="{{route('keranjang.add', 'AYM002')}}">add to cart</a> --}}
                 <h1 class="fw-bolder text-purple"><i class="bi bi-cart4"></i> Keranjang</h1>
                 <hr class="my-2 hr-header opacity-100 text-purple">
                 @if ($cart_item->toArray() != null)

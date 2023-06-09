@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\detail_transaksi;
 use App\Models\produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DetailTransaksiController extends Controller
 {
@@ -43,7 +44,7 @@ class DetailTransaksiController extends Controller
             return back();
         }
 
-        $ifDuplicate = detail_transaksi::where(['produks_id' => $id, 'transaksis_id' => null])->first();
+        $ifDuplicate = detail_transaksi::where(['produks_id' => $id, 'transaksis_id' => null, 'users_id' => Auth::user()->id])->first();
 
         if ($ifDuplicate) {
             $ifDuplicate->qty += 1;
@@ -53,6 +54,7 @@ class DetailTransaksiController extends Controller
             detail_transaksi::create([
                 'produks_id' => $id,
                 'transaksis_id' => null,
+                'users_id' => Auth::user()->id,
                 'qty' => 1,
                 'nama_produk' => $produk->nama_produk,
                 'harga' => $produk->harga,

@@ -56,7 +56,7 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         $id = 'TRX'.rand(1000000,9999999);
-        $cart_items = detail_transaksi::where('transaksis_id', null)->get();
+        $cart_items = detail_transaksi::where(['transaksis_id' => null, 'users_id' => Auth::user()->id])->get();
 
         foreach ($cart_items as $keyy => $itemm) {
             $product = produk::find($itemm->produks_id);
