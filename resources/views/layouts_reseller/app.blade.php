@@ -21,6 +21,9 @@
     <link href="{{ asset('assets/css/reseller/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/styles-paket.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/styles-kategori.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('assets/scss/rating.css') }}" rel="stylesheet" />
+
     <link href="{{ asset('assets/css/reseller/styles-profile.css') }}" rel="stylesheet" />
     <script src="{{ asset('assets/js/admin/preview_img.js') }}"></script>
     <link href="{{ asset('assets/css/admin/button-berkas.css') }}" rel="stylesheet">

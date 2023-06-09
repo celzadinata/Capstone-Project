@@ -66,8 +66,8 @@
             <div class="col-lg-12 my-5" data-aos="zoom-in">
                 <div class="paket-slider owl-carousel">
                     @foreach ($produk as $p)
-                        @if ($p->status == 'Konfirmasi')
-                            @if ($p->tampilkan == 1)
+                        {{-- @if ($p->status == 'Konfirmasi') --}}
+                            {{-- @if ($p->tampilkan == 1) --}}
                                 <div class="single-box text-center">
                                     <div class="img-area">
                                         <img alt="" class="img-fluid move-animation"
@@ -80,8 +80,8 @@
                                             class="btn-resell">Resell</a>
                                     </div>
                                 </div>
-                            @endif
-                        @endif
+                            {{-- @endif --}}
+                        {{-- @endif --}}
                     @endforeach
                 </div>
             </div>
