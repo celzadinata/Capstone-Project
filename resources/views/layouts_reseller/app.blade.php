@@ -70,6 +70,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="{{ asset('assets/js/reseller/main.js') }}"></script>
 
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&callback=initMap&libraries=&v=weekly"
+        async></script>
+
     @livewireScripts
     <script src="{{ asset('assets/js/admin/preview_img.js') }}"></script>
     <script src="{{ asset('assets/js/admin/preview_berkas.js') }}"></script>

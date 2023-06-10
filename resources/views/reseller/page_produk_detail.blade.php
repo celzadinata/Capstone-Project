@@ -42,9 +42,11 @@
                         <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
                     </div>
 
-                    <div id="map"></div>
-
                     <div class="col-md-3 col-lg-8">
+                        <a href="{{ route('map') }}" class="btn-resell"> Lihat Lokasi</a>
+                    </div>
+                    <div class="col-md-3 col-lg-8">
+
                         <a href="{{ route('keranjang.add', $produk->id) }}" class="btn-resell"><i
                                 class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i> Masukkan Keranjang</a>
                     </div>
@@ -80,18 +82,6 @@
         </div>
     </section>
     {{-- ./Paket Usaha --}}
-    <script>
-        function initMap() {
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,
-                center: {
-                    lat: -6.9806422,
-                    lng: 107.5860216
-                },
-            })
-        };
-    </script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&callback=initMap&libraries=&v=weekly"
-        async></script>
+
+
 @endsection

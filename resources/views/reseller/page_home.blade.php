@@ -89,13 +89,3 @@
     </section>
     {{-- ./Paket Usaha --}}
 @endsection
-@section('script')
-    <script>
-        $(document).ready(function() {
-            $('.star-rating').click(function() {
-                var rating = $(this).data('rating');
-                // Kirim rating ke server menggunakan Ajax atau lakukan tindakan lain sesuai kebutuhan Anda
-            });
-        });
-    </script>
-@endsection

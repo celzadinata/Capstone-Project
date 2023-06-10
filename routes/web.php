@@ -123,6 +123,7 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::put('/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
 });
 Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
+Route::get('/map', [ResellerControler::class, 'map'])->name('map');
 
 // Dashboard Reseller
 Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');

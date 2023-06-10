@@ -67,4 +67,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(review::class,'users_id');
     }
+    public function lokasi()
+    {
+        return $this->hasOne(lokasi::class,'users_id');
+    }
 }
