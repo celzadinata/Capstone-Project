@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\lokasi;
 use App\Models\produk;
 use App\Models\review;
 use App\Models\kategori;
@@ -117,6 +118,15 @@ class ResellerControler extends Controller
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual', 'review'));
     }
 
+    public function map()
+    {
+        $id = Auth::id();
+        // $user_location = lokasi::where('users_id', $id)->get();
+        $lokasi = lokasi::all();
+        // @dd($user_location);
+        return view('reseller.page_map',compact('lokasi'));
+    }
+
     public function search(Request $request)
     {
         $list_kategori = kategori::paginate(5);
@@ -126,11 +136,12 @@ class ResellerControler extends Controller
         return view('reseller.page_produk', compact('list_kategori', 'produk'));
     }
 
-    public function profile(){
+    public function profile()
+    {
         $id = Auth::id();
         $user = User::find(Auth::user()->id);
         $list_kategori = kategori::paginate(5);
-        return view('reseller.page_profile', compact('user','list_kategori'));
+        return view('reseller.page_profile', compact('user', 'list_kategori'));
     }
 
     public function profile_update(Request $request)

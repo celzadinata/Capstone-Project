@@ -1,11 +1,11 @@
 @extends('layouts_reseller.app')
 @section('title', 'Homepage')
 @section('content')
-<style>
-    #map {
-        height: 100%;
-    }
-</style>
+    <style>
+        #map {
+            height: 100%;
+        }
+    </style>
     {{-- Paket Usaha --}}
     <section class="paket">
         <div class="container">
@@ -43,8 +43,11 @@
                     </div>
 
                     <div class="col-md-3 col-lg-8">
-                        <a href="{{route('keranjang.add', $produk->id)}}" class="btn-resell"><i class="fa-solid fa-cart-shopping"
-                                style="color: #ffffff;"></i> Masukkan Keranjang</a>
+                        <a href="{{ route('map') }}" class="btn-resell"> Lihat Lokasi</a>
+                    </div>
+                    <div class="col-md-3 col-lg-8">
+                        <a href="{{ route('keranjang.add', $produk->id) }}" class="btn-resell"><i
+                                class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i> Masukkan Keranjang</a>
                     </div>
                     <div class="col-md-5 col-lg-2">
                         <a href="#" class="btn-resell">Resell</a>
@@ -66,7 +69,7 @@
             <div class="review row py-2" id="content">
                 <h4>Penilaian Produk</h4>
 
-                @livewire('review' , ['produk_id' => $produk->id])
+                @livewire('review', ['produk_id' => $produk->id])
 
             </div>
 
@@ -78,15 +81,4 @@
         </div>
     </section>
     {{-- ./Paket Usaha --}}
-    <script>
-        function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 15,
-          center: { lat: -6.9806422, lng: 107.5860216 },
-        })};
-    </script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
 @endsection

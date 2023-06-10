@@ -121,6 +121,7 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::get('/add/{id}', [DetailTransaksiController::class, 'store'])->name('keranjang.add');
 });
 Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
+Route::get('/map', [ResellerControler::class, 'map'])->name('map');
 
 // Dashboard Reseller
 Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
