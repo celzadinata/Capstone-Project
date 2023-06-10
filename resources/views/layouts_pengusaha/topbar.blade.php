@@ -38,7 +38,8 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         @foreach ($notifikasi as $n)
-                            <a class="dropdown-item" href="{{ route('produk.edit',$n->produks_id) }}">{{ $n->pesan }} -&nbsp;
+                            <a class="dropdown-item"
+                                href="{{ route('produk.edit', $n->produk_id) }}">{{ $n->pesan }} -&nbsp;
                                 <span><b>Admin</b></span>
                             </a>
                         @endforeach

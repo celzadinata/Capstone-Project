@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/logo-yokresell.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo-yokresell.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         YokResell | @yield('title')
@@ -20,9 +20,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet" />
-    <link href="{{ asset('assets/css/reseller/styles.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/reseller/styles-paket.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/reseller/styles-kategori.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style-home.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style-produk.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style-kategori.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style-detail-produk.css') }}" rel="stylesheet" />
 </head>
 
 <body>

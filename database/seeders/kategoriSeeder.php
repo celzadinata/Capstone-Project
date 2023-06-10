@@ -24,7 +24,7 @@ class kategoriSeeder extends Seeder
                 'id'    =>  '2',
                 'nama' => 'Minuman',
             ],
-          
+
         ];
 
         kategori::insert($kategori);

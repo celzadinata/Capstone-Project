@@ -1,125 +1,106 @@
 @extends('layouts_reseller.app')
-@section('title', 'Homepage')
+@section('title', 'Detail Produk')
 @section('content')
-<style>  
-    #map {
-        height: 100%;
-    }
-</style>
-    {{-- Paket Usaha --}}
-    <section class="paket">
+    <style>
+        #map {
+            height: 100%;
+        }
+    </style>
+    {{-- Detail Produk --}}
+    <section class="detail-produk">
         <div class="container">
-            {{-- <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100"> --}}
-            <div class="row py-2" id="content">
-                <div class="col-md-3 col-lg-5">
-                    <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" class="card-img-top" alt="...">
-                </div>
-                <div class="col-md-5 col-lg-7 pt-2">
-                    <h4 class="title">{{ $produk->nama_produk }}</h4>
-                    <table>
-                        <tbody id="text_konfirmasi_user">
-                            <tr>
-                                <td>
-                                    @if ($rating == null)
-                                        0
-                                    @else
-                                        <u>{{ str_replace('...', '', Str::limit($rating, 3)) }}</u>
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $rating)
-                                                <i class="fa fa-star checked"></i>
+            <hr class="my-2 hr-detail opacity-100" data-aos="flip-right" data-aos-delay="100">
+            <div class="card my-4" data-aos="zoom-in">
+                <div class="row row-cols-1 row-cols-md-4 g-0">
+                    <div class="col-md-5">
+                        <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" class="img-fluid"
+                            alt="...">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body px-5">
+                            <h3>{{ $produk->nama_produk }}</h3>
+                            <table>
+                                <tbody id="text_konfirmasi_user">
+                                    <tr>
+                                        <td>
+                                            @if ($rating == null)
+                                                0
+                                            @else
+                                                <u>{{ str_replace('...', '', Str::limit($rating, 3)) }}</u>
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $rating)
+                                                        <i class="fa fa-star checked"></i>
+                                                    @endif
+                                                @endfor
                                             @endif
-                                        @endfor
-                                    @endif
-                                </td>
-                                <td>&nbsp|&nbsp</td>
-                                <td>{{ $nilai }} Penilaian</td>
-                                <td>&nbsp|&nbsp</td>
-                                <td>{{ $terjual }} Terjual</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="price p-4">
-                        <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
-                    </div>
-
-                    <div id="map"></div>
-
-                    <div class="col-md-3 col-lg-8">
-                        <a href="#" class="btn-resell"><i class="fa-solid fa-cart-shopping"
-                                style="color: #ffffff;"></i> Masukkan Keranjang</a>
-                    </div>
-                    <div class="col-md-5 col-lg-2">
-                        <a href="#" class="btn-resell">Resell</a>
-                    </div>
-                </div>
-            </div>
-
-            <style>
-                .checked {
-                    color: #CE3ABDe;
-                }
-            </style>
-
-            <div class="description row py-2" id="content">
-                <h4 class="title">Deskripsi</h4>
-                <p class="isi">{{ $produk->deskripsi }}</p>
-            </div>
-
-            <div class="review row py-2" id="content">
-                <h4>Penilaian Produk</h4>
-                @if ($review->isEmpty())
-                    <h5 class="mt-2">Belum Ada Penilaian</h5>
-                @else
-                    @foreach ($review as $r)
-                        <div class="row">
-                            <div class="col-md-2 col-lg-1">
-                                <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="60px"
-                                    style="border-radius:5px">
-                            </div>
-                            <div class="col-md-5 col-lg-7">
-                                <h5>{{ $r->users->username }}</h5>
-                                @if ($r->rate == 1)
-                                    1 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 2)
-                                    2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 3)
-                                    3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 4)
-                                    4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 5)
-                                    5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @endif
-                                <p>{{ $r->review }}</p>
+                                        </td>
+                                        <td>&nbsp|&nbsp</td>
+                                        <td>{{ $nilai }} Penilaian</td>
+                                        <td>&nbsp|&nbsp</td>
+                                        <td>{{ $terjual }} Terjual</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h4>
+                            <div class="row align-items-center">
+                                <div class="col-auto mb-3">
+                                    <a href="#" class="btn-cart"><i class="fas fa-cart-plus"></i> Masukkan
+                                        Keranjang</a>
+                                </div>
+                                <div class="col-auto mb-3">
+                                    <a href="#" class="btn-resell">Resell</a>
+                                </div>
                             </div>
                         </div>
-                    @endforeach
-                @endif
+                    </div>
+                </div>
             </div>
 
-            <style>
-                #content {
-                    background-color: #fff;
-                }
-            </style>
+            <div class="description mb-4" id="content" data-aos="fade-right">
+                <div class="row py-3 px-4">
+                    <h3>Deskripsi</h3>
+                    <p>{{ $produk->deskripsi }}</p>
+                </div>
+            </div>
+
+            <div class="review mb-4" id="content" data-aos="fade-left">
+                <div class="row py-3 px-4">
+                    <h3>Penilaian Produk</h3>
+                    @if ($review->isEmpty())
+                        <h5 class="mt-2">Belum Ada Penilaian</h5>
+                    @else
+                        @foreach ($review as $r)
+                            <div class="col-md-2 col-lg-auto">
+                                <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="40px"
+                                    style="border-radius:20px">
+                            </div>
+                            <div class="col-md-5 col-lg-auto">
+                                <h4>{{ $r->users->username }}</h4>
+                                <h6>
+                                    @if ($r->rate == 1)
+                                        <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i><i class="far fa-star"></i>
+                                    @elseif($r->rate == 2)
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i><i class="far fa-star"></i>
+                                    @elseif($r->rate == 3)
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="far fa-star"></i><i class="far fa-star"></i>
+                                    @elseif($r->rate == 4)
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="far fa-star"></i>
+                                    @elseif($r->rate == 5)
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    @endif
+                                </h6>
+                                <p>{{ $r->review }}</p>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
         </div>
     </section>
-    {{-- ./Paket Usaha --}}
-    <script>
-        function initMap() {     
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 15,
-          center: { lat: -6.9806422, lng: 107.5860216 },
-        })};
-    </script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+    {{-- ./Detail Produk --}}
 @endsection

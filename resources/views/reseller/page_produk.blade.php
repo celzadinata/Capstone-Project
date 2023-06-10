@@ -2,7 +2,7 @@
 @section('title', 'Paket Usaha')
 @section('content')
     {{-- Paket Usaha --}}
-    <section class="paket">
+    <section class="paket-usaha">
         <div class="container">
             <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
@@ -55,7 +55,7 @@
                                             <div class="card-body">
                                                 <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
                                                 <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                <a href="{{ route('produk_detail.reseller', $p->id) }}"
+                                                <a href="{{ route('produk_detail.reseller', $p->slug) }}"
                                                     class="btn-resell">Resell</a>
                                             </div>
                                         </div>

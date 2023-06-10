@@ -49,7 +49,8 @@
                             <input class="form-control" type="file" id="berkas2" name="berkas2" required>
                         </div>
                         <div class="mb-3">
-                            <label for="berkas3" class="form-label"> NPWP, UD, NIB, SKDU dan lain sebagainya (Opsional)</label>
+                            <label for="berkas3" class="form-label"> NPWP, UD, NIB, SKDU dan lain sebagainya
+                                (Opsional)</label>
                             <input class="form-control" type="file" id="berkas3" name="berkas3">
                         </div>
                     @endif
@@ -73,6 +74,12 @@
         </div>
     </div>
     <script>
+        document.getElementById('nama_produk').addEventListener('input', function() {
+            var namaProduk = this.value;
+            var slug = namaProduk.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            document.getElementById('slug').value = slug;
+        });
+
         function previewFoto(event) {
             var input = event.target;
             if (input.files && input.files[0]) {
