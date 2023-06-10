@@ -27,11 +27,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('produk.reseller') }}">Paket Usaha</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pesanan.saya') }}">Pesanan Saya</a>
+                </li>
+
             </ul>
             <ul class="navbar-nav ms-auto nav-center">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('keranjang')}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="nav-link" href="{{ route('keranjang') }}"><i class="fas fa-shopping-cart"></i></a>
                     </li>
                     @if (Auth::user()->role == 'admin')
                         <li class="nav-item">

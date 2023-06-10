@@ -46,6 +46,7 @@
                         <a href="{{ route('map') }}" class="btn-resell"> Lihat Lokasi</a>
                     </div>
                     <div class="col-md-3 col-lg-8">
+
                         <a href="{{ route('keranjang.add', $produk->id) }}" class="btn-resell"><i
                                 class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i> Masukkan Keranjang</a>
                     </div>
@@ -81,4 +82,6 @@
         </div>
     </section>
     {{-- ./Paket Usaha --}}
+
+
 @endsection

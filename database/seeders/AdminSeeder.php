@@ -71,7 +71,7 @@ class AdminSeeder extends Seeder
                 'username' => 'masbrod',
                 'email' => 'masbrod@gmail.com',
                 'jenis_kelamin' => 'laki-laki',
-                'password' => bcrypt('qweasdzxc'),
+                'password' => bcrypt('qazaq123'),
                 'alamat' => 'Jl everywhere',
                 'no_hp' => '089123456789',
                 'status' => 'Aktif'
