@@ -361,6 +361,27 @@ Home page styles
     background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
 }
 
+.btn-resell {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    padding: 5px 25px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    color: white;
+    background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
+}
+
+.btn-resell:hover {
+    color: var(--pink);
+    border-color: var(--pink);
+    background: white;
+}
+
 .paket .btn-resell:hover {
     -webkit-transform: scale(1.1);
     color: var(--pink);
@@ -954,5 +975,9 @@ Paket Usaha page styles
 .detail-item {
     background-color: rgb(243, 243, 243);
     transition: 0.3s ease-in-out;
+    border-radius: 10px;
+}
+.komen{
+    background-color: #f7f7f7;
     border-radius: 10px;
 }

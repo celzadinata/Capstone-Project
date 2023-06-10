@@ -8,6 +8,8 @@ use App\Models\review;
 use App\Models\kategori;
 use Illuminate\Http\Request;
 use App\Models\detail_transaksi;
+use App\Models\transaksi;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -126,11 +128,12 @@ class ResellerControler extends Controller
         return view('reseller.page_produk', compact('list_kategori', 'produk'));
     }
 
-    public function profile(){
+    public function profile()
+    {
         $id = Auth::id();
         $user = User::find(Auth::user()->id);
         $list_kategori = kategori::paginate(5);
-        return view('reseller.page_profile', compact('user','list_kategori'));
+        return view('reseller.page_profile', compact('user', 'list_kategori'));
     }
 
     public function profile_update(Request $request)
@@ -166,5 +169,37 @@ class ResellerControler extends Controller
         $reseller->update();
 
         return back()->with('success', 'Berhasil mengubah informasi!');
+    }
+
+    public function indexPesanan()
+    {
+        $id = Auth::user()->id;
+        $transaksi = transaksi::where('user_id', $id)->get();
+        $transaksiModel = transaksi::whereHas('detail_transaksi', function ($query) use ($id) {
+            $query->whereHas('produk', function ($query) use ($id) {
+                $query->where('users_id', $id);
+            });
+        })->with('detail_transaksi.produk')->paginate(10);
+        $list_kategori = kategori::paginate(5);
+        return view('reseller.page_pesanan_saya', compact('list_kategori', 'transaksi', 'transaksiModel'));
+    }
+    public function konfirmasiPesanan(Request $request, $id)
+    {
+        // $validated = $request->validate([
+        //     'reply' => 'nullable'
+        // ]);
+
+        // review::where('id', $id)->update([
+        //     'reply' => $validated['reply']
+        // ]);
+        // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
+        $validated = $request->validate([
+            'status' => 'required'
+        ]);
+
+        transaksi::where('id', $id)->update([
+            'status' => $validated['status']
+        ]);
+        return redirect()->back()->with('success', 'Status berhasil diubah');
     }
 }

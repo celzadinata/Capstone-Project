@@ -24,21 +24,21 @@ class Review extends Component
             ->select(DB::raw('AVG(rate) as average_rating'))
             ->pluck('average_rating')
             ->first();
-        $this->review = reviews::where('produks_id', $this->produk_id)->with('users')->orderBy('created_at')->get();
+        $this->review = reviews::where('produks_id', $this->produk_id)->with('users')->orderByDesc('created_at')->get();
         return view('livewire.review', compact('rating', 'checkIfExits'));
     }
 
     public function reviewProduk()
     {
-        $checkIfExits = transaksi::with('detail_transaksi')->where(['user_id' => Auth::user()->id, 'status' => 'Pembayaran Diterima'])->first();
+        $checkIfExits = transaksi::with('detail_transaksi')->where(['user_id' => Auth::user()->id, 'status' => 'Selesai'])->first();
         if (!$checkIfExits) {
             session()->flash('message', 'Silahkan melakukan pembelian pada produk terlebih dahulu');
-        }else{
+        } else {
             $validated = $this->validate([
                 'rating' => 'required',
                 'pesan' => 'required'
             ]);
-    
+
             reviews::create([
                 'users_id' => Auth::user()->id,
                 'produks_id' => $this->produk_id,
