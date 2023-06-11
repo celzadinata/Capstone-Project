@@ -27,9 +27,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('produk.reseller') }}">Paket Usaha</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pesanan.saya') }}">Pesanan Saya</a>
-                </li>
 
             </ul>
             <ul class="navbar-nav ms-auto nav-center">
@@ -51,11 +48,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ auth()->user()->username }} <i class="fas fa-user-circle"></i>
+                            {{ auth()->user()->username }} <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
+                                id="preview" class="rounded img-fluid" style="width: 20px; height: 20px;" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @if (auth()->user()->role == 'pengusaha')
-                                <li><a class="dropdown-item" href="{{ route('profile.reseller') }}">Profile</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -73,6 +70,7 @@
                                 </li>
                             @elseif(auth()->user()->role == 'reseller')
                                 <li><a class="dropdown-item" href="{{ route('profile.reseller') }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ route('pesanan.saya') }}">Pesanan Saya</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"

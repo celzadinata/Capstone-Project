@@ -6,13 +6,9 @@
             <hr class="hr-profile opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
                 <h1>map</h1>
-
-                {{-- <h1>{{ $user_location->latitude }},</h1> --}}
-
                 <div class="my-2">
                     <input type="text" id="search-input" placeholder="Cari lokasi">
                 </div>
-
                 <div id="lokasi"></div>
                 <style>
                     #lokasi {

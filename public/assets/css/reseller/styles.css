@@ -336,7 +336,7 @@ Home page styles
 
 .paket .single-box {
     border-radius: 15px;
-    border: 3px solid var(--pink);
+    background-color: #fff;
 }
 
 .paket .single-box img {
@@ -383,7 +383,6 @@ Home page styles
 }
 
 .paket .btn-resell:hover {
-    -webkit-transform: scale(1.1);
     color: var(--pink);
     border-color: var(--pink);
     background: white;
@@ -411,6 +410,56 @@ Home page styles
 
 .paket .owl-dots button.owl-dot:focus {
     outline: none;
+}
+
+/*===============================================================
+Pesanan Saya Style
+=================================================================*/
+.btn-konfirmasi {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+.tab-pane {
+    border: 1px;
+}
+
+.container .nav-tabs .nav-link {
+    color: #CE3ABD;
+}
+
+.container .nav-tabs .nav-link:hover {
+    color: #fff;
+    background-color: #CE3ABD;
+}
+
+.tab-content {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.card-container {
+    display: flex;
+}
+
+.card-image {
+    margin-left: 2%;
+    margin-top: 2%;
+    width: 130px;
+    height: 130px;
+}
+
+.card-body {
+    color: #CE3ABD;
+}
+
+.card-body i {
+    font-size: 70px;
+}
+
+.price {
+    color: #CE3ABD;
 }
 
 /*===============================================================
@@ -954,14 +1003,14 @@ Paket Usaha page styles
 .icon-sm {
     width: 2rem;
     height: 2rem;
-    
+
 }
 
 #hapus-item:hover {
     cursor: pointer;
 }
 
-.text-purple{
+.text-purple {
     color: #CE3ABD;
 }
 
@@ -977,7 +1026,8 @@ Paket Usaha page styles
     transition: 0.3s ease-in-out;
     border-radius: 10px;
 }
-.komen{
+
+.komen {
     background-color: #f7f7f7;
     border-radius: 10px;
 }

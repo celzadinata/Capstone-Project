@@ -1,56 +1,9 @@
 @extends('layouts_reseller.app')
 @section('title', 'Pesanan Saya')
 @section('content')
-    <style>
-        .btn-konfirmasi {
-            position: absolute;
-            bottom: 2%;
-            right: 2%;
-        }
-
-        .tab-pane {
-            border: 1px;
-        }
-
-        .container .nav-tabs .nav-link {
-            color: #CE3ABD;
-        }
-
-        .container .nav-tabs .nav-link:hover {
-            color: #fff;
-            background-color: #CE3ABD;
-        }
-
-        .tab-content {
-            background-color: #fff;
-            border-radius: 5px;
-        }
-
-        .card-container {
-            display: flex;
-        }
-
-        .card-image {
-            margin-left: 2%;
-            margin-top: 2%;
-            width: 130px;
-            height: 130px;
-        }
-
-        .card-body {
-            color: #CE3ABD;
-        }
-
-        .card-body i {
-            font-size: 70px;
-        }
-
-        .price {
-            color: #CE3ABD;
-        }
-    </style>
     <section class="pesanan mb-4">
         <div class="container">
+            <hr class="my-2 hr-pesanan opacity-100" data-aos="flip-right" data-aos-delay="100">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" id="tab-menunggu-pembayaran" data-bs-toggle="tab"
@@ -298,7 +251,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-spinner"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-gears"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Diproses Kosong</h4>
                                         </div>
