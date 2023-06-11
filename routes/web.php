@@ -88,19 +88,18 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::put('/produk/update_tampilan/{id}', [ProdukController::class, 'update_tampilan'])->name('produk.update_tampilan');
     Route::delete('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
     // Transaksi
-    Route::get('/transaksi',[TransaksiController::class,'index'])->name('transaksi.pengusaha');
-    Route::put('/transaksi/update/{id}',[TransaksiController::class,'update'])->name('transaksi.update');
+    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.pengusaha');
+    Route::put('/transaksi/update/{id}', [TransaksiController::class, 'update'])->name('transaksi.update');
     // Route::get('/transaksi/pdf/{id}',[TransaksiController::class,'showPDF'])->name('transaksi.pdf');
 
     //Laporan
-    Route::get('/laporan',[LaporanController::class,'index'])->name('laporan.pengusaha');
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.pengusaha');
     //Review
-    Route::get('/review',[ReviewController::class,'index'])->name('review.pengusaha');
-    Route::put('/review/update/{id}',[ReviewController::class,'update'])->name('review.update');
+    Route::get('/review', [ReviewController::class, 'index'])->name('review.pengusaha');
+    Route::put('/review/update/{id}', [ReviewController::class, 'update'])->name('review.update');
     //Profile
     Route::get('/profile', [PengusahaController::class, 'show'])->name('pengusaha.profile');
     Route::put('/profile', [PengusahaController::class, 'update'])->name('pengusaha.profile.update');
-
 });
 
 //Role Reseller taro sini
@@ -119,6 +118,9 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::get('/keranjang', Cart::class)->name('keranjang');
     Route::post('/keranjang', [TransaksiController::class, 'store'])->name('keranjang.checkout');
     Route::get('/add/{id}', [DetailTransaksiController::class, 'store'])->name('keranjang.add');
+    // pesanan saya
+    Route::get('/pesanan-saya', [ResellerControler::class, 'indexPesanan'])->name('pesanan.saya');
+    Route::put('/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
 });
 Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
 Route::get('/map', [ResellerControler::class, 'map'])->name('map');
@@ -133,5 +135,6 @@ Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.resell
 Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
 // search produk
 Route::get('/search', [ResellerControler::class, 'search'])->name('search');
+
 
 require __DIR__ . '/auth.php';

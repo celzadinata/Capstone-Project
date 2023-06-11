@@ -49,12 +49,12 @@
         <h5 class="mt-2">Belum Ada Penilaian</h5>
     @else
         @foreach ($review as $r)
-            <div class="row">
+            <div class="row mx-4">
                 <div class="col-md-2 col-lg-1">
                     <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="60px"
                         style="border-radius:5px">
                 </div>
-                <div class="col-md-5 col-lg-7">
+                <div class="col-md-5 col-lg-11">
                     <h5>{{ $r->users->username }}</h5>
                     @if ($r->rate == 1)
                         1 <i class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
@@ -77,6 +77,12 @@
                     <small class="text-muted" style="font-size: 12px"><i class="fa-solid fa-circle fa-2xs"></i>
                         {{ $r->created_at->diffForHumans() }}</small>
                     <p>{{ $r->review }}</p>
+                    @if ($r->reply)
+                        <div class="p-2 komen">
+                            <p>Respon Penjual</p>
+                            <p>{{ $r->reply }}</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         @endforeach
