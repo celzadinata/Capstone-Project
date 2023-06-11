@@ -6,12 +6,9 @@
             <hr class="hr-profile opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
                 <h1>map</h1>
-                {{-- <h1>{{ $user_location->latitude }},</h1> --}}
-                {{ auth()->user()->lokasi->latitude }}
-                {{ auth()->user()->lokasi->longitude }}
-                @foreach ($lokasi as $l)
-                    <h1>{{ $l->longitude }}</h1>
-                @endforeach
+                <div class="my-2">
+                    <input type="text" id="search-input" placeholder="Cari lokasi">
+                </div>
                 <div id="lokasi"></div>
                 <style>
                     #lokasi {
@@ -33,7 +30,7 @@
                 function showPosition(position) {
                     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-                    var map = new google.maps.Map(document.getElementById('map'), {
+                    var map = new google.maps.Map(document.getElementById('lokasi'), {
                         center: latLng,
                         zoom: 12
                     });
@@ -55,7 +52,7 @@
                     }, // Ganti dengan koordinat yang diinginkan
                     zoom: 12 // Ganti dengan level zoom yang diinginkan
                 });
-                @foreach ( $lokasi as $l )
+                @foreach ($lokasi as $l)
                 var marker = new google.maps.Marker({
                     position: {
                         lat: {{ $l->latitude }},
