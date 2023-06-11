@@ -6,15 +6,49 @@
             height: 100%;
         }
     </style>
-    {{-- Detail Produk --}}
-    <section class="detail-produk">
+    {{-- Paket Usaha --}}
+    <section class="paket">
         <div class="container">
-            <hr class="my-2 hr-detail opacity-100" data-aos="flip-right" data-aos-delay="100">
-            <div class="card my-4" data-aos="zoom-in">
-                <div class="row row-cols-1 row-cols-md-4 g-0">
-                    <div class="col-md-5">
-                        <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" class="img-fluid"
-                            alt="...">
+            <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
+            <div class="row mt-3 py-2" id="content">
+                <div class="col-md-3 col-lg-5">
+                    <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" class="card-img-top" alt="...">
+                </div>
+                <div class="col-md-5 col-lg-7 pt-2">
+                    <h4 class="title">{{ $produk->nama_produk }}</h4>
+                    <table>
+                        <tbody id="text_konfirmasi_user">
+                            <tr>
+                                <td>
+                                    @if ($rating == null)
+                                        0
+                                    @else
+                                        <u>{{ str_replace('...', '', Str::limit($rating, 3)) }}</u>
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $rating)
+                                                <i class="fa fa-star checked"></i>
+                                            @endif
+                                        @endfor
+                                    @endif
+                                </td>
+                                <td>&nbsp|&nbsp</td>
+                                <td>{{ $nilai }} Penilaian</td>
+                                <td>&nbsp|&nbsp</td>
+                                <td>{{ $terjual }} Terjual</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="price p-4">
+                        <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
+                    </div>
+
+                    <div class="col-md-3 col-lg-8">
+                        <a href="{{ route('map') }}" class="btn-resell"> Lihat Lokasi</a>
+                    </div>
+                    <div class="col-md-3 col-lg-8">
+
+                        <a href="{{ route('keranjang.add', $produk->id) }}" class="btn-resell"><i
+                                class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i> Masukkan Keranjang</a>
                     </div>
                     <div class="col-md-7">
                         <div class="card-body px-5">
@@ -56,51 +90,30 @@
                 </div>
             </div>
 
-            <div class="description mb-4" id="content" data-aos="fade-right">
-                <div class="row py-3 px-4">
-                    <h3>Deskripsi</h3>
-                    <p>{{ $produk->deskripsi }}</p>
-                </div>
+            <style>
+                .checked {
+                    color: #CE3ABDe;
+                }
+            </style>
+
+            <div class="description row my-2 py-2" id="content">
+                <h4 class="title">Deskripsi</h4>
+                <p class="isi">{{ $produk->deskripsi }}</p>
             </div>
 
-            <div class="review mb-4" id="content" data-aos="fade-left">
-                <div class="row py-3 px-4">
-                    <h3>Penilaian Produk</h3>
-                    @if ($review->isEmpty())
-                        <h5 class="mt-2">Belum Ada Penilaian</h5>
-                    @else
-                        @foreach ($review as $r)
-                            <div class="col-md-2 col-lg-auto">
-                                <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="40px"
-                                    style="border-radius:20px">
-                            </div>
-                            <div class="col-md-5 col-lg-auto">
-                                <h4>{{ $r->users->username }}</h4>
-                                <h6>
-                                    @if ($r->rate == 1)
-                                        <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i><i class="far fa-star"></i>
-                                    @elseif($r->rate == 2)
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i><i class="far fa-star"></i>
-                                    @elseif($r->rate == 3)
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="far fa-star"></i><i class="far fa-star"></i>
-                                    @elseif($r->rate == 4)
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="far fa-star"></i>
-                                    @elseif($r->rate == 5)
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    @endif
-                                </h6>
-                                <p>{{ $r->review }}</p>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
+            <div class="review row mb-3 py-2" id="content">
+                <h4>Penilaian Produk</h4>
+
+                @livewire('review', ['produk_id' => $produk->id])
+
             </div>
+            <style>
+                #content {
+                    background-color: #fff;
+                }
+            </style>
         </div>
     </section>
-    {{-- ./Detail Produk --}}
+    {{-- ./Paket Usaha --}}
+
 @endsection

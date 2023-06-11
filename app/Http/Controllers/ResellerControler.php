@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\lokasi;
 use App\Models\produk;
 use App\Models\review;
 use App\Models\kategori;
-use App\Models\detail_transaksi;
 use Illuminate\Http\Request;
+use App\Models\detail_transaksi;
+use App\Models\transaksi;
+use Carbon\Carbon;
+use Dompdf\Adapter\PDFLib;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
+use PDF;
 
 class ResellerControler extends Controller
 {
@@ -114,6 +123,16 @@ class ResellerControler extends Controller
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual', 'review'));
     }
 
+    public function map($id)
+    {
+        $id = Auth::id();
+        // $user_location = lokasi::where('users_id', $id)->get();
+        $lokasi = lokasi::all();
+        $produk = produk::find($id);
+        // @dd($user_location);
+        return view('reseller.page_map', compact('lokasi','lokasi'));
+    }
+
     public function search(Request $request)
     {
         $list_kategori = kategori::paginate(5);
@@ -121,5 +140,81 @@ class ResellerControler extends Controller
         $produk = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
 
         return view('reseller.page_produk', compact('list_kategori', 'produk'));
+    }
+
+    public function profile()
+    {
+        $id = Auth::id();
+        $user = User::find(Auth::user()->id);
+        $list_kategori = kategori::paginate(5);
+        return view('reseller.page_profile', compact('user', 'list_kategori'));
+    }
+
+    public function profile_update(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'password' => ['confirmed', Password::default()->sometimes()],
+            // 'jenisKelamin' => 'required',
+            'alamat' => 'required|string|max:255',
+            'no_hp' => 'required|string|max:13',
+            'avatar' => 'mimes:jpg,jpeg,png|max:2048'
+        ]);
+
+        // dd($request->toArray());
+        $reseller = User::find(Auth::user()->id);
+        $reseller->nama_depan = $request->input('nama');
+        $reseller->no_hp = $request->input('no_hp');
+        // $reseller->jenis_kelamin = $request->input('jenisKelamin');
+        $reseller->alamat = $request->input('alamat');
+        if ($request->avatar) {
+            $imgUrl = time() . '-' . Auth::user()->username . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar'), $imgUrl);
+            $reseller->avatar = $imgUrl;
+        }
+        if ($request->password) {
+            $reseller->password = Hash::make($request->input('password'));
+        }
+        if ($request->berkas) {
+            $berkasUrl = time() . '-' . Auth::user()->username . '.' . $request->berkas->extension();
+            $request->berkas->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil'), $berkasUrl);
+            $reseller->berkas = $berkasUrl;
+        }
+        $reseller->update();
+
+        return back()->with('success', 'Berhasil mengubah informasi!');
+    }
+
+    public function indexPesanan()
+    {
+        $id = Auth::user()->id;
+        $transaksi = transaksi::where('user_id', $id)->get();
+        $transaksiModel = transaksi::whereHas('detail_transaksi', function ($query) use ($id) {
+            $query->whereHas('produk', function ($query) use ($id) {
+                $query->where('users_id', $id);
+            });
+        })->with('detail_transaksi.produk')->paginate(10);
+        $list_kategori = kategori::paginate(5);
+        return view('reseller.page_pesanan_saya', compact('list_kategori', 'transaksi', 'transaksiModel'));
+    }
+    public function invoice($id)
+    {
+        //GET DATA BERDASARKAN ID
+        $transaksi = transaksi::with(['users', 'detail_transaksi'])->find($id);
+        //LOAD PDF YANG MERUJUK KE VIEW PRINT.BLADE.PHP DENGAN MENGIRIMKAN DATA DARI INVOICE
+        //KEMUDIAN MENGGUNAKAN PENGATURAN LANDSCAPE A4
+        $pdf = PDF::loadView('reseller.page_struk', compact('transaksi'))->setPaper('a4', 'landscape');
+        return $pdf->stream();
+    }
+    public function konfirmasiPesanan(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'status' => 'required'
+        ]);
+
+        transaksi::where('id', $id)->update([
+            'status' => $validated['status']
+        ]);
+        return redirect()->back()->with('success', 'Status berhasil diubah');
     }
 }

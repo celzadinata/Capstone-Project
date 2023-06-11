@@ -9,7 +9,15 @@ class transaksi extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
+    protected $keyType = 'string';
 
+    protected $fillable = [
+        'id',
+        'user_id',
+        'tanggal',
+        'total',
+        'bukti_pembayaran'
+    ];
 
     public function detail_transaksi()
     {
@@ -20,5 +28,4 @@ class transaksi extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    protected $keyType = 'string';
 }

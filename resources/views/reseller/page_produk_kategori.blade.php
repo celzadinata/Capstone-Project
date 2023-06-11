@@ -5,7 +5,7 @@
     <section class="paket-usaha">
         <div class="container">
             <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-            <div class="row">
+            <div class="row my-3">
                 <div class="col-md-3 col-lg-2 pe-5 side-panel-paket" data-aos="zoom-in" data-aos-delay="100">
                     <form class="d-flex mb-4" action="{{ route('search') }}" method="get" role="search">
                         <input class="form-control me-2" name="search" type="text" placeholder="Search"
@@ -50,7 +50,7 @@
                                     @if ($p->tampilkan == 1)
                                         <div class="col">
                                             <div class="card h-100">
-                                                <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
+                                                <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
                                                     class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>

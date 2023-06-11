@@ -71,7 +71,7 @@
                                 <div class="single-box text-center">
                                     <div class="img-area">
                                         <img alt="" class="img-fluid move-animation"
-                                            src="assets/img/reseller/paket/paket-adidas.jpg" />
+                                            src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}" />
                                     </div>
                                     <div class="info-area">
                                         <h4 id="title_card">{{ Str::limit($p->nama_produk, 20) }}</h4>
@@ -88,14 +88,4 @@
         </div>
     </section>
     {{-- ./Paket Usaha --}}
-@endsection
-@section('script')
-    <script>
-        $(document).ready(function() {
-            $('.star-rating').click(function() {
-                var rating = $(this).data('rating');
-                // Kirim rating ke server menggunakan Ajax atau lakukan tindakan lain sesuai kebutuhan Anda
-            });
-        });
-    </script>
 @endsection

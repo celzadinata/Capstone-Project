@@ -76,6 +76,20 @@ class AdminSeeder extends Seeder
                 'no_hp' => '089123456789',
                 'status' => 'Aktif'
             ],
+            [
+                'id' => 'K4uS7360',
+                'role' => 'reseller',
+                'avatar' => 'default',
+                'nama_depan' => 'mas brot',
+                'nama_belakang' => 'MM',
+                'username' => 'masbrot',
+                'email' => 'test@gmail.com',
+                'jenis_kelamin' => 'laki-laki',
+                'password' => bcrypt('qweasdzxc'),
+                'alamat' => 'Jl everywhere',
+                'no_hp' => '089123456712',
+                'status' => 'Aktif'
+            ],
         ];
 
         User::insert($user);

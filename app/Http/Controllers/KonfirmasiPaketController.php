@@ -15,7 +15,7 @@ class KonfirmasiPaketController extends Controller
      */
     public function index()
     {
-        $produk = produk::where('jenis','paket_usaha')->with('users')->get();
+        $produk = produk::where('jenis','paket_usaha')->with('users')->paginate(10);
         return view('admin.konfirmasi_paket.index',compact('produk'));
     }
 

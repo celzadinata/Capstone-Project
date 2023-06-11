@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
         // dd($request->user());
 
         $redirect_path = '';
-        Auth::user()->role === 'admin' ? $redirect_path = '/admin' : (Auth::user()->role === 'pengusaha' ? $redirect_path = '/pengusaha' : $redirect_path = '/reseller');
+        Auth::user()->role === 'admin' ? $redirect_path = '/admin' : (Auth::user()->role === 'pengusaha' ? $redirect_path = '/pengusaha' : $redirect_path = '/');
 
         return redirect()->intended($redirect_path);
     }

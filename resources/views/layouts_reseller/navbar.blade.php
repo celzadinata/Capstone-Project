@@ -9,7 +9,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard.reseller') }}">Home</a>
                 </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Kategori
@@ -23,15 +23,16 @@
                         <li><a class="dropdown-item" href="{{ route('kategori.reseller') }}"><i
                                     class="fa-solid fa-bars"></i> Semua Kategori</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('produk.reseller') }}">Paket Usaha</a>
                 </li>
+
             </ul>
             <ul class="navbar-nav ms-auto nav-center">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="nav-link" href="{{ route('keranjang') }}"><i class="fas fa-shopping-cart"></i></a>
                     </li>
                     @if (Auth::user()->role == 'admin')
                         <li class="nav-item">
@@ -47,17 +48,37 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ auth()->user()->username }} <i class="fas fa-user-circle"></i>
+                            {{ auth()->user()->username }} <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
+                                id="preview" class="rounded img-fluid" style="width: 20px; height: 20px;" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
+                            @if (auth()->user()->role == 'pengusaha')
+                                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            @elseif (auth()->user()->role == 'admin')
+                                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            @elseif(auth()->user()->role == 'reseller')
+                                <li><a class="dropdown-item" href="{{ route('profile.reseller') }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ route('pesanan.saya') }}">Pesanan Saya</a></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            @endif
                         </ul>
                     </li>
                 @endauth

@@ -1,5 +1,10 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Tambah Produk')
+@if ($jenis == 'paket_usaha')
+    @section('title_top', 'PAKET USAHA')
+@else
+    @section('title_top', 'SUPPLY')
+@endif
 @section('content')
     <style>
         .previewImage {
