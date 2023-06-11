@@ -19,7 +19,7 @@
                                             <th width="3%">Status Pembayaran</th>
                                             <th>Bukti Pembayaran</th>
                                             <th>Total Harga</th>
-                                            <th text-center;" colspan="2">Aksi</th>
+                                            <th text-center;" colspan="3">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,6 +51,10 @@
                                                         data-toggle="modal" data-target="#detailModal{{ $item->id }}">
                                                         Detail transaksi
                                                     </button>
+                                                </td>
+                                                <td>
+                                                    <a type="button" class="btn-resell"
+                                                        href="{{ route('invoice', $item->id) }}">Cetak</a>
                                                 </td>
                                             </tr>
 
@@ -115,7 +119,8 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="detailModalLabel">Detail Transaksi
                                                                 <b>ID
-                                                                    {{ $item->id }}</b></h5>
+                                                                    {{ $item->id }}</b>
+                                                            </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
