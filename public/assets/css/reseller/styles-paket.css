@@ -21,6 +21,11 @@ Paket Usaha styles
     border-width: 2px;
 }
 
+.hr-pesanan {
+    border-width: 2px;
+    color: var(--pink);
+}
+
 .paket .card .card-body h4 {
     color: black;
     font-size: 15px;
@@ -31,11 +36,6 @@ Paket Usaha styles
 .paket .card .card-body p {
     color: var(--pink);
     text-align: left;
-}
-
-.paket .row {
-    margin-top: 10px;
-    margin-bottom: 18px;
 }
 
 .paket .card {

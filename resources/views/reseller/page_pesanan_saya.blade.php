@@ -1,48 +1,9 @@
 @extends('layouts_reseller.app')
 @section('title', 'Pesanan Saya')
 @section('content')
-    <style>
-        .btn-konfirmasi {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
-
-        .tab-pane{
-            border: 1px;
-        }
-
-        .container .nav-tabs .nav-link {
-            color: #CE3ABD;
-        }
-
-        .container .nav-tabs .nav-link:hover {
-            color: #fff;
-            background-color: #CE3ABD;
-        }
-
-        .tab-content {
-            background-color: #fff;
-            border-radius: 5px;
-        }
-
-        .card-container {
-            display: flex;
-        }
-
-        .card-image {
-            margin-left: 2%;
-            margin-top: 2%;
-            width: 130px;
-            height: 130px;
-        }
-
-        .price {
-            color: #CE3ABD;
-        }
-    </style>
     <section class="pesanan mb-4">
         <div class="container">
+            <hr class="my-2 hr-pesanan opacity-100" data-aos="flip-right" data-aos-delay="100">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" id="tab-menunggu-pembayaran" data-bs-toggle="tab"
@@ -69,11 +30,14 @@
 
             <div class="tab-content">
                 <div id="content-menunggu-pembayaran" class="tab-pane fade show active">
+                    @php
+                        $hitungstatus = 0;
+                    @endphp
                     @foreach ($transaksi as $item)
                         @if ($item->status === 'Menunggu Pembayaran')
                             <div class="row">
                                 <div class="col">
-                                    <div class="card mt-2 mx-2">
+                                    <div class="card my-2 mx-2">
                                         <div class="card-body">
                                             <div class="price">
                                                 <h4 style="color: #CE3ABD">ID {{ $item->id }}</h4>
@@ -123,12 +87,30 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                $hitungstatus++;
+                            @endphp
                         @endif
                     @endforeach
-                    <br>
+                    @if ($hitungstatus === 0)
+                        <div class="row">
+                            <div class="col">
+                                <div class="card py-4 my-2 mx-2">
+                                    <div class="card-body py-5 text-center">
+                                        <div class="my-3"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                                        <div class="mb-2">
+                                            <h4>Pesanan Menunggu Pembayaran Kosong</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div id="content-pembayaran-diterima" class="tab-pane fade">
-                    <br>
+                    @php
+                        $hitungstatus = 0;
+                    @endphp
                     @foreach ($transaksi as $item)
                         @if ($item->status === 'Pembayaran Diterima')
                             <div class="row">
@@ -183,12 +165,30 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                $hitungstatus++;
+                            @endphp
                         @endif
                     @endforeach
-                    <br>
+                    @if ($hitungstatus === 0)
+                        <div class="row">
+                            <div class="col">
+                                <div class="card py-4 my-2 mx-2">
+                                    <div class="card-body py-5 text-center">
+                                        <div class="my-3"><i class="fa-solid fa-money-check-dollar"></i></div>
+                                        <div class="mb-2">
+                                            <h4>Pesanan Pembayaran Diterima Kosong</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div id="content-pesanan-diproses" class="tab-pane fade">
-                    <br>
+                    @php
+                        $hitungstatus = 0;
+                    @endphp
                     @foreach ($transaksi as $item)
                         @if ($item->status === 'Pesanan Diproses')
                             <div class="row">
@@ -199,55 +199,72 @@
                                                 <h4 style="color: #CE3ABD">ID {{ $item->id }}</h4>
                                             </div>
                                             <hr>
-                                            <div class="d-grid">
-                                                @if ($item->detail_transaksi)
-                                                    @foreach ($item->detail_transaksi as $detailTransaksi)
-                                                        <div class="d-flex">
-                                                            <div class="card-image">
-                                                                <img width="100 px" height="100px"
-                                                                    src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
-                                                                    class="card-title" alt="Image 1">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">{{ $detailTransaksi->nama_produk }}
-                                                                </h5>
-                                                                <p class="card-text">Qty :
-                                                                    <span>{{ $detailTransaksi->qty }}</span> x
-                                                                    <span>Rp.
-                                                                        {{ number_format($detailTransaksi->harga, 0, ',', '.') }}</span>
-                                                                </p>
-                                                                <div class="nav-item position-relative">
-                                                                    <div class="price">
-                                                                        <h5>Sub Total :</h5>
-                                                                    </div>
-                                                                    <div class="price position-absolute top-0 end-0">
-                                                                        <h5>
-                                                                            Rp.
-                                                                            {{ number_format($detailTransaksi->sub_total, 0, ',', '.') }}
-                                                                        </h5>
-                                                                    </div>
+                                            @if ($item->detail_transaksi)
+                                                @foreach ($item->detail_transaksi as $detailTransaksi)
+                                                    <div class="d-flex">
+                                                        <div class="card-image">
+                                                            <img width="100 px" height="100px"
+                                                                src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
+                                                                class="card-title" alt="Image 1">
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">{{ $detailTransaksi->nama_produk }}
+                                                            </h5>
+                                                            <p class="card-text">Qty :
+                                                                <span>{{ $detailTransaksi->qty }}</span> x
+                                                                <span>Rp.
+                                                                    {{ number_format($detailTransaksi->harga, 0, ',', '.') }}</span>
+                                                            </p>
+                                                            <div class="nav-item position-relative">
+                                                                <div class="price">
+                                                                    <h5>Sub Total :</h5>
+                                                                </div>
+                                                                <div class="price position-absolute top-0 end-0">
+                                                                    <h5>
+                                                                        Rp.
+                                                                        {{ number_format($detailTransaksi->sub_total, 0, ',', '.') }}
+                                                                    </h5>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    @endforeach
-                                                @endif
-                                                <div class="card-footer price" style="background-color: #f5f5f5">
-                                                    <h4 class="d-flex justify-content-end py-2 mb-0">
-                                                        Total
-                                                        &nbsp;
-                                                        <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
-                                                    </h4>
-                                                </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                            <div class="card-footer price" style="background-color: #f5f5f5">
+                                                <h4 class="d-flex justify-content-end py-2 mb-0">
+                                                    Total
+                                                    &nbsp;
+                                                    <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                $hitungstatus++;
+                            @endphp
                         @endif
                     @endforeach
-                    <br>
+                    @if ($hitungstatus === 0)
+                        <div class="row">
+                            <div class="col">
+                                <div class="card py-4 my-2 mx-2">
+                                    <div class="card-body py-5 text-center">
+                                        <div class="my-3"><i class="fa-solid fa-gears"></i></div>
+                                        <div class="mb-2">
+                                            <h4>Pesanan Diproses Kosong</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div id="content-pesanan-dikirim" class="tab-pane fade">
+                    @php
+                        $hitungstatus = 0;
+                    @endphp
                     @foreach ($transaksi as $item)
                         @if ($item->status === 'Pesanan Dikirim')
                             <div class="row">
@@ -297,19 +314,17 @@
                                                         <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
                                                     </h4>
                                                 </div>
-                                                <div class="card-body mt-2">
+                                                <div class="card-body m-2">
                                                     <button type="button" id="konfirmasiBtn{{ $item->id }}"
                                                         class="btn-resell btn-konfirmasi my-2" data-bs-toggle="modal"
                                                         data-bs-target="#detailmodal{{ $item->id }}">Konfirmasi
                                                         Pesanan</button>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {{-- Modal konfirmasi --}}
                             <div class="modal fade" id="detailmodal{{ $item->id }}" tabindex="-1"
                                 aria-labelledby="ubahStatusLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -333,17 +348,35 @@
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Tutup</button>
                                             <button type="submit" class="btn btn-warning">Konfirmasi</button>
-
                                         </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                $hitungstatus++;
+                            @endphp
                         @endif
                     @endforeach
-                    <br>
+                    @if ($hitungstatus === 0)
+                        <div class="row">
+                            <div class="col">
+                                <div class="card py-4 my-2 mx-2">
+                                    <div class="card-body py-5 text-center">
+                                        <div class="my-3"><i class="fa-solid fa-truck-fast"></i></div>
+                                        <div class="mb-2">
+                                            <h4>Pesanan Dikirim Kosong</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div id="content-selesai" class="tab-pane fade">
+                    @php
+                        $hitungstatus = 0;
+                    @endphp
                     @foreach ($transaksi as $item)
                         @if ($item->status === 'Selesai')
                             <div class="row">
@@ -393,67 +426,52 @@
                                                         <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
                                                     </h4>
                                                 </div>
-                                                <div class="card-body my-2">
-                                                    <button type="button" id="nilaiProdukBtn{{ $item->id }}"
-                                                        class="btn-resell btn-konfirmasi" data-bs-toggle="modal"
-                                                        data-bs-target="#nilaiProduk{{ $item->id }}">Nilai
-                                                        Produk</button>
+                                                <div class="card-body position-relative">
+                                                    <div class="nav-link">
+                                                        <a type="button" class="btn-resell"
+                                                            href="{{ route('invoice.print', $item->id) }}">Cetak</a>
                                                     </div>
-                                                @endforeach
-                                            @endif
-                                            <div class="card-footer nav-link" style="background-color: #f5f5f5">
-                                                <h4 class="d-flex justify-content-end py-2 mb-0">
-                                                    Total
-                                                    &nbsp;
-                                                    <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
-                                                </h4>
-                                            </div>
-                                            <div class="card-body position-relative">
-                                                <div class="nav-link">
-                                                    <a type="button" class="btn-resell"
-                                                        href="{{ route('invoice.print', $item->id) }}">Cetak</a>
-                                                </div>
-                                                <div class="nav-link position-absolute end-0">
-                                                    <button type="button" id="nilaiProdukBtn{{ $item->id }}"
-                                                        class="btn-resell btn-konfirmasi" data-bs-toggle="modal"
-                                                        data-bs-target="#nilaiProduk{{ $item->id }}">Nilai
-                                                    </button>
+                                                    <div class="nav-link position-absolute end-0">
+                                                        <button type="button" id="nilaiProdukBtn{{ $item->id }}"
+                                                            class="btn-resell btn-konfirmasi" data-bs-toggle="modal"
+                                                            data-bs-target="#nilaiProduk{{ $item->id }}">Nilai
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        {{-- Modal Rating --}}
-                        <div class="modal fade" id="nilaiProduk{{ $item->id }}" tabindex="-1"
-                            aria-labelledby="nilaiProdukLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title fs-5" id="nilaiProdukLabel">Detail pesanan</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true"></span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                @if ($item->detail_transaksi)
-                                                    @foreach ($item->detail_transaksi as $detailTransaksi)
-                                                        <p class="mb-3">{{ $detailTransaksi->nama_produk }} - <b>Qty :
-                                                                <span>{{ $detailTransaksi->qty }}</span>
-                                                            </b></p>
-                                                        <p class="form-control">Rp.
-                                                            {{ number_format($detailTransaksi->harga, 0, ',', '.') }}
-                                                        </p>
-                                                        <a href="{{ route('produk_detail.reseller', $detailTransaksi->produks_id) }}"
-                                                            class="btn btn-warning form-control">Rate</a>
-                                                        <hr>
-                                                    @endforeach
-                                                @endif
+                            <div class="modal fade" id="nilaiProduk{{ $item->id }}" tabindex="-1"
+                                aria-labelledby="nilaiProdukLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title fs-5" id="nilaiProdukLabel">Detail pesanan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    @if ($item->detail_transaksi)
+                                                        @foreach ($item->detail_transaksi as $detailTransaksi)
+                                                            <p class="mb-3">{{ $detailTransaksi->nama_produk }} - <b>Qty
+                                                                    :
+                                                                    <span>{{ $detailTransaksi->qty }}</span>
+                                                                </b></p>
+                                                            <p class="form-control">Rp.
+                                                                {{ number_format($detailTransaksi->harga, 0, ',', '.') }}
+                                                            </p>
+                                                            <a href="{{ route('produk_detail.reseller', $detailTransaksi->produks_id) }}"
+                                                                class="btn btn-warning form-control">Rate</a>
+                                                            <hr>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
                                             </div>
                                             <br>
                                         </div>
@@ -464,9 +482,25 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                $hitungstatus++;
+                            @endphp
                         @endif
                     @endforeach
-                    <br>
+                    @if ($hitungstatus === 0)
+                        <div class="row">
+                            <div class="col">
+                                <div class="card py-4 my-2 mx-2">
+                                    <div class="card-body py-5 text-center">
+                                        <div class="my-3"><i class="fa-solid fa-clipboard-check"></i></div>
+                                        <div class="mb-2">
+                                            <h4>Pesanan Selesai Kosong</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

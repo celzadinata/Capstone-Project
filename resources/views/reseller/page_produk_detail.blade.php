@@ -9,8 +9,8 @@
     {{-- Paket Usaha --}}
     <section class="paket">
         <div class="container">
-            {{-- <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100"> --}}
-            <div class="row py-2" id="content">
+            <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
+            <div class="row mt-3 py-2" id="content">
                 <div class="col-md-3 col-lg-5">
                     <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" class="card-img-top" alt="...">
                 </div>
@@ -62,18 +62,17 @@
                 }
             </style>
 
-            <div class="description row py-2" id="content">
+            <div class="description row my-2 py-2" id="content">
                 <h4 class="title">Deskripsi</h4>
                 <p class="isi">{{ $produk->deskripsi }}</p>
             </div>
 
-            <div class="review row py-2" id="content">
+            <div class="review row mb-3 py-2" id="content">
                 <h4>Penilaian Produk</h4>
 
                 @livewire('review', ['produk_id' => $produk->id])
 
             </div>
-
             <style>
                 #content {
                     background-color: #fff;
