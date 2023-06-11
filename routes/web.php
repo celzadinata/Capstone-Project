@@ -31,13 +31,6 @@ use GuzzleHttp\Client;
 |
 */
 
-Route::get('/', function () {
-    return view('reseller.page_home');
-});
-Route::get('/paket_usaha', function () {
-    return view('reseller.paket_usaha');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -50,7 +43,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-//Role Admin taro sini
+//Role Admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], function () {
     //Dashboard Admin
     Route::get('/', [AdminController::class, 'index'])->name('dashboard.admin');
@@ -67,15 +60,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::put('/user_management/update/{id}', [UserController::class, 'update'])->name('update_user.admin');
     Route::get('/user_management/destory/{id}', [UserController::class, 'destroy'])->name('destroy_user.admin');
     //  Konfirmasi Produk
-    Route::get('/konfirmasi_produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');
-    Route::get('/konfirmasi_produk/confirm/{id}', [KonfirmasiPaketController::class, 'edit'])->name('konfirmasi_paket.admin');
-    Route::put('/konfirmasi_produk/update/{id}', [KonfirmasiPaketController::class, 'update'])->name('update_paket.admin');
-    Route::get('/konfirmasi_produk/destory/{id}', [KonfirmasiPaketController::class, 'destroy'])->name('konfirmasi_destroy.admin');
+    Route::get('/konfirmasi-produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');
+    Route::get('/konfirmasi-produk/confirm/{id}', [KonfirmasiPaketController::class, 'edit'])->name('konfirmasi_paket.admin');
+    Route::put('/konfirmasi-produk/confirm/{id}', [KonfirmasiPaketController::class, 'update'])->name('update_paket.admin');
+    Route::get('/konfirmasi-produk/destory/{id}', [KonfirmasiPaketController::class, 'destroy'])->name('konfirmasi_destroy.admin');
     // Notifikasi atau pesan
     Route::post('/konfirmasi_produk/pesan_tolak', [NotifikasiController::class, 'store'])->name('pesan_paket.admin');
 });
 
-//Role Pengusaha taro sini
+//Role Pengusaha
 Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']], function () {
     Route::get('/', [PengusahaController::class, 'index'])->name('dashboard.pengusaha');
     //Produk
@@ -91,8 +84,6 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.pengusaha');
     Route::put('/transaksi/update/{id}', [TransaksiController::class, 'update'])->name('transaksi.update');
     Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice');
-
-
     //Laporan
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.pengusaha');
     //Review
@@ -103,8 +94,8 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::put('/profile', [PengusahaController::class, 'update'])->name('pengusaha.profile.update');
 });
 
-//Role Reseller taro sini
-Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
+//Role Reseller
+Route::group(['prefix' => '/', 'middleware' => ['auth', 'isReseller']], function () {
     // Dashboard Reseller
     Route::get('/', [ResellerControler::class, 'index'])->name('reseller');
     // Semua Kategori
@@ -112,22 +103,23 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
     // Paket Usaha
     Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
-    Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
+    Route::get('/produk-detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
     // Profile
+    Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
     Route::put('/profile', [ResellerControler::class, 'profile_update'])->name('update.profile.reseller');
     // Keranjang
     Route::get('/keranjang', Cart::class)->name('keranjang');
     Route::post('/keranjang', [TransaksiController::class, 'store'])->name('keranjang.checkout');
     Route::get('/add/{id}', [DetailTransaksiController::class, 'store'])->name('keranjang.add');
     // pesanan saya
-    Route::get('/pesanan-saya', [ResellerControler::class, 'indexPesanan'])->name('pesanan.saya');
-    Route::put('/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
+    Route::get('/user/pesanan-saya', [ResellerControler::class, 'indexPesanan'])->name('pesanan.saya');
+    Route::put('/user/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
     // Invoice
     Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice.print');
 });
-Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
 Route::get('/map', [ResellerControler::class, 'map'])->name('map');
 
+// Guets
 // Dashboard Reseller
 Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
 // Semua Kategori
@@ -135,7 +127,6 @@ Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.
 Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
 // Paket Usaha
 Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
-Route::get('/produk_detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
 // search produk
 Route::get('/search', [ResellerControler::class, 'search'])->name('search');
 
