@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             kategoriSeeder::class,
             produkSeeder::class,
-            transaksiSeeder::class,
+            // transaksiSeeder::class,
 
 
         ]);

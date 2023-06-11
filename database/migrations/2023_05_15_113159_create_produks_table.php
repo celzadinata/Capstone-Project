@@ -17,6 +17,7 @@ return new class extends Migration
             $table->char('id', 6)->primary();
             $table->enum('jenis', ['paket_usaha', 'supply']);
             $table->string('nama_produk');
+            $table->string('slug')->unique();
             $table->text('deskripsi');
             $table->string('foto')->nullable();
             $table->bigInteger('harga');

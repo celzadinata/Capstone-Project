@@ -1,28 +1,27 @@
 @extends('layouts_reseller.app')
 @section('title', 'Kategori')
 @section('content')
-    <section class="kategori">
+    <section class="page-kategori">
         <div class="container">
             <hr class="my-2 hr-kategori opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
-                <div class="col-md-3 col-lg-2 pe-5 side-panel-kategori" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-md-3 col-lg-2 pe-5 mt-4 side-panel-kategori" data-aos="zoom-in-right" data-aos-delay="100">
                     <form class="d-flex mb-4" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <h1>Semua Kategori</h1>
-                    <hr class="my-4 hr-kategori opacity-100" data-aos="flip-right" data-aos-delay="800">
                 </div>
-                <div class="col-md-9 col-lg-10">
+                <div class="col-md-9 col-lg-10 mt-4">
                     {{-- A --}}
                     @if ($a->isEmpty())
                     @else
                         <span data-aos="zoom-in">A</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($a as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -34,11 +33,11 @@
                     @if ($b->isEmpty())
                     @else
                         <span data-aos="zoom-in">B</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($b as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -50,11 +49,11 @@
                     @if ($c->isEmpty())
                     @else
                         <span data-aos="zoom-in">C</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($c as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -66,11 +65,11 @@
                     @if ($d->isEmpty())
                     @else
                         <span data-aos="zoom-in">D</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($d as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -82,11 +81,11 @@
                     @if ($e->isEmpty())
                     @else
                         <span data-aos="zoom-in">E</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($e as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -98,11 +97,11 @@
                     @if ($f->isEmpty())
                     @else
                         <span data-aos="zoom-in">F</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($f as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -114,11 +113,11 @@
                     @if ($g->isEmpty())
                     @else
                         <span data-aos="zoom-in">G</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($g as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -130,11 +129,11 @@
                     @if ($h->isEmpty())
                     @else
                         <span data-aos="zoom-in">H</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($h as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -146,11 +145,11 @@
                     @if ($i->isEmpty())
                     @else
                         <span data-aos="zoom-in">I</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($i as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -162,11 +161,11 @@
                     @if ($j->isEmpty())
                     @else
                         <span data-aos="zoom-in">J</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($j as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -178,11 +177,11 @@
                     @if ($k->isEmpty())
                     @else
                         <span data-aos="zoom-in">K</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($k as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -194,11 +193,11 @@
                     @if ($l->isEmpty())
                     @else
                         <span data-aos="zoom-in">L</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($l as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -210,11 +209,11 @@
                     @if ($m->isEmpty())
                     @else
                         <span data-aos="zoom-in">M</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
                             @foreach ($m as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -226,11 +225,11 @@
                     @if ($n->isEmpty())
                     @else
                         <span data-aos="zoom-in">N</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($n as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -242,11 +241,11 @@
                     @if ($o->isEmpty())
                     @else
                         <span data-aos="zoom-in">O</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($o as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -258,11 +257,11 @@
                     @if ($p->isEmpty())
                     @else
                         <span data-aos="zoom-in">P</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($p as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -274,11 +273,11 @@
                     @if ($q->isEmpty())
                     @else
                         <span data-aos="zoom-in">Q</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($q as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -290,11 +289,11 @@
                     @if ($r->isEmpty())
                     @else
                         <span data-aos="zoom-in">R</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($r as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -306,11 +305,11 @@
                     @if ($s->isEmpty())
                     @else
                         <span data-aos="zoom-in">S</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($s as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -322,11 +321,11 @@
                     @if ($t->isEmpty())
                     @else
                         <span data-aos="zoom-in">T</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($t as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -338,11 +337,11 @@
                     @if ($u->isEmpty())
                     @else
                         <span data-aos="zoom-in">U</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($u as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -354,11 +353,11 @@
                     @if ($v->isEmpty())
                     @else
                         <span data-aos="zoom-in">V</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($v as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -370,11 +369,11 @@
                     @if ($w->isEmpty())
                     @else
                         <span data-aos="zoom-in">W</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($w as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -386,11 +385,11 @@
                     @if ($x->isEmpty())
                     @else
                         <span data-aos="zoom-in">X</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($x as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -402,11 +401,11 @@
                     @if ($y->isEmpty())
                     @else
                         <span data-aos="zoom-in">Y</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($y as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>
@@ -418,11 +417,11 @@
                     @if ($z->isEmpty())
                     @else
                         <span data-aos="zoom-in">Z</span>
-                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                        <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade">
-                            @foreach ($z as $kategori)
-                                <div class="col">
-                                    <div class="card h-100" id="">
+                        <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
+                            @foreach ($m as $kategori)
+                                <div class="col mb-3">
+                                    <div class="card" id="">
                                         <a type="button" class="btn-kategori"
                                             href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
                                     </div>

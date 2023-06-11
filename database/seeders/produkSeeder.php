@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\produk;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class produkSeeder extends Seeder
 {
@@ -31,7 +32,8 @@ class produkSeeder extends Seeder
                 'berkas_2' => 'apaan.pdf',
                 'berkas_3' => '',
                 'status' => 'Belum Konfirmasi',
-                'tampilkan' => '0'
+                'tampilkan' => '0',
+                'slug' => Str::slug('Makanan franchise Ayam')
             ],
             // supply
             [
@@ -48,9 +50,14 @@ class produkSeeder extends Seeder
                 'berkas_2' => '',
                 'berkas_3' => '',
                 'status' => '0',
-                'tampilkan' => '0'
+                'tampilkan' => '0',
+                'slug' => Str::slug('Ayam fillet 200gr')
             ],
         ];
-        produk::insert($produk);
+
+        foreach ($produk as $item) {
+            $item['slug'] = Str::slug($item['nama_produk']);
+            Produk::create($item);
+        }
     }
 }

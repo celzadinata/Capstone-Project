@@ -1,6 +1,48 @@
 <div>
-    <div class="row p-2">
-        <div class="col-md-5 col-lg-5 border rounded p-2">
+    <div class="row p-1">
+        @if ($review->isEmpty())
+            <h5 class="mt-2">Belum Ada Penilaian</h5>
+        @else
+            @foreach ($review as $r)
+                <div class="row mx-4">
+                    <div class="col-md-2 col-lg-1">
+                        <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="60px"
+                            style="border-radius:5px">
+                    </div>
+                    <div class="col-md-5 col-lg-11">
+                        <h5>{{ $r->users->username }}</h5>
+                        @if ($r->rate == 1)
+                            1 <i class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
+                        @elseif($r->rate == 2)
+                            2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                style="color: #CE3ABD;"> </i>
+                        @elseif($r->rate == 3)
+                            3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
+                        @elseif($r->rate == 4)
+                            4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
+                                class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
+                        @elseif($r->rate == 5)
+                            5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
+                                class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
+                                style="color: #CE3ABD;"> </i>
+                        @endif
+                        <small class="text-muted" style="font-size: 12px"><i class="fa-solid fa-circle fa-2xs"></i>
+                            {{ $r->created_at->diffForHumans() }}</small>
+                        <p>{{ $r->review }}</p>
+                        @if ($r->reply)
+                            <div class="p-2 komen">
+                                <p>Respon Penjual</p>
+                                <p>{{ $r->reply }}</p>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        @endif
+        <div class="col-md-5 col-lg-7 border rounded p-2 mx-2">
             <form wire:submit.prevent="reviewProduk">
                 @csrf
                 <fieldset>
@@ -44,47 +86,4 @@
             </form>
         </div>
     </div>
-
-    @if ($review->isEmpty())
-        <h5 class="mt-2">Belum Ada Penilaian</h5>
-    @else
-        @foreach ($review as $r)
-            <div class="row mx-4">
-                <div class="col-md-2 col-lg-1">
-                    <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="60px"
-                        style="border-radius:5px">
-                </div>
-                <div class="col-md-5 col-lg-11">
-                    <h5>{{ $r->users->username }}</h5>
-                    @if ($r->rate == 1)
-                        1 <i class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
-                    @elseif($r->rate == 2)
-                        2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"> </i>
-                    @elseif($r->rate == 3)
-                        3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
-                    @elseif($r->rate == 4)
-                        4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                            class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
-                    @elseif($r->rate == 5)
-                        5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                            class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                            style="color: #CE3ABD;"> </i>
-                    @endif
-                    <small class="text-muted" style="font-size: 12px"><i class="fa-solid fa-circle fa-2xs"></i>
-                        {{ $r->created_at->diffForHumans() }}</small>
-                    <p>{{ $r->review }}</p>
-                    @if ($r->reply)
-                        <div class="p-2 komen">
-                            <p>Respon Penjual</p>
-                            <p>{{ $r->reply }}</p>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        @endforeach
-    @endif
 </div>

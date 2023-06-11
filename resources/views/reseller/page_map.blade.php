@@ -7,6 +7,7 @@
             <div class="row">
                 <h1>Map</h1>
                 <h1 id="keyword">{{ $produk->nama_produk }}</h1>
+
                 <div id="lokasi"></div>
                 <style>
                     #lokasi {

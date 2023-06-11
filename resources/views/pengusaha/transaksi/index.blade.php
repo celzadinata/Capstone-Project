@@ -19,7 +19,7 @@
                                             <th width="3%">Status Pembayaran</th>
                                             <th>Bukti Pembayaran</th>
                                             <th>Total Harga</th>
-                                            <th text-center;" colspan="3">Aksi</th>
+                                            <th text-center; colspan="3">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,7 +53,7 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <a type="button" class="btn-resell"
+                                                    <a type="button" class="btn btn-sm btn-success"
                                                         href="{{ route('invoice', $item->id) }}">Cetak</a>
                                                 </td>
                                             </tr>

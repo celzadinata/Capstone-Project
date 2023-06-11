@@ -20,7 +20,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet" />
-    <link href="{{ asset('assets/css/reseller/styles.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style-auth.css') }}" rel="stylesheet" />
 </head>
 
 <body>
