@@ -90,7 +90,8 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     // Transaksi
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.pengusaha');
     Route::put('/transaksi/update/{id}', [TransaksiController::class, 'update'])->name('transaksi.update');
-    // Route::get('/transaksi/pdf/{id}',[TransaksiController::class,'showPDF'])->name('transaksi.pdf');
+    Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice');
+
 
     //Laporan
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.pengusaha');
@@ -121,6 +122,8 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     // pesanan saya
     Route::get('/pesanan-saya', [ResellerControler::class, 'indexPesanan'])->name('pesanan.saya');
     Route::put('/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
+    // Invoice
+    Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice.print');
 });
 Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
 Route::get('/map', [ResellerControler::class, 'map'])->name('map');

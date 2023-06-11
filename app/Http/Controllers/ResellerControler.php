@@ -11,10 +11,12 @@ use Illuminate\Http\Request;
 use App\Models\detail_transaksi;
 use App\Models\transaksi;
 use Carbon\Carbon;
+use Dompdf\Adapter\PDFLib;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use PDF;
 
 class ResellerControler extends Controller
 {
@@ -126,7 +128,7 @@ class ResellerControler extends Controller
         // $user_location = lokasi::where('users_id', $id)->get();
         $lokasi = lokasi::all();
         // @dd($user_location);
-        return view('reseller.page_map',compact('lokasi'));
+        return view('reseller.page_map', compact('lokasi'));
     }
 
     public function search(Request $request)
@@ -193,16 +195,17 @@ class ResellerControler extends Controller
         $list_kategori = kategori::paginate(5);
         return view('reseller.page_pesanan_saya', compact('list_kategori', 'transaksi', 'transaksiModel'));
     }
+    public function invoice($id)
+    {
+        //GET DATA BERDASARKAN ID
+        $transaksi = transaksi::with(['users', 'detail_transaksi'])->find($id);
+        //LOAD PDF YANG MERUJUK KE VIEW PRINT.BLADE.PHP DENGAN MENGIRIMKAN DATA DARI INVOICE
+        //KEMUDIAN MENGGUNAKAN PENGATURAN LANDSCAPE A4
+        $pdf = PDF::loadView('reseller.page_struk', compact('transaksi'))->setPaper('a4', 'landscape');
+        return $pdf->stream();
+    }
     public function konfirmasiPesanan(Request $request, $id)
     {
-        // $validated = $request->validate([
-        //     'reply' => 'nullable'
-        // ]);
-
-        // review::where('id', $id)->update([
-        //     'reply' => $validated['reply']
-        // ]);
-        // return redirect()->route('review.pengusaha')->with('success', 'Komentar berhasil ditambahkan.');
         $validated = $request->validate([
             'status' => 'required'
         ]);

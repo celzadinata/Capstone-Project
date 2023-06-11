@@ -6,8 +6,6 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            margin-bottom: 1%;
-            margin-right: 1%;
         }
 
         .nav-link {
@@ -387,16 +385,24 @@
                                                     <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
                                                 </h4>
                                             </div>
-                                            <div class="card-body my-2">
-                                                <button type="button" id="nilaiProdukBtn{{ $item->id }}"
-                                                    class="btn-resell btn-konfirmasi" data-bs-toggle="modal"
-                                                    data-bs-target="#nilaiProduk{{ $item->id }}">Nilai Produk</button>
+                                            <div class="card-body position-relative">
+                                                <div class="nav-link">
+                                                    <a type="button" class="btn-resell"
+                                                        href="{{ route('invoice.print', $item->id) }}">Cetak</a>
+                                                </div>
+                                                <div class="nav-link position-absolute end-0">
+                                                    <button type="button" id="nilaiProdukBtn{{ $item->id }}"
+                                                        class="btn-resell btn-konfirmasi" data-bs-toggle="modal"
+                                                        data-bs-target="#nilaiProduk{{ $item->id }}">Nilai
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         {{-- Modal Rating --}}
                         <div class="modal fade" id="nilaiProduk{{ $item->id }}" tabindex="-1"
                             aria-labelledby="nilaiProdukLabel" aria-hidden="true">
