@@ -157,11 +157,25 @@ class ProdukController extends Controller
     {
         $produk = produk::find($id);
         $kategoris = kategori::all();
-        $users = User::all();
-        $id = Auth::id();
+        $id = Auth::user();
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
-        return view('pengusaha.produk.edit', compact('produk', 'users', 'kategoris', 'notifikasi', 'jml_notif'));
+        $jenis = ''; // Define an empty variable for $jenis
+
+        // $uploadedFile1 = asset('assets/users/pengusaha/' . $id->id . '/berkas/' . $prod->berkas1);
+        // $uploadedFile2 = asset('assets/users/pengusaha/' . $id->id . '/berkas/' . $id->berkas2);
+        // $uploadedFile3 = asset('assets/users/pengusaha/' . $id->id . '/berkas/' . $id->berkas3);
+        // return view('edit', compact('produk', 'uploadedFile1', 'uploadedFile2', 'uploadedFile3'));
+
+        if ($produk->jenis == 'paket_usaha') {
+            $jenis = 'paket_usaha';
+        } elseif ($produk->jenis == 'supply') {
+            $jenis = 'supply';
+        } else {
+            abort(404);
+        }
+
+        return view('pengusaha.produk.edit', compact('produk', 'kategoris', 'notifikasi', 'jml_notif', 'jenis'));
     }
 
     /**
@@ -173,34 +187,72 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'jenis' => 'required',
+        $request->validate([
             'nama_produk' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required',
             'stok' => 'required',
-            'status' => 'required',
-            'rate' => 'required',
-            'users_id' => 'required',
             'kategoris_id' => 'required',
-            'foto' => 'image',
+            'berkas1' => 'mimes:pdf,doc,docx|max:8048',
+            'berkas2' => 'mimes:pdf,doc,docx|max:8048',
+            'berkas3' => 'mimes:pdf,doc,docx|max:8048',
+            'foto' => 'mimes:jpg,jpeg,png|max:2048'
         ]);
 
-        produk::where('id', $id)->update([
-            'jenis' => $validated['jenis'],
-            'nama_produk' => $validated['nama_produk'],
-            'deskripsi' => $validated['deskripsi'],
-            'harga' => $validated['harga'],
-            'stok' => $validated['stok'],
-            'status' => $validated['status'],
-            'rate' => $validated['rate'],
-            'kategoris_id' => $validated['kategoris_id'],
-        ]);
+        $produk = Produk::findOrFail($id);
+        $produk->nama_produk = $request->input('nama_produk');
+        $produk->deskripsi = $request->input('deskripsi');
+        $produk->harga = $request->input('harga');
+        $produk->stok = $request->input('stok');
+        $produk->kategoris_id = $request->input('kategoris_id');
+
+        $id = Auth::id();
 
         if ($request->hasFile('foto')) {
-            $fotoPath = $request->file('foto')->store('produk_images', 'public');
-            $validated['foto'] = $fotoPath;
+            // Delete previous foto file
+            if ($produk->foto && file_exists(public_path('assets/users/pengusaha/' . $id . '/' . $produk->foto))) {
+                unlink(public_path('assets/users/pengusaha/' . $id . '/' . $produk->foto));
+            }
+
+            $fotoUrl = time() . '-' . $produk->nama_produk . '.' . $request->file('foto')->getClientOriginalExtension();
+            $request->file('foto')->move(public_path('assets/users/pengusaha/' . $id), $fotoUrl);
+            $produk->foto = $fotoUrl;
         }
+
+        if ($request->hasFile('berkas1')) {
+            // Delete previous berkas1 file
+            if ($produk->berkas_1 && file_exists(public_path('assets/users/pengusaha/' . $id . '/berkas/' . $produk->berkas_1))) {
+                unlink(public_path('assets/users/pengusaha/' . $id . '/berkas/' . $produk->berkas_1));
+            }
+
+            $berkas1Url = time() . '-' . $produk->nama_produk . '-berkas1.' . $request->file('berkas1')->getClientOriginalExtension();
+            $request->file('berkas1')->move(public_path('assets/users/pengusaha/' . $id . '/berkas'), $berkas1Url);
+            $produk->berkas_1 = $berkas1Url;
+        }
+
+        if ($request->hasFile('berkas2')) {
+            // Delete previous berkas2 file
+            if ($produk->berkas_2 && file_exists(public_path('assets/users/pengusaha/' . $id . '/berkas/' . $produk->berkas_2))) {
+                unlink(public_path('assets/users/pengusaha/' . $id . '/berkas/' . $produk->berkas_2));
+            }
+
+            $berkas2Url = time() . '-' . $produk->nama_produk . '-berkas2.' . $request->file('berkas2')->getClientOriginalExtension();
+            $request->file('berkas2')->move(public_path('assets/users/pengusaha/' . $id . '/berkas'), $berkas2Url);
+            $produk->berkas_2 = $berkas2Url;
+        }
+
+        if ($request->hasFile('berkas3')) {
+            // Delete previous berkas3 file
+            if ($produk->berkas_3 && file_exists(public_path('assets/users/pengusaha/' . $id . '/berkas/' . $produk->berkas_3))) {
+                unlink(public_path('assets/users/pengusaha/' . $id . '/berkas/' . $produk->berkas_3));
+            }
+
+            $berkas3Url = time() . '-' . $produk->nama_produk . '-berkas3.' . $request->file('berkas3')->getClientOriginalExtension();
+            $request->file('berkas3')->move(public_path('assets/users/pengusaha/' . $id . '/berkas'), $berkas3Url);
+            $produk->berkas_3 = $berkas3Url;
+        }
+
+        $produk->save();
 
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil diperbarui.');
     }
@@ -214,6 +266,32 @@ class ProdukController extends Controller
     public function destroy($id)
     {
         $produk = produk::find($id);
+
+        if ($produk->berkas_1) {
+            $berkas1Path = public_path('assets/users/pengusaha/' . $produk->users_id . '/berkas/' . $produk->berkas_1);
+            if (file_exists($berkas1Path)) {
+                unlink($berkas1Path);
+            }
+        }
+        if ($produk->berkas_2) {
+            $berkas2Path = public_path('assets/users/pengusaha/' . $produk->users_id . '/berkas/' . $produk->berkas_2);
+            if (file_exists($berkas2Path)) {
+                unlink($berkas2Path);
+            }
+        }
+        if ($produk->berkas_3) {
+            $berkas3Path = public_path('assets/users/pengusaha/' . $produk->users_id . '/berkas/' . $produk->berkas_3);
+            if (file_exists($berkas3Path)) {
+                unlink($berkas3Path);
+            }
+        }
+        if ($produk->foto) {
+            $fotoPath = public_path('assets/users/pengusaha/' . $produk->users_id . '/' . $produk->foto);
+            if (file_exists($fotoPath)) {
+                unlink($fotoPath);
+            }
+        }
+
         $produk->delete();
 
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil dihapus.');

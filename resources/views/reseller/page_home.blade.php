@@ -2,7 +2,7 @@
 @section('title', 'Homepage')
 @section('content')
     {{-- Banner --}}
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="myCarousel" class="carousel slide mt-2" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
                 aria-current="true"></button>
@@ -75,8 +75,8 @@
                                     </div>
                                     <div class="info-area">
                                         <h4 id="title_card">{{ Str::limit($p->nama_produk, 20) }}</h4>
-                                        <p class="price">Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                        <a href="{{ route('produk_detail.reseller', $p->id) }}"
+                                        <h6 class="price">Rp {{ number_format($p->harga, 0, '.', '.') }}</h6>
+                                        <a href="{{ route('produk_detail.reseller', $p->slug) }}"
                                             class="btn-resell">Resell</a>
                                     </div>
                                 </div>

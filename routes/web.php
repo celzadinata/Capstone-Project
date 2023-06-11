@@ -103,6 +103,7 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'isReseller']], function
     Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
     // Paket Usaha
     Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
+    Route::get('/produk_detail/{slug}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
     Route::get('/produk-detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
     // Profile
     Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
@@ -127,6 +128,7 @@ Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.
 Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
 // Paket Usaha
 Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
+Route::get('/produk_detail/{slug}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
 // search produk
 Route::get('/search', [ResellerControler::class, 'search'])->name('search');
 

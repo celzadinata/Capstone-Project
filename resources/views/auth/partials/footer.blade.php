@@ -29,7 +29,6 @@
                 <span>+62 821-2123-4567</span>
             </div>
             <div class="col-lg-2 col-md-6 footer-links">
-                <h4>Useful Links</h4>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About us</a></li>
@@ -39,7 +38,6 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-md-6 footer-links">
-                <h4>Our Services</h4>
                 <ul>
                     <li><a href="#">Web Design</a></li>
                     <li><a href="#">Web Development</a></li>

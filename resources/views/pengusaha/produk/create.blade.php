@@ -79,6 +79,12 @@
         </div>
     </div>
     <script>
+        document.getElementById('nama_produk').addEventListener('input', function() {
+            var namaProduk = this.value;
+            var slug = namaProduk.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            document.getElementById('slug').value = slug;
+        });
+
         function previewFoto(event) {
             var input = event.target;
             if (input.files && input.files[0]) {
