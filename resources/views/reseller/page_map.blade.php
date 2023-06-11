@@ -50,7 +50,7 @@
                         },
                         title: 'Lokasi Saya'
                     });
-
+                    // 
                     var circle = new google.maps.Circle({
                         strokeColor: '#CE3ABD',
                         strokeOpacity: 0.2,
