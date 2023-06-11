@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>transaksi </title>
+    <title>INVOICE #YR{{ $transaksi->id }} </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
         body {
@@ -60,11 +60,11 @@
     <div class="container">
         <table>
             <caption>
-                YokResell transaksi
+                YokResell Transaksi
             </caption>
             <thead>
                 <tr>
-                    <th colspan="3">transaksi <strong>#{{ $transaksi->id }}</strong></th>
+                    <th colspan="3">Transaksi <strong>#{{ $transaksi->id }}</strong></th>
                     <th>{{ $transaksi->created_at->format('D, d M Y') }}</th>
                 </tr>
                 <tr>

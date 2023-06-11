@@ -124,9 +124,9 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::put('/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
     // Invoice
     Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice.print');
+    Route::get('/map/{id}', [ResellerControler::class, 'map'])->name('map');
 });
 Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
-Route::get('/map', [ResellerControler::class, 'map'])->name('map');
 
 // Dashboard Reseller
 Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');

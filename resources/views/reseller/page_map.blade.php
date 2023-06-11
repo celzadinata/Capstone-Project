@@ -5,8 +5,8 @@
         <div class="container">
             <hr class="hr-profile opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
-                <h1>map</h1>
-                {{-- <h1>{{ $user_location->latitude }},</h1> --}}
+                <h1>Map</h1>
+                <h1 id="keyword">{{ $produk->nama_produk }}</h1>
                 <div id="lokasi"></div>
                 <style>
                     #lokasi {
@@ -16,8 +16,11 @@
                 </style>
             </div>
         </div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&libraries=places">
+        </script>
         <script>
+            var katakunci = document.getElementById('keyword').innerHTML;
+
             function initMap() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition);
@@ -30,51 +33,72 @@
 
                     var map = new google.maps.Map(document.getElementById('lokasi'), {
                         center: latLng,
-                        zoom: 12
+                        zoom: 13
                     });
 
                     var marker = new google.maps.Marker({
                         position: latLng,
                         map: map,
-                        title: 'Your Location'
+                        icon: {
+                            path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                            scale: 8,
+                            fillColor: '#CE3ABD', // Ganti dengan warna yang diinginkan
+                            fillOpacity: 1.0,
+                            strokeColor: 'black',
+                            strokeWeight: 2,
+
+                        },
+                        title: 'Lokasi Saya'
                     });
+
+                    var circle = new google.maps.Circle({
+                        strokeColor: '#CE3ABD',
+                        strokeOpacity: 0.2,
+                        strokeWeight: 2,
+                        fillColor: '#CE3ABD',
+                        fillOpacity: 0.2,
+                        map: map,
+                        center: latLng,
+                        radius: 5000 // Radius dalam meter (5 km)
+                    });
+                    var request = {
+                        location: latLng,
+                        radius: '5000', // Radius dalam meter (5 km)
+                        keyword: katakunci // Kata kunci yang ingin dicari
+                    };
+
+
+                    var service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch(request, callback);
+
+                    function callback(results, status) {
+                        if (status == google.maps.places.PlacesServiceStatus.OK) {
+                            for (var i = 0; i < results.length; i++) {
+                                createMarker(results[i]);
+                            }
+                        }
+                    }
+
+                    function createMarker(place) {
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: place.geometry.location,
+                            title: place.name
+                        });
+
+                        var infowindow = new google.maps.InfoWindow({
+                            content: place.name
+                        });
+
+                        marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                        });
+                    }
                 }
             }
         </script>
-        {{-- <script>
-            function initMap() {
-                var map = new google.maps.Map(document.getElementById('lokasi'), {
-                    center: {
-                        lat: {{ auth()->user()->lokasi->latitude }},
-                        lng: {{ auth()->user()->lokasi->longitude }}
-                    }, // Ganti dengan koordinat yang diinginkan
-                    zoom: 12 // Ganti dengan level zoom yang diinginkan
-                });
-                @foreach ($lokasi as $l)
-                var marker = new google.maps.Marker({
-                    position: {
-                        lat: {{ $l->latitude }},
-                        lng: {{ $l->longitude }}
-                    }, // Ganti dengan koordinat yang diinginkan
-                    map: map,
-                    title: '{{ auth()->user()->alamat }}',
-                });
-                @endforeach
-
-                // Tambahkan marker di lokasi tertentu
-                var marker = new google.maps.Marker({
-                    position: {
-                        lat: {{ auth()->user()->lokasi->latitude }},
-                        lng: {{ auth()->user()->lokasi->longitude }}
-                    }, // Ganti dengan koordinat yang diinginkan
-                    map: map,
-                    title: '{{ auth()->user()->alamat }}',
-                    icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
-                });
-            }
-        </script> --}}
         <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&callback=initMap&libraries=&v=weekly">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&libraries=places&callback=initMap&t={{ time() }}">
         </script>
     </section>
 @endsection
