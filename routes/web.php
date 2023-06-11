@@ -117,8 +117,10 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'isReseller']], function
     Route::put('/user/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
     // Invoice
     Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice.print');
+    Route::get('/map/{id}', [ResellerControler::class, 'map'])->name('map');
 });
-Route::get('/map', [ResellerControler::class, 'map'])->name('map');
+
+
 
 // Guets
 // Dashboard Reseller

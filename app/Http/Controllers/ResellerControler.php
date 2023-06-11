@@ -125,12 +125,14 @@ class ResellerControler extends Controller
 
     public function map($id)
     {
-        $id = Auth::id();
+        // $id = Auth::id();
         // $user_location = lokasi::where('users_id', $id)->get();
         $lokasi = lokasi::all();
         $produk = produk::find($id);
+        // dd($produk);
         // @dd($user_location);
-        return view('reseller.page_map', compact('lokasi','lokasi'));
+        return view('reseller.page_map', compact('lokasi', 'produk'));
+
     }
 
     public function search(Request $request)

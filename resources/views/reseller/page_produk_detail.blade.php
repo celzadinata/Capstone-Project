@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="col-md-3 col-lg-8">
-                        <a href="{{ route('map') }}" class="btn-resell"> Lihat Lokasi</a>
+                        <a href="{{ route('map', $produk->id) }}" class="btn-resell"> Lihat Lokasi</a>
                     </div>
                     <div class="col-md-3 col-lg-8">
 
