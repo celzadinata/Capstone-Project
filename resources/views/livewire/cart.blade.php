@@ -91,6 +91,8 @@
                                 <button type="submit" class="btn mt-3 text-light fw-bolder"
                                     style="background-color: #CE3ABD">Checkout</button>
                             </form>
+                            <button type="submit" class="btn mt-3 text-light fw-bolder"
+                            style="background-color: #CE3ABD" wire:click="checkout()">paypal</button>
                         </div>
                     </div>
                 @else

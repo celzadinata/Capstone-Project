@@ -16,22 +16,24 @@ class Review extends Component
     public $review;
     public $rating;
     public $pesan;
+    public $checkIfExits;
 
     public function render()
     {
-        $checkIfExits = transaksi::with('detail_transaksi')->where(['user_id' => Auth::user()->id, 'status' => 'Pembayaran Diterima'])->first();
+        $this->checkIfExits = '';
+        if (Auth::check()) $this->checkIfExits = transaksi::with('detail_transaksi')->where(['user_id' => Auth::user()->id, 'status' => 'Selesai'])->first();
         $rating = reviews::where('produks_id', $this->produk_id)
             ->select(DB::raw('AVG(rate) as average_rating'))
             ->pluck('average_rating')
             ->first();
         $this->review = reviews::where('produks_id', $this->produk_id)->with('users')->orderByDesc('created_at')->get();
-        return view('livewire.review', compact('rating', 'checkIfExits'));
+        return view('livewire.review', compact('rating'));
     }
 
     public function reviewProduk()
     {
-        $checkIfExits = transaksi::with('detail_transaksi')->where(['user_id' => Auth::user()->id, 'status' => 'Selesai'])->first();
-        if (!$checkIfExits) {
+        $this->checkIfExits = transaksi::with('detail_transaksi')->where(['user_id' => Auth::user()->id, 'status' => 'Selesai'])->first();
+        if (!$this->checkIfExits) {
             session()->flash('message', 'Silahkan melakukan pembelian pada produk terlebih dahulu');
         } else {
             $validated = $this->validate([
@@ -46,6 +48,8 @@ class Review extends Component
                 'review' => $validated['pesan'],
                 'review_status' => 'SudahReview'
             ]);
+            $this->reset('rating');
+            $this->reset('pesan');
         }
     }
 }

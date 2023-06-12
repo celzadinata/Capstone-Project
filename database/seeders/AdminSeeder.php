@@ -29,6 +29,7 @@ class AdminSeeder extends Seeder
                 'password' => bcrypt('yokresell'),
                 'alamat' => 'Dimana saja',
                 'no_hp' => '082876123',
+                'paypal_email' => null,
                 'status' => 'Aktif',
             ],
             // Pengusaha
@@ -44,6 +45,7 @@ class AdminSeeder extends Seeder
                 'password' => bcrypt('qwer4321'),
                 'alamat' => 'Jl dimana mana',
                 'no_hp' => '082234086611',
+                'paypal_email' => 'sb-xy9mh26190131@business.example.com',
                 'status' => 'Aktif'
             ],
 
@@ -59,6 +61,7 @@ class AdminSeeder extends Seeder
                 'password' => bcrypt('12345678'),
                 'alamat' => 'PWT',
                 'no_hp' => '089512345678',
+                'paypal_email' => 'sb-zelml26190156@business.example.com',
                 'status' => 'Aktif',
             ],
             // Reseller
@@ -74,6 +77,7 @@ class AdminSeeder extends Seeder
                 'password' => bcrypt('qazaq123'),
                 'alamat' => 'Jl everywhere',
                 'no_hp' => '089123456789',
+                'paypal_email' => null,
                 'status' => 'Aktif'
             ],
             [
@@ -88,6 +92,7 @@ class AdminSeeder extends Seeder
                 'password' => bcrypt('qweasdzxc'),
                 'alamat' => 'Jl everywhere',
                 'no_hp' => '089123456712',
+                'paypal_email' => null,
                 'status' => 'Aktif'
             ],
         ];

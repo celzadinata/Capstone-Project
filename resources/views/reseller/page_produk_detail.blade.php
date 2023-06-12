@@ -50,43 +50,6 @@
                         <a href="{{ route('keranjang.add', $produk->id) }}" class="btn-resell"><i
                                 class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i> Masukkan Keranjang</a>
                     </div>
-                    <div class="col-md-7">
-                        <div class="card-body px-5">
-                            <h3>{{ $produk->nama_produk }}</h3>
-                            <table>
-                                <tbody id="text_konfirmasi_user">
-                                    <tr>
-                                        <td>
-                                            @if ($rating == null)
-                                                0
-                                            @else
-                                                <u>{{ str_replace('...', '', Str::limit($rating, 3)) }}</u>
-                                                @for ($i = 1; $i <= 5; $i++)
-                                                    @if ($i <= $rating)
-                                                        <i class="fa fa-star checked"></i>
-                                                    @endif
-                                                @endfor
-                                            @endif
-                                        </td>
-                                        <td>&nbsp|&nbsp</td>
-                                        <td>{{ $nilai }} Penilaian</td>
-                                        <td>&nbsp|&nbsp</td>
-                                        <td>{{ $terjual }} Terjual</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <h4>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h4>
-                            <div class="row align-items-center">
-                                <div class="col-auto mb-3">
-                                    <a href="#" class="btn-cart"><i class="fas fa-cart-plus"></i> Masukkan
-                                        Keranjang</a>
-                                </div>
-                                <div class="col-auto mb-3">
-                                    <a href="#" class="btn-resell">Resell</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
