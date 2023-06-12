@@ -110,17 +110,17 @@ class ResellerControler extends Controller
     public function produk_detail($slug)
     {
         $list_kategori = kategori::paginate(5);
-        $produk = produk::where('slug', $slug)->first();
+        $produk = produk::where('slug',$slug)->first();
 
         $rating = review::where('produks_id', $produk->id)
             ->select(DB::raw('AVG(rate) as average_rating'))
             ->pluck('average_rating')
             ->first();
+
         $nilai = review::where('produks_id', $produk->id)->count();
-        $review = review::where('produks_id', $produk->id)->with('users')->get();
         $terjual = detail_transaksi::where('produks_id', $produk->id)->count();
 
-        return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual', 'review'));
+        return view('reseller.page_produk_detail', compact('list_kategori','produk','rating','nilai','terjual'));
     }
 
     public function map($id)

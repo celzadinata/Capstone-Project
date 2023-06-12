@@ -32,7 +32,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                {{-- <table class="table table-bordered">
                                     <thead>
                                         <th>No</th>
                                         <th>Tahun</th>
@@ -46,6 +46,22 @@
                                             <td>{{ $tanggal[$key]->bulan }}</td>
                                             <td>Rp. {{ number_format($item), 0, ',', '.' }}</td>
                                         </tbody>
+                                    @endforeach
+                                </table> --}}
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Tahun</th>
+                                        <th>Bulan</th>
+                                        <th>Jumlah Transaksi</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    @foreach ($months as $index => $month)
+                                    <tr>
+                                            <td>{{ $years[$index] }}</td>
+                                            <td>{{ $month }}</td>
+                                            <td>{{ $transactionCounts[$index] }}</td>
+                                            <td>Rp. {{ number_format($totalPrices[$index]), 0, ',', '.' }}</td>
+                                        </tr>
                                     @endforeach
                                 </table>
                             </div>
