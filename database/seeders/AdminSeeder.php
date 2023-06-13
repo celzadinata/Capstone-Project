@@ -45,7 +45,7 @@ class AdminSeeder extends Seeder
                 'password' => bcrypt('qwer4321'),
                 'alamat' => 'Jl dimana mana',
                 'no_hp' => '082234086611',
-                'paypal_email' => 'sb-xy9mh26190131@business.example.com',
+                'paypal_email' => 'raihan@gmail.com', //passwordnya qweasdzxc
                 'status' => 'Aktif'
             ],
 
@@ -61,7 +61,7 @@ class AdminSeeder extends Seeder
                 'password' => bcrypt('12345678'),
                 'alamat' => 'PWT',
                 'no_hp' => '089512345678',
-                'paypal_email' => 'sb-zelml26190156@business.example.com',
+                'paypal_email' => 'naufal@gmail.com', //passwordnya qweasdzxc
                 'status' => 'Aktif',
             ],
             // Reseller

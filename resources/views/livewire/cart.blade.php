@@ -10,8 +10,9 @@
                         <div class="col-md-12 mb-4">
                             <div class="row border rounded p-2">
                                 <div class="col-md-2">
-                                    <img class="rounded mx-auto d-block pb-2"
-                                        src="{{ asset('assets/img/apple-icon.png') }}" alt="">
+                                    <img class="rounded mx-auto d-block pb-2" style="width: 150px; height: 100px;"
+                                        src="{{ asset('assets/users/pengusaha/' . $item->produk->users_id . '/' . $item->produk->foto) }}"
+                                        alt="">
                                 </div>
                                 <div class="col-md-10">
                                     <div class="row fw-bolder" style="color: #CE3ABD">
@@ -80,19 +81,30 @@
                                 </div>
                             </div>
                             <div class="col-5 mb-2">Subtotal</div>
-                            <div class="col-7 mb-2">Rp {{ number_format($total) }}</div>
+                            <div class="col-7 mb-2">Rp {{ number_format($sub) }}</div>
                             <div class="col-5 mb-2">Pajak</div>
                             <div class="col-7 mb-2">Rp 0</div>
+                            <div class="col-5 mb-2">Biaya admin</div>
+                            <div class="col-7 mb-2">Rp {{ number_format($admin) }} <i class="fa fa-info-circle fa-2xs"  data-toggle="tooltip" data-placement="top" title="Biaya admin adalah 4% dari total keranjang" aria-hidden="true"></i></div>
                             <div class="col-5 fw-bolder mb-2">Total</div>
                             <div class="col-7 fs-4 text-purple fw-bolder">Rp {{ number_format($total) }}</div>
-                            <form action="{{ route('keranjang.checkout') }}" method="POST">
+                            <form action="{{ route('keranjang.checkout') }}" method="POST"
+                                style="margin: 0; padding: 0">
                                 @csrf
                                 <input type="hidden" value="{{ $total }}" name="total">
                                 <button type="submit" class="btn mt-3 text-light fw-bolder"
-                                    style="background-color: #CE3ABD">Checkout</button>
+                                    style="background-color: #CE3ABD; width: 100%"><i class="bi bi-cart4"></i>
+                                    Checkout</button>
                             </form>
-                            <button type="submit" class="btn mt-3 text-light fw-bolder"
-                            style="background-color: #CE3ABD" wire:click="checkout()">paypal</button>
+                            <div class="ms-4"
+                                style="width: 85%; height: 13px; border-bottom: 1px solid rgb(184, 184, 184); text-align: center">
+                                <span style="font-size: 15px; background-color: #FFF; padding: 0 10px 0 10px">
+                                    <b class="text-muted" style="font-size: 12px">Atau bayar via</b>
+                                </span>
+                            </div>
+                            <button type="submit" class="btn btn-warning mt-3 text-light fw-bolder"
+                                wire:click="checkout()"><img src="{{ asset('assets/img/paypal.png') }}" alt="paypal"
+                                    style="width: 100px; height: 25px;"></button>
                         </div>
                     </div>
                 @else

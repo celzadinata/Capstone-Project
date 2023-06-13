@@ -11,17 +11,22 @@ use Srmklive\PayPal\Services\PayPal as PayPalClient;
 class Cart extends Component
 {
     public $cart_item;
-    public $subtotal, $qty, $total;
+    public $subtotal, $qty, $total, $admin, $sub;
     public function render()
     {
         // $this->incrementQty(1);
         $this->cart_item = detail_transaksi::with('produk')->where(['transaksis_id' => null, 'users_id' => Auth::user()->id])->get();
         $this->total = 0;
+        $this->admin = 0;
+        $this->sub = 0;
         $this->subtotal[] = [];
         foreach ($this->cart_item as $key => $item) {
             $this->subtotal[$key] = $item->produk->harga * $item->qty;
+            $this->sub += ($item->produk->harga * $item->qty);
             $this->total += $this->subtotal[$key];
         }
+        $this->admin = $this->total * 0.04;
+        $this->total += $this->admin;
         return view('livewire.cart');
     }
 
@@ -64,11 +69,9 @@ class Cart extends Component
         }
 
         $purchase_units = [];
-        $email = null;
         foreach ($cart_items as $item) {
-            $product = produk::with('users')->find($item->produks_id)->first();
-            $email = $product->users->paypal_email;
-            if ($product->stok >= $item->qty) {
+            $product = produk::find($item->produks_id);
+            if ($item->produk->stok >= $item->qty) {
                 $provider = new PayPalClient([]);
                 $token = $provider->getAccessToken();
                 $provider->setAccessToken($token);
@@ -78,7 +81,7 @@ class Cart extends Component
                     $purchase_units[$key]["amount"]["value"] = sprintf(sprintf("%.2f", $this->toUsd($item->produk->harga)) * $item->qty);
                     $purchase_units[$key]["amount"]["breakdown"]["item_total"]["currency_code"] = "USD";
                     $purchase_units[$key]["amount"]["breakdown"]["item_total"]["value"] = sprintf(sprintf("%.2f", $this->toUsd($item->produk->harga)) * $item->qty);
-                    $purchase_units[$key]["payee"]["email_address"] = $email;
+                    $purchase_units[$key]["payee"]["email_address"] = $item->produk->users->paypal_email;
                     $purchase_units[$key]["payee_display_metadata"]["brand_name"] = $item->produk->nama_produk;
                     $purchase_units[$key]["items"][] = [
                         "name" => $item->produk->nama_produk,
@@ -101,13 +104,13 @@ class Cart extends Component
                         'brand_name' => 'YokResell'
                     ]
                 ]);
+                // dd($purchase_units);
                 // dd($order);
                 return redirect($order['links'][1]['href']);
             } else {
                 alert()->error('Ada produk yang kekurangan stok, silahkan cek kembali persediaan produk');
                 return redirect(route('keranjang'));
             }
-            $email = null;
         }
     }
 
