@@ -7,7 +7,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.reseller') }}">Home</a>
+                    <a class="nav-link" href="{{ route('dashboard.reseller') }}"><i class="fa-solid fa-house "></i>
+                        Home</a>
                 </li>
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -25,14 +26,20 @@
                     </ul>
                 </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('produk.reseller') }}">Paket Usaha</a>
+                    <a class="nav-link" href="{{ route('paket.reseller') }}"><i class="fa-solid fa-box-open"></i> Paket
+                        Usaha</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('supply.reseller') }}"><i class="fa-solid fa-box-open"></i>
+                        Supply</a>
                 </li>
 
             </ul>
             <ul class="navbar-nav ms-auto nav-center">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('keranjang') }}"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="nav-link" href="{{ route('keranjang') }}">Keranjang <i class="fas fa-shopping-cart"></i>
+                        </a>
                     </li>
                     @if (Auth::user()->role == 'admin')
                         <li class="nav-item">
@@ -48,11 +55,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            @if(auth()->user()->avatar == null)
-                            {{ auth()->user()->username }}
+                            @if (auth()->user()->avatar == null)
+                                {{ auth()->user()->username }} <i class="fa-regular fa-circle-user fa-flip fa-lg"></i>
                             @else
-                            {{ auth()->user()->username }} <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
-                                id="preview" class="rounded img-fluid" style="width: 20px; height: 20px;" />
+                                {{ auth()->user()->username }} <img
+                                    src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
+                                    id="preview" class="rounded img-fluid" style="width: 20px; height: 20px;" />
                             @endif
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

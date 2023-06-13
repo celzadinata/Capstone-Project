@@ -14,7 +14,8 @@
             <hr class="my-2 hr-detail opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row mt-3 py-2">
                 <div class="col-md-3 col-lg-5">
-                    <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('assets/users/' . $produk->users->role . '/' . $produk->users_id . '/' . $produk->foto) }}"
+                        class="card-img-top" alt="...">
                 </div>
                 <div class="col-md-5 col-lg-7 pt-2">
                     <h4 class="title">{{ $produk->nama_produk }}</h4>
@@ -46,8 +47,7 @@
                     <div class="my-3">
                         {{-- <a href="{{ route('map', $produk->id) }}" class="btn-resell"><i class="fa-solid fa-location-dot"></i> Lihat Lokasi</a> --}}
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn-resell" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                        <button type="button" class="btn-resell" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
                         </button>
 
@@ -65,8 +65,7 @@
                                         <div class="location" id="lokasi"></div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn-resell"
-                                            data-bs-dismiss="modal">Kembali</button>
+                                        <button type="button" class="btn-resell" data-bs-dismiss="modal">Kembali</button>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +86,7 @@
 
             <div class="description row my-2 py-2">
                 <h4 class="title">Deskripsi</h4>
-                <p class="isi">{{ $produk->deskripsi }}</p>
+                <p class="isi">{!! nl2br(e($produk->deskripsi)) !!}</p>
             </div>
 
             <div class="review row mb-3 py-2">

@@ -99,7 +99,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-money-bill-transfer fa-shake"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Menunggu Pembayaran Kosong</h4>
                                         </div>
@@ -179,7 +179,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-money-check-dollar"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-money-check-dollar fa-flip"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Pembayaran Diterima Kosong</h4>
                                         </div>
@@ -257,7 +257,8 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-gears"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-gear fa-spin fa-xl"></i><i
+                                                class="fa-solid fa-gear fa-spin fa-spin-reverse fa-2xs"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Diproses Kosong</h4>
                                         </div>
@@ -371,7 +372,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-truck-fast"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-truck-fast fa-bounce"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Dikirim Kosong</h4>
                                         </div>
@@ -498,7 +499,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-clipboard-check"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-clipboard-check fa-shake"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Selesai Kosong</h4>
                                         </div>
