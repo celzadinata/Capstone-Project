@@ -93,6 +93,7 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     //Profile
     Route::get('/profile', [PengusahaController::class, 'show'])->name('pengusaha.profile');
     Route::put('/profile', [PengusahaController::class, 'update'])->name('pengusaha.profile.update');
+    Route::put('/profile/payment', [PengusahaController::class, 'paymentUpdate'])->name('ubah.payment.info');
 });
 
 //Role Reseller
