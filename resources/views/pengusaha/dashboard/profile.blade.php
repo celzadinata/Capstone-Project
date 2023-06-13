@@ -187,9 +187,10 @@
                                                         role="dialog" aria-labelledby="myLargeModalLabel"
                                                         aria-hidden="true">
                                                         <div class="modal-dialog modal-lg">
-                                                            <div class="modal-content">
+                                                            <div class="modal-content" id="modal">
                                                                 @if (Auth::user()->berkas == null)
-                                                                    <h3>Berkas KTP Masih Kosong</h3>
+                                                                <h3 class="py-5 text-center" style="color:#CE3ABD">Berkas KTP Masih Belum
+                                                                    Dimasukkan</h3>
                                                                 @else
                                                                     <embed type="application/pdf"
                                                                         src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"

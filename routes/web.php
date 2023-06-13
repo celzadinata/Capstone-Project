@@ -116,6 +116,8 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::put('/user/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
     // Invoice
     Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice.print');
+    // Bukti Pembayaran
+    Route::put('/user/pesanan-saya/upload-bukti', [ResellerControler::class, 'upload'])->name('upload.bukti.reseller');
     //Paypal
     Route::get('payment-cancel', [PaypalController::class, 'cancel'])->name('payment.cancel');
     Route::get('payment-success', [PaypalController::class, 'success'])->name('payment.success');

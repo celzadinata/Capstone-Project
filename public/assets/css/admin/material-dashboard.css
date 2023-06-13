@@ -61,6 +61,24 @@ body {
     background-color: #fafafa;
 }
 
+#modal{
+    border: 2px solid #CE3ABD;
+}
+#konfirmasi_user {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #CE3ABD;
+}
+
+#text_konfirmasi_user {
+    font-size: 18px;
+}
+
+#button_berkas_user {
+    background-color: #CE3ABD;
+}
+
 [tabindex="-1"]:focus {
     outline: 0 !important;
 }

@@ -208,4 +208,24 @@ class ResellerControler extends Controller
         ]);
         return redirect()->back()->with('success', 'Status berhasil diubah');
     }
+
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'bukti_pembayaran' => 'mimes:jpg,jpeg,png,pdf'
+        ]);
+
+        $id = Auth::user();
+
+        $imgUrl = '';
+        if ($request->bukti_pembayaran) {
+            $imgUrl = time() . '-' . $id->username . '.' . $request->bukti_pembayaran->extension();
+            $request->bukti_pembayaran->move(public_path('assets/users/reseller/' . $id->id), $imgUrl);
+        }
+
+        transaksi::where('id', $request->input('id'))->update([
+            'bukti_pembayaran' => $imgUrl,
+        ]);
+        return redirect()->back()->with('success', 'Upload berhasil');
+    }
 }

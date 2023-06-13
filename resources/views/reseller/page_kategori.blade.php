@@ -19,7 +19,7 @@
                         <span data-aos="zoom-in">A</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($a as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -35,7 +35,7 @@
                         <span data-aos="zoom-in">B</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($b as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -51,7 +51,7 @@
                         <span data-aos="zoom-in">C</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($c as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -67,7 +67,7 @@
                         <span data-aos="zoom-in">D</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($d as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -83,7 +83,7 @@
                         <span data-aos="zoom-in">E</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($e as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -99,7 +99,7 @@
                         <span data-aos="zoom-in">F</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($f as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -115,7 +115,7 @@
                         <span data-aos="zoom-in">G</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($g as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -131,7 +131,7 @@
                         <span data-aos="zoom-in">H</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($h as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -147,7 +147,7 @@
                         <span data-aos="zoom-in">I</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($i as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -163,7 +163,7 @@
                         <span data-aos="zoom-in">J</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($j as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -179,7 +179,7 @@
                         <span data-aos="zoom-in">K</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($k as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -195,7 +195,7 @@
                         <span data-aos="zoom-in">L</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($l as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -227,7 +227,7 @@
                         <span data-aos="zoom-in">N</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($n as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -243,7 +243,7 @@
                         <span data-aos="zoom-in">O</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($o as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -259,7 +259,7 @@
                         <span data-aos="zoom-in">P</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($p as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -275,7 +275,7 @@
                         <span data-aos="zoom-in">Q</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($q as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -291,7 +291,7 @@
                         <span data-aos="zoom-in">R</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($r as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -307,7 +307,7 @@
                         <span data-aos="zoom-in">S</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($s as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -323,7 +323,7 @@
                         <span data-aos="zoom-in">T</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($t as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -339,7 +339,7 @@
                         <span data-aos="zoom-in">U</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($u as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -355,7 +355,7 @@
                         <span data-aos="zoom-in">V</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($v as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -371,7 +371,7 @@
                         <span data-aos="zoom-in">W</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($w as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -387,7 +387,7 @@
                         <span data-aos="zoom-in">X</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($x as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -403,7 +403,7 @@
                         <span data-aos="zoom-in">Y</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($y as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
@@ -419,7 +419,7 @@
                         <span data-aos="zoom-in">Z</span>
                         <hr class="mt-1 opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <div class="row row-cols-auto row-cols-lg-auto" data-aos="fade">
-                            @foreach ($m as $kategori)
+                            @foreach ($z as $kategori)
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"

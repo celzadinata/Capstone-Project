@@ -41,28 +41,20 @@
                                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
                                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <embed type="application/pdf" src="{{asset('assets/users/'. $user->role .'/' . $user->id . '/berkasprofil/' . $user->berkas) }}"
-                                                width="100%" height="400"></embed>
+                                        <div class="modal-content" id="modal">
+                                            @if ($user->berkas == null)
+                                                <h3 class="py-5 text-center" style="color:#CE3ABD">Berkas KTP Masih Belum
+                                                    Dimasukkan</h3>
+                                            @else
+                                                <h5>Berkas KTP</h5>
+                                                <hr>
+                                                <embed type="application/pdf"
+                                                    src="{{ asset('assets/users/' . $user->role . '/' . $user->id . '/berkasprofil/' . $user->berkas) }}"
+                                                    width="100%" height="400"></embed>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
-                                <style>
-                                    #konfirmasi_user {
-                                        border-style: solid;
-                                        border-width: 2px;
-                                        border-radius: 10px;
-                                        border-color: #CE3ABD;
-                                    }
-
-                                    #text_konfirmasi_user {
-                                        font-size: 18px;
-                                    }
-
-                                    #button_berkas_user {
-                                        background-color: #CE3ABD;
-                                    }
-                                </style>
                             </div>
                             <form action="{{ route('update_user.admin', $user->id) }}" method="POST"
                                 enctype="multipart/form-data">
