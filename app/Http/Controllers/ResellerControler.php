@@ -28,8 +28,9 @@ class ResellerControler extends Controller
     public function index()
     {
         $list_kategori = kategori::paginate(5);
+        $banner = produk::paginate(2);
         $produk = produk::with('users')->get();
-        return view('reseller.page_home', compact('list_kategori', 'produk'));
+        return view('reseller.page_home', compact('list_kategori', 'banner', 'produk'));
     }
 
     public function kategori()
@@ -110,7 +111,7 @@ class ResellerControler extends Controller
     public function produk_detail($slug)
     {
         $list_kategori = kategori::paginate(5);
-        $produk = produk::where('slug',$slug)->first();
+        $produk = produk::where('slug', $slug)->first();
 
         $rating = review::where('produks_id', $produk->id)
             ->select(DB::raw('AVG(rate) as average_rating'))
@@ -120,19 +121,7 @@ class ResellerControler extends Controller
         $nilai = review::where('produks_id', $produk->id)->count();
         $terjual = detail_transaksi::where('produks_id', $produk->id)->count();
 
-        return view('reseller.page_produk_detail', compact('list_kategori','produk','rating','nilai','terjual'));
-    }
-
-    public function map($id)
-    {
-        // $id = Auth::id();
-        // $user_location = lokasi::where('users_id', $id)->get();
-        $lokasi = lokasi::all();
-        $produk = produk::find($id);
-        // dd($produk);
-        // @dd($user_location);
-        return view('reseller.page_map', compact('lokasi', 'produk'));
-
+        return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual'));
     }
 
     public function search(Request $request)

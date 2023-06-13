@@ -46,8 +46,7 @@
                     <div class="my-3">
                         {{-- <a href="{{ route('map', $produk->id) }}" class="btn-resell"><i class="fa-solid fa-location-dot"></i> Lihat Lokasi</a> --}}
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn-resell" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                        <button type="button" class="btn-resell" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
                         </button>
 
@@ -65,8 +64,7 @@
                                         <div class="location" id="lokasi"></div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn-resell"
-                                            data-bs-dismiss="modal">Kembali</button>
+                                        <button type="button" class="btn-resell" data-bs-dismiss="modal">Kembali</button>
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +120,130 @@
                 var marker = new google.maps.Marker({
                     position: latLng,
                     map: map,
+                    styles: [{
+                            elementType: "geometry",
+                            stylers: [{
+                                color: "#242f3e"
+                            }]
+                        },
+                        {
+                            elementType: "labels.text.stroke",
+                            stylers: [{
+                                color: "#242f3e"
+                            }]
+                        },
+                        {
+                            elementType: "labels.text.fill",
+                            stylers: [{
+                                color: "#746855"
+                            }]
+                        },
+                        {
+                            featureType: "administrative.locality",
+                            elementType: "labels.text.fill",
+                            stylers: [{
+                                color: "#d59563"
+                            }],
+                        },
+                        {
+                            featureType: "poi",
+                            elementType: "labels.text.fill",
+                            stylers: [{
+                                color: "#d59563"
+                            }],
+                        },
+                        {
+                            featureType: "poi.park",
+                            elementType: "geometry",
+                            stylers: [{
+                                color: "#263c3f"
+                            }],
+                        },
+                        {
+                            featureType: "poi.park",
+                            elementType: "labels.text.fill",
+                            stylers: [{
+                                color: "#6b9a76"
+                            }],
+                        },
+                        {
+                            featureType: "road",
+                            elementType: "geometry",
+                            stylers: [{
+                                color: "#38414e"
+                            }],
+                        },
+                        {
+                            featureType: "road",
+                            elementType: "geometry.stroke",
+                            stylers: [{
+                                color: "#212a37"
+                            }],
+                        },
+                        {
+                            featureType: "road",
+                            elementType: "labels.text.fill",
+                            stylers: [{
+                                color: "#9ca5b3"
+                            }],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "geometry",
+                            stylers: [{
+                                color: "#746855"
+                            }],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "geometry.stroke",
+                            stylers: [{
+                                color: "#1f2835"
+                            }],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "labels.text.fill",
+                            stylers: [{
+                                color: "#f3d19c"
+                            }],
+                        },
+                        {
+                            featureType: "transit",
+                            elementType: "geometry",
+                            stylers: [{
+                                color: "#2f3948"
+                            }],
+                        },
+                        {
+                            featureType: "transit.station",
+                            elementType: "labels.text.fill",
+                            stylers: [{
+                                color: "#d59563"
+                            }],
+                        },
+                        {
+                            featureType: "water",
+                            elementType: "geometry",
+                            stylers: [{
+                                color: "#17263c"
+                            }],
+                        },
+                        {
+                            featureType: "water",
+                            elementType: "labels.text.fill",
+                            stylers: [{
+                                color: "#515c6d"
+                            }],
+                        },
+                        {
+                            featureType: "water",
+                            elementType: "labels.text.stroke",
+                            stylers: [{
+                                color: "#17263c"
+                            }],
+                        },
+                    ],
                     icon: '{{ asset('assets/img/icon/user_lokasi.png') }}',
                     animation: google.maps.Animation.BOUNCE,
                     title: 'Lokasi Saya'

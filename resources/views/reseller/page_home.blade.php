@@ -4,45 +4,37 @@
     {{-- Banner --}}
     <div id="myCarousel" class="carousel slide mt-2" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 0"
                 aria-current="true"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 1"
                 class=""></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 2"
                 class=""></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="4000">
-                <img class="d-block w-100 img-fluid" src="assets/img/reseller/banner-adidas.jpg" alt="slide 1">
+            <div class="carousel-item active"  data-bs-interval="4000">
+                <img class="d-block w-100 img-fluid" src="{{ asset('assets/img/icon/bg_yokresell.jpg') }}" alt="slide 0">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>Adidas Store</h1>
-                        <h2>Better exercise experience with<br>our latest edition of Adidas.</h2>
-                        <a href="#" class="btn-resell">Resell</a>
+                        <h1>Yok Resell</h1>
+                        <h2>Ayo Majukan Dan Kembangkan UMKM Indonesia</h2>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="4000">
-                <img class="d-block w-100 img-fluid" src="assets/img/reseller/banner-kyt.jpg" alt="slide 2">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>KYT Helmet</h1>
-                        <h2>Better exercise experience<br>with World Class Helmet.</h2>
-                        <a href="#" class="btn-resell">Resell</a>
+            @foreach ($banner as $b)
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img class="d-block w-100 img-fluid"
+                        src="{{ asset('assets/users/' . $b->users->role . '/' . $b->users_id . '/' . $b->foto) }}"
+                        alt="slide {{ $loop->iteration }}">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>{{ $b->nama_produk }}</h1>
+                            <h2>Rp {{ number_format($b->harga, 0, '.', '.') }}</h2>
+                            <a href="{{ route('produk_detail.reseller', $b->slug) }}" class="btn-resell">Resell</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="4000">
-                <img class="d-block w-100 img-fluid" src="assets/img/reseller/banner-snack.jpg" alt="slide 3">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Snack Quest</h1>
-                        <h2>We believe that snacks are not just a snack,<br>but also an experience that can enrich
-                            your life.</h2>
-                        <a href="#" class="btn-resell">Resell</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
