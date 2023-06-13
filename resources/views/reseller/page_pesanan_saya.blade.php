@@ -406,9 +406,9 @@
                                                 <input type="hidden" name="status" value="Selesai">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
+                                            <button type="button" class="btn-nilai"
                                                 data-bs-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-warning">Konfirmasi</button>
+                                            <button type="submit" class="btn-resell">Konfirmasi</button>
                                         </div>
                                         </form>
                                     </div>
@@ -526,7 +526,7 @@
                                                                 {{ number_format($detailTransaksi->harga, 0, ',', '.') }}
                                                             </p>
                                                             <a href="{{ route('produk_detail.reseller', $detailTransaksi->produk->slug) }}"
-                                                                class="btn btn-warning form-control">Rate</a>
+                                                                class="btn-resell form-control">Rate</a>
                                                             <hr>
                                                         @endforeach
                                                     @endif
@@ -535,7 +535,7 @@
                                             <br>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
+                                            <button type="button" class="btn-nilai"
                                                 data-bs-dismiss="modal">Tutup</button>
                                         </div>
                                     </div>

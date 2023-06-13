@@ -87,7 +87,9 @@
 
             <div class="description row my-2 py-2">
                 <h4 class="title">Deskripsi</h4>
-                <p class="isi">{!! nl2br(e($produk->deskripsi)) !!}</p>
+                <div class="mx-2">
+                    {!! $produk->deskripsi !!}
+                </div>
             </div>
 
             <div class="review row mb-3 py-2">
