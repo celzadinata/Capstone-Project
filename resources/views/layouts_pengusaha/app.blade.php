@@ -22,6 +22,8 @@
     <script src="{{ asset('assets/js/admin/preview_img.js') }}"></script>
     <link href="{{ asset('assets/css/admin/button-berkas.css') }}" rel="stylesheet">
     <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="{{ asset('assets/js/admin/preview_berkas.js') }}"></script>
 </head>
