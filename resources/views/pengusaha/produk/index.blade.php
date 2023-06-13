@@ -12,7 +12,7 @@
                                 <a href="{{ route('produk.jenis') }}" class="btn btn-primary mb-3">Tambah Produk</a>
                             </div>
                             <div class="table-responsive">
-                                <table class="table" style="border: 1px solid white;">
+                                <table class="table table-bordered" style="border: 1px solid white;">
                                     <thead>
                                         <tr style="background-color: #CE3ABD; color: white;">
                                             <th width="5%" style="border-right: 1px solid white;">No</th>

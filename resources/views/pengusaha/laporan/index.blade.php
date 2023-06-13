@@ -11,7 +11,7 @@
                             <div class="card card-stats">
                                 <div class="card-header card-header-primary card-header-icon">
                                     <div class="card-icon">
-                                        <i class="material-icons">content_copy</i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <p class="card-category">Paket Usaha</p>
                                     <h3 class="card-title">{{ $paket }}
@@ -19,10 +19,6 @@
                                     </h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons text-danger">warning</i>
-                                        <a href="javascript:;">Get More Space...</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -30,15 +26,12 @@
                             <div class="card card-stats">
                                 <div class="card-header card-header-primary card-header-icon">
                                     <div class="card-icon">
-                                        <i class="material-icons">store</i>
+                                        <i class="fa-solid fa-box-open"></i>
                                     </div>
                                     <p class="card-category">Supply</p>
                                     <h3 class="card-title">{{ $supply }}</h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">date_range</i> Last 24 Hours
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -52,9 +45,6 @@
                                     <h3 class="card-title">{{ $transaksi }}</h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">local_offer</i> Tracked from Github
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -62,15 +52,12 @@
                             <div class="card card-stats">
                                 <div class="card-header card-header-primary card-header-icon">
                                     <div class="card-icon">
-                                        <i class="fa fa-twitter"></i>
+                                        <i class="fa-solid fa-comments"></i>
                                     </div>
                                     <p class="card-category">Review</p>
                                     <h3 class="card-title">{{ $review }}</h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">update</i> Just Updated
-                                    </div>
                                 </div>
                             </div>
                         </div>
