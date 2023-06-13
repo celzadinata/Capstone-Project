@@ -2,11 +2,17 @@
 Detail Produk page styles
 =================================================================*/
 .detail-produk {
-    color: var(--pink);
+    color: black;
 }
 
 .detail-produk .hr-detail {
     border-width: 2px;
+    color: #CE3ABD;
+}
+
+.detail-produk .row {
+    background-color: #fff;
+    border-radius: 5px;
 }
 
 .detail-produk .card {
@@ -21,6 +27,21 @@ Detail Produk page styles
     width: 500px;
     height: 100%;
     object-fit: cover;
+}
+
+.detail-produk .title {
+    color: black;
+}
+
+.detail-produk .price {
+    color: var(--pink);
+    font-style: bold;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+}
+
+.detail-produk .rating {
+    color: var(--pink);
 }
 
 .detail-produk .card-body h3 {
@@ -67,7 +88,6 @@ Detail Produk page styles
 }
 
 .detail-produk .btn-resell:hover {
-    -webkit-transform: scale(1.1);
     border-color: var(--pink);
     color: var(--pink);
     background: white;
@@ -75,7 +95,7 @@ Detail Produk page styles
 
 .detail-produk .description {
     border: 0;
-    border-radius: 20px;
+    border-radius: 5px;
     color: black;
     background-color: white;
 }
@@ -87,9 +107,8 @@ Detail Produk page styles
     border-radius: 10px;
 }
 
-.detail-produk .description h3 {
+.detail-produk .description h4 {
     font-weight: 600;
-    margin-bottom: 20px;
 }
 
 .detail-produk .description p {
@@ -99,14 +118,13 @@ Detail Produk page styles
 
 .detail-produk .review {
     border: 0;
-    border-radius: 20px;
+    border-radius: 5px;
     color: black;
     background-color: white;
 }
 
-.detail-produk .review h3 {
+.detail-produk .review h4 {
     font-weight: 600;
-    margin-bottom: 20px;
 }
 
 .detail-produk .review h4 {

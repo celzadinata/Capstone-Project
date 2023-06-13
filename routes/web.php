@@ -95,7 +95,7 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
 });
 
 //Role Reseller
-Route::group(['prefix' => '/', 'middleware' => ['auth', 'isReseller']], function () {
+Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
     // Dashboard Reseller
     Route::get('/', [ResellerControler::class, 'index'])->name('reseller');
     // Semua Kategori
@@ -117,7 +117,6 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'isReseller']], function
     Route::put('/user/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
     // Invoice
     Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice.print');
-    Route::get('/map/{id}', [ResellerControler::class, 'map'])->name('map');
 });
 
 
