@@ -24,7 +24,7 @@ class PaypalController extends Controller
         $id = 'TRX' . rand(1000000, 9999999);
         $cart_items = detail_transaksi::where(['transaksis_id' => null, 'users_id' => Auth::user()->id])->get();
         $total = 0;
-        
+
         foreach ($cart_items as $item) {
             $product = produk::find($item->produks_id);
             $product->stok -= $item->qty;

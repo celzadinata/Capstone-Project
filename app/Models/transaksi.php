@@ -16,7 +16,8 @@ class transaksi extends Model
         'user_id',
         'tanggal',
         'total',
-        'bukti_pembayaran'
+        'bukti_pembayaran',
+        'status'
     ];
 
     public function detail_transaksi()

@@ -78,7 +78,7 @@ class TransaksiController extends Controller
             }
             $product->update();
         }
-        
+
         $transaksi = transaksi::create([
             'id' => $id,
             'user_id' => Auth::user()->id,
@@ -111,9 +111,9 @@ class TransaksiController extends Controller
      * @param  \App\Models\transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function edit(transaksi $transaksi)
+    public function edit(Request $request)
     {
-        //
+
     }
 
     /**

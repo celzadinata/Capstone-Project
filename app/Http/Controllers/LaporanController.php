@@ -45,7 +45,7 @@ class LaporanController extends Controller
             ->count();
 
         $total_harga = DB::table('transaksis')
-            ->select(DB::raw('CAST(SUM(transaksis.total/' . $count . ') as int) AS total_harga'), DB::raw('MONTH(transaksis.tanggal) as month'), DB::raw('YEAR(transaksis.tanggal) AS year'))
+            ->select(DB::raw('CAST(SUM(transaksis.total) as int) AS total_harga'), DB::raw('MONTH(transaksis.tanggal) as month'), DB::raw('YEAR(transaksis.tanggal) AS year'))
             ->leftJoin('detail_transaksis', 'transaksis.id', '=', 'detail_transaksis.transaksis_id')
             ->leftJoin('produks', 'detail_transaksis.produks_id', '=', 'produks.id')
             ->where('produks.users_id', $log)

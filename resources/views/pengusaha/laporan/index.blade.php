@@ -69,19 +69,19 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
-                                    <tr>
+                                    <thead>
                                         <th>Tahun</th>
                                         <th>Bulan</th>
                                         <th>Jumlah Transaksi</th>
                                         <th>Total</th>
-                                    </tr>
+                                    </thead>
                                     @foreach ($months as $index => $month)
-                                        <tr>
+                                        <tbody>
                                             <td>{{ $years[$index] }}</td>
                                             <td>{{ $month }}</td>
                                             <td>{{ $transactionCounts[$index] }}</td>
                                             <td>Rp. {{ number_format($totalPrices[$index]), 0, ',', '.' }}</td>
-                                        </tr>
+                                        </tbody>
                                     @endforeach
                                 </table>
                             </div>
