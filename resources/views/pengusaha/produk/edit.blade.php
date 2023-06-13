@@ -26,7 +26,8 @@
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea name="deskripsi" id="deskripsi" class="form-control" required>{{ $produk->deskripsi }}</textarea>
+                        <input id="deskripsi" type="hidden" name="deskripsi">
+                        <trix-editor input="deskripsi">{!! $produk->deskripsi !!}</trix-editor>
                     </div>
                     <div class="form-group">
                         <label for="harga">Harga</label>

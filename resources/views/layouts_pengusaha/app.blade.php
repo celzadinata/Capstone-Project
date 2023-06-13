@@ -40,6 +40,7 @@
             @yield('content')
             {{-- End Main Content --}}
 
+
             {{-- Footer --}}
             @include('layouts_pengusaha.footer')
             {{-- End Footer --}}

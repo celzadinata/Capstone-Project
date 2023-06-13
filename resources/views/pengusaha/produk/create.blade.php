@@ -23,14 +23,10 @@
                         <label for="nama_produk">Nama Produk</label>
                         <input type="text" name="nama_produk" id="nama_produk" class="form-control" required>
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea name="deskripsi" id="deskripsi" class="form-control" required></textarea>
-                    </div> --}}
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <input id="x" type="hidden" name="deskripsi">
-                        <trix-editor input="x"></trix-editor>
+                        <input id="deskripsi" type="hidden" name="deskripsi">
+                        <trix-editor input="deskripsi"></trix-editor>
                     </div>
                     <div class="form-group">
                         <label for="harga">Harga</label>

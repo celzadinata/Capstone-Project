@@ -5,12 +5,9 @@
     <div class="content">
         <div class="card">
             <div class="container">
-            <div class="card_header">
-                <h2><b>Tambah kategori</b></h2>
-            </div>
             <form action="{{ route('kategori.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="card-body">
+                <div class="card-body mt-3">
                     <div class="mb-3">
                         <div class="form-group">
                             <label for="nama">Nama Kategori :</label>

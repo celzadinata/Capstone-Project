@@ -55,7 +55,7 @@
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
                                                     <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                    <a href="#{{ route('produk_detail.reseller', $p->slug) }}"
+                                                    <a href="{{ route('produk_detail.reseller', $p->slug) }}"
                                                         class="btn-resell">Resell</a>
                                                 </div>
                                             </div>
