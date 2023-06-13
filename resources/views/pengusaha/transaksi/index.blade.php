@@ -53,7 +53,7 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <a type="button" class="btn btn-sm btn-success"
+                                                    <a target="_blank" type="button" class="btn btn-sm btn-success"
                                                         href="{{ route('invoice', $item->id) }}">Cetak</a>
                                                 </td>
                                             </tr>

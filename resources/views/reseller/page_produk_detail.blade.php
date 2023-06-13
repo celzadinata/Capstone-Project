@@ -47,9 +47,11 @@
                     <div class="my-3">
                         {{-- <a href="{{ route('map', $produk->id) }}" class="btn-resell"><i class="fa-solid fa-location-dot"></i> Lihat Lokasi</a> --}}
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn-resell" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
-                        </button>
+                        @if ($produk->jenis == 'paket_usaha')
+                            <button type="button" class="btn-resell" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
+                            </button>
+                        @endif
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">

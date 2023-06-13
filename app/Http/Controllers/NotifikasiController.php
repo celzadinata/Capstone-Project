@@ -36,9 +36,10 @@ class NotifikasiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'users_id'=> 'required',
-            'judul'=> 'required',
-            'pesan'=> 'required',
+            'produks_id' => 'required',
+            'users_id' => 'required',
+            'judul' => 'required',
+            'pesan' => 'required',
         ]);
 
         notifikasi::create($request->all());

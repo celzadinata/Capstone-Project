@@ -38,7 +38,7 @@
                                                         method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('PUT')
-                                                        @if ($produk->status == 'Belum Konfirmasi' && $produk->status == null)
+                                                        @if ($produk->status == 'Belum Konfirmasi')
                                                         @else
                                                             @if ($produk->tampilkan == 0)
                                                                 <div class="form-group">
