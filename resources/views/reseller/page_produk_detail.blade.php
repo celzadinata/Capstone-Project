@@ -49,7 +49,6 @@
                         <button type="button" class="btn-resell" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
                         </button>
-
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
