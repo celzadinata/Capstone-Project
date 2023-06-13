@@ -14,7 +14,8 @@
             <hr class="my-2 hr-detail opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row mt-3 py-2">
                 <div class="col-md-3 col-lg-5">
-                    <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('assets/users/' . $produk->users->role . '/' . $produk->users_id . '/' . $produk->foto) }}"
+                        class="card-img-top" alt="...">
                 </div>
                 <div class="col-md-5 col-lg-7 pt-2">
                     <h4 class="title">{{ $produk->nama_produk }}</h4>
@@ -84,7 +85,7 @@
 
             <div class="description row my-2 py-2">
                 <h4 class="title">Deskripsi</h4>
-                <p class="isi">{{ $produk->deskripsi }}</p>
+                <p class="isi">{!! nl2br(e($produk->deskripsi)) !!}</p>
             </div>
 
             <div class="review row mb-3 py-2">
