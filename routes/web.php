@@ -103,6 +103,12 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     // Semua Kategori
     Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.reseller');
     Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
+    // Supply
+    Route::get('/supply', [ResellerControler::class, 'supply'])->name('paket.reseller');
+    // Paket Usaha
+    Route::get('/paket-usaha', [ResellerControler::class, 'paket_usaha'])->name('paket.reseller');
+    // Produk Detail
+    Route::get('/produk_detail/{slug}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
 
     // Profile
     Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
@@ -124,7 +130,6 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
 });
 
 
-
 // Guets
 // Dashboard Reseller
 Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
@@ -134,13 +139,17 @@ Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.
 Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
 
 // Paket Usaha
+
+Route::get('/paket-usaha', [ResellerControler::class, 'paket_usaha'])->name('paket.reseller');
+// Supply
+Route::get('/supply', [ResellerControler::class, 'supply'])->name('supply.reseller');
 Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
 Route::get('/produk_detail/{slug}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
-Route::get('/produk-detail/{id}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
-Route::get('/map/{id}', [ResellerControler::class, 'map'])->name('map');
 
 // search produk
-Route::get('/search', [ResellerControler::class, 'search'])->name('search');
+Route::get('/paket/search', [ResellerControler::class, 'search_paketusaha'])->name('search_paket');
+// search supply
+Route::get('/supply/search', [ResellerControler::class, 'search_supply'])->name('search_supply');
 
 
 require __DIR__ . '/auth.php';

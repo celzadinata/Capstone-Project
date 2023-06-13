@@ -1,18 +1,25 @@
 @extends('layouts_reseller.app')
-@section('title', 'Produk')
+@section('title', 'Paket Usaha')
 @section('content')
-    {{-- Produk Kategori --}}
+    {{-- Paket Usaha --}}
     <section class="paket-usaha">
         <div class="container">
             <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row my-3">
                 <div class="col-md-3 col-lg-2 pe-5 side-panel-paket" data-aos="zoom-in" data-aos-delay="100">
-                    {{-- <form class="d-flex mb-4" action="{{ route('search') }}" method="get" role="search">
+                    <form class="d-flex mb-4" action="{{ route('search_paket') }}" method="get" role="search">
                         <input class="form-control me-2" name="search" type="text" placeholder="Search"
                             aria-label="Search">
                         <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
-                    </form> --}}
-                    <h1>{{ $kategori->nama }}</h1>
+                    </form>
+                    <h1>Kategori</h1>
+                    <ul class="kategori list-unstyled">
+                        @foreach ($list_kategori as $k)
+                            <li><a href="{{ route('produk_kategori.reseller', $k->id) }}">{{ $k->nama }}</a></li>
+                        @endforeach
+                        <hr class="opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <li><a href="{{ route('kategori.reseller') }}">Semua Kategori</a></li>
+                    </ul>
                     <hr class="my-4 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
                     <h1>Urutkan</h1>
                     <ul class="urutkan list-unstyled">
@@ -39,35 +46,29 @@
                     </ul>
                 </div>
                 <div class="col-md-9 col-lg-10">
-                    @if ($produk->isEmpty())
-                        <div class="text-center mt-5">
-                            <h4>Tidak Ada Produk Yang Tersedia</h4>
-                        </div>
-                    @else
-                        <div class="row row-cols-2 row-cols-lg-5 g-4" data-aos="fade">
-                            @foreach ($produk as $p)
-                                @if ($p->status == 'Konfirmasi')
-                                    @if ($p->tampilkan == 1)
-                                        <div class="col">
-                                            <div class="card h-100">
-                                                <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
-                                                    class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
-                                                    <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                    <a href="#{{ route('produk_detail.reseller', $p->slug) }}"
-                                                        class="btn-resell">Resell</a>
-                                                </div>
+                    <div class="row row-cols-1 row-cols-md-5 g-4" data-aos="fade">
+                        @foreach ($paket as $p)
+                            @if ($p->status == 'Konfirmasi')
+                                @if ($p->tampilkan == 1)
+                                    <div class="col">
+                                        <div class="card h-100">
+                                            <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
+                                                class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h4 class="card-title">{{ Str::limit($p->nama_produk, 20) }}</h4>
+                                                <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                                <a href="{{ route('produk_detail.reseller', $p->slug) }}"
+                                                    class="btn-resell">Resell</a>
                                             </div>
                                         </div>
-                                    @endif
+                                    </div>
                                 @endif
-                            @endforeach
-                        </div>
-                    @endif
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    {{-- ./Produk Kategori --}}
+    {{-- ./Paket Usaha --}}
 @endsection

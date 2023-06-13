@@ -87,19 +87,7 @@
                                                         @enderror
                                                     </div>
 
-                                                    <div class="mb-4">
-                                                        <label for="nama_perusahaan" class="form-label"
-                                                            style="color:#CE3ABD; font-weight: 700">Usaha</label>
-                                                        <input type="nama_perusahaan"
-                                                            class="form-control text-muted @error('nama_perusahaan') is-invalid @enderror"
-                                                            name="nama_perusahaan" id="nama_perusahaan"
-                                                            aria-describedby="nama_perusahaanHelp"
-                                                            value="{{ Auth::user()->nama_perusahaan }}" disabled>
-                                                        @error('nama_perusahaan')
-                                                            <div id="nama_perusahaanHelp" class="form-text">
-                                                                {{ $message }}</div>
-                                                        @enderror
-                                                    </div>
+
 
                                                     {{-- <div class="mb-4">
                                                                 <label for="jenisKelamin" class="form-label" style="color:#CE3ABD; font-weight: 700">Jenis Kelamin</label>
@@ -183,8 +171,9 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <button type="button" class="btn btn" id="button_berkas_user"
-                                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                <button type="button" class="btn btn"
+                                                                    id="button_berkas_user" data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModal">
                                                                     Lihat Berkas
                                                                 </button>
                                                             </div>
@@ -201,11 +190,11 @@
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             @if (Auth::user()->berkas == null)
-                                                                            <h3>Berkas KTP Masih Kosong</h3>
+                                                                                <h3>Berkas KTP Masih Kosong</h3>
                                                                             @else
-                                                                            <embed type="application/pdf"
-                                                                                src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"
-                                                                                width="100%" height="400"></embed>
+                                                                                <embed type="application/pdf"
+                                                                                    src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"
+                                                                                    width="100%" height="400"></embed>
                                                                             @endif
                                                                         </div>
                                                                         <div class="modal-footer">

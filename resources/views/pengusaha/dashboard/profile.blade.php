@@ -16,7 +16,7 @@
                                         <div class="card-body">
                                             <div class="mb-2">
                                                 <div class="text-center">
-                                                    @if (Auth::user()->avatar == 'default')
+                                                    @if (Auth::user()->avatar == null)
                                                         <img src="{{ asset('assets/img/icon/admin.png') }}" id="preview"
                                                             class="rounded img-fluid"
                                                             style="width: 150px; height: 150px;" />
@@ -189,8 +189,9 @@
                                                         <div class="modal-dialog modal-lg">
                                                             <div class="modal-content" id="modal">
                                                                 @if (Auth::user()->berkas == null)
-                                                                <h3 class="py-5 text-center" style="color:#CE3ABD">Berkas KTP Masih Belum
-                                                                    Dimasukkan</h3>
+                                                                    <h3 class="py-5 text-center" style="color:#CE3ABD">
+                                                                        Berkas KTP Masih Belum
+                                                                        Dimasukkan</h3>
                                                                 @else
                                                                     <embed type="application/pdf"
                                                                         src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/berkasprofil/' . Auth::user()->berkas) }}"

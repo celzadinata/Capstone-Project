@@ -6,8 +6,8 @@
             @foreach ($review as $r)
                 <div class="row mx-4">
                     <div class="col-md-2 col-lg-1">
-                        <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="60px"
-                            style="border-radius:5px">
+                        <img src="{{ asset('assets/users/reseller/' . $r->users_id . '/avatar/' . $r->users->avatar) }}"
+                            width="60px" style="border-radius:5px">
                     </div>
                     <div class="col-md-5 col-lg-11">
                         <h5>{{ $r->users->username }}</h5>

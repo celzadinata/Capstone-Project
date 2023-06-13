@@ -98,12 +98,15 @@ svg .logo-white path {
 .navbar-nav {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
 }
 
 @media (max-width: 991px) {
     .nav-item {
         margin-bottom: 5px;
+    }
+    .navbar-nav {
+        margin-top: 10px;
     }
 }
 
@@ -111,11 +114,19 @@ svg .logo-white path {
     .nav-item {
         margin-bottom: 5px;
     }
+    .navbar-nav {
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 576px) {
     .nav-item {
         margin-bottom: 5px;
+        
+    }
+    
+    .navbar-nav {
+        margin-top: 10px;
     }
 }
 

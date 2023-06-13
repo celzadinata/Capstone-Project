@@ -101,11 +101,18 @@ class ResellerControler extends Controller
         return view('reseller.page_produk_kategori', compact('list_kategori', 'kategori', 'produk'));
     }
 
-    public function produk()
+    public function paket_usaha()
     {
         $list_kategori = kategori::paginate(5);
-        $produk = produk::with('users')->get();
-        return view('reseller.page_produk', compact('list_kategori', 'produk'));
+        $paket = produk::with('users')->where('jenis', 'paket_usaha')->get();
+        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket'));
+    }
+
+    public function supply()
+    {
+        $list_kategori = kategori::paginate(5);
+        $supply = produk::with('users')->where('jenis', 'supply')->get();
+        return view('reseller.page_supply', compact('list_kategori', 'supply'));
     }
 
     public function produk_detail($slug)
@@ -124,13 +131,24 @@ class ResellerControler extends Controller
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual'));
     }
 
-    public function search(Request $request)
+
+
+    public function search_paketusaha(Request $request)
     {
         $list_kategori = kategori::paginate(5);
         $searchTerm = $request->input('search');
-        $produk = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $paket = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
 
-        return view('reseller.page_produk', compact('list_kategori', 'produk'));
+        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket'));
+    }
+
+    public function search_supply(Request $request)
+    {
+        $list_kategori = kategori::paginate(5);
+        $searchTerm = $request->input('search');
+        $supply = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+
+        return view('reseller.page_supply', compact('list_kategori', 'supply'));
     }
 
     public function profile()

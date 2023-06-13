@@ -55,7 +55,7 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        $id = 'TRX'.rand(1000000,9999999);
+        $id = 'TRX' . rand(1000000, 9999999);
         $cart_items = detail_transaksi::where(['transaksis_id' => null, 'users_id' => Auth::user()->id])->get();
 
         foreach ($cart_items as $keyy => $itemm) {
@@ -84,7 +84,6 @@ class TransaksiController extends Controller
             'user_id' => Auth::user()->id,
             'tanggal' => Date::now(),
             'total' => $request->total,
-            'bukti_pembayaran' => 'sad.pdf'
         ]);
 
         foreach ($cart_items as $item) {
@@ -113,7 +112,6 @@ class TransaksiController extends Controller
      */
     public function edit(Request $request)
     {
-
     }
 
     /**

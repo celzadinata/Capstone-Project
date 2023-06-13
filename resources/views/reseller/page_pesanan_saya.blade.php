@@ -87,7 +87,7 @@
                                                         @if ($item->bukti_pembayaran == null)
                                                             <!-- Button trigger modal -->
                                                             <button type="button" class="btn-resell" data-bs-toggle="modal"
-                                                                data-bs-target="#exampleModal">
+                                                                data-bs-target="#exampleModal{{ $item->id }}">
                                                                 Upload Bukti Pembayaran
                                                             </button>
                                                         @else
@@ -95,13 +95,14 @@
                                                         @endif
 
                                                         <!-- Modal -->
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal fade" id="exampleModal{{ $item->id }}"
+                                                            tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog modal-lg">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                            Modal title</h1>
+                                                                            Upload Bukti Pembayaran</h1>
                                                                         <button type="button" class="btn-close"
                                                                             data-bs-dismiss="modal"
                                                                             aria-label="Close"></button>
@@ -114,7 +115,7 @@
                                                                             <div class="mb-3">
                                                                                 <label for="formFile"
                                                                                     class="form-label">Masukkan Disini
-                                                                                    !</label>
+                                                                                </label>
                                                                                 <input class="form-control" type="file"
                                                                                     name="bukti_pembayaran" id="formFile">
                                                                                 <input class="form-control" type="hidden"
@@ -150,7 +151,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-money-bill-transfer fa-shake"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Menunggu Pembayaran Kosong</h4>
                                         </div>
@@ -180,7 +181,7 @@
                                                         <div class="d-flex">
                                                             <div class="card-image mt-3">
                                                                 <img width="100 px" height="100px"
-                                                                    src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
+                                                                    src="{{ asset('assets/users/' . $detailTransaksi->produk->users->role . '/' . $detailTransaksi->produk->users_id . '/' . $detailTransaksi->produk->foto) }}"
                                                                     class="card-title" alt="Image 1">
                                                             </div>
                                                             <div class="card-body">
@@ -230,7 +231,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-money-check-dollar"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-money-check-dollar fa-flip"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Pembayaran Diterima Kosong</h4>
                                         </div>
@@ -259,7 +260,7 @@
                                                     <div class="d-flex">
                                                         <div class="card-image mt-3">
                                                             <img width="100 px" height="100px"
-                                                                src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
+                                                                src="{{ asset('assets/users/' . $detailTransaksi->produk->users->role . '/' . $detailTransaksi->produk->users_id . '/' . $detailTransaksi->produk->foto) }}"
                                                                 class="card-title" alt="Image 1">
                                                         </div>
                                                         <div class="card-body">
@@ -308,7 +309,8 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-gears"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-gear fa-spin fa-xl"></i><i
+                                                class="fa-solid fa-gear fa-spin fa-spin-reverse fa-2xs"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Diproses Kosong</h4>
                                         </div>
@@ -338,7 +340,7 @@
                                                         <div class="d-flex">
                                                             <div class="card-image mt-3">
                                                                 <img width="100 px" height="100px"
-                                                                    src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
+                                                                    src="{{ asset('assets/users/' . $detailTransaksi->produk->users->role . '/' . $detailTransaksi->produk->users_id . '/' . $detailTransaksi->produk->foto) }}"
                                                                     class="card-title" alt="Image 1">
                                                             </div>
                                                             <div class="card-body">
@@ -422,7 +424,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-truck-fast"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-truck-fast fa-bounce"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Dikirim Kosong</h4>
                                         </div>
@@ -452,7 +454,7 @@
                                                         <div class="d-flex">
                                                             <div class="card-image mt-3">
                                                                 <img width="100 px" height="100px"
-                                                                    src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
+                                                                    src="{{ asset('assets/users/' . $detailTransaksi->produk->users->role . '/' . $detailTransaksi->produk->users_id . '/' . $detailTransaksi->produk->foto) }}"
                                                                     class="card-title" alt="Image 1">
                                                             </div>
                                                             <div class="card-body">
@@ -487,7 +489,7 @@
                                                         </h4>
                                                     </div>
                                                     <div class="d-flex justify-content-end mt-3 mb-0">
-                                                        <a type="button" class="btn-resell"
+                                                        <a target="_blank" type="button" class="btn-resell"
                                                             href="{{ route('invoice.print', $item->id) }}">Cetak</a>
                                                         <button type="button" id="nilaiProdukBtn{{ $item->id }}"
                                                             class="btn-nilai mx-2" data-bs-toggle="modal"
@@ -523,7 +525,7 @@
                                                             <p class="form-control">Rp.
                                                                 {{ number_format($detailTransaksi->harga, 0, ',', '.') }}
                                                             </p>
-                                                            <a href="{{ route('produk_detail.reseller', $detailTransaksi->produks_id) }}"
+                                                            <a href="{{ route('produk_detail.reseller', $detailTransaksi->produk->slug) }}"
                                                                 class="btn btn-warning form-control">Rate</a>
                                                             <hr>
                                                         @endforeach
@@ -549,7 +551,7 @@
                             <div class="col">
                                 <div class="card py-4 my-2 mx-2">
                                     <div class="card-body py-5 text-center">
-                                        <div class="my-3"><i class="fa-solid fa-clipboard-check"></i></div>
+                                        <div class="my-3"><i class="fa-solid fa-clipboard-check fa-shake"></i></div>
                                         <div class="mb-2">
                                             <h4>Pesanan Selesai Kosong</h4>
                                         </div>
