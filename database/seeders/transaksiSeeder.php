@@ -43,7 +43,7 @@ class transaksiSeeder extends Seeder
             [
                 'id' => '1',
                 'transaksis_id' => 'TRX0111111',
-                'produks_id' => 'AYM001',
+                'produks_id' => 'PU0001',
                 'users_id' => 'K4uS7368',
                 'nama_produk' => 'Makanan franchise Ayam',
                 'harga' => '12500000',
@@ -53,7 +53,7 @@ class transaksiSeeder extends Seeder
             [
                 'id' => '2',
                 'transaksis_id' => 'TRX0111111',
-                'produks_id' => 'AYM002',
+                'produks_id' => 'SP0001',
                 'users_id' => 'K4uS7368',
                 'nama_produk' => 'Ayam fillet 200gr',
                 'harga' => '240000',
@@ -64,7 +64,7 @@ class transaksiSeeder extends Seeder
             [
                 'id' => '3',
                 'transaksis_id' => 'TRX0111112',
-                'produks_id' => 'AYM002',
+                'produks_id' => 'SP0001',
                 'users_id' => 'K4uS7360',
                 'nama_produk' => 'Ayam fillet 200gr',
                 'harga' => '240000',

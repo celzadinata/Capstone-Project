@@ -47,7 +47,7 @@
                                                 @if ($item->detail_transaksi)
                                                     @foreach ($item->detail_transaksi as $detailTransaksi)
                                                         <div class="d-flex">
-                                                            <div class="card-image">
+                                                            <div class="card-image mt-3">
                                                                 <img width="100 px" height="100px"
                                                                     src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
                                                                     class="card-title" alt="Image 1">
@@ -75,12 +75,14 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
-                                                <div class="card-footer price" style="background-color: #f5f5f5">
-                                                    <h4 class="d-flex justify-content-end py-2 mb-0">
-                                                        Total
-                                                        &nbsp;
-                                                        <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
-                                                    </h4>
+                                                <hr>
+                                                <div class="price">
+                                                    <div class="total d-flex justify-content-end mb-0">
+                                                        <h4>
+                                                            Total: <span id="total">Rp.
+                                                                {{ number_format($item->total, 0, ',', '.') }}</span>
+                                                        </h4>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,7 +127,7 @@
                                                 @if ($item->detail_transaksi)
                                                     @foreach ($item->detail_transaksi as $detailTransaksi)
                                                         <div class="d-flex">
-                                                            <div class="card-image">
+                                                            <div class="card-image mt-3">
                                                                 <img width="100 px" height="100px"
                                                                     src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
                                                                     class="card-title" alt="Image 1">
@@ -153,12 +155,14 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
-                                                <div class="card-footer price" style="background-color: #f5f5f5">
-                                                    <h4 class="d-flex justify-content-end py-2 mb-0">
-                                                        Total
-                                                        &nbsp;
-                                                        <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
-                                                    </h4>
+                                                <hr>
+                                                <div class="price">
+                                                    <div class="total d-flex justify-content-end mb-0">
+                                                        <h4>
+                                                            Total: <span id="total">Rp.
+                                                                {{ number_format($item->total, 0, ',', '.') }}</span>
+                                                        </h4>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -193,7 +197,7 @@
                         @if ($item->status === 'Pesanan Diproses')
                             <div class="row">
                                 <div class="col">
-                                    <div class="card mt-2 mx-2">
+                                    <div class="card my-2 mx-2">
                                         <div class="card-body">
                                             <div class="price">
                                                 <h4 style="color: #CE3ABD">ID {{ $item->id }}</h4>
@@ -202,7 +206,7 @@
                                             @if ($item->detail_transaksi)
                                                 @foreach ($item->detail_transaksi as $detailTransaksi)
                                                     <div class="d-flex">
-                                                        <div class="card-image">
+                                                        <div class="card-image mt-3">
                                                             <img width="100 px" height="100px"
                                                                 src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
                                                                 class="card-title" alt="Image 1">
@@ -230,12 +234,14 @@
                                                     </div>
                                                 @endforeach
                                             @endif
-                                            <div class="card-footer price" style="background-color: #f5f5f5">
-                                                <h4 class="d-flex justify-content-end py-2 mb-0">
-                                                    Total
-                                                    &nbsp;
-                                                    <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
-                                                </h4>
+                                            <hr>
+                                            <div class="price">
+                                                <div class="total d-flex justify-content-end mb-0">
+                                                    <h4>
+                                                        Total: <span id="total">Rp.
+                                                            {{ number_format($item->total, 0, ',', '.') }}</span>
+                                                    </h4>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -269,7 +275,7 @@
                         @if ($item->status === 'Pesanan Dikirim')
                             <div class="row">
                                 <div class="col">
-                                    <div class="card mt-2 mx-2">
+                                    <div class="card my-2 mx-2">
                                         <div class="card-body">
                                             <div class="price">
                                                 <h4 style="color: #CE3ABD">ID {{ $item->id }}</h4>
@@ -279,7 +285,7 @@
                                                 @if ($item->detail_transaksi)
                                                     @foreach ($item->detail_transaksi as $detailTransaksi)
                                                         <div class="d-flex">
-                                                            <div class="card-image">
+                                                            <div class="card-image mt-3">
                                                                 <img width="100 px" height="100px"
                                                                     src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
                                                                     class="card-title" alt="Image 1">
@@ -307,18 +313,20 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
-                                                <div class="card-footer price" style="background-color: #f5f5f5">
-                                                    <h4 class="d-flex justify-content-end py-2 mb-0">
-                                                        Total
-                                                        &nbsp;
-                                                        <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
-                                                    </h4>
-                                                </div>
-                                                <div class="card-body m-2">
-                                                    <button type="button" id="konfirmasiBtn{{ $item->id }}"
-                                                        class="btn-resell btn-konfirmasi my-2" data-bs-toggle="modal"
-                                                        data-bs-target="#detailmodal{{ $item->id }}">Konfirmasi
-                                                        Pesanan</button>
+                                                <hr>
+                                                <div class="price">
+                                                    <div class="total d-flex justify-content-end mb-0">
+                                                        <h4>
+                                                            Total: <span id="total">Rp.
+                                                                {{ number_format($item->total, 0, ',', '.') }}</span>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end mt-3 mb-0">
+                                                        <button type="button" id="konfirmasiBtn{{ $item->id }}"
+                                                            class="btn-resell btn-konfirmasi my-2" data-bs-toggle="modal"
+                                                            data-bs-target="#detailmodal{{ $item->id }}">Konfirmasi
+                                                            Pesanan</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -381,7 +389,7 @@
                         @if ($item->status === 'Selesai')
                             <div class="row">
                                 <div class="col">
-                                    <div class="card mt-2 mx-2">
+                                    <div class="card my-2 mx-2">
                                         <div class="card-body">
                                             <div class="price">
                                                 <h4 style="color: #CE3ABD">ID {{ $item->id }}</h4>
@@ -391,7 +399,7 @@
                                                 @if ($item->detail_transaksi)
                                                     @foreach ($item->detail_transaksi as $detailTransaksi)
                                                         <div class="d-flex">
-                                                            <div class="card-image">
+                                                            <div class="card-image mt-3">
                                                                 <img width="100 px" height="100px"
                                                                     src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
                                                                     class="card-title" alt="Image 1">
@@ -419,21 +427,19 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
-                                                <div class="card-footer price" style="background-color: #f5f5f5">
-                                                    <h4 class="d-flex justify-content-end py-2 mb-0">
-                                                        Total
-                                                        &nbsp;
-                                                        <span>Rp. {{ number_format($item->total, 0, ',', '.') }}</span>
-                                                    </h4>
-                                                </div>
-                                                <div class="card-body position-relative">
-                                                    <div class="nav-link">
+                                                <hr>
+                                                <div class="price">
+                                                    <div class="total d-flex justify-content-end mb-0">
+                                                        <h4>
+                                                            Total: <span id="total">Rp.
+                                                                {{ number_format($item->total, 0, ',', '.') }}</span>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end mt-3 mb-0">
                                                         <a type="button" class="btn-resell"
                                                             href="{{ route('invoice.print', $item->id) }}">Cetak</a>
-                                                    </div>
-                                                    <div class="nav-link position-absolute end-0">
                                                         <button type="button" id="nilaiProdukBtn{{ $item->id }}"
-                                                            class="btn-resell btn-konfirmasi" data-bs-toggle="modal"
+                                                            class="btn-nilai mx-2" data-bs-toggle="modal"
                                                             data-bs-target="#nilaiProduk{{ $item->id }}">Nilai
                                                         </button>
                                                     </div>

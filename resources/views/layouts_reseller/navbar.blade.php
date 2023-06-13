@@ -34,8 +34,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
+                            @if(auth()->user()->avatar == null)
+                            {{ auth()->user()->username }} <i class="fa-regular fa-circle-user fa-flip fa-lg"></i>
+                            @else
                             {{ auth()->user()->username }} <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
                                 id="preview" class="rounded img-fluid" style="width: 20px; height: 20px;" />
+                            @endif
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @if (auth()->user()->role == 'pengusaha')

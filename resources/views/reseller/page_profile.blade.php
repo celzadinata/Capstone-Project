@@ -17,7 +17,7 @@
                                         <div class="card-body">
                                             <div class="mb-4">
                                                 <div class="text-center">
-                                                    @if (Auth::user()->avatar == 'default')
+                                                    @if (Auth::user()->avatar == null)
                                                         <img src="{{ asset('assets/img/icon/admin.png') }}" id="preview"
                                                             class="rounded img-fluid"
                                                             style="width: 150px; height: 150px;" />
