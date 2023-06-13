@@ -16,11 +16,11 @@
                                     <thead>
                                         <tr style="background-color: #CE3ABD; color: white;">
                                             <th width="5%" style="border-right: 1px solid white;">No</th>
-                                            <th style="border-right: 1px solid white;">Jenis</th>
-                                            <th style="border-right: 1px solid white;">Nama Produk</th>
-                                            <th style="border-right: 1px solid white;">Harga</th>
-                                            <th style="border-right: 1px solid white;">Stok</th>
-                                            <th style="border-right: 1px solid white;">Status</th>
+                                            <th>Jenis</th>
+                                            <th>Nama Produk</th>
+                                            <th>Harga</th>
+                                            <th>Stok</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -31,7 +31,7 @@
                                                 <td>{{ str_replace('_', ' ', Str::title($produk->jenis)) }}</td>
                                                 <td>{{ Str::title($produk->nama_produk) }}</td>
                                                 <td>Rp. {{ number_format($produk->harga), 0, ',', '.' }}</td>
-                                                <td>{{ $produk->stok }}</td>
+                                                <td class="text-center">{{ $produk->stok }}</td>
                                                 <td>{{ $produk->status }}</td>
                                                 <td>
                                                     <form action="{{ route('produk.update_tampilan', $produk->id) }}"
