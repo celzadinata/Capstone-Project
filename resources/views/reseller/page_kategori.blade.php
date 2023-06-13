@@ -6,10 +6,10 @@
             <hr class="my-2 hr-kategori opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
                 <div class="col-md-3 col-lg-2 pe-5 mt-4 side-panel-kategori" data-aos="zoom-in-right" data-aos-delay="100">
-                    <form class="d-flex mb-4" role="search">
+                    {{-- <form class="d-flex mb-4" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
+                    </form> --}}
                     <h1>Semua Kategori</h1>
                 </div>
                 <div class="col-md-9 col-lg-10 mt-4">

@@ -98,7 +98,7 @@
                         <td>{{ $row->nama_produk }}</td>
                         <td>Rp {{ number_format($row->harga) }}</td>
                         <td>{{ $row->qty }}</td>
-                        <td>Rp {{ $row->sub_total }}</td>
+                        <td>Rp {{ number_format($row->sub_total) }}</td>
                     </tr>
                 @endforeach
                 <tr>

@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('transaksis', function (Blueprint $table) {
-            $table->char('id',10)->primary();
+            $table->char('id', 10)->primary();
             $table->dateTime('tanggal');
             $table->bigInteger('total');
-            $table->enum('status',['Menunggu Pembayaran','Pembayaran Diterima','Pesanan Diproses','Pesanan Dikirim','Selesai'])->default('Menunggu Pembayaran');
-            $table->string('bukti_pembayaran');
+            $table->enum('status', ['Menunggu Pembayaran', 'Pembayaran Diterima', 'Pesanan Diproses', 'Pesanan Dikirim', 'Selesai'])->default('Menunggu Pembayaran');
+            $table->string('bukti_pembayaran')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

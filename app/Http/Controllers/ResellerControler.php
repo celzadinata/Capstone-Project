@@ -129,7 +129,6 @@ class ResellerControler extends Controller
         $terjual = detail_transaksi::where('produks_id', $produk->id)->count();
 
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual'));
-
     }
 
 
@@ -141,7 +140,6 @@ class ResellerControler extends Controller
         $paket = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
 
         return view('reseller.page_paket_usaha', compact('list_kategori', 'paket'));
-
     }
 
     public function search_supply(Request $request)
