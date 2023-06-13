@@ -45,7 +45,7 @@ class transaksiSeeder extends Seeder
                 'transaksis_id' => 'TRX0111111',
                 'produks_id' => 'PU0001',
                 'users_id' => 'K4uS7368',
-                'nama_produk' => 'Makanan franchise Ayam',
+                'nama_produk' => '',
                 'harga' => '12500000',
                 'qty' => '1',
                 'sub_total' => '12500000'
