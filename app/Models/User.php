@@ -29,6 +29,8 @@ class User extends Authenticatable
         'alamat',
         'status',
         'no_hp',
+        'paypal_email',
+        'no_rek',
     ];
 
     protected $keyType = 'string';

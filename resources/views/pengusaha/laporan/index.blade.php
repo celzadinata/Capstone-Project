@@ -7,22 +7,58 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="card text-white bg-dark ml-3 mb-3" style="max-width: 18rem;">
-                            <div class="card-header">
-                                <h3><b>Produk</b></h3>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Total produk yang dimiliki</h5>
-                                <h2 class="card-text">{{ $produk }}</h2>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-primary card-header-icon">
+                                    <div class="card-icon">
+                                        <i class="fa-solid fa-box"></i>
+                                    </div>
+                                    <p class="card-category">Paket Usaha</p>
+                                    <h3 class="card-title">{{ $paket }}
+                                        {{-- <small>Paket</small> --}}
+                                    </h3>
+                                </div>
+                                <div class="card-footer">
+                                </div>
                             </div>
                         </div>
-                        <div class="card text-white bg-dark ml-3 mb-3" style="max-width: 18rem;">
-                            <div class="card-header">
-                                <h3><b>Transaksi</b></h3>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-primary card-header-icon">
+                                    <div class="card-icon">
+                                        <i class="fa-solid fa-box-open"></i>
+                                    </div>
+                                    <p class="card-category">Supply</p>
+                                    <h3 class="card-title">{{ $supply }}</h3>
+                                </div>
+                                <div class="card-footer">
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Total Transaksi yang dimiliki</h5>
-                                <h2 class="card-text">{{ $transaksi }}</h2>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-primary card-header-icon">
+                                    <div class="card-icon">
+                                        <i class="fa-solid fa-money-bill-transfer"></i>
+                                    </div>
+                                    <p class="card-category">Transaksi</p>
+                                    <h3 class="card-title">{{ $transaksi }}</h3>
+                                </div>
+                                <div class="card-footer">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-primary card-header-icon">
+                                    <div class="card-icon">
+                                        <i class="fa-solid fa-comments"></i>
+                                    </div>
+                                    <p class="card-category">Review</p>
+                                    <h3 class="card-title">{{ $review }}</h3>
+                                </div>
+                                <div class="card-footer">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -32,36 +68,20 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                {{-- <table class="table table-bordered">
-                                    <thead>
-                                        <th>No</th>
-                                        <th>Tahun</th>
-                                        <th>Bulan</th>
-                                        <th>Total pendapatan</th>
-                                    </thead>
-                                    @foreach ($total_harga as $key => $item)
-                                        <tbody>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $tanggal[$key]->tahun }}</td>
-                                            <td>{{ $tanggal[$key]->bulan }}</td>
-                                            <td>Rp. {{ number_format($item), 0, ',', '.' }}</td>
-                                        </tbody>
-                                    @endforeach
-                                </table> --}}
                                 <table class="table table-bordered">
-                                    <tr>
+                                    <thead>
                                         <th>Tahun</th>
                                         <th>Bulan</th>
                                         <th>Jumlah Transaksi</th>
                                         <th>Total</th>
-                                    </tr>
+                                    </thead>
                                     @foreach ($months as $index => $month)
-                                    <tr>
+                                        <tbody>
                                             <td>{{ $years[$index] }}</td>
                                             <td>{{ $month }}</td>
                                             <td>{{ $transactionCounts[$index] }}</td>
                                             <td>Rp. {{ number_format($totalPrices[$index]), 0, ',', '.' }}</td>
-                                        </tr>
+                                        </tbody>
                                     @endforeach
                                 </table>
                             </div>

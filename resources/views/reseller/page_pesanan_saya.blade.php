@@ -49,7 +49,7 @@
                                                         <div class="d-flex">
                                                             <div class="card-image mt-3">
                                                                 <img width="100 px" height="100px"
-                                                                    src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}"
+                                                                    src="{{ asset('assets/users/' . $detailTransaksi->produk->users->role . '/' . $detailTransaksi->produk->users_id . '/' . $detailTransaksi->produk->foto) }}"
                                                                     class="card-title" alt="Image 1">
                                                             </div>
                                                             <div class="card-body">
@@ -77,11 +77,62 @@
                                                 @endif
                                                 <hr>
                                                 <div class="price">
-                                                    <div class="total d-flex justify-content-end mb-0">
+                                                    <div class="total d-flex justify-content-end mb-4">
                                                         <h4>
                                                             Total: <span id="total">Rp.
                                                                 {{ number_format($item->total, 0, ',', '.') }}</span>
                                                         </h4>
+                                                    </div>
+                                                    <div class="total d-flex justify-content-end mb-0">
+                                                        @if ($item->bukti_pembayaran == null)
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn-resell" data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal">
+                                                                Upload Bukti Pembayaran
+                                                            </button>
+                                                        @else
+                                                            <h4> Bukti Sudah Di upload</h4>
+                                                        @endif
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                            Modal title</h1>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <form action="{{ Route('upload.bukti.reseller') }}"
+                                                                        method="post" enctype="multipart/form-data">
+                                                                        @method('PUT')
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <div class="mb-3">
+                                                                                <label for="formFile"
+                                                                                    class="form-label">Masukkan Disini
+                                                                                    !</label>
+                                                                                <input class="form-control" type="file"
+                                                                                    name="bukti_pembayaran" id="formFile">
+                                                                                <input class="form-control" type="hidden"
+                                                                                    name="id"
+                                                                                    value="{{ $item->id }}"
+                                                                                    id="formFile">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit"
+                                                                                class="btn-resell">Submit</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

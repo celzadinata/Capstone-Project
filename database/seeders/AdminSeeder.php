@@ -26,10 +26,12 @@ class AdminSeeder extends Seeder
                 'username'      => 'Yok Resell Admin',
                 'email'         => 'yokresell@gmail.com',
                 'jenis_kelamin' => 'laki-laki',
-                'password'      => bcrypt('yokresell'),
-                'alamat'        => 'Dimana saja',
-                'no_hp'         => '082876123',
-                'status'        => 'Aktif',
+                'password' => bcrypt('yokresell'),
+                'alamat' => 'Dimana saja',
+                'no_hp' => '082876123',
+                'paypal_email' => null,
+                'status' => 'Aktif',
+
             ],
             // Pengusaha
             [
@@ -41,10 +43,11 @@ class AdminSeeder extends Seeder
                 'username'      => 'Han12',
                 'email'         => 'akh.raihanaf@gmail.com',
                 'jenis_kelamin' => 'laki-laki',
-                'password'      => bcrypt('qwer4321'),
-                'alamat'        => 'Jl dimana mana',
-                'no_hp'         => '082234086611',
-                'status'        => 'Aktif'
+                'password' => bcrypt('qwer4321'),
+                'alamat' => 'Jl dimana mana',
+                'no_hp' => '082234086611',
+                'paypal_email' => 'raihan@gmail.com', //passwordnya qweasdzxc
+                'status' => 'Aktif'
             ],
             [
                 'id'            => '923ewKLM',
@@ -58,6 +61,7 @@ class AdminSeeder extends Seeder
                 'password'      => bcrypt('qwer4321'),
                 'alamat'        => 'Jl durian runtuh no 21',
                 'no_hp'         => '082213429867',
+                'paypal_email' =>  null, 
                 'status'        => 'Aktif'
             ],
             [
@@ -72,6 +76,7 @@ class AdminSeeder extends Seeder
                 'password'      => bcrypt('qwer4321'),
                 'alamat'        => 'Jl durian bangkit no 66',
                 'no_hp'         => '089213247689',
+              'paypal_email' =>  null, 
                 'status'        => 'Aktif'
             ],
             [
@@ -83,10 +88,12 @@ class AdminSeeder extends Seeder
                 'username'      => 'naufal66',
                 'email'         => 'naufal66@gmail.com',
                 'jenis_kelamin' => 'laki-laki',
-                'password'      => bcrypt('12345678'),
-                'alamat'        => 'PWT',
-                'no_hp'         => '089512345678',
-                'status'        => 'Aktif',
+                'password' => bcrypt('12345678'),
+                'alamat' => 'PWT',
+                'no_hp' => '089512345678',
+                'paypal_email' => 'naufal@gmail.com', //passwordnya qweasdzxc
+                'status' => 'Aktif',
+
             ],
             // Reseller
             [
@@ -101,6 +108,7 @@ class AdminSeeder extends Seeder
                 'password'      => bcrypt('qazaq123'),
                 'alamat'        => 'Jl Land of Dawn goldlane',
                 'no_hp'         => '089123456789',
+              'paypal_email' =>  null, 
                 'status'        => 'Aktif'
             ],
             [
@@ -112,10 +120,11 @@ class AdminSeeder extends Seeder
                 'username'      => 'Upinbelomgede',
                 'email'         => 'upin@gmail.com',
                 'jenis_kelamin' => 'laki-laki',
-                'password'      => bcrypt('qazaq123'),
-                'alamat'        => 'Jl Markopolo no 88',
-                'no_hp'         => '089123456532',
-                'status'        => 'Aktif'
+                'password' => bcrypt('qazaq123'),
+                'alamat' => 'Jl everywhere',
+                'no_hp' => '089123456789',
+                'paypal_email' => null,
+                'status' => 'Aktif'
             ],
             [
                 'id'            => 'K4uS7360',
@@ -126,10 +135,11 @@ class AdminSeeder extends Seeder
                 'username'      => 'masbrot',
                 'email'         => 'test@gmail.com',
                 'jenis_kelamin' => 'laki-laki',
-                'password'      => bcrypt('qweasdzxc'),
-                'alamat'        => 'Jl everywhere',
-                'no_hp'         => '089123456712',
-                'status'        => 'Aktif'
+                'password' => bcrypt('qweasdzxc'),
+                'alamat' => 'Jl everywhere',
+                'no_hp' => '089123456712',
+                'paypal_email' => null,
+                'status' => 'Aktif'
             ],
         ];
 

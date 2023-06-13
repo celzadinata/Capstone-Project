@@ -10,21 +10,7 @@
                     <a class="nav-link" href="{{ route('dashboard.reseller') }}"><i class="fa-solid fa-house "></i>
                         Home</a>
                 </li>
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Kategori
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach ($list_kategori as $k)
-                            <li><a class="dropdown-item"
-                                    href="{{ route('produk_kategori.reseller', $k->id) }}">{{ $k->nama }}</a></li>
-                        @endforeach
-                        <hr>
-                        <li><a class="dropdown-item" href="{{ route('kategori.reseller') }}"><i
-                                    class="fa-solid fa-bars"></i> Semua Kategori</a></li>
-                    </ul>
-                </li> --}}
+                @livewire('navbar')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('paket.reseller') }}"><i class="fa-solid fa-box-open"></i> Paket
                         Usaha</a>
@@ -57,6 +43,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             @if (auth()->user()->avatar == null)
                                 {{ auth()->user()->username }} <i class="fa-regular fa-circle-user fa-flip fa-lg"></i>
+
                             @else
                                 {{ auth()->user()->username }} <img
                                     src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"

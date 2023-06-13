@@ -28,8 +28,9 @@ class ResellerControler extends Controller
     public function index()
     {
         $list_kategori = kategori::paginate(5);
+        $banner = produk::paginate(2);
         $produk = produk::with('users')->get();
-        return view('reseller.page_home', compact('list_kategori', 'produk'));
+        return view('reseller.page_home', compact('list_kategori', 'banner', 'produk'));
     }
 
     public function kategori()
@@ -128,18 +129,10 @@ class ResellerControler extends Controller
         $terjual = detail_transaksi::where('produks_id', $produk->id)->count();
 
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual'));
+
     }
 
-    public function map($id)
-    {
-        // $id = Auth::id();
-        // $user_location = lokasi::where('users_id', $id)->get();
-        $lokasi = lokasi::all();
-        $produk = produk::find($id);
-        // dd($produk);
-        // @dd($user_location);
-        return view('reseller.page_map', compact('lokasi', 'produk'));
-    }
+
 
     public function search_paketusaha(Request $request)
     {
@@ -148,6 +141,7 @@ class ResellerControler extends Controller
         $paket = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
 
         return view('reseller.page_paket_usaha', compact('list_kategori', 'paket'));
+
     }
 
     public function search_supply(Request $request)
@@ -233,5 +227,25 @@ class ResellerControler extends Controller
             'status' => $validated['status']
         ]);
         return redirect()->back()->with('success', 'Status berhasil diubah');
+    }
+
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'bukti_pembayaran' => 'mimes:jpg,jpeg,png,pdf'
+        ]);
+
+        $id = Auth::user();
+
+        $imgUrl = '';
+        if ($request->bukti_pembayaran) {
+            $imgUrl = time() . '-' . $id->username . '.' . $request->bukti_pembayaran->extension();
+            $request->bukti_pembayaran->move(public_path('assets/users/reseller/' . $id->id), $imgUrl);
+        }
+
+        transaksi::where('id', $request->input('id'))->update([
+            'bukti_pembayaran' => $imgUrl,
+        ]);
+        return redirect()->back()->with('success', 'Upload berhasil');
     }
 }

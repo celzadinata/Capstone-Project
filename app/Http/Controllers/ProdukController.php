@@ -18,6 +18,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
+        if (!Auth::user()->paypal_email) {
+            return redirect(route('pengusaha.profile'))->with('warning', 'Silahkan isi Paypal email di profile terlebih dahulu');
+        }
         $id = Auth::id();
         $produks = produk::where('users_id', $id)->paginate(4);
         $notifikasi = notifikasi::where('users_id', $id)->get();

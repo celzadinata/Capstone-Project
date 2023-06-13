@@ -19,17 +19,21 @@ class LaporanController extends Controller
     public function index()
     {
         $log = Auth::id();
-
-        // Total produk
-        $produk = produk::where('users_id', $log)->count();
+        // Total paket usaha
+        $paket = produk::where('users_id', $log)->where('jenis', 'paket_usaha')->count();
+        // Total paket usaha
+        $supply = produk::where('users_id', $log)->where('jenis', 'supply')->count();
         // Total transaksi
-        $transaksi = DB::table('detail_transaksis')
-            ->leftJoin('produks', 'produks.id', '=', 'detail_transaksis.produks_id')
-            ->where('produks.users_id', $log)
-            ->groupBy('detail_transaksis.transaksis_id')
+        $transaksi =  DB::table('transaksis')
+            ->leftJoin('detail_transaksis', 'transaksis.id', '=', 'detail_transaksis.transaksis_id')
+            ->leftJoin('produks', 'detail_transaksis.produks_id', '=', 'produks.id')
+            ->where('produks.users_id', '=', $log)
             ->count();
-
-
+        // Total Review
+        $review = DB::table('reviews')
+            ->leftJoin('produks', 'reviews.produks_id', '=', 'produks.id')
+            ->where('produks.users_id', '=', $log)
+            ->count();
         // Untuk laporan chart
         // Total untuk grafik
         $count = DB::table('transaksis')
@@ -41,20 +45,12 @@ class LaporanController extends Controller
             ->count();
 
         $total_harga = DB::table('transaksis')
-            ->select(DB::raw('CAST(SUM(transaksis.total/' . $count . ') as int) AS total_harga'), DB::raw('MONTH(transaksis.tanggal) as month'), DB::raw('YEAR(transaksis.tanggal) AS year'))
+            ->select(DB::raw('CAST(SUM(transaksis.total) as int) AS total_harga'), DB::raw('MONTH(transaksis.tanggal) as month'), DB::raw('YEAR(transaksis.tanggal) AS year'))
             ->leftJoin('detail_transaksis', 'transaksis.id', '=', 'detail_transaksis.transaksis_id')
             ->leftJoin('produks', 'detail_transaksis.produks_id', '=', 'produks.id')
             ->where('produks.users_id', $log)
             ->groupBy(DB::raw('MONTH(transaksis.tanggal)'), DB::raw('YEAR(transaksis.tanggal)'))
             ->pluck('total_harga');
-
-        $tanggal = DB::table('transaksis')
-            ->select(DB::raw('MONTHNAME(transaksis.tanggal) as bulan'), DB::raw('YEAR(transaksis.tanggal) as tahun'))
-            ->leftJoin('detail_transaksis', 'transaksis.id', '=', 'detail_transaksis.transaksis_id')
-            ->leftJoin('produks', 'detail_transaksis.produks_id', '=', 'produks.id')
-            ->where('produks.users_id', $log)
-            ->groupBy('bulan', 'tahun')
-            ->get();
 
         $bulan = transaksi::select(DB::raw("MONTHNAME(tanggal) as bulan"))
             ->orderByRaw("MONTH(tanggal)")
@@ -86,6 +82,6 @@ class LaporanController extends Controller
         $notifikasi = notifikasi::where('users_id', $log)->get();
         $jml_notif = notifikasi::where('users_id', $log)->count();
 
-        return view('pengusaha.laporan.index', compact('produk', 'transaksi', 'total_harga', 'months', 'bulan', 'years', 'totalPrices', 'transactionCounts', 'notifikasi', 'jml_notif'));
+        return view('pengusaha.laporan.index', compact('paket', 'supply', 'transaksi', 'review', 'total_harga', 'months', 'bulan', 'years', 'totalPrices', 'transactionCounts', 'notifikasi', 'jml_notif'));
     }
 }

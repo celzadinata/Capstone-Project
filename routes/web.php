@@ -12,6 +12,7 @@ use App\Http\Controllers\PengusahaController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\KonfirmasiPaketController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ReviewController;
 
@@ -92,6 +93,7 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     //Profile
     Route::get('/profile', [PengusahaController::class, 'show'])->name('pengusaha.profile');
     Route::put('/profile', [PengusahaController::class, 'update'])->name('pengusaha.profile.update');
+    Route::put('/profile/payment', [PengusahaController::class, 'paymentUpdate'])->name('ubah.payment.info');
 });
 
 //Role Reseller
@@ -107,6 +109,7 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::get('/paket-usaha', [ResellerControler::class, 'paket_usaha'])->name('paket.reseller');
     // Produk Detail
     Route::get('/produk_detail/{slug}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
+
     // Profile
     Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
     Route::put('/profile', [ResellerControler::class, 'profile_update'])->name('update.profile.reseller');
@@ -119,19 +122,30 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     Route::put('/user/pesanan-saya/update/{id}', [ResellerControler::class, 'konfirmasiPesanan'])->name('pesanan.update');
     // Invoice
     Route::get('/{id}/print', [ResellerControler::class, 'invoice'])->name('invoice.print');
+    // Bukti Pembayaran
+    Route::put('/user/pesanan-saya/upload-bukti', [ResellerControler::class, 'upload'])->name('upload.bukti.reseller');
+    //Paypal
+    Route::get('payment-cancel', [PaypalController::class, 'cancel'])->name('payment.cancel');
+    Route::get('payment-success', [PaypalController::class, 'success'])->name('payment.success');
 });
 
 
 // Guets
 // Dashboard Reseller
 Route::get('/', [ResellerControler::class, 'index'])->name('dashboard.reseller');
+
 // Semua Kategori
 Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.reseller');
 Route::get('/kategori/{id}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
+
 // Paket Usaha
+
 Route::get('/paket-usaha', [ResellerControler::class, 'paket_usaha'])->name('paket.reseller');
 // Supply
 Route::get('/supply', [ResellerControler::class, 'supply'])->name('supply.reseller');
+Route::get('/produk', [ResellerControler::class, 'produk'])->name('produk.reseller');
+Route::get('/produk_detail/{slug}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
+
 // search produk
 Route::get('/paket/search', [ResellerControler::class, 'search_paketusaha'])->name('search_paket');
 // search supply
