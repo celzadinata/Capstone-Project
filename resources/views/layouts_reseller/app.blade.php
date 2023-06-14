@@ -73,6 +73,16 @@
     @livewireScripts
     <script src="{{ asset('assets/js/admin/preview_img.js') }}"></script>
     <script src="{{ asset('assets/js/admin/preview_berkas.js') }}"></script>
+    <script>
+        const form = document.getElementById('sort-form');
+        const radios = form.elements['sort'];
+
+        radios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                form.submit();
+            });
+        });
+    </script>
     @include('sweetalert::alert')
 </body>
 

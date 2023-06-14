@@ -22,28 +22,32 @@
                     </ul>
                     <hr class="my-4 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
                     <h1>Urutkan</h1>
-                    <ul class="urutkan list-unstyled">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
-                                id="radio1">
-                            <label class="form-check-label" for="radio1">Termahal</label>
-                        </li>
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
-                                id="radio2">
-                            <label class="form-check-label" for="radio2">Termurah</label>
-                        </li>
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
-                                id="radio3">
-                            <label class="form-check-label" for="radio3">Terbaru</label>
-                        </li>
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
-                                id="radio4">
-                            <label class="form-check-label" for="radio4">Acak</label>
-                        </li>
-                    </ul>
+                    <form id="sort-form" action="{{ route('supply.reseller') }}" method="GET">
+                        <div class="form-group">
+                            <ul class="urutkan list-unstyled">
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="radio" id="termahal" name="sort"
+                                        value="termahal" {{ $sort == 'termahal' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="termahal">Termahal</label><br>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="radio" id="termurah" name="sort"
+                                        value="termurah" {{ $sort == 'termurah' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="termurah">Termurah</label><br>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="radio" id="terbaru" name="sort"
+                                        value="terbaru" {{ $sort == 'terbaru' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="terbaru">Terbaru</label><br>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="radio" id="acak" name="sort"
+                                        value="acak" {{ $sort == 'acak' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="acak">Acak</label><br>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-9 col-lg-10">
                     <div class="row row-cols-1 row-cols-md-5 g-4" data-aos="fade">

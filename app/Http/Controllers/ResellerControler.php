@@ -93,27 +93,104 @@ class ResellerControler extends Controller
         ));
     }
 
-    public function produk_kategori($id)
+    public function produk_kategori(Request $request, $id)
     {
         $list_kategori = kategori::paginate(5);
         $kategori = kategori::find($id);
-        $produk = produk::where('kategoris_id', $id)->get();
-        return view('reseller.page_produk_kategori', compact('list_kategori', 'kategori', 'produk'));
+        $sort = $request->input('sort');
+
+        $produk = produk::where('kategoris_id', $id)
+            ->when($sort, function ($query) use ($sort) {
+                switch ($sort) {
+                    case 'termahal':
+                        $query->orderByDesc('harga');
+                        break;
+                    case 'termurah':
+                        $query->orderBy('harga');
+                        break;
+                    case 'terbaru':
+                        $query->orderByDesc('created_at');
+                        break;
+                    case 'acak':
+                        $query->inRandomOrder();
+                        break;
+                    default:
+                        // Default sorting option
+                        $query->orderBy('nama_produk');
+                        break;
+                }
+            })
+            ->get();
+
+        return view('reseller.page_produk_kategori', compact('list_kategori', 'kategori', 'produk', 'sort'));
     }
 
-    public function paket_usaha()
+
+    public function paket_usaha(Request $request)
     {
         $list_kategori = kategori::paginate(5);
-        $paket = produk::with('users')->where('jenis', 'paket_usaha')->get();
-        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket'));
+        $sort = $request->input('sort');
+
+        $paket = produk::with('users')
+            ->where('jenis', 'paket_usaha')
+            ->when($sort, function ($query) use ($sort) {
+                switch ($sort) {
+                    case 'termahal':
+                        $query->orderByDesc('harga');
+                        break;
+                    case 'termurah':
+                        $query->orderBy('harga');
+                        break;
+                    case 'terbaru':
+                        $query->orderByDesc('created_at');
+                        break;
+                    case 'acak':
+                        $query->inRandomOrder();
+                        break;
+                    default:
+                        // Default sorting option
+                        $query->orderBy('nama_produk');
+                        break;
+                }
+            })
+            ->get();
+
+        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket', 'sort'));
     }
 
-    public function supply()
+
+    public function supply(Request $request)
     {
         $list_kategori = kategori::paginate(5);
-        $supply = produk::with('users')->where('jenis', 'supply')->get();
-        return view('reseller.page_supply', compact('list_kategori', 'supply'));
+        $sort = $request->input('sort');
+
+        $supply = produk::with('users')
+            ->where('jenis', 'supply')
+            ->when($sort, function ($query) use ($sort) {
+                switch ($sort) {
+                    case 'termahal':
+                        $query->orderByDesc('harga');
+                        break;
+                    case 'termurah':
+                        $query->orderBy('harga');
+                        break;
+                    case 'terbaru':
+                        $query->orderByDesc('created_at');
+                        break;
+                    case 'acak':
+                        $query->inRandomOrder();
+                        break;
+                    default:
+                        // Default sorting option
+                        $query->orderBy('nama_produk');
+                        break;
+                }
+            })
+            ->get();
+
+        return view('reseller.page_supply', compact('list_kategori', 'supply', 'sort'));
     }
+
 
     public function produk_detail($slug)
     {
