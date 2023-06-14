@@ -62,25 +62,38 @@
                             </div>
                         </div>
                     </div>
-                    <hr>
+                    {{-- Grafik --}}
                     <div id="grafik"></div>
-                    <hr>
+                    {{-- End Grafik --}}
                     <div class="card">
                         <div class="card-body">
+                            <div class="mb-1">
+                                <div class="row">
+                                    <div class="col text-right">
+                                        <input class="table-filter py-2 px-2 mr-2" type="text" id="myInput"
+                                            data-table="table" placeholder="Cari"><i
+                                            class="fa-solid fa-magnifying-glass px-3 py-3" id="cari"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
+                                        <th class="text-center" width="5%">No</th>
                                         <th>Tahun</th>
                                         <th>Bulan</th>
-                                        <th>Jumlah Transaksi</th>
-                                        <th>Total</th>
+                                        <th width="20%">Jumlah Transaksi</th>
+                                        <th width="40%">Total</th>
                                     </thead>
                                     @foreach ($months as $index => $month)
                                         <tbody>
-                                            <td>{{ $years[$index] }}</td>
-                                            <td>{{ $month }}</td>
-                                            <td>{{ $transactionCounts[$index] }}</td>
-                                            <td>Rp. {{ number_format($totalPrices[$index]), 0, ',', '.' }}</td>
+                                            <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
+                                                <td class="text-center">{{ $loop->iteration }}</td>
+                                                <td>{{ $years[$index] }}</td>
+                                                <td>{{ $month }}</td>
+                                                <td>{{ $transactionCounts[$index] }}</td>
+                                                <td>Rp. {{ number_format($totalPrices[$index]), 0, ',', '.' }}</td>
+                                            </tr>
                                         </tbody>
                                     @endforeach
                                 </table>

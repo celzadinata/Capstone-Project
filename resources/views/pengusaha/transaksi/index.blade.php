@@ -8,28 +8,35 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
+                            <div class="mb-1">
+                                <div class="row">
+                                    <div class="col text-right">
+                                        <input class="table-filter py-2 px-2 mr-2" type="text" id="myInput"
+                                            data-table="table" placeholder="Cari"><i
+                                            class="fa-solid fa-magnifying-glass px-3 py-3" id="cari"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
-                                        <tr style="background-color: #CE3ABD; color: white;">
-                                            <th>No</th>
+                                        <tr>
                                             <th>ID Transaksi</th>
                                             <th>Reseller</th>
                                             <th>Tanggal</th>
                                             <th width="3%">Status Pembayaran</th>
                                             <th>Bukti Pembayaran</th>
                                             <th>Total Harga</th>
-                                            <th text-center; colspan="3">Aksi</th>
+                                            <th class="text-center"colspan="3">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($transaksiModel as $item)
                                             <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
-                                                <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->users->username }}</td>
                                                 <td>{{ $item->tanggal }}</td>
-                                                <td><b><i>{{ $item->status }}</i></b></td>
+                                                <td class="text-center"><b><i>{{ $item->status }}</i></b></td>
                                                 <td>
                                                     @if ($item->bukti_pembayaran)
                                                         <a href="{{ asset('/assets/users/reseller/' . $item->user_id . '/' . $item->bukti_pembayaran) }}"

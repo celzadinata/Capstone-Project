@@ -52,7 +52,7 @@
         <div class="container py-3 mt-3">
             <div class="text-center">
                 <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
-                <span data-aos="zoom-in">Paket Usaha</span>
+                <span data-aos="zoom-in">Produk</span>
                 <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
             </div>
             <div class="col-lg-12 my-5" data-aos="zoom-in">

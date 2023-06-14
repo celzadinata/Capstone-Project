@@ -6,7 +6,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach ($list_kategori as $k)
                             <li><a class="dropdown-item"
-                                    href="{{ route('produk_kategori.reseller', $k->id) }}">{{ $k->nama }}</a></li>
+                                    href="{{ route('produk_kategori.reseller', $k->slug) }}">{{ $k->nama }}</a></li>
                         @endforeach
                         <hr>
                         <li><a class="dropdown-item" href="{{ route('kategori.reseller') }}"><i

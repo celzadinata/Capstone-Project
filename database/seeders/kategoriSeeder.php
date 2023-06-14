@@ -19,26 +19,32 @@ class kategoriSeeder extends Seeder
             [
                 'id'    =>  '1',
                 'nama' => 'Makanan',
+                'slug' => 'makanan'
             ],
             [
                 'id'    =>  '2',
                 'nama' => 'Minuman',
+                'slug' => 'minuman',
             ],
             [
                 'id'    =>  '3',
                 'nama' => 'Dapur',
+                'slug' => 'dapur',
             ],
             [
                 'id'    =>  '4',
                 'nama' => 'Elektronik',
+                'slug' => 'elektronik',
             ],
             [
                 'id'    =>  '5',
                 'nama' => 'Jasa',
+                'slug' => 'jasa',
             ],
             [
                 'id'    =>  '6',
                 'nama' => 'Lain-Lain',
+                'slug' => 'lain-lain',
             ],
 
         ];

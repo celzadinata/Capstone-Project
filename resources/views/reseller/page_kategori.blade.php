@@ -23,7 +23,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -39,7 +39,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -55,7 +55,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -71,7 +71,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -87,7 +87,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -103,7 +103,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -119,7 +119,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -135,7 +135,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -151,7 +151,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -167,7 +167,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -183,7 +183,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -199,7 +199,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -215,7 +215,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -231,7 +231,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -247,7 +247,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -263,7 +263,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -279,7 +279,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -295,7 +295,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -311,7 +311,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -327,7 +327,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -343,7 +343,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -359,7 +359,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -375,7 +375,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -391,7 +391,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -407,7 +407,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -423,7 +423,7 @@
                                 <div class="col mb-3">
                                     <div class="card" id="">
                                         <a type="button" class="btn-kategori"
-                                            href="{{ route('produk_kategori.reseller', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                            href="{{ route('produk_kategori.reseller', $kategori->slug) }}">{{ $kategori->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
