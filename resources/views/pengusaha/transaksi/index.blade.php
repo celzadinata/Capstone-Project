@@ -24,8 +24,8 @@
                                             <th>ID Transaksi</th>
                                             <th>Reseller</th>
                                             <th>Tanggal</th>
-                                            <th width="3%">Status Pembayaran</th>
-                                            <th>Bukti Pembayaran</th>
+                                            <th width="3%">Status</th>
+                                            <th>Bukti</th>
                                             <th>Total Harga</th>
                                             <th class="text-center"colspan="3">Aksi</th>
                                         </tr>
@@ -52,14 +52,10 @@
                                                         data-target="#ubahStatusModal{{ $item->id }}">
                                                         Ubah Status
                                                     </button>
-                                                </td>
-                                                <td>
                                                     <button type="button" class="btn btn-sm btn-warning"
                                                         data-toggle="modal" data-target="#detailModal{{ $item->id }}">
-                                                        Detail transaksi
+                                                        Detail
                                                     </button>
-                                                </td>
-                                                <td>
                                                     <a target="_blank" type="button" class="btn btn-sm btn-success"
                                                         href="{{ route('invoice', $item->id) }}">Cetak</a>
                                                 </td>
