@@ -99,7 +99,7 @@ class ResellerControler extends Controller
         $kategori = kategori::where('slug', $slug)->first();
         $sort = $request->input('sort');
 
-        $produk = produk::where('kategoris_id', $kategori->$id)
+        $produk = produk::where('kategoris_id', $kategori->id)
             ->when($sort, function ($query) use ($sort) {
                 switch ($sort) {
                     case 'termahal':

@@ -20,46 +20,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="table-responsive">
-
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" colspan="2" style="text-align: center">Urut Berdasarkan
-                                                Jenis
-                                            </th>
-                                            <th scope="col" colspan="2" style="text-align: center">Urut Berdasarkan
-                                                Nama
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td scope="col">
-                                                <a class="btn btn-success mb-0"
-                                                    href="{{ route('produk.sorting2', ['order2' => 'asc']) }}">
-                                                    Paket Usaha</a>
-                                            </td>
-                                            <td scope="col">
-                                                <a class="btn btn-success mb-0"
-                                                    href="{{ route('produk.sorting2', ['order2' => 'desc']) }}">
-                                                    Supply</a>
-                                            </td>
-                                            <td scope="col">
-                                                <a class="btn btn-success mb-0"
-                                                    href="{{ route('produk.sorting', ['order' => 'asc']) }}">
-                                                    A-Z</a>
-                                            </td>
-                                            <td scope="col">
-                                                <a class="btn btn-success mb-0"
-                                                    href="{{ route('produk.sorting', ['order' => 'desc']) }}">Z-A</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="py-2 mx-2 my-2" id="sorting">
+                                <div class="row mx-4 text-center">
+                                    <div class="col">
+                                        <a class="btn btn-warning mb-0"
+                                            href="{{ route('produk.sorting2', ['order2' => 'asc']) }}">
+                                            Paket Usaha</a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="btn btn-warning mb-0"
+                                            href="{{ route('produk.sorting2', ['order2' => 'desc']) }}">
+                                            Supply</a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="btn btn-warning mb-0"
+                                            href="{{ route('produk.sorting', ['order' => 'asc']) }}">
+                                            A-Z</a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="btn btn-warning mb-0"
+                                            href="{{ route('produk.sorting', ['order' => 'desc']) }}">Z-A</a>
+                                    </div>
+                                </div>
                             </div>
-
-
+                            <style>
+                                #sorting{
+                                    border: 2px solid #CE3ABD;
+                                    background-color: #CE3ABD;
+                                    border-radius: 10px;
+                                }
+                            </style>
                             <div class="table-responsive ">
                                 <table class="table table-bordered " style="border: 1px solid white;">
                                     <thead>

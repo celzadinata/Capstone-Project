@@ -15,7 +15,7 @@
                     <h1>{{ $kategori->nama }}</h1>
                     <hr class="my-4 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
                     <h1>Urutkan</h1>
-                    <form id="sort-form" action="{{ route('produk_kategori.reseller', $kategori->id) }}" method="GET">
+                    <form id="sort-form" action="{{ route('produk_kategori.reseller', $kategori->slug) }}" method="GET">
                         <div class="form-group">
                             <ul class="urutkan list-unstyled">
                                 <li class="list-group-item">
