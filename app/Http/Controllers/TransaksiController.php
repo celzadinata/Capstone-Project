@@ -24,10 +24,8 @@ class TransaksiController extends Controller
     {
         // Untuk laporan tabel
         $log = Auth::id();
-        $transaksiModel = transaksi::whereHas('detail_transaksi', function ($query) use ($log) {
-            $query->whereHas('produk', function ($query) use ($log) {
-                $query->where('users_id', $log);
-            });
+        $transaksiModel = Transaksi::whereHas('detail_transaksi.produk', function ($query) use ($log) {
+            $query->where('users_id', $log)->withTrashed();
         })->with('detail_transaksi.produk')->paginate(3);
 
         $notifikasi = notifikasi::where('users_id', $log)->get();

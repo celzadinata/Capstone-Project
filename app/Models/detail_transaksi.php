@@ -26,9 +26,9 @@ class detail_transaksi extends Model
 
     public function produk()
     {
-        return $this->belongsTo(produk::class,'produks_id');
+        return $this->belongsTo(produk::class,'produks_id')->withTrashed();
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class,'users_id');

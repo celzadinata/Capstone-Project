@@ -55,7 +55,7 @@ class User extends Authenticatable
     ];
     public function produk()
     {
-        return $this->hasMany(produk::class,'users_id');
+        return $this->hasMany(produk::class,'users_id')->withTrashed();
     }
     public function notif()
     {
