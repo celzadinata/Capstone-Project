@@ -22,7 +22,7 @@ class ProdukController extends Controller
             return redirect(route('pengusaha.profile'))->with('warning', 'Silahkan isi Paypal email di profile terlebih dahulu');
         }
         $id = Auth::id();
-        $produks = produk::where('users_id', $id)->paginate(4);
+        $produks = produk::where('users_id', $id)->paginate(5);
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
 
@@ -31,7 +31,22 @@ class ProdukController extends Controller
         confirmDelete($title, $text);
         return view('pengusaha.produk.index', compact('produks', 'notifikasi', 'jml_notif'));
     }
-
+    public function sorting($order)
+    {
+        $id = Auth::id();
+        $produks = produk::orderBy('nama_produk', $order)->where('users_id', $id)->paginate(5);
+        $notifikasi = notifikasi::where('users_id', $order)->get();
+        $jml_notif = notifikasi::where('users_id', $order)->count();
+        return view('pengusaha.produk.index', compact('produks', 'notifikasi', 'jml_notif'));
+    }
+    public function sorting2($order2)
+    {
+        $id = Auth::id();
+        $produks = produk::orderBy('jenis', $order2)->where('users_id', $id)->paginate(5);
+        $notifikasi = notifikasi::where('users_id', $order2)->get();
+        $jml_notif = notifikasi::where('users_id', $order2)->count();
+        return view('pengusaha.produk.index', compact('produks', 'notifikasi', 'jml_notif'));
+    }
     /**
      * Show the form for creating a new resource.
      *
