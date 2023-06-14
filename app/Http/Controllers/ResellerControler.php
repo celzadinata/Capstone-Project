@@ -93,13 +93,13 @@ class ResellerControler extends Controller
         ));
     }
 
-    public function produk_kategori(Request $request, $id)
+    public function produk_kategori(Request $request, $slug)
     {
         $list_kategori = kategori::paginate(5);
-        $kategori = kategori::find($id);
+        $kategori = kategori::where('slug', $slug)->first();
         $sort = $request->input('sort');
 
-        $produk = produk::where('kategoris_id', $id)
+        $produk = produk::where('kategoris_id', $kategori->$id)
             ->when($sort, function ($query) use ($sort) {
                 switch ($sort) {
                     case 'termahal':
@@ -207,8 +207,6 @@ class ResellerControler extends Controller
 
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual'));
     }
-
-
 
     public function search_paketusaha(Request $request)
     {

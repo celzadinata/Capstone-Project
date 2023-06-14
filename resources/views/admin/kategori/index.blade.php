@@ -9,21 +9,29 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="mb-1">
-                                <a href="{{ route('kategori.add') }}"><button class="btn btn-primary">Tambah
-                                        Kategori</button></a>
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="{{ route('kategori.add') }}"><button class="btn btn-primary">Tambah
+                                                Kategori</button></a>
+                                    </div>
+                                    <div class="col text-right">
+                                        <input class="table-filter py-2 px-2 mr-2" type="text" id="myInput"
+                                            data-table="table" placeholder="Cari"><i class="fa-solid fa-magnifying-glass px-3 py-3" id="cari"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" id="myTable">
                                     <thead>
                                         <tr>
                                             <th width="5%">No</th>
-                                            <th>Name</th>
+                                            <th>Nama Kategori</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($kategori as $c)
-                                            <tr>
+                                            <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $c->nama }}</td>
                                                 <td>

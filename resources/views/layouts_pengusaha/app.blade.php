@@ -26,6 +26,7 @@
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="{{ asset('assets/js/admin/preview_berkas.js') }}"></script>
+    <script src="{{ asset('assets/js/admin/search.js') }}"></script>
 </head>
 
 <body class="">

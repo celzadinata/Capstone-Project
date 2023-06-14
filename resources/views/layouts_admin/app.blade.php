@@ -18,6 +18,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS Files -->
     <link href="{{ asset('assets/css/admin/material-dashboard.css?v=2.1.2') }}" rel="stylesheet" />
+    <script src="{{ asset('assets/js/admin/search.js') }}"></script>
     <!-- CSS Just for demo purpose, don't include it in your project -->
 </head>
 

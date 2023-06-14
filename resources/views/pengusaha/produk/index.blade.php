@@ -9,7 +9,16 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="mb-1">
-                                <a href="{{ route('produk.jenis') }}" class="btn btn-primary mb-3">Tambah Produk</a>
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="{{ route('produk.jenis') }}" class="btn btn-primary mb-3">Tambah Produk</a>
+                                    </div>
+                                    <div class="col text-right">
+                                        <input class="table-filter py-2 px-2 mr-2" type="text" id="myInput"
+                                            data-table="table" placeholder="Cari"><i
+                                            class="fa-solid fa-magnifying-glass px-3 py-3" id="cari"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="table-responsive">
 

@@ -11,18 +11,6 @@
             <span class="navbar-toggler-icon icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-                <div class="input-group no-border">
-                    <input type="text" value="" class="form-control" placeholder="Search...">
-                    <button type="submit" class="btn btn-round btn-just-icon">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                    </button>
-                </div>
-            </form>
-            <style>
-
-            </style>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -37,12 +25,18 @@
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        @foreach ($notifikasi as $n)
+                        @if ($notifikasi->isEmpty())
                             <a class="dropdown-item"
-                                href="{{ route('produk.edit', $n->produks_id) }}">{{ $n->pesan }} -&nbsp;
-                                <span><b>Admin</b></span>
+                                href="#">Tidak Ada Notifikasi
                             </a>
-                        @endforeach
+                        @else
+                            @foreach ($notifikasi as $n)
+                                <a class="dropdown-item"
+                                    href="{{ route('produk.edit', $n->produks_id) }}">{{ $n->pesan }} -&nbsp;
+                                    <span><b>Admin</b></span>
+                                </a>
+                            @endforeach
+                        @endif
                     </div>
                 </li>
                 <li class="nav-item dropdown">

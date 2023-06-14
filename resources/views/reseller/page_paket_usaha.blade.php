@@ -15,7 +15,7 @@
                     <h1>Kategori</h1>
                     <ul class="kategori list-unstyled">
                         @foreach ($list_kategori as $k)
-                            <li><a href="{{ route('produk_kategori.reseller', $k->id) }}">{{ $k->nama }}</a></li>
+                            <li><a href="{{ route('produk_kategori.reseller', $k->slug) }}">{{ $k->nama }}</a></li>
                         @endforeach
                         <hr class="opacity-100" data-aos="flip-right" data-aos-delay="100">
                         <li><a href="{{ route('kategori.reseller') }}">Semua Kategori</a></li>

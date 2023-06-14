@@ -41,6 +41,12 @@ class DetailTransaksiController extends Controller
     public function store(Request $request, $id)
     {
         $produk = produk::find($id);
+        $user = Auth::user();
+
+        if ($user->status == 'Non Aktif') {
+            alert()->error('Akun Anda Belum Dikonfirmasi Admin');
+            return back();
+        }
 
         if ($produk->stok < 1) {
             alert()->error('Persediaan barang tidak ada');

@@ -55,16 +55,21 @@ class ProdukController extends Controller
 
     public function jenis()
     {
-        $id = Auth::id();
-        $notifikasi = notifikasi::where('users_id', $id)->get();
-        $jml_notif = notifikasi::where('users_id', $id)->count();
+        $user = Auth::user();
+        $notifikasi = notifikasi::where('users_id', $user->id)->get();
+        $jml_notif = notifikasi::where('users_id', $user->id)->count();
+
+        if ($user->status == 'Non Aktif') {
+            alert()->error('Akun Anda Belum Dikonfirmasi Admin');
+            return back();
+        }
+
         return view('pengusaha.produk.jenis', compact('notifikasi', 'jml_notif'));
     }
 
     public function create(Request $request)
     {
-        $users = User::all();
-        $id = Auth::id();
+        $id = Auth::user();
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
 
@@ -72,10 +77,10 @@ class ProdukController extends Controller
 
         if ($jenis == 'paket_usaha') {
             $kategoris = kategori::all();
-            return view('pengusaha.produk.create', compact('users', 'kategoris', 'notifikasi', 'jml_notif', 'jenis'));
+            return view('pengusaha.produk.create', compact('kategoris', 'notifikasi', 'jml_notif', 'jenis'));
         } elseif ($jenis == 'supply') {
             $kategoris = kategori::all();
-            return view('pengusaha.produk.create', compact('users', 'kategoris', 'notifikasi', 'jml_notif', 'jenis'));
+            return view('pengusaha.produk.create', compact('kategoris', 'notifikasi', 'jml_notif', 'jenis'));
         } else {
             abort(404);
         }
@@ -95,8 +100,6 @@ class ProdukController extends Controller
             'deskripsi' => 'required',
             'harga' => 'required',
             'stok' => 'required',
-            // 'status' => 'required',
-            // 'rate' => 'required',
             'kategoris_id' => 'required',
             'berkas1' => 'mimes:pdf,doc,docx|max:8048',
             'berkas2' => 'mimes:pdf,doc,docx|max:8048',
@@ -111,8 +114,6 @@ class ProdukController extends Controller
             $imgUrl = time() . '-' . $request->nama_produk . '.' . $request->foto->extension();
             $request->foto->move(public_path('assets/users/pengusaha/' . $id), $imgUrl);
         }
-
-        // $fotoPath = $request->file('foto')->store('produk_images', 'public');
 
         $berkas1Url = '';
         if ($request->hasFile('berkas1')) {
@@ -142,7 +143,6 @@ class ProdukController extends Controller
             'harga' => $request['harga'],
             'stok' => $request['stok'],
             'status' => 'Belum Konfirmasi',
-            // 'rate' => $request['rate'],
             'users_id' => $userId,
             'kategoris_id' => $request['kategoris_id'],
             'berkas_1' => $berkas1Url,
@@ -179,11 +179,6 @@ class ProdukController extends Controller
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
         $jenis = ''; // Define an empty variable for $jenis
-
-        // $uploadedFile1 = asset('assets/users/pengusaha/' . $id->id . '/berkas/' . $prod->berkas1);
-        // $uploadedFile2 = asset('assets/users/pengusaha/' . $id->id . '/berkas/' . $id->berkas2);
-        // $uploadedFile3 = asset('assets/users/pengusaha/' . $id->id . '/berkas/' . $id->berkas3);
-        // return view('edit', compact('produk', 'uploadedFile1', 'uploadedFile2', 'uploadedFile3'));
 
         if ($produk->jenis == 'paket_usaha') {
             $jenis = 'paket_usaha';

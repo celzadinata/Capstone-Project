@@ -42,15 +42,14 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama'=> 'required|string|min:2|max:100',
+            'nama' => 'required|string|min:2|max:100',
         ]);
 
-        $data = $request->all();
-        $data['nama'] = Str::title($data['nama']);
-
-        kategori::create($data);
+        kategori::create([
+            'nama' => Str::title($request->nama),
+            'slug' => Str::slug($request->nama)
+        ]);
         return redirect()->route('kategori')->with('success', 'Berhasil Menambah Kategori');
-
     }
 
     /**
@@ -89,7 +88,10 @@ class KategoriController extends Controller
             'nama' => 'required|string|min:2|max:100'
         ]);
 
-        $id->update($request->all());
+        $id->update([
+            'nama' => Str::title($request->nama),
+            'slug' => Str::slug($request->nama)
+        ]);
 
         return redirect()->route('kategori')->with('warning', 'Berhasil Mengupdate Kategori!');
     }
@@ -100,16 +102,16 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
-        $produk = produk::where('kategoris_id',$id)->first();
-        if($produk == null){
+        $produk = produk::where('kategoris_id', $id)->first();
+        if ($produk == null) {
             kategori::find($id)->delete();
             alert()->error('Berhasil Menghapus Kategori');
             return redirect()->route('kategori');
-            }else{
-                alert()->warning( 'Tidak bisa menghapus kategori karena ada produk yang terkait');
-                return redirect()->route('kategori');
-            }
+        } else {
+            alert()->warning('Tidak bisa menghapus kategori karena ada produk yang terkait');
+            return redirect()->route('kategori');
+        }
     }
 }
