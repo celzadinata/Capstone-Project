@@ -27,8 +27,8 @@
     <link href="{{ asset('assets/css/reseller/style-detail-produk.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/style-map.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/reseller/style-pesanan-saya.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style-profile.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/scss/rating.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/reseller/styles-profile.css') }}" rel="stylesheet" />
     <script src="{{ asset('assets/js/admin/preview_img.js') }}"></script>
     <link href="{{ asset('assets/css/admin/button-berkas.css') }}" rel="stylesheet">
     <!-- CSS Just for demo purpose, don't include it in your project -->
