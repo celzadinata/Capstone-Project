@@ -82,12 +82,14 @@
                                                             @if ($produk->tampilkan == 0)
                                                                 <div class="form-group">
                                                                     <input type="hidden" value="1" name="tampilkan">
+                                                                    <input type="hidden" value="{{ $produk->id }}" name="id">
                                                                 </div>
                                                                 <button type="submit"
-                                                                    class="btn btn-success btn-sm">Tampilkan</button>
-                                                            @else
+                                                                class="btn btn-success btn-sm">Tampilkan</button>
+                                                                @else
                                                                 <div class="form-group">
                                                                     <input type="hidden" value="0" name="tampilkan">
+                                                                    <input type="hidden" value="{{ $produk->id }}" name="id">
                                                                 </div>
                                                                 <button class="btn btn-warning btn-sm">Hilangkan</button>
                                                             @endif
