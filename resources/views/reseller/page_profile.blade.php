@@ -125,17 +125,18 @@
                                                     </div>
 
                                                     <div class="mb-4">
-                                                        <label for="alamat" class="form-label"
-                                                            style="color:#CE3ABD; font-weight: 700">Alamat</label>
-                                                        <input type="alamat"
-                                                            class="form-control text-muted @error('alamat') is-invalid @enderror"
-                                                            name="alamat" id="alamat"
-                                                            value="{{ Auth::user()->alamat }}">
+                                                        <div class="autocomplete-container" id="autocomplete-container">
+                                                            <label for="alamat" class="form-label">Alamat</label>
+                                                            <div id="temp" hidden>{{ Auth::user()->alamat }}</div>
+                                                        </div>
                                                         @error('alamat')
                                                             <div id="alamatHelp" class="form-text">
                                                                 {{ $message }}</div>
                                                         @enderror
                                                     </div>
+
+                                                    <input type="hidden" id="latitude" name="latitude">
+                                                    <input type="hidden" id="longitude" name="longitude">
 
                                                     <div class="mb-4">
                                                         <label for="berkas" class="form-label"
@@ -250,5 +251,6 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript" src="{{ asset('assets/js/reseller/alamat-autocomplete-profile.js') }}"></script>
     {{-- ./Paket Usaha --}}
 @endsection

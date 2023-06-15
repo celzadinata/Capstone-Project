@@ -128,6 +128,11 @@ class TransaksiController extends Controller
         transaksi::where('id', $id)->update([
             'status' => $validated['status']
         ]);
+        $cart_items = detail_transaksi::where(['users_id' => Auth::user()->id, 'transaksis_id' => $id])->get();
+        foreach ($cart_items as $key => $item) {
+            $item->status = $validated['status'];
+            $item->update();
+        }
         return redirect()->back()->with('success', 'Status berhasil diubah');
     }
 

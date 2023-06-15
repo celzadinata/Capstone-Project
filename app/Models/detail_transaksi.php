@@ -16,7 +16,8 @@ class detail_transaksi extends Model
         'nama_produk',
         'harga',
         'qty',
-        'sub_total'
+        'sub_total',
+        'reviewed'
     ];
 
     public function transaksi()

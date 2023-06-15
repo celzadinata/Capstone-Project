@@ -265,6 +265,8 @@ class ResellerControler extends Controller
         $reseller->no_hp = $request->input('no_hp');
         // $reseller->jenis_kelamin = $request->input('jenisKelamin');
         $reseller->alamat = $request->input('alamat');
+        $reseller->latitude = $request->input('latitude');
+        $reseller->longitude = $request->input('longitude');
         if ($request->avatar) {
             $imgUrl = time() . '-' . Auth::user()->username . '.' . $request->avatar->extension();
             $request->avatar->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar'), $imgUrl);
@@ -315,6 +317,11 @@ class ResellerControler extends Controller
         transaksi::where('id', $id)->update([
             'status' => $validated['status']
         ]);
+        $cart_items = detail_transaksi::where(['users_id' => Auth::user()->id, 'transaksis_id' => $id])->get();
+        foreach ($cart_items as $key => $item) {
+            $item->status = $validated['status'];
+            $item->update();
+        }
         return redirect()->back()->with('success', 'Status berhasil diubah');
     }
 
