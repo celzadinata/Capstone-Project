@@ -525,8 +525,18 @@
                                                             <p class="form-control">Rp.
                                                                 {{ number_format($detailTransaksi->harga, 0, ',', '.') }}
                                                             </p>
-                                                            <a href="{{ route('produk_detail.reseller', $detailTransaksi->produk->slug) }}"
-                                                                class="btn-resell form-control">Rate</a>
+                                                            @if ($detailTransaksi->produk->trashed())
+                                                                <p>Produk Tidak Tersedia</p>
+                                                            @elseif ($detailTransaksi->produk->review()->where('users_id', Auth::id())->exists())
+                                                                <p>Produk Sudah Dinilai</p>
+                                                                <a href="{{ route('produk_detail.reseller', $detailTransaksi->produk->slug) }}"
+                                                                    class="btn-resell form-control">Lihat Halaman
+                                                                    Produk</a>
+                                                            @else
+                                                                <a href="{{ route('produk_detail.reseller', $detailTransaksi->produk->slug) }}"
+                                                                    class="btn-resell form-control">Rate</a>
+                                                            @endif
+
                                                             <hr>
                                                         @endforeach
                                                     @endif

@@ -85,7 +85,9 @@
                             <div class="col-5 mb-2">Pajak</div>
                             <div class="col-7 mb-2">Rp 0</div>
                             <div class="col-5 mb-2">Biaya admin</div>
-                            <div class="col-7 mb-2">Rp {{ number_format($admin) }} <i class="fa fa-info-circle fa-2xs"  data-toggle="tooltip" data-placement="top" title="Biaya admin adalah 4% dari total keranjang" aria-hidden="true"></i></div>
+                            <div class="col-7 mb-2">Rp {{ number_format($admin) }} <i class="fa fa-info-circle fa-2xs"
+                                    data-toggle="tooltip" data-placement="top"
+                                    title="Biaya admin adalah 4% dari total keranjang" aria-hidden="true"></i></div>
                             <div class="col-5 fw-bolder mb-2">Total</div>
                             <div class="col-7 fs-4 text-purple fw-bolder">Rp {{ number_format($total) }}</div>
                             <form action="{{ route('keranjang.checkout') }}" method="POST"
