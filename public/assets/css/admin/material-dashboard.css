@@ -92,6 +92,16 @@ body {
     background-color: #CE3ABD;
 }
 
+.btn-notif {
+    border: none;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+.btn-notif:hover {
+    color: #7e0570;
+}
+
 [tabindex="-1"]:focus {
     outline: 0 !important;
 }

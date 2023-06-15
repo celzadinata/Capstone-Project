@@ -8,6 +8,7 @@ use App\Models\kategori;
 use App\Models\notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ProdukController extends Controller
 {
@@ -214,6 +215,7 @@ class ProdukController extends Controller
 
         $produk = Produk::findOrFail($id);
         $produk->nama_produk = $request->input('nama_produk');
+        $produk->slug = Str::slug($request->input('nama_produk'));
         $produk->deskripsi = $request->input('deskripsi');
         $produk->harga = $request->input('harga');
         $produk->stok = $request->input('stok');
@@ -310,20 +312,24 @@ class ProdukController extends Controller
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil dihapus.');
     }
 
-    public function update_tampilan(Request $request, produk $id)
+    public function update_tampilan(Request $request,produk $id)
     {
         $request->validate([
             'tampilkan'     => 'required',
         ]);
-        // $produk = produk::find($id);
-        $id->update($request->all());
-        return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Merubah tampilan Produk!');
-        // if ($produk->tampilkan == 0) {
-        //     $id->update($request->all());
-        //     return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Menampilkan Produk!');
-        // } else {
-        //     $id->update($request->all());
-        //     return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Menampilkan Produk!');
-        // }
+        $produk = $request->input('id');
+        $ubah = produk::where('id', $produk)->first();
+
+        if ($ubah->tampilkan == 0) {
+            $id->update([
+                'tampilkan' => $request->tampilkan
+            ]);
+            return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Menampilkan Produk!');
+        } else {
+            $id->update([
+                'tampilkan' => $request->tampilkan
+            ]);
+            return redirect()->route('produk.pengusaha')->with('success', 'Berhasil Menghilangkan Produk!');
+        }
     }
 }
