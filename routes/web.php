@@ -79,6 +79,8 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
     Route::put('/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
     Route::put('/produk/update-tampilan/{id}', [ProdukController::class, 'update_tampilan'])->name('produk.update_tampilan');
     Route::delete('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    // Hapus Notifikasi
+    Route::delete('/notif/destroy', [NotifikasiController::class, 'destroy'])->name('notif.destroy');
     // Transaksi
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.pengusaha');
     Route::put('/transaksi/update/{id}', [TransaksiController::class, 'update'])->name('transaksi.update');
