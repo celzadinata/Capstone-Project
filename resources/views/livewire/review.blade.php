@@ -65,24 +65,24 @@
                                 <small class="text-danger ml-3" style="font-size: 13px">Silahkan Memberi Bintang</small><br>
                             @enderror
                             <span class="star-cb-group">
-                                <input type="radio" id="rating-5" wire:model="rating"
+                                <input type="radio" id="rating-5" wire:model.defer="rating"
                                     value="5"{{ !$checkIfExits ? ' disabled' : '' }} /><label
                                     for="rating-5">5</label>
-                                <input type="radio" id="rating-4" wire:model="rating"
+                                <input type="radio" id="rating-4" wire:model.defer="rating"
                                     value="4"{{ !$checkIfExits ? ' disabled' : '' }} /><label
                                     for="rating-4">4</label>
-                                <input type="radio" id="rating-3" wire:model="rating"
+                                <input type="radio" id="rating-3" wire:model.defer="rating"
                                     value="3"{{ !$checkIfExits ? ' disabled' : '' }} /><label
                                     for="rating-3">3</label>
-                                <input type="radio" id="rating-2" wire:model="rating"
+                                <input type="radio" id="rating-2" wire:model.defer="rating"
                                     value="2"{{ !$checkIfExits ? ' disabled' : '' }} /><label
                                     for="rating-2">2</label>
-                                <input type="radio" id="rating-1" wire:model="rating"
+                                <input type="radio" id="rating-1" wire:model.defer="rating"
                                     value="1"{{ !$checkIfExits ? ' disabled' : '' }} checked="checked" /><label
                                     for="rating-1">1</label>
                             </span>
 
-                            <textarea type="text" class="form-control" id="pesan" placeholder="Tulis penilaian" wire:model="pesan"
+                            <textarea type="text" class="form-control" id="pesan" placeholder="Tulis penilaian" wire:model.defer="pesan"
                                 rows="3" style="resize: none;"{{ !$checkIfExits ? ' disabled' : '' }}></textarea>
 
                             @error('pesan')

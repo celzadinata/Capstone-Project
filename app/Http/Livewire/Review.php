@@ -21,7 +21,7 @@ class Review extends Component
     public function render()
     {
         $this->checkIfExits = '';
-        if (Auth::check()) $this->checkIfExits = transaksi::with('detail_transaksi')->where(['user_id' => Auth::user()->id, 'status' => 'Selesai'])->first();
+        if (Auth::check()) $this->checkIfExits = detail_transaksi::where(['users_id' => Auth::user()->id, 'produks_id' => $this->produk_id, 'reviewed' => 0, 'status' => 'Selesai'])->first();
         $rating = reviews::where('produks_id', $this->produk_id)
             ->select(DB::raw('AVG(rate) as average_rating'))
             ->pluck('average_rating')
@@ -32,7 +32,7 @@ class Review extends Component
 
     public function reviewProduk()
     {
-        $this->checkIfExits = transaksi::with('detail_transaksi')->where(['user_id' => Auth::user()->id, 'status' => 'Selesai'])->first();
+        $this->checkIfExits = detail_transaksi::where(['users_id' => Auth::user()->id, 'produks_id' => $this->produk_id, 'reviewed' => 0, 'status' => 'Selesai'])->first();
         if (!$this->checkIfExits) {
             session()->flash('message', 'Silahkan melakukan pembelian pada produk terlebih dahulu');
         } else {
@@ -48,6 +48,8 @@ class Review extends Component
                 'review' => $validated['pesan'],
                 'review_status' => 'SudahReview'
             ]);
+            $this->checkIfExits->reviewed = 1;
+            $this->checkIfExits->update();
             $this->reset('rating');
             $this->reset('pesan');
         }

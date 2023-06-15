@@ -95,6 +95,8 @@ class PengusahaController extends Controller
         $pengusaha->no_hp = $request->input('no_hp');
         // $pengusaha->jenis_kelamin = $request->input('jenisKelamin');
         $pengusaha->alamat = $request->input('alamat');
+        $pengusaha->latitude = $request->input('latitude');
+        $pengusaha->longitude = $request->input('longitude');
         if ($request->avatar) {
             $imgUrl = time() . '-' . Auth::user()->username . '.' . $request->avatar->extension();
             $request->avatar->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar'), $imgUrl);
