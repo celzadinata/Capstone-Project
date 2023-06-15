@@ -59,12 +59,10 @@
                                     placeholder="Enter your phone number" required autofocus autocomplete="phone" />
                             </div>
                             <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="alamat" name="alamat"
-                                    placeholder="Enter your address" required autofocus autocomplete="address" />
+                                <div class="autocomplete-container" id="autocomplete-container">
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                </div>
                             </div>
-                            <input type="hidden" id="latitude" name="latitude">
-                            <input type="hidden" id="longitude" name="longitude">
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password"
@@ -80,6 +78,10 @@
                                 <input type="hidden" class="form-control" id="role" name="role"
                                     value="{{ $role }}" required autocomplete="role" />
                             </div>
+
+                            <input type="hidden" id="latitude" name="latitude">
+                            <input type="hidden" id="longitude" name="longitude">
+
                             <div class="text-center mt-4">
                                 <div class="row justify-content-center">
                                     <div class="col-auto mb-3">
@@ -97,30 +99,8 @@
             </div>
         </div>
     </div>
+
     <script>
-        // Mengambil referensi elemen formulir dan tombol submit
-    var form = document.getElementById('myForm');
-    var submitButton = document.getElementById('submitButton');
-    // Mengikat event listener ke tombol submit
-    submitButton.addEventListener('click', function(event) {
-      event.preventDefault(); // Mencegah pengiriman formulir langsung
-      
-    var alamat = document.getElementById('alamat').value;
-
-    // Lakukan permintaan HTTP ke layanan geokoding
-        fetch('/geocode?address=' + encodeURIComponent(alamat))
-        .then(response => response.json())
-        .then(data => {
-        // Simpan hasil latitude dan longitude
-        document.getElementById('latitude').value = data.latitude;
-        document.getElementById('longitude').value = data.longitude;
-
-        // Setelah data disimpan, melanjutkan pengiriman formulir secara manual
-        form.submit();
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  });
-</script>
+        
+    </script>
 @endsection

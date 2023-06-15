@@ -31,6 +31,8 @@ class User extends Authenticatable
         'no_hp',
         'paypal_email',
         'no_rek',
+        'latitude',
+        'longitude',
     ];
 
     protected $keyType = 'string';
