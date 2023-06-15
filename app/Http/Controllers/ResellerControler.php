@@ -153,7 +153,7 @@ class ResellerControler extends Controller
                         break;
                 }
             })
-            ->get();
+            ->paginate(15);
 
         return view('reseller.page_paket_usaha', compact('list_kategori', 'paket', 'sort'));
     }
@@ -186,7 +186,7 @@ class ResellerControler extends Controller
                         break;
                 }
             })
-            ->get();
+            ->paginate(15);
 
         return view('reseller.page_supply', compact('list_kategori', 'supply', 'sort'));
     }

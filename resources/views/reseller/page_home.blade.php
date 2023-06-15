@@ -12,7 +12,7 @@
                 class=""></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active"  data-bs-interval="4000">
+            <div class="carousel-item active" data-bs-interval="4000">
                 <img class="d-block w-100 img-fluid" src="{{ asset('assets/img/icon/bg_yokresell.jpg') }}" alt="slide 0">
                 <div class="container">
                     <div class="carousel-caption">

@@ -59,7 +59,7 @@
                                             <img src="{{ asset('assets/users/' . $s->users->role . '/' . $s->users_id . '/' . $s->foto) }}"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                <h4 class="card-title">{{ Str::limit($s->nama_produk, 20) }}</h4>
+                                                <h4 class="card-title">{{ Str::limit($s->nama_produk, 12) }}</h4>
                                                 <p>Rp {{ number_format($s->harga, 0, '.', '.') }}</p>
                                                 <a href="{{ route('produk_detail.reseller', $s->slug) }}"
                                                     class="btn-resell">Resell</a>
@@ -70,6 +70,7 @@
                             @endif
                         @endforeach
                     </div>
+                    {{ $supply->links() }}
                 </div>
             </div>
         </div>
