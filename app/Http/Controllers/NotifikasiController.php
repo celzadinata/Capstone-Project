@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\notifikasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NotifikasiController extends Controller
 {
@@ -88,6 +89,9 @@ class NotifikasiController extends Controller
      */
     public function destroy(notifikasi $notifikasi)
     {
-        //
+        $id = Auth::id();
+        notifikasi::where('users_id',$id)->delete();
+
+        return redirect()->back();
     }
 }

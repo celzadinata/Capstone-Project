@@ -26,16 +26,24 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         @if ($notifikasi->isEmpty())
-                            <a class="dropdown-item"
-                                href="#">Tidak Ada Notifikasi
+                            <a class="dropdown-item" href="#">Tidak Ada Notifikasi
                             </a>
                         @else
                             @foreach ($notifikasi as $n)
-                                <a class="dropdown-item"
-                                    href="{{ route('produk.edit', $n->produks_id) }}">{{ $n->pesan }} -&nbsp;
+                                <a class="dropdown-item" href="{{ route('produk.edit', $n->produks_id) }}">
+                                    {{ Str::limit($n->pesan, 15) }} -&nbsp;
                                     <span><b>Admin</b></span>
                                 </a>
                             @endforeach
+                            <hr>
+                            <form action="{{ route('notif.destroy') }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="btn-notif mx-3 my-2" type="submit"><i
+                                        class="fa-solid fa-rectangle-xmark"></i>&nbsp;
+                                    Hapus
+                                    Notifikasi</button>
+                            </form>
                         @endif
                     </div>
                 </li>
