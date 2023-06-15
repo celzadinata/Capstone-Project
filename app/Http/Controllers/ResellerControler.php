@@ -196,7 +196,8 @@ class ResellerControler extends Controller
     {
         $list_kategori = Kategori::paginate(5);
 
-        $produk = $slug;
+        $produk = Produk::where('slug', $slug)->first();
+
         if ($produk) {
             if ($produk->trashed()) {
                 $produk = Produk::withTrashed()->where('slug', $slug)->first();
@@ -205,12 +206,17 @@ class ResellerControler extends Controller
             // Produk tidak ditemukan
         }
 
+
         $rating = Review::where('produks_id', $produk->id)
+            // ->withTrashed() // Menampilkan review yang telah dihapus juga
             ->select(DB::raw('AVG(rate) as average_rating'))
             ->pluck('average_rating')
             ->first();
 
-        $nilai = Review::where('produks_id', $produk->id)->count();
+        $nilai = Review::where('produks_id', $produk->id)
+            // ->withTrashed() // Menampilkan review yang telah dihapus juga
+            ->count();
+
         $terjual = detail_transaksi::where('produks_id', $produk->id)->count();
 
         return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual'));
@@ -296,7 +302,9 @@ class ResellerControler extends Controller
         //LOAD PDF YANG MERUJUK KE VIEW PRINT.BLADE.PHP DENGAN MENGIRIMKAN DATA DARI INVOICE
         //KEMUDIAN MENGGUNAKAN PENGATURAN LANDSCAPE A4
         $pdf = PDF::loadView('reseller.page_struk', compact('transaksi'))->setPaper('a4', 'landscape');
-        return $pdf->stream();
+        $filename = "YokResell-$id";
+
+        return $pdf->download($filename);
     }
     public function konfirmasiPesanan(Request $request, $id)
     {

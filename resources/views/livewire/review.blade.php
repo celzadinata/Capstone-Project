@@ -4,12 +4,16 @@
             <h5 class="mt-2">Belum Ada Penilaian</h5>
         @else
             @foreach ($review as $r)
-                <div class="row mx-4">
+                <div class="row ms-1">
                     <div class="col-md-2 col-lg-1">
-                        <img src="{{ asset('assets/users/reseller/' . $r->users_id . '/avatar/' . $r->users->avatar) }}"
-                            width="60px" style="border-radius:5px">
+                        @if ($r->users->avatar == null)
+                            <img src="{{ asset('assets/img/icon/admin.png') }}" width="40px" style="border-radius:5px">
+                        @else
+                            <img src="{{ asset('assets/users/reseller/' . $r->users_id . '/avatar/' . $r->users->avatar) }}"
+                                width="60px" style="border-radius:5px">
+                        @endif
                     </div>
-                    <div class="col-md-5 col-lg-11">
+                    <div class="col-md-5 col-lg-8">
                         <h5>{{ $r->users->username }}</h5>
                         @if ($r->rate == 1)
                             1 <i class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
@@ -58,30 +62,31 @@
                                 </div>
                             @endif
                             @error('rating')
-                                <small class="text-danger ml-3" style="font-size: 13px">*rating dulu dong</small><br>
+                                <small class="text-danger ml-3" style="font-size: 13px">Silahkan Memberi Bintang</small><br>
                             @enderror
                             <span class="star-cb-group">
-                                <input type="radio" id="rating-5" wire:model="rating" value="5" /><label
+                                <input type="radio" id="rating-5" wire:model="rating"
+                                    value="5"{{ !$checkIfExits ? ' disabled' : '' }} /><label
                                     for="rating-5">5</label>
-                                <input type="radio" id="rating-4" wire:model="rating" value="4" /><label
+                                <input type="radio" id="rating-4" wire:model="rating"
+                                    value="4"{{ !$checkIfExits ? ' disabled' : '' }} /><label
                                     for="rating-4">4</label>
-                                <input type="radio" id="rating-3" wire:model="rating" value="3" /><label
+                                <input type="radio" id="rating-3" wire:model="rating"
+                                    value="3"{{ !$checkIfExits ? ' disabled' : '' }} /><label
                                     for="rating-3">3</label>
-                                <input type="radio" id="rating-2" wire:model="rating" value="2" /><label
+                                <input type="radio" id="rating-2" wire:model="rating"
+                                    value="2"{{ !$checkIfExits ? ' disabled' : '' }} /><label
                                     for="rating-2">2</label>
-                                <input type="radio" id="rating-1" wire:model="rating" value="1"
-                                    checked="checked" /><label for="rating-1">1</label>
+                                <input type="radio" id="rating-1" wire:model="rating"
+                                    value="1"{{ !$checkIfExits ? ' disabled' : '' }} checked="checked" /><label
+                                    for="rating-1">1</label>
                             </span>
 
-                            @if (!$checkIfExits)
-                                <textarea type="text" class="form-control" id="pesan" placeholder="Tulis penilaian" wire:model="pesan"
-                                    rows="3"style="resize: none;" disabled></textarea>
-                            @else
-                                <textarea type="text" class="form-control" id="pesan" placeholder="Tulis penilaian" wire:model="pesan"
-                                    rows="3"style="resize: none;"></textarea>
-                            @endif
+                            <textarea type="text" class="form-control" id="pesan" placeholder="Tulis penilaian" wire:model="pesan"
+                                rows="3" style="resize: none;"{{ !$checkIfExits ? ' disabled' : '' }}></textarea>
+
                             @error('pesan')
-                                <small class="text-danger" style="font-size: 13px">*review nya ditulis atuh kang</small>
+                                <small class="text-danger" style="font-size: 13px">Silahkan Mengisi Review</small>
                             @enderror
                         </div>
                         <button type="submit" class="btn-resell">Kirim</button>
@@ -89,5 +94,6 @@
                 </form>
             </div>
         @endif
+
     </div>
 </div>

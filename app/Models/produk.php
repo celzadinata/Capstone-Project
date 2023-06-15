@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class produk extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
     // use SoftDeletes;
     protected $primaryKey = 'id';
     protected $fillable = [
@@ -84,12 +84,12 @@ class produk extends Model
 
     public function detail_transaksi()
     {
-        return $this->hasMany(detail_transaksi::class,'produks_id');
+        return $this->hasMany(detail_transaksi::class, 'produks_id');
     }
 
     public function review()
     {
-        return $this->hasMany(review::class, 'produk_id');
+        return $this->hasMany(review::class, 'produks_id');
     }
 
     public function notif()
