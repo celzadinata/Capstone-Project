@@ -61,6 +61,8 @@ class RegisteredUserController extends Controller
             'alamat' => $request->alamat,
             'no_hp' => $request->hp,
             'email' => $request->email,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
             'password' => Hash::make($request->password),
         ]);
 
