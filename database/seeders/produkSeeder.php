@@ -94,7 +94,7 @@ class produkSeeder extends Seeder
             // User Bang Saleh
             [
                 'id' => 'LDY01',
-                'users_id' => '923ewKLM',
+                'users_id' => 'ABC06060',
                 'kategoris_id' => '1',
                 'jenis' => 'paket_usaha',
                 'nama_produk' => 'Laundry',
@@ -110,8 +110,8 @@ class produkSeeder extends Seeder
                 'slug' => Str::slug('Laundry Set')
             ],
             [
-                'id' => 'LDY01',
-                'users_id' => '923ewKLM',
+                'id' => 'RTB01',
+                'users_id' => 'ABC06060',
                 'kategoris_id' => '1',
                 'jenis' => 'paket_usaha',
                 'nama_produk' => 'Roti Bakar',
@@ -260,10 +260,10 @@ class produkSeeder extends Seeder
             [
                 'id' => 'K002',
                 'users_id' => '923ewKLM',
-                'kategoris_id' => '1',
+                'kategoris_id' => '2',
                 'jenis' => 'supply',
-                'nama_produk' => 'Espresso_bubuk',
-                'deskripsi' => "Tepung Bumbu Kentucky Sasa 75gr adalah tepung bumbu berkualitas dengan rasa khas Kentucky yang dikemas dalam kemasan 75 gram. Tepung bumbu ini cocok digunakan untuk memberikan cita rasa Kentucky yang lezat pada berbagai hidangan. Dengan kemasan yang praktis, produk ini merupakan pilihan tepat untuk memenuhi kebutuhan pasokan atau suplai dalam jumlah yang lebih besar. Berikan sentuhan istimewa pada hidangan Anda dengan Tepung Bumbu Kentucky Sasa 75gr.",
+                'nama_produk' => 'Espresso Bubuk',
+                'deskripsi' => "Espresso Bubuk adalah bubuk kopi khusus yang digunakan untuk menyeduh minuman espresso. Dibuat dari biji kopi pilihan yang dipanggang dan digiling halus, bubuk espresso ini memberikan cita rasa kopi yang kaya, pekat, dan beraroma yang khas. Cocok untuk digunakan dalam mesin espresso atau metode seduh lainnya, Espresso Bubuk memungkinkan Anda menikmati kelezatan espresso dengan mudah di rumah atau di kedai kopi favorit Anda.",
                 'foto' => ' espresso_bubuk.jpeg',
                 'harga' => '27500',
                 'stok' => '24',
@@ -277,11 +277,11 @@ class produkSeeder extends Seeder
             [
                 'id' => 'K003',
                 'users_id' => '923ewKLM',
-                'kategoris_id' => '1',
+                'kategoris_id' => '2',
                 'jenis' => 'supply',
-                'nama_produk' => 'worcas_luwak.jpeg',
-                'deskripsi' => "Tepung Bumbu Kentucky Sasa 75gr adalah tepung bumbu berkualitas dengan rasa khas Kentucky yang dikemas dalam kemasan 75 gram. Tepung bumbu ini cocok digunakan untuk memberikan cita rasa Kentucky yang lezat pada berbagai hidangan. Dengan kemasan yang praktis, produk ini merupakan pilihan tepat untuk memenuhi kebutuhan pasokan atau suplai dalam jumlah yang lebih besar. Berikan sentuhan istimewa pada hidangan Anda dengan Tepung Bumbu Kentucky Sasa 75gr.",
-                'foto' => ' espresso_bubuk.jpeg',
+                'nama_produk' => 'Worcas Luwak',
+                'deskripsi' => "worcas luwak adalah kopi yang diproduksi dari biji kopi yang telah melewati sistem pencernaan hewan luwak. Proses ini menghasilkan cita rasa unik karena fermentasi yang terjadi dalam tubuh luwak. Namun, penting untuk mencatat bahwa produksi kopi luwak telah menuai kontroversi terkait etika dan kesejahteraan hewan, karena sering melibatkan penangkapan dan penahanan luwak dalam kondisi yang tidak manusiawi.",
+                'foto' => ' worcas_luwak.jpeg',
                 'harga' => '27500',
                 'stok' => '24',
                 'berkas_1' => '',
@@ -289,34 +289,273 @@ class produkSeeder extends Seeder
                 'berkas_3' => '',
                 'status' => 'konfirmasi',
                 'tampilkan' => '1',
-                'slug' => Str::slug('Espresso Bubuk')
+                'slug' => Str::slug('worcas luwak')
             ],
 
 
-            //     //Teh 
-            // tehpoci_jasmine.jpg,
-            // tehpoci_vanilla.jpg
+                //Teh 
+            [
+                'id' => 'T002',
+                'users_id' => '923ewKLM',
+                'kategoris_id' => '2',
+                'jenis' => 'supply',
+                'nama_produk' => 'Teh Poci Jasmine',
+                'deskripsi' => "Teh Poci Jasmine adalah varian teh yang memiliki aroma dan cita rasa yang harum dan lezat. Teh ini dibuat dari daun teh pilihan yang diolah dengan hati-hati untuk menghasilkan teh berkualitas tinggi. Nikmati kelezatan teh Jasmine ini dalam setiap tegukan yang menyegarkan.",
+                'foto' => 'tehpoci_jasmine.jpg',
+                'harga' => '15000',
+                'stok' => '20',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('tehpoci jasmine')
+            ],
+                
+            [
+                'id' => 'T003',
+                'users_id' => '923ewKLM',
+                'kategoris_id' => '2',
+                'jenis' => 'supply',
+                'nama_produk' => 'Teh Poci Vanilla',
+                'deskripsi' => "Teh Poci Vanilla adalah sebuah teh yang diperkaya dengan aroma vanilla yang lezat dan manis. Dibuat dengan menggunakan daun teh pilihan yang berkualitas tinggi, teh ini memberikan kombinasi yang sempurna antara kehangatan teh dengan sentuhan manis vanila. Nikmati sensasi yang memanjakan dan lezat dalam setiap tegukan Teh Poci Vanilla.",
+                'foto' => 'tehpoci_vanila.jpg',
+                'harga' => '12000',
+                'stok' => '45',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('tehpoci vanilla')
+            ],
+            
+            
 
-            // // Bang Saleh
-            //     // Laundry
-            //     daia_putih_1kardus_72sachet.jpg,
-            //     hangar.jpg,
-            //     soklin_softergen_1_kardus.jpg
-            //     // Rotibakar
-            //     nutella_600g.jpeg,
-            //     roti_tawar_kasino.jpg,
-            //     selai_blueberry.jpg,
-            //     selai_strawberry.jpg
+            // Bang Saleh
+                // Laundry
+            [
+                'id' => 'LDY02',
+                'users_id' => 'ABC06060',
+                'kategoris_id' => '6',
+                'jenis' => 'supply',
+                'nama_produk' => 'Daia Putih',
+                'deskripsi' => 'Daia Putih adalah deterjen serbaguna yang dapat digunakan untuk mencuci pakaian putih. Deterjen ini mengandung formula khusus yang dapat menghilangkan noda dan kotoran dengan efektif, meninggalkan pakaian Anda bersih dan harum. Setiap kardus berisi 72 sachet deterjen, memberikan Anda persediaan yang cukup untuk beberapa kali mencuci pakaian putih.',
+                'foto' => 'daia_putih_1kardus_72sachet.jpg',
+                'harga' => '63000',
+                'stok' => '15',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'Konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('daia_putih_1kardus_72sachet')
+            ],
+            [
+                'id' => 'LDY03',
+                'users_id' => 'ABC06060',
+                'kategoris_id' => '6',
+                'jenis' => 'supply',
+                'nama_produk' => 'Hangar',
+                'deskripsi' => 'Hangar Gantungan Baju Besi adalah sebuah solusi praktis untuk menyimpan dan menggantung pakaian. Terbuat dari besi yang kuat dan tahan lama, hangar ini dirancang khusus untuk menopang pakaian dengan aman dan mencegah kemungkinan patah atau melorot. Dengan desain yang ramping dan ringkas, hangar ini juga menghemat ruang dalam lemari Anda. Hangar Gantungan Baju Besi merupakan pilihan yang ideal untuk menjaga pakaian Anda tetap rapi dan terorganisir.',
+                'foto' => 'hangar.jpg',
+                'harga' => '39000',
+                'stok' => '18',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'Konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('hangar')
+            ],
+            [
+                'id' => 'LDY04',
+                'users_id' => 'ABC06060',
+                'kategoris_id' => '6',
+                'jenis' => 'supply',
+                'nama_produk' => 'Soklin Softergen',
+                'deskripsi' => 'Soklin Softergen adalah pelembut pakaian yang menghadirkan kelembutan ekstra bagi pakaian Anda. Diformulasikan khusus dengan teknologi terkini, pelembut pakaian ini memberikan hasil yang luar biasa dalam menjaga kelembutan serat pakaian, meninggalkan aroma yang segar dan tahan lama. Dengan satu kardus Soklin Softergen, Anda akan mendapatkan jumlah yang cukup untuk beberapa kali pencucian pakaian. Nikmati sentuhan lembut dan kesegaran yang menyelimuti pakaian Anda setiap kali Anda mencuci dengan Soklin Softergen 1 Kardus.',
+                'foto' => 'soklin_softergen_1_kardus.jpg',
+                'harga' => '240000',
+                'stok' => '10',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'Konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('soklin_softergen_1_kardus')
+            ],
 
-            // // Naufal
-            //     // Thai tea
-            //     lemontea_bubuk.jpg,
-            //     thaitea_bubuk.jpg
 
-            //     // Warmindo
-            //     miegoreng_1dus_ayambawang.jpg,
-            //     miegoreng_1dus_aceh.jpeg,
-            //     miegoreng_1dus.jpg
+           
+                 // Rotibakar
+            [
+                 'id' => 'CKL004',
+                 'users_id' => 'ABC06060',
+                 'kategoris_id' => '1',
+                 'jenis' => 'supply',
+                 'nama_produk' => 'Nutella 600Gr',
+                 'deskripsi' => 'Nutella 600g adalah selai cokelat hazelnut yang terkenal dan digemari di seluruh dunia. Dibuat dari campuran biji hazelnut kualitas terbaik, cokelat, dan susu, Nutella menawarkan rasa yang kaya, lezat, dan manis. Dengan tekstur yang lembut dan krimi, Nutella sering dijadikan tambahan pada roti, pancake, atau sebagai bahan untuk membuat berbagai hidangan pencuci mulut. Dapatkan pengalaman menikmati cita rasa unik Nutella dalam kemasan praktis 600g.',
+                 'foto' => 'nutella_600g.jpeg',
+                 'harga' => '142000',
+                 'stok' => '10',
+                 'berkas_1' => '',
+                 'berkas_2' => '',
+                 'berkas_3' => '',
+                 'status' => 'Konfirmasi',
+                 'tampilkan' => '1',
+                 'slug' => Str::slug('nutella_600g')
+            ],
+            
+            [
+                'id' => 'RTB02',
+                'users_id' => 'ABC06060',
+                'kategoris_id' => '1',
+                'jenis' => 'supply',
+                'nama_produk' => 'Roti Tawar Kasino',
+                'deskripsi' => 'Roti Tawar Kasino adalah roti tawar yang terkenal dengan kelembutan dan teksturnya yang lembut. Roti ini memiliki rasa yang lezat dan sering digunakan sebagai bahan dasar untuk membuat sandwich, pangsit goreng, ataupun hidangan penutup seperti roti panggang. Dengan irisan yang tipis dan seragam, Roti Tawar Kasino mudah diolah dan cocok untuk berbagai macam kreasi kuliner. Nikmati sensasi kenikmatan roti yang lezat dengan Roti Tawar Kasino.',
+                'foto' => 'roti_tawar_kasino.jpg',
+                'harga' => '5000',
+                'stok' => '50',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'Konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('roti_tawar_kasino')
+            ],
+
+            [
+                'id' => 'RTB03',
+                'users_id' => 'ABC06060',
+                'kategoris_id' => '1',
+                'jenis' => 'supply',
+                'nama_produk' => 'Selai Blueberry',
+                'deskripsi' => 'Selai Blueberry adalah selai buah yang terbuat dari buah blueberry segar dan berkualitas tinggi. Selai ini memiliki tekstur yang lembut dan konsistensi yang kaya akan potongan-potongan buah blueberry yang menyegarkan. Rasanya manis dengan sentuhan asam yang khas dari buah blueberry. Selai Blueberry sering digunakan sebagai tambahan pada roti, kue, atau sebagai bahan dalam pembuatan makanan penutup seperti pancake atau yogurt. Nikmati cita rasa lezat dan aroma segar buah blueberry dengan Selai Blueberry.',
+                'foto' => 'selai_blueberry.jpg',
+                'harga' => '15000',
+                'stok' => '20',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'Konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('selai_blueberry')
+            ],
+            [
+                'id' => 'RTB04',
+                'users_id' => 'ABC06060',
+                'kategoris_id' => '1',
+                'jenis' => 'supply',
+                'nama_produk' => 'Selai Strawberry',
+                'deskripsi' => 'Selai Strawberry adalah selai buah yang terbuat dari buah strawberry segar dan berkualitas tinggi. Selai ini memiliki tekstur yang lembut dengan potongan-potongan buah strawberry yang memberikan sensasi kenikmatan saat dikonsumsi. Rasanya manis dengan sentuhan keasaman yang khas dari buah strawberry. Selai Strawberry sering digunakan sebagai tambahan pada roti, kue, atau sebagai bahan dalam pembuatan makanan penutup seperti pancake atau milkshake. Rasakan kelezatan dan aroma segar buah strawberry dengan Selai Strawberry.',
+                'foto' => 'selai_strawberry.jpg',
+                'harga' => '25400',
+                'stok' => '20',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'Konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('selai_strawberry')
+            ],
+                 
+        
+
+            //  Naufal
+            //      Thai tea
+            [
+                'id' => 'TT002',
+                'users_id' => 'NFLT0066',
+                'kategoris_id' => '2',
+                'jenis' => 'supply',
+                'nama_produk' => 'Lemon Tea Bubuk',
+                'deskripsi' => 'Lemon Tea Bubuk adalah minuman teh instan yang praktis dengan sentuhan segar dari perasan lemon. Bubuk teh ini dikemas dalam bentuk yang mudah larut, sehingga Anda dapat dengan cepat menikmati segarnya teh lemon kapan pun Anda inginkan. Dengan kombinasi yang sempurna antara aroma teh yang khas dan keasaman segar dari lemon, Lemon Tea Bubuk memberikan pengalaman minum yang menyegarkan dan nikmat. Sajikan dengan air hangat atau dingin sesuai dengan preferensi Anda. Rasakan sensasi kesegaran teh lemon dengan Lemon Tea Bubuk.',
+                'foto' => 'lemontea_bubuk.jpg',
+                'harga' => '28000',
+                'stok' => '15',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'Konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('lemontea_bubuk')
+            ],
+            [
+                'id' => 'TT003',
+                'users_id' => 'NFLT0066',
+                'kategoris_id' => '2',
+                'jenis' => 'supply',
+                'nama_produk' => 'Thai tea Bubuk',
+                'deskripsi' => 'Lemon Tea Bubuk adalah minuman teh instan yang praktis dengan sentuhan segar dari perasan lemon. Bubuk teh ini dikemas dalam bentuk yang mudah larut, sehingga Anda dapat dengan cepat menikmati segarnya teh lemon kapan pun Anda inginkan. Dengan kombinasi yang sempurna antara aroma teh yang khas dan keasaman segar dari lemon, Lemon Tea Bubuk memberikan pengalaman minum yang menyegarkan dan nikmat. Sajikan dengan air hangat atau dingin sesuai dengan preferensi Anda. Rasakan sensasi kesegaran teh lemon dengan Lemon Tea Bubuk.',
+                'foto' => 'thaitea_bubuk.jpg',
+                'harga' => '69000',
+                'stok' => '15',
+                'berkas_1' => '',
+                'berkas_2' => '',
+                'berkas_3' => '',
+                'status' => 'Konfirmasi',
+                'tampilkan' => '1',
+                'slug' => Str::slug('thaitea_bubuk')
+            ],
+
+
+
+            // Warmindo
+
+                [
+                    'id' => 'WM002',
+                    'users_id' => 'NFLT0066',
+                    'kategoris_id' => '1',
+                    'jenis' => 'supply',
+                    'nama_produk' => 'Mie Goreng Ayam Bawang',
+                    'deskripsi' => 'Mi Instan Goreng 1 Dus Ayam Bawang adalah mi instan yang siap saji dan praktis untuk disajikan. Dengan rasa ayam bawang yang lezat dan menggugah selera, mi instan ini menjadi pilihan yang sempurna untuk hidangan instan yang cepat dan enak. Setiap dus berisi beberapa bungkus mi instan, sehingga Anda memiliki persediaan yang cukup untuk beberapa kali penyajian. Mi Instan Goreng 1 Dus Ayam Bawang cocok untuk dinikmati sebagai hidangan utama atau camilan yang memuaskan.',
+                    'foto' => 'miegoreng_1dus_ayambawang.jpg',
+                    'harga' => '125000',
+                    'stok' => '10',
+                    'berkas_1' => '',
+                    'berkas_2' => '',
+                    'berkas_3' => '',
+                    'status' => 'Konfirmasi',
+                    'tampilkan' => '1',
+                    'slug' => Str::slug('miegoreng_1dus_ayambawang')
+                ],
+                [
+                    'id' => 'WM003',
+                    'users_id' => 'NFLT0066',
+                    'kategoris_id' => '1',
+                    'jenis' => 'supply',
+                    'nama_produk' => 'Mie Goreng Aceh',
+                    'deskripsi' => 'Mi Instan Goreng 1 Dus Aceh adalah mi instan dengan cita rasa khas dari masakan Aceh. Dengan bumbu yang kaya dan pedas yang khas dari Aceh, mi instan ini memberikan pengalaman kuliner yang autentik dan memuaskan. Setiap dus berisi beberapa bungkus mi instan, sehingga Anda memiliki persediaan yang cukup untuk beberapa kali penyajian. Mi Instan Goreng 1 Dus Aceh cocok untuk pecinta makanan pedas dan ingin mencoba cita rasa yang berbeda dalam hidangan instan.',
+                    'foto' => 'miegoreng_1dus_aceh.jpeg',
+                    'harga' => '125000',
+                    'stok' => '10',
+                    'berkas_1' => '',
+                    'berkas_2' => '',
+                    'berkas_3' => '',
+                    'status' => 'Konfirmasi',
+                    'tampilkan' => '1',
+                    'slug' => Str::slug('miegoreng_1dus_aceh')
+                ],
+                [
+                    'id' => 'WM004',
+                    'users_id' => 'NFLT0066',
+                    'kategoris_id' => '1',
+                    'jenis' => 'supply',
+                    'nama_produk' => 'Mie Goreng Original',
+                    'deskripsi' => 'Mi Instan Goreng adalah mi instan yang siap saji dan mudah untuk disiapkan. Dengan rasa yang lezat dan praktis, mi instan ini menjadi pilihan yang populer untuk makanan cepat saji. Anda dapat menikmatinya dengan menumis mi instan dengan bumbu yang disertakan atau menambahkan bahan tambahan sesuai selera Anda. Mi Instan Goreng hadir dalam berbagai varian rasa, termasuk ayam, seafood, pedas, dan banyak lagi. Cocok untuk makanan cepat dan praktis di rumah atau di kantor.',
+                    'foto' => 'miegoreng_1dus.jpg',
+                    'harga' => '125000',
+                    'stok' => '15',
+                    'berkas_1' => '',
+                    'berkas_2' => '',
+                    'berkas_3' => '',
+                    'status' => 'Konfirmasi',
+                    'tampilkan' => '1',
+                    'slug' => Str::slug('miegoreng_1dus')
+                ],
+
+
 
 
 
