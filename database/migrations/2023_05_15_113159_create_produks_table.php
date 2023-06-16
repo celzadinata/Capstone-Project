@@ -17,6 +17,7 @@ return new class extends Migration
             $table->char('id', 6)->primary();
             $table->enum('jenis', ['paket_usaha', 'supply']);
             $table->string('nama_produk');
+            $table->string('slug')->unique();
             $table->text('deskripsi');
             $table->string('foto')->nullable();
             $table->bigInteger('harga');
@@ -28,7 +29,7 @@ return new class extends Migration
             $table->boolean('tampilkan')->nullable()->default(0);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-            $table->timestamp('deleted_at')->nullable()->useCurrentOnUpdate();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

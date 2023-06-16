@@ -1,5 +1,6 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Dashboard')
+@section('title_top', 'DASHBOARD')
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -10,7 +11,7 @@
                             <div class="card-icon" id="icon">
                                 <img src="/assets/img/icon/paket-usaha-index.png" alt="" srcset="">
                             </div>
-                            <p class="card-category">Paket Usaha</p>
+                            <p class="card-category">Produk</p>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -78,7 +79,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="stats">
-                                <a href="{{ route('pengusaha.profile') }}" type="button" class="btn" id="icon">Buka</a>
+                                <a href="{{ route('pengusaha.profile') }}" type="button" class="btn"
+                                    id="icon">Buka</a>
                             </div>
                         </div>
                     </div>

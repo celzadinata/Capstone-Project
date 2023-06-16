@@ -21,7 +21,7 @@ class PengusahaController extends Controller
         $id = Auth::id();
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
-        return view('pengusaha.dashboard.index', compact('notifikasi','jml_notif'));
+        return view('pengusaha.dashboard.index', compact('notifikasi', 'jml_notif'));
     }
 
     /**
@@ -57,7 +57,7 @@ class PengusahaController extends Controller
         $user = User::find(Auth::user()->id);
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
-        return view('pengusaha.dashboard.profile', compact('notifikasi','user','jml_notif'));
+        return view('pengusaha.dashboard.profile', compact('notifikasi', 'user', 'jml_notif'));
     }
 
     /**
@@ -95,6 +95,8 @@ class PengusahaController extends Controller
         $pengusaha->no_hp = $request->input('no_hp');
         // $pengusaha->jenis_kelamin = $request->input('jenisKelamin');
         $pengusaha->alamat = $request->input('alamat');
+        $pengusaha->latitude = $request->input('latitude');
+        $pengusaha->longitude = $request->input('longitude');
         if ($request->avatar) {
             $imgUrl = time() . '-' . Auth::user()->username . '.' . $request->avatar->extension();
             $request->avatar->move(public_path('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar'), $imgUrl);
@@ -122,5 +124,19 @@ class PengusahaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function paymentUpdate(Request $request)
+    {
+        $request->validate([
+            'paypal_email' => 'email|nullable',
+            'no_rek' => 'numeric|nullable',
+        ]);
+        $user = User::find(Auth::user()->id);
+        $user->paypal_email = $request->input('paypal_email');
+        $user->no_rek = $request->input('no_rek');
+
+        $user->update();
+
+        return back()->with('success', 'Berhasil mengubah informasi dompet');
     }
 }

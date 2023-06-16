@@ -29,6 +29,10 @@ class User extends Authenticatable
         'alamat',
         'status',
         'no_hp',
+        'paypal_email',
+        'no_rek',
+        'latitude',
+        'longitude',
     ];
 
     protected $keyType = 'string';
@@ -53,7 +57,7 @@ class User extends Authenticatable
     ];
     public function produk()
     {
-        return $this->hasMany(produk::class,'users_id');
+        return $this->hasMany(produk::class, 'users_id')->withTrashed();
     }
     public function notif()
     {
@@ -65,6 +69,14 @@ class User extends Authenticatable
     }
     public function reviews()
     {
-        return $this->hasMany(review::class,'users_id');
+        return $this->hasMany(review::class, 'users_id');
+    }
+    public function detail_transaksi()
+    {
+        return $this->hasMany(detail_transaksi::class, 'users_id');
+    }
+    public function lokasi()
+    {
+        return $this->hasOne(lokasi::class, 'users_id');
     }
 }

@@ -9,6 +9,17 @@ class detail_transaksi extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'transaksis_id',
+        'produks_id',
+        'users_id',
+        'nama_produk',
+        'harga',
+        'qty',
+        'sub_total',
+        'reviewed'
+    ];
+
     public function transaksi()
     {
         return $this->belongsTo(transaksi::class);
@@ -16,6 +27,11 @@ class detail_transaksi extends Model
 
     public function produk()
     {
-        return $this->belongsTo(produk::class,'produks_id');
+        return $this->belongsTo(produk::class, 'produks_id')->withTrashed();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

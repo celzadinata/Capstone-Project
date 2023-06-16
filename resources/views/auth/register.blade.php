@@ -26,7 +26,7 @@
                 <div class="col-md-6">
                     <div class="card-body">
                         <h2 class="card-title px-4 pt-4">Register</h2>
-                        <form class="p-4" method="POST" action="{{ route('produk.store') }}"
+                        <form id="myForm" class="p-4" method="POST" action="{{ route('store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
@@ -59,9 +59,9 @@
                                     placeholder="Enter your phone number" required autofocus autocomplete="phone" />
                             </div>
                             <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="alamat" name="alamat"
-                                    placeholder="Enter your address" required autofocus autocomplete="address" />
+                                <div class="autocomplete-container" id="autocomplete-container">
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
@@ -78,6 +78,10 @@
                                 <input type="hidden" class="form-control" id="role" name="role"
                                     value="{{ $role }}" required autocomplete="role" />
                             </div>
+
+                            <input type="hidden" id="latitude" name="latitude">
+                            <input type="hidden" id="longitude" name="longitude">
+
                             <div class="text-center mt-4">
                                 <div class="row justify-content-center">
                                     <div class="col-auto mb-3">
@@ -95,4 +99,8 @@
             </div>
         </div>
     </div>
+
+    <script>
+        
+    </script>
 @endsection

@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $user = User::where('role','<>','admin')->paginate(10);
         return view('admin.user_management.index',compact('user'));
     }
 

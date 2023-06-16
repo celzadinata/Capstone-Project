@@ -14,7 +14,7 @@
             <li class="nav-item {{ set_active(['produk.pengusaha', 'produk.create', 'produk.edit']) }}">
                 <a href="{{ route('produk.pengusaha') }}" class="nav-link">
                     <i><img src="/assets/img/icon/paket-usaha.png" alt="" srcset=""></i>
-                    <p>Paket Usaha</p>
+                    <p>Produk</p>
                 </a>
             </li>
             <li class="nav-item {{ set_active('transaksi.pengusaha') }}">

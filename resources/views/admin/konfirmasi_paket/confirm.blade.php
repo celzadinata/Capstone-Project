@@ -22,7 +22,7 @@
                                         <tr>
                                             <td>Jenis</td>
                                             <td>&nbsp;:</td>
-                                            <td>{{ $produk->jenis }}</td>
+                                            <td>{{ str_replace('_', ' ', Str::title($produk->jenis)) }}</td>
                                         </tr>
                                         <tr>
                                             <td>Nama Pengusaha</td>
@@ -30,25 +30,70 @@
                                             <td>{{ $produk->users->nama_depan }} {{ $produk->users->nama_belakang }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Berkas 1</td>
+                                            <td>Berkas SIUP</td>
                                             <td>&nbsp;:</td>
-                                            <td><a href="{{ asset('user/' . $produk->berkas_1) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
-                                                Berkas</a></td>
+                                            <td>
+                                                @if ($produk->berkas_1 == null)
+                                                    <button type="button" class="btn btn-sm" id="button_berkas_user"
+                                                        data-toggle="modal" data-target=".bd-example-modal-lg">Lihat
+                                                        Berkas</button>
+                                                    <div class="modal fade bd-example-modal-lg" tabindex="-1"
+                                                        role="dialog" aria-labelledby="myLargeModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content" id="modal">
+                                                                <h3 class="py-5 text-center" style="color:#CE3ABD">
+                                                                    Berkas SIUP Masih Belum
+                                                                    Dimasukkan</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                    <a href="{{ asset('assets/users/pengusaha/' . $produk->users_id . '/berkas/' . $produk->berkas_1) }}"
+                                                        type="button" class="btn btn-sm" id="button_berkas_user"
+                                                        target="_blank">Lihat
+                                                        Berkas</a>
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>Berkas 2</td>
+                                            <td>Berkas SITU</td>
                                             <td>&nbsp;:</td>
-                                            <td><a href="{{ asset('user/' . $produk->berkas_2) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
-                                                Berkas</a></td>
+                                            <td>
+                                                @if ($produk->berkas_2 == null)
+                                                    <button type="button" class="btn btn-sm" id="button_berkas_user"
+                                                        data-toggle="modal" data-target=".situ">Lihat
+                                                        Berkas</button>
+                                                    <div class="modal fade bd-example-modal-lg situ" tabindex="-1"
+                                                        role="dialog" aria-labelledby="myLargeModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content" id="modal">
+                                                                <h3 class="py-5 text-center" style="color:#CE3ABD">
+                                                                    Berkas SITU Masih Belum
+                                                                    Dimasukkan</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                    <a href="{{ asset('assets/users/pengusaha/' . $produk->users_id . '/berkas/' . $produk->berkas_2) }}"
+                                                        type="button" class="btn btn-sm" id="button_berkas_user"
+                                                        target="_blank">Lihat
+                                                        Berkas</a>
+                                                @endif
+                                            </td>
                                         </tr>
+
                                         <tr>
-                                            <td>Berkas 3</td>
+                                            <td>Berkas Opsional</td>
                                             <td>&nbsp;:</td>
-                                            @if($produk->berkas_3 == null)
-                                            <td>Tidak Ada</td>
+                                            @if ($produk->berkas_3 == null)
+                                                <td>Tidak Ada</td>
                                             @else
-                                            <td><a href="{{ asset('user/' . $produk->berkas_3) }}" type="button" class="btn btn-sm" id="button_berkas_user" target="_blank">Lihat
-                                                Berkas</a></td>
+                                                <td><a href="{{ asset('assets/users/pengusaha/' . $produk->users_id . '/berkas/' . $produk->berkas_3) }}"
+                                                        type="button" class="btn btn-sm" id="button_berkas_user"
+                                                        target="_blank">Lihat
+                                                        Berkas</a></td>
                                             @endif
                                         </tr>
                                     </tbody>
@@ -131,6 +176,7 @@
                         </div>
                         <div class="form-group">
                             <input type="hidden" value="{{ $produk->users->id }}" name="users_id">
+                            <input type="hidden" value="{{ $produk->id }}" name="produks_id">
                         </div>
                         <button type="submit" class="btn btn-primary">Kirim</button>
                     </form>

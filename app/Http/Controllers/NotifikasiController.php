@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\notifikasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NotifikasiController extends Controller
 {
@@ -36,9 +37,10 @@ class NotifikasiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'users_id'=> 'required',
-            'judul'=> 'required',
-            'pesan'=> 'required',
+            'produks_id' => 'required',
+            'users_id' => 'required',
+            'judul' => 'required',
+            'pesan' => 'required',
         ]);
 
         notifikasi::create($request->all());
@@ -87,6 +89,9 @@ class NotifikasiController extends Controller
      */
     public function destroy(notifikasi $notifikasi)
     {
-        //
+        $id = Auth::id();
+        notifikasi::where('users_id',$id)->delete();
+
+        return redirect()->back();
     }
 }

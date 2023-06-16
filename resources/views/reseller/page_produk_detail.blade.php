@@ -1,18 +1,26 @@
 @extends('layouts_reseller.app')
-@section('title', 'Homepage')
+@section('title', 'Detail Produk')
 @section('content')
-    {{-- Paket Usaha --}}
-    <section class="paket">
+    <style>
+        #lokasi {
+            border-radius: 5px;
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+    {{-- Detail Produk --}}
+    <section class="detail-produk">
         <div class="container">
-            {{-- <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100"> --}}
-            <div class="row py-2" id="content">
+            <hr class="my-2 hr-detail opacity-100" data-aos="flip-right" data-aos-delay="100">
+            <div class="row mt-3 py-2">
                 <div class="col-md-3 col-lg-5">
-                    <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('assets/users/' . $produk->users->role . '/' . $produk->users_id . '/' . $produk->foto) }}"
+                        class="card-img-top" alt="...">
                 </div>
                 <div class="col-md-5 col-lg-7 pt-2">
                     <h4 class="title">{{ $produk->nama_produk }}</h4>
-                    <table>
-                        <tbody id="text_konfirmasi_user">
+                    <table class="mb-3">
+                        <tbody class="rating">
                             <tr>
                                 <td>
                                     @if ($rating == null)
@@ -36,15 +44,43 @@
                     <div class="price p-4">
                         <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
                     </div>
-                    <div class="col-md-5 col-lg-4">
-                        <a href="#" class="btn-resell">Lihat Lokasi</a>
+                    <div class="my-3">
+                        {{-- <a href="{{ route('map', $produk->id) }}" class="btn-resell"><i class="fa-solid fa-location-dot"></i> Lihat Lokasi</a> --}}
+                        <!-- Button trigger modal -->
+                        @if ($produk->jenis == 'paket_usaha')
+                            <button type="button" class="btn-resell" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
+                            </button>
+                        @endif
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Lokasi Anda</h1>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table text-center">
+                                        <tr>
+                                            <td><p><img src="{{ asset('assets/img/icon/user_lokasi.png') }}"> : {{ auth()->user()->username }} </p> </td>
+                                            <td><p><img src="{{ asset('assets/img/icon/lokasi_pengusaha.png') }}"> : Pemilik Usaha</p></td>
+                                            <td><p><img src="{{ asset('assets/img/icon/shop_lokasi.png') }}"> : Usaha terdekat yang sama</p></td>
+                                            </tr>
+                                        </table>
+                                        <div class="location" id="lokasi"></div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-resell" data-bs-dismiss="modal">Kembali</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3 col-lg-8">
-                        <a href="#" class="btn-resell"><i class="fa-solid fa-cart-shopping"
-                                style="color: #ffffff;"></i> Masukkan Keranjang</a>
-                    </div>
-                    <div class="col-md-5 col-lg-2">
-                        <a href="#" class="btn-resell">Resell</a>
+                    <div>
+                        <a href="{{ route('keranjang.add', $produk->id) }}" class="btn-resell"><i
+                                class="fa-solid fa-cart-shopping"></i> Masukkan Keranjang</a>
                     </div>
                 </div>
             </div>
@@ -55,55 +91,123 @@
                 }
             </style>
 
-            <div class="description row py-2" id="content">
+            <div class="description row my-2 py-2">
                 <h4 class="title">Deskripsi</h4>
-                <p class="isi">{{ $produk->deskripsi }}</p>
+                <div class="mx-2">
+                    {!! $produk->deskripsi !!}
+                </div>
             </div>
 
-            <div class="review row py-2" id="content">
+            <div class="review row mb-3 py-2">
                 <h4>Penilaian Produk</h4>
-                @if ($review->isEmpty())
-                    <h5 class="mt-2">Belum Ada Penilaian</h5>
-                @else
-                    @foreach ($review as $r)
-                        <div class="row">
-                            <div class="col-md-2 col-lg-1">
-                                <img src="{{ asset('assets/img/reseller/paket/paket-adidas.jpg') }}" width="60px"
-                                    style="border-radius:5px">
-                            </div>
-                            <div class="col-md-5 col-lg-7">
-                                <h5>{{ $r->users->username }}</h5>
-                                @if ($r->rate == 1)
-                                    1 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 2)
-                                    2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 3)
-                                    3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 4)
-                                    4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @elseif($r->rate == 5)
-                                    5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                        style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i>
-                                @endif
-                                <p>{{ $r->review }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
 
-            <style>
-                #content {
-                    background-color: #fff;
-                }
-            </style>
+                @livewire('review', ['produk_id' => $produk->id])
+
+            </div>
         </div>
     </section>
-    {{-- ./Paket Usaha --}}
+    {{-- End Detail Produk --}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&libraries=places">
+    </script>
+    <script>
+        // var katakunci = document.getElementById('keyword').innerHTML;
+
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+
+            function showPosition(position) {
+                var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+
+                var map = new google.maps.Map(document.getElementById('lokasi'), {
+                    center: latLng,
+                    zoom: 13
+                });
+                // Reseller
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    icon: '{{ asset('assets/img/icon/user_lokasi.png') }}',
+                    animation: google.maps.Animation.BOUNCE,
+                    title: 'Lokasi Saya'
+                });
+                var circle = new google.maps.Circle({
+                    strokeColor: '#CE3ABD',
+                    strokeOpacity: 0.5,
+                    strokeWeight: 2,
+                    fillColor: '#CE3ABD',
+                    fillOpacity: 0.1,
+                    map: map,
+                    center: latLng,
+                    radius: 5000 // Radius dalam meter (5 km)
+                });
+
+                var request = {
+                    location: latLng,
+                    radius: '5000', // Radius dalam meter (5 km)
+                    keyword: '{{ $produk->nama_produk }}' // Kata kunci yang ingin dicari
+                };
+
+                // Pengusaha
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: {{ $produk->users->latitude }},
+                        lng: {{ $produk->users->longitude }}
+                    },
+                    map: map,
+                    icon: '{{ asset('assets/img/icon/lokasi_pengusaha.png') }}',
+                    title: 'Lokasi Pengusaha'
+                });
+                var circle = new google.maps.Circle({
+                    strokeColor: 'red',
+                    strokeOpacity: 0.5,
+                    strokeWeight: 2,
+                    fillColor: '#CE3ABD',
+                    fillOpacity: 0.2,
+                    map: map,
+                    center: {
+                        lat: {{ $produk->users->latitude }},
+                        lng: {{ $produk->users->longitude }}
+                    },
+                    radius: 1000 // Radius dalam meter (5 km)
+                });
+
+
+                var service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, callback);
+
+                function callback(results, status) {
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                        for (var i = 0; i < results.length; i++) {
+                            createMarker(results[i]);
+                        }
+                    }
+                }
+
+                function createMarker(place) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location,
+                        icon: '{{ asset('assets/img/icon/shop_lokasi.png') }}',
+                        title: place.name
+                    });
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: place.name
+                    });
+
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                    });
+                }
+            }
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&libraries=places&callback=initMap&t={{ time() }}">
+    </script>
 @endsection

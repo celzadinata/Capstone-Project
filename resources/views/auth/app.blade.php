@@ -20,7 +20,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet" />
-    <link href="{{ asset('assets/css/reseller/styles.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/reseller/style-auth.css') }}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -45,6 +47,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     {{-- JS File --}}
     <script src="{{ asset('assets/js/reseller/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/reseller/alamat-autocomplete.js') }}"></script>
 </body>
 @include('sweetalert::alert')
 

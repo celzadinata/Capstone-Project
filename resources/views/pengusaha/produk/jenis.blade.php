@@ -1,5 +1,6 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Pilih Jenis')
+@section('title_top', 'PRODUK')
 @section('content')
     <style>
         .rad-label {

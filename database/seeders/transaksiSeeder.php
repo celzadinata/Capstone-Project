@@ -23,7 +23,7 @@ class transaksiSeeder extends Seeder
                 'user_id' => 'K4uS7368',
                 'tanggal' => '2023-06-01 07:44:04',
                 'total' =>  '12740000',
-                'status' => 'Pengiriman',
+                'status' => 'Menunggu Pembayaran',
                 'bukti_pembayaran' => 'sad.pdf'
             ],
             [
@@ -31,7 +31,7 @@ class transaksiSeeder extends Seeder
                 'user_id' => 'K4uS7368',
                 'tanggal' => '2023-07-01 07:44:04',
                 'total' => '240000',
-                'status' => 'Belum Terverifikasi',
+                'status' => 'Menunggu Pembayaran',
                 'bukti_pembayaran' => 'asd.pdf'
             ]
         ];
@@ -43,8 +43,9 @@ class transaksiSeeder extends Seeder
             [
                 'id' => '1',
                 'transaksis_id' => 'TRX0111111',
-                'produks_id' => 'AYM001',
-                'nama_produk' => 'Makanan franchise Ayam',
+                'produks_id' => 'PU0001',
+                'users_id' => 'K4uS7368',
+                'nama_produk' => '',
                 'harga' => '12500000',
                 'qty' => '1',
                 'sub_total' => '12500000'
@@ -52,7 +53,8 @@ class transaksiSeeder extends Seeder
             [
                 'id' => '2',
                 'transaksis_id' => 'TRX0111111',
-                'produks_id' => 'AYM002',
+                'produks_id' => 'SP0001',
+                'users_id' => 'K4uS7368',
                 'nama_produk' => 'Ayam fillet 200gr',
                 'harga' => '240000',
                 'qty' => '1',
@@ -62,7 +64,8 @@ class transaksiSeeder extends Seeder
             [
                 'id' => '3',
                 'transaksis_id' => 'TRX0111112',
-                'produks_id' => 'AYM002',
+                'produks_id' => 'SP0001',
+                'users_id' => 'K4uS7360',
                 'nama_produk' => 'Ayam fillet 200gr',
                 'harga' => '240000',
                 'qty' => '1',

@@ -1,5 +1,10 @@
 @extends('layouts_pengusaha.app')
 @section('title', 'Tambah Produk')
+@if ($jenis == 'paket_usaha')
+    @section('title_top', 'PAKET USAHA')
+@else
+    @section('title_top', 'SUPPLY')
+@endif
 @section('content')
     <style>
         .previewImage {
@@ -20,7 +25,8 @@
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea name="deskripsi" id="deskripsi" class="form-control" required></textarea>
+                        <input id="deskripsi" type="hidden" name="deskripsi">
+                        <trix-editor input="deskripsi"></trix-editor>
                     </div>
                     <div class="form-group">
                         <label for="harga">Harga</label>
@@ -41,21 +47,22 @@
 
                     @if ($jenis == 'paket_usaha')
                         <div class="mb-3">
-                            <label for="berkas1" class="form-label">Berkas Wajib 1</label>
+                            <label for="berkas1" class="form-label">Surat Izin Usaha Perdagangan (SIUP) </label>
                             <input class="form-control" type="file" id="berkas1" name="berkas1" required>
                         </div>
                         <div class="mb-3">
-                            <label for="berkas2" class="form-label">Berkas Wajib 2</label>
+                            <label for="berkas2" class="form-label">Surat Izin Tempat Usaha (SITU)</label>
                             <input class="form-control" type="file" id="berkas2" name="berkas2" required>
                         </div>
                         <div class="mb-3">
-                            <label for="berkas3" class="form-label">Berkas Tambahan (Opsional)</label>
+                            <label for="berkas3" class="form-label"> NPWP, UD, NIB, SKDU dan lain sebagainya
+                                (Opsional)</label>
                             <input class="form-control" type="file" id="berkas3" name="berkas3">
                         </div>
                     @endif
 
                     <div class="mb-3">
-                        <label for="foto" class="form-label">Foto</label>
+                        <label for="foto" class="form-label">Foto produk</label>
                         <input class="form-control" type="file" id="foto" name="foto"
                             onchange="previewFoto(event)">
                     </div>
@@ -73,6 +80,12 @@
         </div>
     </div>
     <script>
+        document.getElementById('nama_produk').addEventListener('input', function() {
+            var namaProduk = this.value;
+            var slug = namaProduk.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            document.getElementById('slug').value = slug;
+        });
+
         function previewFoto(event) {
             var input = event.target;
             if (input.files && input.files[0]) {

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('rate')->nullable();
             $table->text('review')->nullable();
             $table->text('reply')->nullable();
+            $table->enum('review_status',['BelumReview','SudahReview'])->default('BelumReview');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

@@ -11,7 +11,6 @@ use Database\Seeders\AdminSeeder;
 use Database\Seeders\kategoriSeeder;
 use Database\Seeders\produkSeeder;
 use Database\Seeders\transaksiSeeder;
-use Database\Seeders\reviewSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,15 +25,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             kategoriSeeder::class,
             produkSeeder::class,
-            transaksiSeeder::class,
-            reviewSeeder::class
+
 
         ]);
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

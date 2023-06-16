@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class produk extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+    // use SoftDeletes;
     protected $primaryKey = 'id';
     protected $fillable = [
         'id',
@@ -45,8 +47,30 @@ class produk extends Model
                 $prefix = '';
             }
 
-            $count = produk::where('jenis', $jenis)->count();
-            $model->id = $prefix . str_pad($count + 1, 4, '0', STR_PAD_LEFT);
+            $products = produk::where('jenis', $jenis)->orderBy('id', 'asc')->get();
+
+            $usedIds = [];
+
+            foreach ($products as $product) {
+                $productId = substr($product->id, -4);
+                $usedIds[] = intval($productId);
+            }
+
+            for ($i = 1; $i <= 9999; $i++) {
+                if (!in_array($i, $usedIds)) {
+                    $count = $i;
+                    break;
+                }
+            }
+
+            if (!isset($count)) {
+                $lastProduct = $products->last();
+                $lastProductId = substr($lastProduct->id, -4);
+                $count = intval($lastProductId) + 1;
+            }
+
+            $model->id = $prefix . str_pad($count, 4, '0', STR_PAD_LEFT);
+            $model->slug = Str::slug($model->nama_produk); // Generate slug from nama_produk
         });
     }
     public function kategori()
@@ -57,19 +81,19 @@ class produk extends Model
     {
         return $this->belongsTo(User::class);
     }
+
     public function detail_transaksi()
     {
-        return $this->hasMany(detail_transaksi::class);
+        return $this->hasMany(detail_transaksi::class, 'produks_id');
     }
 
     public function review()
     {
-        return $this->hasMany(review::class, 'produk_id');
-
+        return $this->hasMany(review::class, 'produks_id');
     }
 
     public function notif()
     {
-        return $this->hasMany(notifikasi::class,'produks_id');
+        return $this->hasMany(notifikasi::class, 'produks_id');
     }
 }

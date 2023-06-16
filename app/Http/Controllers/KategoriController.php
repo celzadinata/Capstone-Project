@@ -6,6 +6,7 @@ use App\Models\kategori;
 use App\Models\produk;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 
 class KategoriController extends Controller
@@ -17,8 +18,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = kategori::paginate(8);
-        
+        $kategori = kategori::paginate(10);
+
         return view('admin.kategori.index', compact('kategori'));
     }
 
@@ -41,12 +42,14 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama'=> 'required|string|min:2|max:100',
+            'nama' => 'required|string|min:2|max:100',
         ]);
 
-        kategori::create($request->all());
+        kategori::create([
+            'nama' => Str::title($request->nama),
+            'slug' => Str::slug($request->nama)
+        ]);
         return redirect()->route('kategori')->with('success', 'Berhasil Menambah Kategori');
-
     }
 
     /**
@@ -85,7 +88,10 @@ class KategoriController extends Controller
             'nama' => 'required|string|min:2|max:100'
         ]);
 
-        $id->update($request->all());
+        $id->update([
+            'nama' => Str::title($request->nama),
+            'slug' => Str::slug($request->nama)
+        ]);
 
         return redirect()->route('kategori')->with('warning', 'Berhasil Mengupdate Kategori!');
     }
@@ -96,16 +102,16 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
-        $produk = produk::where('kategoris_id',$id)->first();
-        if($produk == null){
+        $produk = produk::where('kategoris_id', $id)->first();
+        if ($produk == null) {
             kategori::find($id)->delete();
             alert()->error('Berhasil Menghapus Kategori');
             return redirect()->route('kategori');
-            }else{
-                alert()->warning( 'Tidak bisa menghapus kategori karena ada produk yang terkait');
-                return redirect()->route('kategori');
-            }
+        } else {
+            alert()->warning('Tidak bisa menghapus kategori karena ada produk yang terkait');
+            return redirect()->route('kategori');
+        }
     }
 }
