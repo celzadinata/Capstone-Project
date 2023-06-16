@@ -100,15 +100,6 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
 Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
     // Dashboard Reseller
     Route::get('/', [ResellerControler::class, 'index'])->name('reseller');
-    // Semua Kategori
-    Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.reseller');
-    Route::get('/kategori/{slug}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
-    // Supply
-    Route::get('/supply', [ResellerControler::class, 'supply'])->name('supply.reseller');
-    // Paket Usaha
-    Route::get('/paket-usaha', [ResellerControler::class, 'paket_usaha'])->name('paket.reseller');
-    // Produk Detail
-    Route::get('/produk_detail/{slug}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
     // Profile
     Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
     Route::put('/profile', [ResellerControler::class, 'profile_update'])->name('update.profile.reseller');
