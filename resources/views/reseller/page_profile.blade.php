@@ -1,30 +1,30 @@
 @extends('layouts_reseller.app')
-@section('title', 'Produk')
+@section('title', 'Profile')
 @section('content')
     {{-- Paket Usaha --}}
     <section class="profile">
         <div class="container">
-            <hr class="hr-profile opacity-100" data-aos="flip-right" data-aos-delay="100">
+            <hr class="my-2 hr-profile opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row">
                 <form action="{{ route('update.profile.reseller') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                    <div class="container py-5">
+                    <div class="container pt-4">
                         <div class="col-lg-20">
                             <div class="row bg-white rounded">
                                 <div class="col-md-4 col-lg-4 order-md-2">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="mb-4">
-                                                <div class="text-center">
+                                                <div class="text-center px-5">
                                                     @if (Auth::user()->avatar == null)
                                                         <img src="{{ asset('assets/img/icon/admin.png') }}" id="preview"
                                                             class="rounded img-fluid"
-                                                            style="width: 150px; height: 150px;" />
+                                                            style="width: 100%; height: 250px; object-fit: cover" />
                                                     @else
                                                         <img src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
                                                             id="preview" class="rounded img-fluid"
-                                                            style="width: 150px; height: 150px;" />
+                                                            style="width: 100%; height: 250px; object-fit: cover" />
                                                     @endif
                                                     <h5 class="my-3">{{ Auth::user()->nama_depan }}</h5>
                                                     <p class="text-muted text-center mb-3">
@@ -35,7 +35,7 @@
                                                             class="form-control text-muted @error('avatar') is-invalid @enderror"
                                                             name="avatar" id="avatar" aria-describedby="avatarHelp"
                                                             style="display: none" onchange="PreviewImage()">
-                                                        <input type="button" value="Ubah Avatar" class="btn-resell ms-1"
+                                                        <input type="button" value="Ubah Avatar" class="btn-profile ms-1"
                                                             onclick="document.getElementById('avatar').click();" />
                                                     </div>
                                                 </div>
@@ -172,7 +172,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <button type="button" class="btn btn"
+                                                                <button type="button" class="btn text-light"
                                                                     id="button_berkas_user" data-bs-toggle="modal"
                                                                     data-bs-target="#exampleModal">
                                                                     Lihat Berkas
@@ -235,7 +235,7 @@
                                                             </div>
                                                         @enderror
                                                     </div>
-                                                    <button type="submit" class="btn-resell">
+                                                    <button type="submit" class="btn-profile">
                                                         <i class="nav-icon fas fa-save"></i>
                                                         Simpan
                                                     </button>

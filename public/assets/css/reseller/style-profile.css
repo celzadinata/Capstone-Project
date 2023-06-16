@@ -1,17 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-:root {
-    --pink: #CE3ABD;
-    --light-bg: #EDEDED;
-}
-
-body {
-    font-family: 'Urbanist', sans-serif;
-    background-color: #f5f5f5;
-}
-
 /*===============================================================
-Paket Usaha styles
+Profile styles
 =================================================================*/
 .profile {
     color: var(--pink);
@@ -56,7 +44,7 @@ Paket Usaha styles
     color: var(--pink);
 }
 
-.profile .btn-resell {
+.profile .btn-profile {
     margin-top: 10px;
     margin-bottom: 10px;
     font-weight: 500;
@@ -66,22 +54,13 @@ Paket Usaha styles
     border-radius: 5px;
     border: 2px solid var(--pink);
     text-decoration: none;
-    /* -webkit-transition: all 0.5s ease-in-out; */
+    -webkit-transition: all 0.5s ease-in-out;
     color: white;
     background: linear-gradient(to bottom left, #CE3ABD, #B500A0);
 }
 
-.profile .btn-resell:hover {
-    /* -webkit-transform: scale(1.1); */
+.profile .btn-profile:hover {
     color: var(--pink);
     border-color: var(--pink);
     background: white;
-}
-
-.description {
-    color: black;
-}
-
-.review {
-    color: black;
 }

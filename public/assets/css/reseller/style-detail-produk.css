@@ -18,7 +18,7 @@ Detail Produk page styles
 .detail-produk .card {
     color: var(--pink);
     padding: 25px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 0;
 }
 
@@ -95,16 +95,9 @@ Detail Produk page styles
 
 .detail-produk .description {
     border: 0;
-    border-radius: 5px;
+    border-radius: 10px;
     color: black;
     background-color: white;
-}
-
-.detail-produk iframe {
-    margin-top: 25px;
-    width: 100%;
-    height: 250px;
-    border-radius: 10px;
 }
 
 .detail-produk .description h4 {
@@ -118,17 +111,9 @@ Detail Produk page styles
 
 .detail-produk .review {
     border: 0;
-    border-radius: 5px;
+    border-radius: 10px;
     color: black;
     background-color: white;
-}
-
-.detail-produk .review h4 {
-    font-weight: 600;
-}
-
-.detail-produk .review h4 {
-    font-size: 20px;
 }
 
 .detail-produk .review h6 {
@@ -138,21 +123,3 @@ Detail Produk page styles
 .detail-produk .review p {
     letter-spacing: 0.5px;
 }
-
-/* @media (max-width: 576px) {
-    .detail-produk .card img {
-        border-radius: 10px;
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-    }
-}
-
-@media (max-width: 400px) {
-    .detail-produk .card img {
-        border-radius: 10px;
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-    }
-} */

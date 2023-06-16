@@ -17,10 +17,10 @@
                         @foreach ($list_kategori as $k)
                             <li><a href="{{ route('produk_kategori.reseller', $k->slug) }}">{{ $k->nama }}</a></li>
                         @endforeach
-                        <hr class="opacity-100" data-aos="flip-right" data-aos-delay="100">
+                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
                         <li><a href="{{ route('kategori.reseller') }}">Semua Kategori</a></li>
+                        <hr class="hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
                     </ul>
-                    <hr class="my-4 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
                     <h1>Urutkan</h1>
                     <form id="sort-form" action="{{ route('paket.reseller') }}" method="GET">
                         <div class="form-group">
