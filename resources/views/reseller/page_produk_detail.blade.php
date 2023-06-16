@@ -59,10 +59,16 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Lokasi Anda</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+
                                     </div>
                                     <div class="modal-body">
+                                        <table class="table text-center">
+                                        <tr>
+                                            <td><p><img src="{{ asset('assets/img/icon/user_lokasi.png') }}"> : {{ auth()->user()->username }} </p> </td>
+                                            <td><p><img src="{{ asset('assets/img/icon/lokasi_pengusaha.png') }}"> : Pemilik Usaha</p></td>
+                                            <td><p><img src="{{ asset('assets/img/icon/shop_lokasi.png') }}"> : Usaha terdekat yang sama</p></td>
+                                            </tr>
+                                        </table>
                                         <div class="location" id="lokasi"></div>
                                     </div>
                                     <div class="modal-footer">
@@ -116,11 +122,12 @@
             function showPosition(position) {
                 var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
+
                 var map = new google.maps.Map(document.getElementById('lokasi'), {
                     center: latLng,
                     zoom: 13
                 });
-
+                // Reseller
                 var marker = new google.maps.Marker({
                     position: latLng,
                     map: map,
@@ -128,7 +135,6 @@
                     animation: google.maps.Animation.BOUNCE,
                     title: 'Lokasi Saya'
                 });
-                //
                 var circle = new google.maps.Circle({
                     strokeColor: '#CE3ABD',
                     strokeOpacity: 0.5,
@@ -139,11 +145,36 @@
                     center: latLng,
                     radius: 5000 // Radius dalam meter (5 km)
                 });
+
                 var request = {
                     location: latLng,
                     radius: '5000', // Radius dalam meter (5 km)
                     keyword: '{{ $produk->nama_produk }}' // Kata kunci yang ingin dicari
                 };
+
+                // Pengusaha
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: {{ $produk->users->latitude }},
+                        lng: {{ $produk->users->longitude }}
+                    },
+                    map: map,
+                    icon: '{{ asset('assets/img/icon/lokasi_pengusaha.png') }}',
+                    title: 'Lokasi Pengusaha'
+                });
+                var circle = new google.maps.Circle({
+                    strokeColor: 'red',
+                    strokeOpacity: 0.5,
+                    strokeWeight: 2,
+                    fillColor: '#CE3ABD',
+                    fillOpacity: 0.2,
+                    map: map,
+                    center: {
+                        lat: {{ $produk->users->latitude }},
+                        lng: {{ $produk->users->longitude }}
+                    },
+                    radius: 1000 // Radius dalam meter (5 km)
+                });
 
 
                 var service = new google.maps.places.PlacesService(map);
