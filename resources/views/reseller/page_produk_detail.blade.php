@@ -147,7 +147,7 @@
 
                 var request = {
                     location: latLng,
-                    radius: '5000', // Radius dalam meter (5 km)
+                    radius: 3000, // Radius dalam meter (5 km)
                     keyword: '{{ $produk->nama_produk }}' // Kata kunci yang ingin dicari
                 };
 
