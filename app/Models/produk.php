@@ -89,7 +89,7 @@ class produk extends Model
 
     public function review()
     {
-        return $this->hasMany(review::class, 'produks_id');
+        return $this->hasMany(Review::class, 'produks_id');
     }
 
     public function notif()

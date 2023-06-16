@@ -214,6 +214,8 @@ class ProdukController extends Controller
         ]);
 
         $produk = Produk::findOrFail($id);
+        $notif = notifikasi::where('produks_id',$id)->get();
+
         $produk->nama_produk = $request->input('nama_produk');
         $produk->slug = Str::slug($request->input('nama_produk'));
         $produk->deskripsi = $request->input('deskripsi');
@@ -268,6 +270,9 @@ class ProdukController extends Controller
         }
 
         $produk->save();
+        foreach($notif as $item){
+            $item->delete();
+        };
 
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil diperbarui.');
     }
@@ -281,6 +286,7 @@ class ProdukController extends Controller
     public function destroy($id)
     {
         $produk = produk::find($id);
+        $notif = notifikasi::where('produks_id',$id)->get();
 
         if ($produk->berkas_1) {
             $berkas1Path = public_path('assets/users/pengusaha/' . $produk->users_id . '/berkas/' . $produk->berkas_1);
@@ -308,6 +314,9 @@ class ProdukController extends Controller
         }
 
         $produk->delete();
+        foreach($notif as $item){
+            $item->delete();
+        };
 
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil dihapus.');
     }

@@ -196,9 +196,14 @@ class ResellerControler extends Controller
 
     public function produk_detail($slug)
     {
+
         $list_kategori = Kategori::paginate(5);
 
-        $produk = Produk::where('slug', $slug)->first();
+        $produk = Produk::where(['slug'=> $slug,'tampilkan'=>1])->first();
+
+        if (!$produk) {
+            return redirect()->route('dashboard.reseller')->with('warning','Barang Tidak Ada');
+        }
 
         if ($produk) {
             if ($produk->trashed()) {

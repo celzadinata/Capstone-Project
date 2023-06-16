@@ -50,7 +50,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        {{ auth()->user()->username }}&nbsp;<i class="material-icons">person</i>
+                        @if (auth()->user()->avatar == null)
+                            {{ auth()->user()->username }}&nbsp;<i class="material-icons">person</i>
+                        @else
+                            {{ auth()->user()->username }}&nbsp;<img
+                                src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
+                                id="preview" class="rounded img-fluid" style="width: 20px; height: 20px;" />
+                        @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                         <a class="dropdown-item" href="{{ route('dashboard.reseller') }}">Dashboard Reseller </a>
