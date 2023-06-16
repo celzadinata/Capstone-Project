@@ -58,7 +58,7 @@ class produkSeeder extends Seeder
             [
                 'id' => 'T001',
                 'users_id' => '923ewKLM',
-                'kategoris_id' => '1',
+                'kategoris_id' => '2',
                 'jenis' => 'paket_usaha',
                 'nama_produk' => 'Es Teh',
                 'deskripsi' => 'Es Teh adalah minuman segar yang siap menyegarkan Anda di saat-saat terpanas. Kami menyajikan Es Teh dengan cita rasa yang autentik dan kualitas yang terjamin.\n\nSetiap gelas Es Teh kami dipenuhi dengan teh berkualitas tinggi yang diseduh dengan hati-hati, kemudian disajikan dengan es batu yang melengkapi kelezatan minuman ini. Nikmati keharuman dan kelembutan teh yang terasa menyegarkan setiap tegukan.\n\nKami juga menyediakan variasi Es Teh dengan tambahan bahan-bahan segar, seperti potongan lemon, jeruk, atau mint yang akan memberikan sentuhan kesegaran ekstra. Anda dapat menyesuaikan tingkat manisnya sesuai dengan selera pribadi.\n\nKualitas adalah prioritas kami. Kami hanya menggunakan bahan-bahan berkualitas terbaik untuk menciptakan Es Teh yang autentik dan nikmat. Setiap tegukan akan membawa Anda pada pengalaman minum yang menyenangkan dan menyegarkan.\n\nNikmati kelezatan Es Teh kami dalam suasana yang nyaman dan santai. Dapatkan sensasi kesegaran yang memanjakan lidah Anda di tengah hiruk-pikuk kesibukan. Segera kunjungi tempat kami dan nikmati kenikmatan sejati dari Es Teh yang kami tawarkan.',
@@ -95,7 +95,7 @@ class produkSeeder extends Seeder
             [
                 'id' => 'LDY01',
                 'users_id' => 'ABC06060',
-                'kategoris_id' => '1',
+                'kategoris_id' => '4',
                 'jenis' => 'paket_usaha',
                 'nama_produk' => 'Laundry',
                 'deskripsi' => 'Laundry adalah solusi terbaik untuk kebutuhan pencucian Anda. Dengan layanan kami yang profesional dan efisien, Anda dapat mengandalkan kami untuk membersihkan pakaian Anda dengan sempurna.\n\nKami menggunakan teknologi canggih dan bahan pembersih berkualitas untuk memastikan pakaian Anda bersih, harum, dan terawat dengan baik.\n\nKami mengerti betapa sibuknya jadwal Anda, itulah mengapa kami menawarkan layanan pengambilan dan pengantaran pakaian yang mudah dan praktis. Anda tidak perlu repot-repot datang ke tempat laundry, cukup hubungi kami dan kami akan menjemput pakaian kotor Anda. Setelah selesai dicuci, kami akan mengantarkan pakaian yang sudah bersih dan siap digunakan kembali.\n\nKualitas adalah prioritas utama kami. Tim kami yang berpengalaman dan terlatih secara profesional akan menangani pakaian Anda dengan hati-hati dan teliti. Kami memastikan bahwa setiap pakaian diperlakukan dengan perawatan yang tepat, termasuk pilihan deterjen yang sesuai dengan jenis bahan dan warna pakaian.\n\nKami juga menawarkan layanan tambahan seperti penyetrikaan, dry cleaning, dan perawatan khusus untuk pakaian yang membutuhkan perlakuan khusus. Anda dapat mempercayakan kami untuk memberikan hasil yang memuaskan dan pakaian yang tampak seperti baru.\n\nPercayakan kebutuhan pencucian Anda kepada kami dan nikmati kemudahan serta kepuasan yang kami tawarkan. Hubungi kami sekarang untuk mendapatkan layanan laundry terbaik dan menjaga pakaian Anda tetap bersih dan terawat dengan baik.',
@@ -149,7 +149,7 @@ class produkSeeder extends Seeder
             [
                 'id' => 'TT001',
                 'users_id' => 'NFLT0066',
-                'kategoris_id' => '1',
+                'kategoris_id' => '2',
                 'jenis' => 'paket_usaha',
                 'nama_produk' => 'Thai Tea',
                 'deskripsi' => 'Nikmati sensasi kelezatan sejati dengan Thai Tea kami yang eksotis. Thai Tea adalah minuman khas Thailand yang memadukan teh hitam berkualitas tinggi dengan campuran susu kental manis dan gula. Rasanya yang unik dan aroma harumnya akan memanjakan lidah Anda.\n\nThai Tea kami disajikan dalam berbagai varian, mulai dari yang klasik hingga yang segar dengan tambahan es. Setiap tegukan Thai Tea kami akan memberikan pengalaman yang menyegarkan dan memuaskan.\n\nKami menggunakan bahan-bahan berkualitas terbaik dan meracik Thai Tea dengan hati-hati untuk menghadirkan cita rasa yang autentik. Nikmati keharmonisan antara rasa teh hitam yang kaya dengan kelembutan susu dan kelezatan gula yang pas.\n\nThai Tea kami juga bisa disesuaikan dengan tingkat manis yang Anda inginkan. Anda dapat menikmatinya dalam keadaan panas atau dingin, sesuai dengan preferensi Anda.\n\nJangan lewatkan kesempatan untuk merasakan kelezatan Thai Tea kami yang khas. Segera nikmati sensasi eksotis dan refresing dari Thai Tea yang kami tawarkan. Jadikan Thai Tea sebagai teman setia Anda dalam menikmati momen istimewa atau sebagai minuman penyegar di cuaca yang panas. Rasakan kenikmatan yang tak terlupakan dengan Thai Tea kami!',
@@ -166,7 +166,7 @@ class produkSeeder extends Seeder
 
 
             // supply
-            //Raihan 
+            //Raihan
             [
                 'id' => 'AYM002',
                 'users_id' => 'a8ek9665',
@@ -187,7 +187,7 @@ class produkSeeder extends Seeder
             [
                 'id' => 'AYM003',
                 'users_id' => 'a8ek9665',
-                'kategoris_id' => '1',
+                'kategoris_id' => '7',
                 'jenis' => 'supply',
                 'nama_produk' => 'Minyak Sania 2L 6pcs',
                 'deskripsi' => 'Minyak Sania 2L 6pcs adalah produk minyak berkualitas tinggi yang dikemas dalam kemasan botol berukuran 2 liter. Dengan kemasan berisi 6 botol, produk ini cocok untuk kebutuhan pasokan atau suplai dalam jumlah yang lebih besar. Minyak Sania hadir dengan formula khusus yang memberikan kelezatan dan kualitas terbaik untuk berbagai keperluan memasak.',
@@ -204,7 +204,7 @@ class produkSeeder extends Seeder
             [
                 'id' => 'AYM004',
                 'users_id' => 'a8ek9665',
-                'kategoris_id' => '1',
+                'kategoris_id' => '7',
                 'jenis' => 'supply',
                 'nama_produk' => 'Tepung Bumbu Kentucky Sasa 75gr/10pcs',
                 'deskripsi' => "Tepung Bumbu Kentucky Sasa 75gr adalah tepung bumbu berkualitas dengan rasa khas Kentucky yang dikemas dalam kemasan 75 gram. Tepung bumbu ini cocok digunakan untuk memberikan cita rasa Kentucky yang lezat pada berbagai hidangan. Dengan kemasan yang praktis, produk ini merupakan pilihan tepat untuk memenuhi kebutuhan pasokan atau suplai dalam jumlah yang lebih besar. Berikan sentuhan istimewa pada hidangan Anda dengan Tepung Bumbu Kentucky Sasa 75gr.",
@@ -256,7 +256,7 @@ class produkSeeder extends Seeder
 
 
             // Mail
-            //Kopi 
+            //Kopi
             [
                 'id' => 'K002',
                 'users_id' => '923ewKLM',
@@ -293,7 +293,7 @@ class produkSeeder extends Seeder
             ],
 
 
-            //Teh 
+            //Teh
             [
                 'id' => 'T002',
                 'users_id' => '923ewKLM',

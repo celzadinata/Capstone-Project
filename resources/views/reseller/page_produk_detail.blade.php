@@ -45,7 +45,6 @@
                         <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
                     </div>
                     <div class="my-3">
-                        {{-- <a href="{{ route('map', $produk->id) }}" class="btn-resell"><i class="fa-solid fa-location-dot"></i> Lihat Lokasi</a> --}}
                         <!-- Button trigger modal -->
                         @if ($produk->jenis == 'paket_usaha')
                             <button type="button" class="btn-resell" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -64,7 +63,7 @@
                                     <div class="modal-body">
                                         <table class="table text-center">
                                         <tr>
-                                            <td><p><img src="{{ asset('assets/img/icon/user_lokasi.png') }}"> : {{ auth()->user()->username }} </p> </td>
+                                            <td><p><img src="{{ asset('assets/img/icon/user_lokasi.png') }}"> : Lokasi Anda</p> </td>
                                             <td><p><img src="{{ asset('assets/img/icon/lokasi_pengusaha.png') }}"> : Pemilik Usaha</p></td>
                                             <td><p><img src="{{ asset('assets/img/icon/shop_lokasi.png') }}"> : Usaha terdekat yang sama</p></td>
                                             </tr>

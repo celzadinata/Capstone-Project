@@ -46,6 +46,11 @@ class kategoriSeeder extends Seeder
                 'nama' => 'Lain-Lain',
                 'slug' => 'lain-lain',
             ],
+            [
+                'id'    =>  '7',
+                'nama' => 'Sembako',
+                'slug' => 'sembako',
+            ],
 
         ];
 
