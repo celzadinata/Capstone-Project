@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -29,7 +30,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'role' => ['required'],
-        ]);   
+        ]);
         return view('auth.register', ['role' => $request->role]);
     }
 
@@ -38,20 +39,20 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
         // dd($request->toArray());
         $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'role' => ['required'],
-            'hp' => ['required','max:13'],
+            'hp' => ['required', 'max:13'],
             'alamat' => ['required'],
-            'username' => ['required', 'max:255', 'unique:'.User::class],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'username' => ['required', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $id = Str::random(4).rand(1000,9999);
+        $id = Str::random(4) . rand(1000, 9999);
         $user = User::create([
             'id' => $id,
             'nama_depan' => $request->nama,
@@ -61,6 +62,7 @@ class RegisteredUserController extends Controller
             'alamat' => $request->alamat,
             'no_hp' => $request->hp,
             'email' => $request->email,
+            'status' => 'Non Aktif',
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
             'password' => Hash::make($request->password),
@@ -68,10 +70,17 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
-        $redirect_path = '';
-        Auth::user()->role === 'admin' ? $redirect_path = '/admin' : (Auth::user()->role === 'pengusaha' ? $redirect_path = '/pengusaha' : $redirect_path = '/reseller');
+        // $login = Auth::login($user);
+        // $logged = new LoginRequest([
+        //     "email" => $user->email,
+        //     "password" => $request->password,
+        // ]);
+        $request->authenticate();
+        $request->session()->regenerate();
 
-        return redirect($redirect_path);
+        $redirect_path = '';
+        Auth::user()->role === 'admin' ? $redirect_path = 'dashboard.admin' : (Auth::user()->role === 'pengusaha' ? $redirect_path = 'dashboard.pengusaha' : $redirect_path = 'reseller');
+
+        return redirect()->route($redirect_path)->with('success', 'Berhasil membuat akun!');
     }
 }

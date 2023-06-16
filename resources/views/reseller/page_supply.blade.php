@@ -1,7 +1,7 @@
 @extends('layouts_reseller.app')
 @section('title', 'Supply')
 @section('content')
-    {{-- Paket Usaha --}}
+    {{-- Supply --}}
     <section class="paket-usaha">
         <div class="container">
             <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
@@ -75,5 +75,5 @@
             </div>
         </div>
     </section>
-    {{-- ./Paket Usaha --}}
+    {{-- ./Supply --}}
 @endsection
