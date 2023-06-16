@@ -12,69 +12,73 @@
     <section class="detail-produk">
         <div class="container">
             <hr class="my-2 hr-detail opacity-100" data-aos="flip-right" data-aos-delay="100">
-            <div class="row mt-3 py-2">
-                <div class="col-md-3 col-lg-5">
-                    <img src="{{ asset('assets/users/' . $produk->users->role . '/' . $produk->users_id . '/' . $produk->foto) }}"
-                        class="card-img-top" alt="...">
-                </div>
-                <div class="col-md-5 col-lg-7 pt-2">
-                    <h4 class="title">{{ $produk->nama_produk }}</h4>
-                    <table class="mb-3">
-                        <tbody class="rating">
-                            <tr>
-                                <td>
-                                    @if ($rating == null)
-                                        0
-                                    @else
-                                        <u>{{ str_replace('...', '', Str::limit($rating, 3)) }}</u>
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $rating)
-                                                <i class="fa fa-star checked"></i>
-                                            @endif
-                                        @endfor
-                                    @endif
-                                </td>
-                                <td>&nbsp|&nbsp</td>
-                                <td>{{ $nilai }} Penilaian</td>
-                                <td>&nbsp|&nbsp</td>
-                                <td>{{ $terjual }} Terjual</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="price p-4">
-                        <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
+            <div class="card my-4">
+                <div class="row row-cols-1 row-cols-md-4 g-0">
+                    <div class="col-md-5">
+                        <img src="{{ asset('assets/users/' . $produk->users->role . '/' . $produk->users_id . '/' . $produk->foto) }}"
+                            class="img-fluid" alt="...">
                     </div>
-                    <div class="my-3">
-                        {{-- <a href="{{ route('map', $produk->id) }}" class="btn-resell"><i class="fa-solid fa-location-dot"></i> Lihat Lokasi</a> --}}
-                        <!-- Button trigger modal -->
-                        @if ($produk->jenis == 'paket_usaha')
-                            <button type="button" class="btn-resell" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
-                            </button>
-                        @endif
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Lokasi Anda</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="location" id="lokasi"></div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn-resell" data-bs-dismiss="modal">Kembali</button>
+                    <div class="col-md-7">
+                        <h3 class="title">{{ $produk->nama_produk }}</h3>
+                        <table class="mb-3">
+                            <tbody class="rating">
+                                <tr>
+                                    <td>
+                                        @if ($rating == null)
+                                            0
+                                        @else
+                                            <u>{{ str_replace('...', '', Str::limit($rating, 3)) }}</u>
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $rating)
+                                                    <i class="fa fa-star checked"></i>
+                                                @endif
+                                            @endfor
+                                        @endif
+                                    </td>
+                                    <td>&nbsp|&nbsp</td>
+                                    <td>{{ $nilai }} Penilaian</td>
+                                    <td>&nbsp|&nbsp</td>
+                                    <td>{{ $terjual }} Terjual</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="price p-4">
+                            <h2>Rp {{ number_format($produk->harga, 0, '.', '.') }}</h2>
+                        </div>
+                        <div class="my-3">
+                            {{-- <a href="{{ route('map', $produk->id) }}" class="btn-resell"><i class="fa-solid fa-location-dot"></i> Lihat Lokasi</a> --}}
+                            <!-- Button trigger modal -->
+                            @if ($produk->jenis == 'paket_usaha')
+                                <button type="button" class="btn-resell" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
+                                </button>
+                            @endif
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Lokasi Anda</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="location" id="lokasi"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn-resell"
+                                                data-bs-dismiss="modal">Kembali</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <a href="{{ route('keranjang.add', $produk->id) }}" class="btn-resell"><i
-                                class="fa-solid fa-cart-shopping"></i> Masukkan Keranjang</a>
+                        <div>
+                            <a href="{{ route('keranjang.add', $produk->id) }}" class="btn-resell"><i
+                                    class="fa-solid fa-cart-shopping"></i> Masukkan Keranjang</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,18 +89,22 @@
                 }
             </style>
 
-            <div class="description row my-2 py-2">
-                <h4 class="title">Deskripsi</h4>
-                <div class="mx-2">
-                    {!! $produk->deskripsi !!}
+            <div class="description mb-4 px-4" id="content">
+                <div class="row py-3">
+                    <h4 class="title">Deskripsi</h4>
+                    <div class="mx-2">
+                        {!! $produk->deskripsi !!}
+                    </div>
                 </div>
             </div>
 
-            <div class="review row mb-3 py-2">
-                <h4>Penilaian Produk</h4>
+            <div class="review mb-4 px-4">
+                <div class="row py-3">
+                    <h4>Penilaian Produk</h4>
 
-                @livewire('review', ['produk_id' => $produk->id])
+                    @livewire('review', ['produk_id' => $produk->id])
 
+                </div>
             </div>
         </div>
     </section>

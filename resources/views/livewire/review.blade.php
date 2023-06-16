@@ -7,10 +7,11 @@
                 <div class="row ms-1">
                     <div class="col-md-2 col-lg-1">
                         @if ($r->users->avatar == null)
-                            <img src="{{ asset('assets/img/icon/admin.png') }}" width="40px" style="border-radius:5px">
+                            <i class="fa-solid fa-circle-user"
+                                style="color: var(--pink);font-size: 60px; border-radius:5px"></i>
                         @else
                             <img src="{{ asset('assets/users/reseller/' . $r->users_id . '/avatar/' . $r->users->avatar) }}"
-                                width="60px" style="border-radius:5px">
+                                style="width: 80%; height: 60px; object-fit: cover; border-radius:50px">
                         @endif
                     </div>
                     <div class="col-md-5 col-lg-8">
@@ -89,7 +90,7 @@
                                 <small class="text-danger" style="font-size: 13px">Silahkan Mengisi Review</small>
                             @enderror
                         </div>
-                        <button type="submit" class="btn-resell">Kirim</button>
+                        <button type="submit" class="mt-2 btn-resell">Kirim</button>
                     </fieldset>
                 </form>
             </div>
