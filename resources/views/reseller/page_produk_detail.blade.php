@@ -154,7 +154,7 @@
                 // Pengusaha
                 var marker = new google.maps.Marker({
                     position: {
-                        lat: {{ $produk->users->latitude }},
+                        lat: {{ $produk->users->latitude  }},
                         lng: {{ $produk->users->longitude }}
                     },
                     map: map,
