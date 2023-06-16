@@ -128,10 +128,11 @@ class ResellerControler extends Controller
 
     public function paket_usaha(Request $request)
     {
+        $cek = false;
         $list_kategori = kategori::paginate(5);
         $sort = $request->input('sort');
 
-        $paket = produk::with('users')
+        $filter = produk::with('users')
             ->where('jenis', 'paket_usaha')
             ->when($sort, function ($query) use ($sort) {
                 switch ($sort) {
@@ -155,16 +156,17 @@ class ResellerControler extends Controller
             })
             ->paginate(15);
 
-        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket', 'sort'));
+        return view('reseller.page_paket_usaha', compact('list_kategori', 'filter', 'sort', 'cek'));
     }
 
 
     public function supply(Request $request)
     {
+        $cek = false;
         $list_kategori = kategori::paginate(5);
         $sort = $request->input('sort');
 
-        $supply = produk::with('users')
+        $filter = produk::with('users')
             ->where('jenis', 'supply')
             ->when($sort, function ($query) use ($sort) {
                 switch ($sort) {
@@ -188,7 +190,7 @@ class ResellerControler extends Controller
             })
             ->paginate(15);
 
-        return view('reseller.page_supply', compact('list_kategori', 'supply', 'sort'));
+        return view('reseller.page_supply', compact('list_kategori', 'filter', 'sort', 'cek'));
     }
 
 
@@ -224,20 +226,73 @@ class ResellerControler extends Controller
 
     public function search_paketusaha(Request $request)
     {
+        $cek = true;
         $list_kategori = kategori::paginate(5);
         $searchTerm = $request->input('search');
         $paket = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $sort = $request->input('sort');
 
-        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket'));
+        $filter = produk::with('users')
+            ->where('jenis', 'supply')
+            ->when($sort, function ($query) use ($sort) {
+                switch ($sort) {
+                    case 'termahal':
+                        $query->orderByDesc('harga');
+                        break;
+                    case 'termurah':
+                        $query->orderBy('harga');
+                        break;
+                    case 'terbaru':
+                        $query->orderByDesc('created_at');
+                        break;
+                    case 'acak':
+                        $query->inRandomOrder();
+                        break;
+                    default:
+                        // Default sorting option
+                        $query->orderBy('nama_produk');
+                        break;
+                }
+            })
+            ->paginate(15);
+
+        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket', 'sort', 'cek', 'filter'));
     }
 
     public function search_supply(Request $request)
     {
+        $cek = true;
         $list_kategori = kategori::paginate(5);
         $searchTerm = $request->input('search');
         $supply = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $sort = $request->input('sort');
 
-        return view('reseller.page_supply', compact('list_kategori', 'supply'));
+        $filter = produk::with('users')
+            ->where('jenis', 'supply')
+            ->when($sort, function ($query) use ($sort) {
+                switch ($sort) {
+                    case 'termahal':
+                        $query->orderByDesc('harga');
+                        break;
+                    case 'termurah':
+                        $query->orderBy('harga');
+                        break;
+                    case 'terbaru':
+                        $query->orderByDesc('created_at');
+                        break;
+                    case 'acak':
+                        $query->inRandomOrder();
+                        break;
+                    default:
+                        // Default sorting option
+                        $query->orderBy('nama_produk');
+                        break;
+                }
+            })
+            ->paginate(15);
+
+
+        return view('reseller.page_supply', compact('list_kategori', 'supply', 'cek', 'filter', 'sort'));
     }
 
     public function profile()

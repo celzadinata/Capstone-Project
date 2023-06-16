@@ -8,7 +8,7 @@
             <div class="row my-3">
                 <div class="col-md-3 col-lg-2 pe-5 side-panel-paket" data-aos="zoom-in" data-aos-delay="100">
                     <form class="d-flex mb-4" action="{{ route('search_paket') }}" method="get" role="search">
-                        <input class="form-control me-2" name="search" type="text" placeholder="Search"
+                        <input class="form-control me-2" onkeyup="filter()" name="search" id="value" type="text" placeholder="Search"
                             aria-label="Search">
                         <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
                     </form>
@@ -51,30 +51,66 @@
                 </div>
                 <div class="col-md-9 col-lg-10">
                     <div class="row row-cols-1 row-cols-md-5 g-4" data-aos="fade">
-                        @foreach ($paket as $p)
-                            @if ($p->status == 'Konfirmasi')
-                                @if ($p->tampilkan == 1)
-                                    <div class="col">
-                                        <div class="card h-100">
-                                            <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
-                                                class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
-                                                <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                <a href="{{ route('produk_detail.reseller', $p->slug) }}"
-                                                    class="btn-resell">Resell</a>
+                        @if ($cek == true)
+                            @foreach ($paket as $s)
+                                @if ($s->status == 'Konfirmasi')
+                                    @if ($s->tampilkan == 1)
+                                        <div class="col">
+                                            <div class="card h-100">
+                                                <img src="{{ asset('assets/users/' . $s->users->role . '/' . $s->users_id . '/' . $s->foto) }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">{{ Str::limit($s->nama_produk, 12) }}</h4>
+                                                    <p>Rp {{ number_format($s->harga, 0, '.', '.') }}</p>
+                                                    <a href="{{ route('produk_detail.reseller', $s->slug) }}"
+                                                        class="btn-resell">Resell</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endif
-                            @endif
-                        @endforeach
+                            @endforeach
+                        @else
+                        @foreach ($filter as $s)
+                                @if ($s->status == 'Konfirmasi')
+                                    @if ($s->tampilkan == 1)
+                                        <div class="col">
+                                            <div class="card h-100">
+                                                <img src="{{ asset('assets/users/' . $s->users->role . '/' . $s->users_id . '/' . $s->foto) }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">{{ Str::limit($s->nama_produk, 12) }}</h4>
+                                                    <p>Rp {{ number_format($s->harga, 0, '.', '.') }}</p>
+                                                    <a href="{{ route('produk_detail.reseller', $s->slug) }}"
+                                                        class="btn-resell">Resell</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endif
                     </div>
-                    {{ $paket->links() }}
+                    {{ $filter->links() }}
                 </div>
 
             </div>
         </div>
+        <script type="text/javascript">
+            function filter() {
+              var value,name,profile,i;
+              value = document.getElementById("value").value.toUpperCase();
+              profile = document.getElementsById("produk");
+              for(i=0;i<profile.length;i++){
+                name = profile[i].getElementsById("name");
+                if (name[0].innerHTML.toUpperCase().indexOf(value) > -1) {
+                  profile[i].style.display = "flex";
+                }else{
+                  profile[i].style.display = "none";
+                }
+              }
+            }
+          </script>
     </section>
     {{-- ./Paket Usaha --}}
 @endsection
