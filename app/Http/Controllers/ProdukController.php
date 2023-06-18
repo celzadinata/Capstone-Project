@@ -136,6 +136,13 @@ class ProdukController extends Controller
 
         $user = Auth::user();
         $userId = $user->id;
+        $jenis = $request->jenis;
+
+        if($jenis == 'supply'){
+            $status = 'Konfirmasi';
+        }else{
+            $status = 'Belum Konfirmasi';
+        }
 
         produk::create([
             'jenis' => $request['jenis'],
@@ -143,7 +150,7 @@ class ProdukController extends Controller
             'deskripsi' => $request['deskripsi'],
             'harga' => $request['harga'],
             'stok' => $request['stok'],
-            'status' => 'Belum Konfirmasi',
+            'status' => $status,
             'users_id' => $userId,
             'kategoris_id' => $request['kategoris_id'],
             'berkas_1' => $berkas1Url,
@@ -175,11 +182,13 @@ class ProdukController extends Controller
     public function edit($id)
     {
         $produk = produk::find($id);
+        $notif = notifikasi::where('produks_id', $id)->get();
         $kategoris = kategori::all();
         $id = Auth::user();
         $notifikasi = notifikasi::where('users_id', $id)->get();
         $jml_notif = notifikasi::where('users_id', $id)->count();
         $jenis = ''; // Define an empty variable for $jenis
+
 
         if ($produk->jenis == 'paket_usaha') {
             $jenis = 'paket_usaha';
@@ -188,6 +197,10 @@ class ProdukController extends Controller
         } else {
             abort(404);
         }
+
+        foreach ($notif as $item) {
+            $item->delete();
+        };
 
         return view('pengusaha.produk.edit', compact('produk', 'kategoris', 'notifikasi', 'jml_notif', 'jenis'));
     }
@@ -214,7 +227,6 @@ class ProdukController extends Controller
         ]);
 
         $produk = Produk::findOrFail($id);
-        $notif = notifikasi::where('produks_id',$id)->get();
 
         $produk->nama_produk = $request->input('nama_produk');
         $produk->slug = Str::slug($request->input('nama_produk'));
@@ -270,9 +282,6 @@ class ProdukController extends Controller
         }
 
         $produk->save();
-        foreach($notif as $item){
-            $item->delete();
-        };
 
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil diperbarui.');
     }
@@ -286,7 +295,7 @@ class ProdukController extends Controller
     public function destroy($id)
     {
         $produk = produk::find($id);
-        $notif = notifikasi::where('produks_id',$id)->get();
+        $notif = notifikasi::where('produks_id', $id)->get();
 
         if ($produk->berkas_1) {
             $berkas1Path = public_path('assets/users/pengusaha/' . $produk->users_id . '/berkas/' . $produk->berkas_1);
@@ -314,14 +323,14 @@ class ProdukController extends Controller
         }
 
         $produk->delete();
-        foreach($notif as $item){
+        foreach ($notif as $item) {
             $item->delete();
         };
 
         return redirect()->route('produk.pengusaha')->with('success', 'Produk berhasil dihapus.');
     }
 
-    public function update_tampilan(Request $request,produk $id)
+    public function update_tampilan(Request $request, produk $id)
     {
         $request->validate([
             'tampilkan'     => 'required',

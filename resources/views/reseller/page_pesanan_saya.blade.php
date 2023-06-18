@@ -57,6 +57,7 @@
                                                                     <h5 class="card-title">
                                                                         {{ $detailTransaksi->nama_produk }}
                                                                     </h5>
+                                                                    <span>{{ str_replace('_', ' ', Str::title($detailTransaksi->produk->jenis)) }}</span>
                                                                     <p class="card-text">Qty :
                                                                         <span>{{ $detailTransaksi->qty }}</span> x
                                                                         <span>Rp.
@@ -196,6 +197,7 @@
                                                                     <h5 class="card-title">
                                                                         {{ $detailTransaksi->nama_produk }}
                                                                     </h5>
+                                                                    <span>{{ str_replace('_', ' ', Str::title($detailTransaksi->produk->jenis)) }}</span>
                                                                     <p class="card-text">Qty :
                                                                         <span>{{ $detailTransaksi->qty }}</span> x
                                                                         <span>Rp.
@@ -276,6 +278,7 @@
                                                             <div class="card-body">
                                                                 <h5 class="card-title">{{ $detailTransaksi->nama_produk }}
                                                                 </h5>
+                                                                <span>{{ str_replace('_', ' ', Str::title($detailTransaksi->produk->jenis)) }}</span>
                                                                 <p class="card-text">Qty :
                                                                     <span>{{ $detailTransaksi->qty }}</span> x
                                                                     <span>Rp.
@@ -357,6 +360,7 @@
                                                                     <h5 class="card-title">
                                                                         {{ $detailTransaksi->nama_produk }}
                                                                     </h5>
+                                                                    <span>{{ str_replace('_', ' ', Str::title($detailTransaksi->produk->jenis)) }}</span>
                                                                     <p class="card-text">Qty :
                                                                         <span>{{ $detailTransaksi->qty }}</span> x
                                                                         <span>Rp.
@@ -473,6 +477,7 @@
                                                                     <h5 class="card-title">
                                                                         {{ $detailTransaksi->nama_produk }}
                                                                     </h5>
+                                                                    <span>{{ str_replace('_', ' ', Str::title($detailTransaksi->produk->jenis)) }}</span>
                                                                     <p class="card-text">Qty :
                                                                         <span>{{ $detailTransaksi->qty }}</span> x
                                                                         <span>Rp.

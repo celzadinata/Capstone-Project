@@ -61,10 +61,9 @@
                                                     <img src="{{ asset('assets/users/' . $s->users->role . '/' . $s->users_id . '/' . $s->foto) }}"
                                                         class="card-img-top" alt="...">
                                                     <div class="card-body">
+                                                        <p class="kategori">{{ $s->kategori->nama}}</p>
                                                         <h4 class="card-title">{{ Str::limit($s->nama_produk, 12) }}</h4>
                                                         <p>Rp {{ number_format($s->harga, 0, '.', '.') }}</p>
-                                                        <a href="{{ route('produk_detail.reseller', $s->slug) }}"
-                                                            class="btn-resell">Resell</a>
                                                     </div>
                                                 </div>
                                             </a>
@@ -82,6 +81,7 @@
                                                     <img src="{{ asset('assets/users/' . $s->users->role . '/' . $s->users_id . '/' . $s->foto) }}"
                                                         class="card-img-top" alt="...">
                                                     <div class="card-body">
+                                                        <p class="kategori">{{ $s->kategori->nama}}</p>
                                                         <h4 class="card-title">{{ Str::limit($s->nama_produk, 12) }}</h4>
                                                         <p>Rp {{ number_format($s->harga, 0, '.', '.') }}</p>
                                                     </div>

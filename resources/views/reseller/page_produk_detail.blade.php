@@ -18,7 +18,7 @@
                         class="card-img-top" alt="...">
                 </div>
                 <div class="col-md-5 col-lg-7 pt-2">
-                    <h4 class="title">{{ $produk->nama_produk }}</h4>
+                    <h3 class="title">{{ $produk->nama_produk }}</h3>
                     <table class="mb-3">
                         <tbody class="rating">
                             <tr>
@@ -58,7 +58,6 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Lokasi Anda</h1>
-
                                     </div>
                                     <div class="modal-body">
                                         <table class="table text-center">
@@ -159,7 +158,7 @@
 
                 var request = {
                     location: latLng,
-                    radius: 3000, // Radius dalam meter (5 km)
+                    radius: 4000, // Radius dalam meter (4 km)
                     keyword: '{{ $produk->nama_produk }}' // Kata kunci yang ingin dicari
                 };
 

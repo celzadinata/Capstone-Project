@@ -31,7 +31,6 @@ class produk extends Model
     ];
 
     protected $keyType = 'string';
-
     protected static function boot()
     {
         parent::boot();
@@ -47,7 +46,10 @@ class produk extends Model
                 $prefix = '';
             }
 
-            $products = produk::where('jenis', $jenis)->orderBy('id', 'asc')->get();
+            $products = produk::withTrashed() // Mengambil semua produk termasuk yang dihapus secara lunak
+                ->where('jenis', $jenis)
+                ->orderBy('id', 'asc')
+                ->get();
 
             $usedIds = [];
 
@@ -65,17 +67,22 @@ class produk extends Model
 
             if (!isset($count)) {
                 $lastProduct = $products->last();
-                $lastProductId = substr($lastProduct->id, -4);
-                $count = intval($lastProductId) + 1;
+                if ($lastProduct) {
+                    $lastProductId = substr($lastProduct->id, -4);
+                    $count = intval($lastProductId) + 1;
+                } else {
+                    $count = 1;
+                }
             }
 
             $model->id = $prefix . str_pad($count, 4, '0', STR_PAD_LEFT);
             $model->slug = Str::slug($model->nama_produk); // Generate slug from nama_produk
         });
     }
+
     public function kategori()
     {
-        return $this->belongsTo(kategori::class);
+        return $this->belongsTo(kategori::class, 'kategoris_id');
     }
     public function users()
     {

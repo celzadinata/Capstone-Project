@@ -87,7 +87,7 @@
                                     </thead>
                                     @foreach ($months as $index => $month)
                                         <tbody>
-                                            <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
+                                            <tr style="font-weight: 500;">
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $years[$index] }}</td>
                                                 <td>{{ $month }}</td>

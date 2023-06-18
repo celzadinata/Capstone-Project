@@ -90,11 +90,11 @@
                                                 d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
                                         </svg>
                                     </div>
-                                    <div class="file-select-name" id="noFile">
+                                    <div class="file-select-name" id="noFile2">
                                         {{ $produk->berkas_2 }}</div>
                                     <input type="file" class="form-control @error('berkas2') is-invalid @enderror"
                                         name="berkas2" aria-describedby="berkasHelp" id="chooseFile"
-                                        onchange="PreviewBerkas()">
+                                        onchange="PreviewBerkas2()">
                                     @error('berkas2')
                                         <div id="namaprodukHelp" class="form-text">
                                             {{ $message }}
@@ -117,11 +117,11 @@
                                                 d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
                                         </svg>
                                     </div>
-                                    <div class="file-select-name" id="noFile">
+                                    <div class="file-select-name" id="noFile3">
                                         {{ $produk->berkas_3 }}</div>
                                     <input type="file" class="form-control @error('berkas3') is-invalid @enderror"
                                         name="berkas3" aria-describedby="berkasHelp" id="chooseFile"
-                                        onchange="PreviewBerkas()">
+                                        onchange="PreviewBerkas3()">
                                     @error('berkas3')
                                         <div id="namaprodukHelp" class="form-text">
                                             {{ $message }}

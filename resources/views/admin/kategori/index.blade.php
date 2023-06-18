@@ -16,7 +16,8 @@
                                     </div>
                                     <div class="col text-right">
                                         <input class="table-filter py-2 px-2 mr-2" type="text" id="myInput"
-                                            data-table="table" placeholder="Cari"><i class="fa-solid fa-magnifying-glass px-3 py-3" id="cari"></i>
+                                            data-table="table" placeholder="Cari"><i
+                                            class="fa-solid fa-magnifying-glass px-3 py-3" id="cari"></i>
                                     </div>
                                 </div>
                             </div>
@@ -31,16 +32,16 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($kategori as $c)
-                                            <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
+                                            <tr style="font-weight: 500;">
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $c->nama }}</td>
                                                 <td>
                                                     <a href="{{ route('kategori.edit', $c->id) }}"
-                                                        class="btn btn-warning btn-sm">
+                                                        class="btn btn-warning btn">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
                                                     <a href="{{ route('kategori.destroy', $c->id) }}"
-                                                        class="btn btn-danger btn-sm">
+                                                        class="btn btn-danger btn">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </td>

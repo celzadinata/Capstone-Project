@@ -30,7 +30,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($user as $u)
-                                            <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
+                                            <tr style="font-weight: 500;">
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $u->nama_depan }}</td>
                                                 <td>{{ Str::title($u->role) }}</td>

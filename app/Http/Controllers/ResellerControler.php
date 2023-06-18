@@ -196,21 +196,11 @@ class ResellerControler extends Controller
 
     public function produk_detail($slug)
     {
-
         $list_kategori = Kategori::paginate(5);
-
         $produk = Produk::where(['slug'=> $slug,'tampilkan'=>1])->first();
 
         if (!$produk) {
             return redirect()->route('dashboard.reseller')->with('warning','Barang Tidak Ada');
-        }
-
-        if ($produk) {
-            if ($produk->trashed()) {
-                $produk = Produk::withTrashed()->where('slug', $slug)->first();
-            }
-        } else {
-            // Produk tidak ditemukan
         }
 
         $rating = Review::where('produks_id', $produk->id)
@@ -233,7 +223,7 @@ class ResellerControler extends Controller
         $cek = true;
         $list_kategori = kategori::paginate(5);
         $searchTerm = $request->input('search');
-        $paket = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $paket = produk::where('jenis','paket_usaha')->where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
         $sort = $request->input('sort');
 
         $filter = produk::with('users')
@@ -268,7 +258,7 @@ class ResellerControler extends Controller
         $cek = true;
         $list_kategori = kategori::paginate(5);
         $searchTerm = $request->input('search');
-        $supply = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $supply = produk::where('jenis','supply')->where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
         $sort = $request->input('sort');
 
         $filter = produk::with('users')

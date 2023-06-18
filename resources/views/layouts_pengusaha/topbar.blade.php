@@ -31,8 +31,13 @@
                         @else
                             @foreach ($notifikasi as $n)
                                 <a class="dropdown-item" href="{{ route('produk.edit', $n->produks_id) }}">
-                                    {{ Str::limit($n->pesan, 15) }} -&nbsp;
-                                    <span><b>Admin</b></span>
+                                    <div class="row">
+                                        <div class="col">
+                                            <b>{{ $n->produks->nama_produk }}</b> - <span><b>Admin</b></span>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col-lg-2">{{ Str::limit($n->pesan, 40) }}</div>
+                                    </div>
                                 </a>
                             @endforeach
                             <hr>

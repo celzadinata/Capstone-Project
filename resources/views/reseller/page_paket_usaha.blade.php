@@ -61,10 +61,9 @@
                                                     <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
                                                         class="card-img-top" alt="...">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
+                                                        <p class="kategori">{{ $p->kategori->nama}}</p>
+                                                        <h4>{{ Str::limit($p->nama_produk, 12) }}</h4>
                                                         <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                        {{-- <a href="{{ route('produk_detail.reseller', $s->slug) }}"
-                                                            class="btn-resell">Resell</a> --}}
                                                     </div>
                                                 </div>
                                             </a>
@@ -82,10 +81,9 @@
                                                     <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
                                                         class="card-img-top" alt="...">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
-                                                        <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                        {{-- <a href="{{ route('produk_detail.reseller', $s->slug) }}"
-                                                            class="btn-resell">Resell</a> --}}
+                                                        <p class="kategori">{{ $p->kategori->nama}}</p>
+                                                        <h4>{{ Str::limit($p->nama_produk, 12) }}</h4>
+                                                        <p class="price">Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
                                                     </div>
                                                 </div>
                                             </a>

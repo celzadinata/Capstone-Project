@@ -104,8 +104,19 @@ Home page styles
     border-width: 2px;
 }
 
+.paket .info-area .kategori {
+    color: #B500A0;
+    background-color: #ce3abd5e;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.paket .info-area .jenis {
+    color: #B500A0;
+    font-size: 18px;
+}
+
 .paket .info-area h4 {
-    margin-top: 10px;
     font-size: 20px;
     font-weight: 600;
 }
@@ -117,8 +128,8 @@ Home page styles
 .paket .single-box {
     box-shadow: 0px 0px 4px #c7c7c7;
     color: black;
-    margin: 5px 5px;
-    border-radius: 15px;
+    margin: 5px 2px;
+    border-radius: 5px;
     /* border: 2px solid var(--pink); */
     background-color: white;
 }
@@ -127,7 +138,7 @@ Home page styles
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 13px 13px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 .paket .btn-resell {

@@ -48,14 +48,15 @@
                                 @if ($p->status == 'Konfirmasi')
                                     @if ($p->tampilkan == 1)
                                         <div class="col g-3">
-                                            <a class="konten" href="{{  route('produk_detail.reseller', $p->slug)  }}">
+                                            <a class="konten" href="{{ route('produk_detail.reseller', $p->slug) }}">
                                                 <div class="card h-100">
                                                     <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
-                                                    class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
-                                                    <span>{{ str_replace('_', ' ', Str::title($p->jenis)) }}</span>
-                                                    <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                                        class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <p class="kategori">{{ $p->kategori->nama}}</p>
+                                                        <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
+                                                        <span class="jenis">{{ str_replace('_', ' ', Str::title($p->jenis)) }}</span>
+                                                        <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
                                                     </div>
                                                 </div>
                                             </a>
