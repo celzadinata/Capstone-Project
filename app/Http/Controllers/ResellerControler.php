@@ -29,7 +29,7 @@ class ResellerControler extends Controller
     {
         $list_kategori = kategori::paginate(5);
         $banner = produk::paginate(2);
-        $produk = produk::with('users')->get();
+        $produk = produk::with('users')->orderBy('produks.created_at')->paginate(5);
         return view('reseller.page_home', compact('list_kategori', 'banner', 'produk'));
     }
 
@@ -212,7 +212,6 @@ class ResellerControler extends Controller
         } else {
             // Produk tidak ditemukan
         }
-
 
         $rating = Review::where('produks_id', $produk->id)
             // ->withTrashed() // Menampilkan review yang telah dihapus juga

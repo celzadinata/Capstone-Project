@@ -62,10 +62,23 @@
                                     </div>
                                     <div class="modal-body">
                                         <table class="table text-center">
-                                        <tr>
-                                            <td><p><img src="{{ asset('assets/img/icon/user_lokasi.png') }}"> : Lokasi Anda</p> </td>
-                                            <td><p><img src="{{ asset('assets/img/icon/lokasi_pengusaha.png') }}"> : Pemilik Usaha</p></td>
-                                            <td><p><img src="{{ asset('assets/img/icon/shop_lokasi.png') }}"> : Usaha terdekat yang sama</p></td>
+                                            <tr>
+                                                <td>
+                                                    <p><img src="{{ asset('assets/img/icon/user_lokasi.png') }}"> : Lokasi
+                                                        Anda</p>
+                                                </td>
+                                                <td>
+                                                    @if ($produk->users->latitude)
+                                                        <p><img src="{{ asset('assets/img/icon/lokasi_pengusaha.png') }}"> :
+                                                            Pemilik Usaha</p>
+                                                    @endif
+                                                    <p id="latitude" hidden>{{ $produk->users->latitude }}</p>
+                                                    <p id="longitude" hidden>{{ $produk->users->longitude }}</p>
+                                                </td>
+                                                <td>
+                                                    <p><img src="{{ asset('assets/img/icon/shop_lokasi.png') }}"> : Usaha
+                                                        terdekat yang sama</p>
+                                                </td>
                                             </tr>
                                         </table>
                                         <div class="location" id="lokasi"></div>
@@ -109,8 +122,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoNyOpCm5oQ4vlUSfaQX5_dDd06ZNGQR4&libraries=places">
     </script>
     <script>
-        // var katakunci = document.getElementById('keyword').innerHTML;
-
         function initMap() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
@@ -120,7 +131,8 @@
 
             function showPosition(position) {
                 var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
+                var reseller_lat = position.coords.latitude;
+                var reseller_long = position.coords.longitude;
 
                 var map = new google.maps.Map(document.getElementById('lokasi'), {
                     center: latLng,
@@ -152,10 +164,13 @@
                 };
 
                 // Pengusaha
+                var pengusaha_lat = parseFloat(document.getElementById('latitude').innerHTML);
+                var pengusaha_long = parseFloat(document.getElementById('longitude').innerHTML);
+
                 var marker = new google.maps.Marker({
                     position: {
-                        lat: {{ $produk->users->latitude  }},
-                        lng: {{ $produk->users->longitude }}
+                        lat: pengusaha_lat,
+                        lng: pengusaha_long
                     },
                     map: map,
                     icon: '{{ asset('assets/img/icon/lokasi_pengusaha.png') }}',
@@ -169,13 +184,35 @@
                     fillOpacity: 0.2,
                     map: map,
                     center: {
-                        lat: {{ $produk->users->latitude }},
-                        lng: {{ $produk->users->longitude }}
+                        lat: pengusaha_lat,
+                        lng: pengusaha_long
                     },
                     radius: 1000 // Radius dalam meter (5 km)
                 });
 
+                // Garis Penghubung Reseller dan Pengusaha
+                var startPoint = {
+                    lat: reseller_lat,
+                    lng: reseller_long
+                };
+                var endPoint = {
+                    lat: pengusaha_lat,
+                    lng: pengusaha_long
+                };
 
+                var lineCoordinates = [startPoint, endPoint];
+
+                var line = new google.maps.Polyline({
+                    path: lineCoordinates,
+                    geodesic: true,
+                    strokeColor: '#CE3ABD',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                });
+
+                line.setMap(map);
+
+                // Nearby Location
                 var service = new google.maps.places.PlacesService(map);
                 service.nearbySearch(request, callback);
 

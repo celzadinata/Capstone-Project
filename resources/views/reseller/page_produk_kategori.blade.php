@@ -47,18 +47,18 @@
                             @foreach ($produk as $p)
                                 @if ($p->status == 'Konfirmasi')
                                     @if ($p->tampilkan == 1)
-                                        <div class="col">
-                                            <div class="card h-100">
-                                                <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
+                                        <div class="col g-3">
+                                            <a class="konten" href="{{  route('produk_detail.reseller', $p->slug)  }}">
+                                                <div class="card h-100">
+                                                    <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
                                                     class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
                                                     <span>{{ str_replace('_', ' ', Str::title($p->jenis)) }}</span>
                                                     <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                    <a href="{{ route('produk_detail.reseller', $p->slug) }}"
-                                                        class="btn-resell">Resell</a>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     @endif
                                 @endif
