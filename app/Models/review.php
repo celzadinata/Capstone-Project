@@ -25,6 +25,6 @@ class Review extends Model
 
     public function produk()
     {
-        return $this->belongsTo(produk::class, 'produk_id')->withTrashed();
+        return $this->belongsTo(produk::class)->withTrashed();
     }
 }
