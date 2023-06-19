@@ -30,10 +30,27 @@
                             </a>
                         @else
                             @foreach ($notifikasi as $n)
-                                <a class="dropdown-item" href="{{ route('produk.edit', $n->produks_id) }}">
-                                    {{ Str::limit($n->pesan, 15) }} -&nbsp;
-                                    <span><b>Admin</b></span>
-                                </a>
+                                @if ($n->produks_id == null)
+                                    <a class="dropdown-item" href="{{ route('pengusaha.profile') }}">
+                                        <div class="row">
+                                            <div class="col">
+                                                <b>Admin</b>
+                                            </div>
+                                            <div class="w-100"></div>
+                                            <div class="col-lg-2">{{ Str::limit($n->pesan, 40) }}</div>
+                                        </div>
+                                    </a>
+                                @else
+                                    <a class="dropdown-item" href="{{ route('produk.edit', $n->produks_id) }}">
+                                        <div class="row">
+                                            <div class="col">
+                                                <b>{{ $n->produks->nama_produk }}</b> - <span><b>Admin</b></span>
+                                            </div>
+                                            <div class="w-100"></div>
+                                            <div class="col-lg-2">{{ Str::limit($n->pesan, 40) }}</div>
+                                        </div>
+                                    </a>
+                                @endif
                             @endforeach
                             <hr>
                             <form action="{{ route('notif.destroy') }}" method="POST">
@@ -50,7 +67,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        {{ auth()->user()->username }}&nbsp;<i class="material-icons">person</i>
+                        @if (auth()->user()->avatar == null)
+                            {{ auth()->user()->username }}&nbsp;<i class="material-icons">person</i>
+                        @else
+                            {{ auth()->user()->username }}&nbsp;<img
+                                src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"
+                                id="preview" class="rounded img-fluid" style="width: 20px; height: 20px;" />
+                        @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                         <a class="dropdown-item" href="{{ route('dashboard.reseller') }}">Dashboard Reseller </a>

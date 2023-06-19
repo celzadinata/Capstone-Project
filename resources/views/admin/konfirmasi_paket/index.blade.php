@@ -29,7 +29,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($produk as $p)
-                                            <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
+                                            <tr style="font-weight: 500;">
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $p->nama_produk }}</td>
                                                 <td>{{ $p->users->nama_depan }}</td>
@@ -39,9 +39,9 @@
                                                         class="btn btn-warning">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
-                                                    {{-- <a href="{{ route('konfirmasi_destroy.admin') }}" class="btn" id="btn_table">
+                                                    <a href="{{ route('konfirmasi_destroy.admin', $p->id) }}" class="btn btn-danger">
                                                         <i class="fa-solid fa-trash-can"></i>
-                                                    </a> --}}
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach

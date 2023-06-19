@@ -64,12 +64,17 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <input type="hidden" value="Aktif" name="status">
+                                            <input type="hidden" value="{{ $user->id }}" name="users_id">
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer">
                                         <a href="{{ route('user.admin') }}" type="button" class="btn"><i
                                                 class='nav-icon fas fa-arrow-left'></i> &nbsp; Kembali</a>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal"
+                                            data-target="#exampleModal">
+                                            Tolak
+                                        </button>
                                         <button type="submit" class="btn" id="btn_table"><i
                                                 class="nav-icon fas fa-save"></i>
                                             &nbsp;
@@ -79,6 +84,7 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <input type="hidden" value="Non Aktif" name="status">
+                                            <input type="hidden" value="{{ $user->id }}" name="users_id">
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
@@ -94,6 +100,33 @@
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pesan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('tolak_user.admin') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="pesan">Masukkan Pesan</label>
+                            <input type="text" name="pesan" id="pesan" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" value="{{ $user->id }}" name="users_id">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim</button>
+                    </form>
                 </div>
             </div>
         </div>

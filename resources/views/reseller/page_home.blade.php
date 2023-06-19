@@ -66,7 +66,9 @@
                                             src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}" />
                                     </div>
                                     <div class="info-area">
+                                        <p class="kategori mt-1 mx-3">{{ $p->kategori->nama }}</p>
                                         <h4 id="title_card">{{ Str::limit($p->nama_produk, 20) }}</h4>
+                                        <span class="jenis">{{ str_replace('_', ' ', Str::title($p->jenis)) }}</span>
                                         <h6 class="price">Rp {{ number_format($p->harga, 0, '.', '.') }}</h6>
                                         <a href="{{ route('produk_detail.reseller', $p->slug) }}"
                                             class="btn-resell">Resell</a>

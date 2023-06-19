@@ -1,6 +1,6 @@
 @extends('layouts_admin.app')
 @section('title', 'Tambah Kategori')
-@section('title_top', 'KATEGORI')
+@section('title_top', 'TAMBAH KATEGORI')
 @section('content')
     <div class="content">
         <div class="card">

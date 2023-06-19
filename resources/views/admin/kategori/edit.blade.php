@@ -1,18 +1,15 @@
 @extends('layouts_admin.app')
 @section('title','Edit Kategori')
-@section('title_top', 'KATEGORI')
+@section('title_top', 'EDIT KATEGORI')
 @section('content')
     <div class="content">
         <div class="card">
             <div class="container">
-            <div class="card_header">
-                <h2><b>Edit Kategori</b></h2>
-            </div>
             <form action="{{ route('kategori.update', $kategori->id) }}" method="POST"
                 enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                <div class="card-body">
+                <div class="card-body mt-3">
                     <div class="mb-3">
                         <div class="form-group">
                             <label for="nama">Nama Kategori :</label>

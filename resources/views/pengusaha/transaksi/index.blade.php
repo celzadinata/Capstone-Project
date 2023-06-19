@@ -32,7 +32,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($transaksiModel as $item)
-                                            <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
+                                            <tr style="font-weight: 500;">
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->users->username }}</td>
                                                 <td>{{ $item->tanggal }}</td>

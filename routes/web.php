@@ -56,6 +56,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::get('/user-management/confirm/{id}', [UserController::class, 'edit'])->name('confirm_user.admin');
     Route::put('/user-management/update/{id}', [UserController::class, 'update'])->name('update_user.admin');
     Route::get('/user-management/destory/{id}', [UserController::class, 'destroy'])->name('destroy_user.admin');
+    Route::post('/user-management/pesan-tolak', [UserController::class, 'tolak'])->name('tolak_user.admin');
     //  Konfirmasi Produk
     Route::get('/konfirmasi-produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');
     Route::get('/konfirmasi-produk/confirm/{id}', [KonfirmasiPaketController::class, 'edit'])->name('konfirmasi_paket.admin');
@@ -117,6 +118,8 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     //Paypal
     Route::get('payment-cancel', [PaypalController::class, 'cancel'])->name('payment.cancel');
     Route::get('payment-success', [PaypalController::class, 'success'])->name('payment.success');
+    // Hapus Notifikasi
+    Route::delete('/notif/destroy', [NotifikasiController::class, 'destroy'])->name('notif.destroy');
 });
 
 // Guets

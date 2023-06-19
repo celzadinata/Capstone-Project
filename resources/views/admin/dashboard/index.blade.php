@@ -30,7 +30,7 @@
                                 {{-- <i class="material-icons">content_copy</i> --}}
                                 <img src="/assets/img/icon/users-admin-56.png" alt="" srcset="">
                             </div>
-                            <p class="card-category">Users Management</p>
+                            <p class="card-category">User Management</p>
                             {{-- <h3 class="card-title">49/50
                                 <small>GB</small>
                             </h3> --}}
@@ -47,7 +47,7 @@
                         <div class="card-header card-header-icon">
                             <div class="card-icon" id="icon">
                                 {{-- <i class="material-icons">content_copy</i> --}}
-                                <img src="/assets/img/icon/users-admin-56.png" alt="" srcset="">
+                                <img src="/assets/img/icon/paket-usaha-index.png" alt="" srcset="">
                             </div>
                             <p class="card-category">Konfirmasi Produk</p>
                             {{-- <h3 class="card-title">49/50
