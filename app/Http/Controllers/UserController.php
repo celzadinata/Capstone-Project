@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
@@ -16,8 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::where('role','<>','admin')->paginate(10);
-        return view('admin.user_management.index',compact('user'));
+        $user = User::where('role', '<>', 'admin')->paginate(10);
+        return view('admin.user_management.index', compact('user'));
     }
 
     /**
@@ -47,6 +48,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
         return redirect()->route('user.admin')->with('success', 'Berhasil Menambah Admin!');
     }
 
@@ -70,7 +72,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.user_management.confirm',compact('user'));
+        return view('admin.user_management.confirm', compact('user'));
     }
 
     /**
@@ -84,10 +86,38 @@ class UserController extends Controller
     {
         $request->validate([
             'status'     => 'required',
+            'users_id'     => 'required',
+        ]);
+
+        $status = $request->status;
+        if ($status == 'Aktif') {
+            $pesan = 'Akun Anda Sudah Diaktifkan!';
+        } elseif ($status == 'Non Aktif') {
+            $pesan = 'Akun Anda Dinonaktifkan!';
+        }
+        notifikasi::create([
+            'users_id' => $request->users_id,
+            'judul' => 'Konfirmasi',
+            'pesan' => $pesan,
         ]);
 
         $id->update($request->all());
         return redirect()->route('user.admin')->with('success', 'Berhasil Mengubah Status Akun!');
+    }
+
+    public function tolak(Request $request)
+    {
+        $request->validate([
+            'users_id' => 'required',
+            'pesan' => 'required',
+        ]);
+
+        notifikasi::create([
+            'users_id' => $request->users_id,
+            'judul' => 'User Ditolak!',
+            'pesan' => $request->pesan,
+        ]);
+        return redirect()->route('user.admin')->with('success', 'Pesan berhasil dikirim');
     }
 
     /**
