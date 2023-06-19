@@ -88,7 +88,7 @@ class TransaksiController extends Controller
             $item->update();
         }
 
-        return back()->with('success', 'Berhasil membeli paket/usaha, silahkan selesaikan proses pembayaran');
+        return back()->with('success', 'Berhasil membeli paket/usaha, silahkan selesaikan proses pembayaran ke rekening ini : 3452343223232');
     }
 
     /**
