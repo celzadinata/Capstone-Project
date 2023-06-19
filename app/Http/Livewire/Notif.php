@@ -13,6 +13,7 @@ class Notif extends Component
     {
         $id = Auth::id();
         $notifikasi = notifikasi::where('users_id', $id)->get();
-        return view('livewire.notif', compact('notifikasi'));
+        $jml_notif = notifikasi::where('users_id', $id)->count();
+        return view('livewire.notif', compact('notifikasi','jml_notif'));
     }
 }
