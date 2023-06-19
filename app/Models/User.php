@@ -69,14 +69,10 @@ class User extends Authenticatable
     }
     public function reviews()
     {
-        return $this->hasMany(review::class, 'users_id');
+        return $this->hasMany(Review::class, 'users_id');
     }
     public function detail_transaksi()
     {
         return $this->hasMany(detail_transaksi::class, 'users_id');
-    }
-    public function lokasi()
-    {
-        return $this->hasOne(lokasi::class, 'users_id');
     }
 }

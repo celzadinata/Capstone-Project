@@ -31,6 +31,8 @@ class AdminSeeder extends Seeder
                 'no_hp' => '082876123',
                 'paypal_email' => null,
                 'status' => 'Aktif',
+                'latitude' => '-7.0281093',
+                'longitude' => '112.7410192',
 
             ],
             // Pengusaha
@@ -47,7 +49,9 @@ class AdminSeeder extends Seeder
                 'alamat' => 'Jl dimana mana',
                 'no_hp' => '082234086611',
                 'paypal_email' => 'raihan@gmail.com', //passwordnya qweasdzxc
-                'status' => 'Aktif'
+                'status' => 'Aktif',
+                'latitude' => '-7.0281093',
+                'longitude' => '112.7410192'
             ],
             [
                 'id'            => '923ewKLM',
@@ -56,13 +60,15 @@ class AdminSeeder extends Seeder
                 'nama_depan'    => 'Mail',
                 'nama_belakang' => null,
                 'username'      => 'Mail2singgit',
-                'email'         => 'mailmail01@gmail.com',
+                'email'         => 'hahaharizal6@gmail.com',
                 'jenis_kelamin' => 'laki-laki',
                 'password'      => bcrypt('qwer4321'),
                 'alamat'        => 'Jl durian runtuh no 21',
                 'no_hp'         => '082213429867',
-                'paypal_email' =>  null,
-                'status'        => 'Aktif'
+                'paypal_email' =>  'mail@gmail.com',
+                'status'        => 'Aktif',
+                'latitude' => '-7.0281093',
+                'longitude' => '112.7410192'
             ],
             [
                 'id'            => 'ABC06060',
@@ -71,13 +77,15 @@ class AdminSeeder extends Seeder
                 'nama_depan'    => 'Bang Saleh',
                 'nama_belakang' => 'amboyyy',
                 'username'      => 'SalehAmboyy',
-                'email'         => 'tehtarik3@gmail.com',
+                'email'         => 'saleh@gmail.com',
                 'jenis_kelamin' => 'Perempuan',
                 'password'      => bcrypt('qwer4321'),
                 'alamat'        => 'Jl durian bangkit no 66',
                 'no_hp'         => '089213247689',
-                'paypal_email' =>  null,
-                'status'        => 'Aktif'
+                'paypal_email' =>  'saleh@gmail.com',
+                'status'        => 'Aktif',
+                'latitude' => '-7.0281093',
+                'longitude' => '112.7410192'
             ],
             [
                 'id'            => 'NFLT0066',
@@ -86,13 +94,15 @@ class AdminSeeder extends Seeder
                 'nama_depan'    => 'Naufal',
                 'nama_belakang' => 'TQ',
                 'username'      => 'naufal66',
-                'email'         => 'naufal66@gmail.com',
+                'email'         => 'naufaltaufiq66@gmail.com',
                 'jenis_kelamin' => 'laki-laki',
                 'password' => bcrypt('12345678'),
                 'alamat' => 'PWT',
                 'no_hp' => '089512345678',
                 'paypal_email' => 'naufal@gmail.com', //passwordnya qweasdzxc
                 'status' => 'Aktif',
+                'latitude' => '-7.0281093',
+                'longitude' => '112.7410192'
 
             ],
             // Reseller
@@ -109,7 +119,9 @@ class AdminSeeder extends Seeder
                 'alamat'        => 'Jl Land of Dawn goldlane',
                 'no_hp'         => '089123456789',
                 'paypal_email' =>  null,
-                'status'        => 'Aktif'
+                'status'        => 'Aktif',
+                'latitude' => '-7.0281093',
+                'longitude' => '112.7410192'
             ],
             [
                 'id'            => '68oiQA40',
@@ -124,7 +136,9 @@ class AdminSeeder extends Seeder
                 'alamat' => 'Jl everywhere',
                 'no_hp' => '089123456789',
                 'paypal_email' => null,
-                'status' => 'Aktif'
+                'status' => 'Aktif',
+                'latitude' => '-7.0281093',
+                'longitude' => '112.7410192'
             ],
             [
                 'id'            => 'K4uS7360',
@@ -139,7 +153,9 @@ class AdminSeeder extends Seeder
                 'alamat' => 'Jl everywhere',
                 'no_hp' => '089123456712',
                 'paypal_email' => null,
-                'status' => 'Aktif'
+                'status' => 'Aktif',
+                'latitude' => '-7.0281093',
+                'longitude' => '112.7410192'
             ],
         ];
 

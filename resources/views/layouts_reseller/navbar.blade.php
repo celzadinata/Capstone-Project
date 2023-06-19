@@ -23,11 +23,13 @@
             </ul>
             <ul class="navbar-nav ms-auto nav-center">
                 @auth
+                    @if (Auth::user()->role == 'reseller')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('keranjang') }}">Keranjang <i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
-                    @if (Auth::user()->role == 'admin')
+                    @livewire('notif')
+                    @elseif (Auth::user()->role == 'admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('dashboard.admin') }}"><i class="fa fa-wrench"></i> Admin
                                 CMS</a>
@@ -43,7 +45,6 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             @if (auth()->user()->avatar == null)
                                 {{ auth()->user()->username }} <i class="fa-regular fa-circle-user fa-flip fa-lg"></i>
-
                             @else
                                 {{ auth()->user()->username }} <img
                                     src="{{ asset('assets/users/' . Auth::user()->role . '/' . Auth::user()->id . '/avatar/' . Auth::user()->avatar) }}"

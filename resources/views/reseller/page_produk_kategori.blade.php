@@ -7,11 +7,6 @@
             <hr class="my-2 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="100">
             <div class="row my-3">
                 <div class="col-md-3 col-lg-2 pe-5 side-panel-paket" data-aos="zoom-in" data-aos-delay="100">
-                    {{-- <form class="d-flex mb-4" action="{{ route('search') }}" method="get" role="search">
-                        <input class="form-control me-2" name="search" type="text" placeholder="Search"
-                            aria-label="Search">
-                        <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
-                    </form> --}}
                     <h1>{{ $kategori->nama }}</h1>
                     <hr class="my-4 hr-paket opacity-100" data-aos="flip-right" data-aos-delay="800">
                     <h1>Urutkan</h1>
@@ -52,18 +47,19 @@
                             @foreach ($produk as $p)
                                 @if ($p->status == 'Konfirmasi')
                                     @if ($p->tampilkan == 1)
-                                        <div class="col">
-                                            <div class="card h-100">
-                                                <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
-                                                    class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
-                                                    <span>{{ str_replace('_', ' ', Str::title($p->jenis)) }}</span>
-                                                    <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                    <a href="{{ route('produk_detail.reseller', $p->slug) }}"
-                                                        class="btn-resell">Resell</a>
+                                        <div class="col g-3">
+                                            <a class="konten" href="{{ route('produk_detail.reseller', $p->slug) }}">
+                                                <div class="card h-100">
+                                                    <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
+                                                        class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <p class="kategori">{{ $p->kategori->nama}}</p>
+                                                        <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
+                                                        <span class="jenis">{{ str_replace('_', ' ', Str::title($p->jenis)) }}</span>
+                                                        <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     @endif
                                 @endif

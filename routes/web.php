@@ -56,6 +56,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::get('/user-management/confirm/{id}', [UserController::class, 'edit'])->name('confirm_user.admin');
     Route::put('/user-management/update/{id}', [UserController::class, 'update'])->name('update_user.admin');
     Route::get('/user-management/destory/{id}', [UserController::class, 'destroy'])->name('destroy_user.admin');
+    Route::post('/user-management/pesan-tolak', [UserController::class, 'tolak'])->name('tolak_user.admin');
     //  Konfirmasi Produk
     Route::get('/konfirmasi-produk', [KonfirmasiPaketController::class, 'index'])->name('konfirmasi.admin');
     Route::get('/konfirmasi-produk/confirm/{id}', [KonfirmasiPaketController::class, 'edit'])->name('konfirmasi_paket.admin');
@@ -100,15 +101,6 @@ Route::group(['prefix' => 'pengusaha', 'middleware' => ['auth', 'isPengusaha']],
 Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], function () {
     // Dashboard Reseller
     Route::get('/', [ResellerControler::class, 'index'])->name('reseller');
-    // Semua Kategori
-    Route::get('/kategori', [ResellerControler::class, 'kategori'])->name('kategori.reseller');
-    Route::get('/kategori/{slug}', [ResellerControler::class, 'produk_kategori'])->name('produk_kategori.reseller');
-    // Supply
-    Route::get('/supply', [ResellerControler::class, 'supply'])->name('supply.reseller');
-    // Paket Usaha
-    Route::get('/paket-usaha', [ResellerControler::class, 'paket_usaha'])->name('paket.reseller');
-    // Produk Detail
-    Route::get('/produk_detail/{slug}', [ResellerControler::class, 'produk_detail'])->name('produk_detail.reseller');
     // Profile
     Route::get('/profile', [ResellerControler::class, 'profile'])->name('profile.reseller');
     Route::put('/profile', [ResellerControler::class, 'profile_update'])->name('update.profile.reseller');
@@ -126,6 +118,8 @@ Route::group(['prefix' => 'reseller', 'middleware' => ['auth', 'isReseller']], f
     //Paypal
     Route::get('payment-cancel', [PaypalController::class, 'cancel'])->name('payment.cancel');
     Route::get('payment-success', [PaypalController::class, 'success'])->name('payment.success');
+    // Hapus Notifikasi
+    Route::delete('/notif/destroy', [NotifikasiController::class, 'destroy'])->name('notif.destroy');
 });
 
 // Guets

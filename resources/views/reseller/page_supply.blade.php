@@ -50,27 +50,50 @@
                     </form>
                 </div>
                 <div class="col-md-9 col-lg-10">
-                    <div class="row row-cols-1 row-cols-md-5 g-4" data-aos="fade">
-                        @foreach ($supply as $s)
-                            @if ($s->status == 'Konfirmasi')
-                                @if ($s->tampilkan == 1)
-                                    <div class="col">
-                                        <div class="card h-100">
-                                            <img src="{{ asset('assets/users/' . $s->users->role . '/' . $s->users_id . '/' . $s->foto) }}"
-                                                class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h4 class="card-title">{{ Str::limit($s->nama_produk, 12) }}</h4>
-                                                <p>Rp {{ number_format($s->harga, 0, '.', '.') }}</p>
-                                                <a href="{{ route('produk_detail.reseller', $s->slug) }}"
-                                                    class="btn-resell">Resell</a>
-                                            </div>
+                    <div class="row row-cols-2 row-cols-md-5 g-4" data-aos="fade">
+                        @if ($cek == true)
+                            @foreach ($supply as $s)
+                                @if ($s->status == 'Konfirmasi')
+                                    @if ($s->tampilkan == 1)
+                                        <div class="col g-3">
+                                            <a class="konten" href="{{ route('produk_detail.reseller', $s->slug) }}">
+                                                <div class="card h-100">
+                                                    <img src="{{ asset('assets/users/' . $s->users->role . '/' . $s->users_id . '/' . $s->foto) }}"
+                                                        class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <p class="kategori">{{ $s->kategori->nama}}</p>
+                                                        <h4 class="card-title">{{ Str::limit($s->nama_produk, 12) }}</h4>
+                                                        <p>Rp {{ number_format($s->harga, 0, '.', '.') }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endif
-                            @endif
-                        @endforeach
+                            @endforeach
+                        @else
+                            @foreach ($filter as $s)
+                                @if ($s->status == 'Konfirmasi')
+                                    @if ($s->tampilkan == 1)
+                                        <div class="col g-3">
+                                            <a class="konten" href="{{ route('produk_detail.reseller', $s->slug) }}">
+                                                <div class="card h-100">
+                                                    <img src="{{ asset('assets/users/' . $s->users->role . '/' . $s->users_id . '/' . $s->foto) }}"
+                                                        class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <p class="kategori">{{ $s->kategori->nama}}</p>
+                                                        <h4 class="card-title">{{ Str::limit($s->nama_produk, 12) }}</h4>
+                                                        <p>Rp {{ number_format($s->harga, 0, '.', '.') }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endif
                     </div>
-                    {{ $supply->links() }}
+                    {{ $filter->links() }}
                 </div>
             </div>
         </div>

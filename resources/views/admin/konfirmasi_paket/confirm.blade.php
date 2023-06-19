@@ -83,7 +83,6 @@
                                                 @endif
                                             </td>
                                         </tr>
-
                                         <tr>
                                             <td>Berkas Opsional</td>
                                             <td>&nbsp;:</td>
@@ -98,22 +97,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <style>
-                                    #konfirmasi_user {
-                                        border-style: solid;
-                                        border-width: 2px;
-                                        border-radius: 10px;
-                                        border-color: #CE3ABD;
-                                    }
-
-                                    #text_konfirmasi_user {
-                                        font-size: 18px;
-                                    }
-
-                                    #button_berkas_user {
-                                        background-color: #CE3ABD;
-                                    }
-                                </style>
                             </div>
                             <form action="{{ route('update_paket.admin', $produk->id) }}" method="POST"
                                 enctype="multipart/form-data">
@@ -122,6 +105,8 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <input type="hidden" value="Konfirmasi" name="status">
+                                        <input type="hidden" value="{{ $produk->id }}" name="produks_id">
+                                        <input type="hidden" value="{{ $produk->users->id }}" name="users_id">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -169,7 +154,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="pesan">Masukkan Pesan</label>
-                            <textarea name="pesan" id="pesan" class="form-control" required></textarea>
+                            <input type="text" name="pesan" id="pesan" class="form-control">
                         </div>
                         <div class="form-group">
                             <input type="hidden" value="Produk Ditolak!!" name="judul">
@@ -181,10 +166,6 @@
                         <button type="submit" class="btn btn-primary">Kirim</button>
                     </form>
                 </div>
-                {{-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div> --}}
             </div>
         </div>
     </div>

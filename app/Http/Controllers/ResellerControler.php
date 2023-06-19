@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\lokasi;
 use App\Models\produk;
 use App\Models\review;
 use App\Models\kategori;
+use App\Models\transaksi;
+use App\Models\notifikasi;
+use Dompdf\Adapter\PDFLib;
 use Illuminate\Http\Request;
 use App\Models\detail_transaksi;
-use App\Models\transaksi;
-use Carbon\Carbon;
-use Dompdf\Adapter\PDFLib;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
-use PDF;
 
 class ResellerControler extends Controller
 {
@@ -27,14 +28,20 @@ class ResellerControler extends Controller
      */
     public function index()
     {
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $list_kategori = kategori::paginate(5);
         $banner = produk::paginate(2);
-        $produk = produk::with('users')->get();
-        return view('reseller.page_home', compact('list_kategori', 'banner', 'produk'));
+        $produk = produk::with('users')->orderBy('produks.created_at')->paginate(5);
+        return view('reseller.page_home', compact('list_kategori', 'banner', 'produk', 'notifikasi','jml_notif'));
     }
 
     public function kategori()
     {
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $a = kategori::where('nama', 'LIKE', 'A%')->get();
         $b = kategori::where('nama', 'LIKE', 'B%')->get();
         $c = kategori::where('nama', 'LIKE', 'C%')->get();
@@ -64,6 +71,8 @@ class ResellerControler extends Controller
         $list_kategori = kategori::paginate();
         return view('reseller.page_kategori', compact(
             'list_kategori',
+            'notifikasi',
+            'jml_notif',
             'a',
             'b',
             'c',
@@ -96,6 +105,9 @@ class ResellerControler extends Controller
     public function produk_kategori(Request $request, $slug)
     {
         $list_kategori = kategori::paginate(5);
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $kategori = kategori::where('slug', $slug)->first();
         $sort = $request->input('sort');
 
@@ -122,16 +134,20 @@ class ResellerControler extends Controller
             })
             ->get();
 
-        return view('reseller.page_produk_kategori', compact('list_kategori', 'kategori', 'produk', 'sort'));
+        return view('reseller.page_produk_kategori', compact('list_kategori', 'kategori', 'produk', 'sort', 'notifikasi','jml_notif'));
     }
 
 
     public function paket_usaha(Request $request)
     {
+        $cek = false;
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $list_kategori = kategori::paginate(5);
         $sort = $request->input('sort');
 
-        $paket = produk::with('users')
+        $filter = produk::with('users')
             ->where('jenis', 'paket_usaha')
             ->when($sort, function ($query) use ($sort) {
                 switch ($sort) {
@@ -155,16 +171,20 @@ class ResellerControler extends Controller
             })
             ->paginate(15);
 
-        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket', 'sort'));
+        return view('reseller.page_paket_usaha', compact('list_kategori', 'filter', 'sort', 'cek', 'notifikasi','jml_notif'));
     }
 
 
     public function supply(Request $request)
     {
+        $cek = false;
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $list_kategori = kategori::paginate(5);
         $sort = $request->input('sort');
 
-        $supply = produk::with('users')
+        $filter = produk::with('users')
             ->where('jenis', 'supply')
             ->when($sort, function ($query) use ($sort) {
                 switch ($sort) {
@@ -188,24 +208,21 @@ class ResellerControler extends Controller
             })
             ->paginate(15);
 
-        return view('reseller.page_supply', compact('list_kategori', 'supply', 'sort'));
+        return view('reseller.page_supply', compact('list_kategori', 'filter', 'sort', 'cek', 'notifikasi','jml_notif'));
     }
 
 
     public function produk_detail($slug)
     {
         $list_kategori = Kategori::paginate(5);
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
+        $produk = Produk::where(['slug' => $slug, 'tampilkan' => 1])->first();
 
-        $produk = Produk::where('slug', $slug)->first();
-
-        if ($produk) {
-            if ($produk->trashed()) {
-                $produk = Produk::withTrashed()->where('slug', $slug)->first();
-            }
-        } else {
-            // Produk tidak ditemukan
+        if (!$produk) {
+            return redirect()->route('dashboard.reseller')->with('warning', 'Barang Tidak Ada');
         }
-
 
         $rating = Review::where('produks_id', $produk->id)
             // ->withTrashed() // Menampilkan review yang telah dihapus juga
@@ -217,35 +234,101 @@ class ResellerControler extends Controller
             // ->withTrashed() // Menampilkan review yang telah dihapus juga
             ->count();
 
-        $terjual = detail_transaksi::where('produks_id', $produk->id)->count();
+        $terjual = DB::table('transaksis')
+            ->leftJoin('detail_transaksis', 'transaksis.id', '=', 'detail_transaksis.transaksis_id')
+            ->leftJoin('produks', 'detail_transaksis.produks_id', '=', 'produks.id')
+            ->where('produks.id', $produk->id)
+            ->where('transaksis.status', 'selesai')
+            ->count();
 
-        return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual'));
+        return view('reseller.page_produk_detail', compact('list_kategori', 'produk', 'rating', 'nilai', 'terjual','notifikasi','jml_notif'));
     }
 
     public function search_paketusaha(Request $request)
     {
+        $cek = true;
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $list_kategori = kategori::paginate(5);
         $searchTerm = $request->input('search');
-        $paket = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $paket = produk::where('jenis', 'paket_usaha')->where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $sort = $request->input('sort');
 
-        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket'));
+        $filter = produk::with('users')
+            ->where('jenis', 'supply')
+            ->when($sort, function ($query) use ($sort) {
+                switch ($sort) {
+                    case 'termahal':
+                        $query->orderByDesc('harga');
+                        break;
+                    case 'termurah':
+                        $query->orderBy('harga');
+                        break;
+                    case 'terbaru':
+                        $query->orderByDesc('created_at');
+                        break;
+                    case 'acak':
+                        $query->inRandomOrder();
+                        break;
+                    default:
+                        // Default sorting option
+                        $query->orderBy('nama_produk');
+                        break;
+                }
+            })
+            ->paginate(15);
+
+        return view('reseller.page_paket_usaha', compact('list_kategori', 'paket', 'sort', 'cek', 'filter','notifikasi','jml_notif'));
     }
 
     public function search_supply(Request $request)
     {
+        $cek = true;
+        $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $list_kategori = kategori::paginate(5);
         $searchTerm = $request->input('search');
-        $supply = produk::where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $supply = produk::where('jenis', 'supply')->where('nama_produk', 'like', '%' . $searchTerm . '%')->get();
+        $sort = $request->input('sort');
 
-        return view('reseller.page_supply', compact('list_kategori', 'supply'));
+        $filter = produk::with('users')
+            ->where('jenis', 'supply')
+            ->when($sort, function ($query) use ($sort) {
+                switch ($sort) {
+                    case 'termahal':
+                        $query->orderByDesc('harga');
+                        break;
+                    case 'termurah':
+                        $query->orderBy('harga');
+                        break;
+                    case 'terbaru':
+                        $query->orderByDesc('created_at');
+                        break;
+                    case 'acak':
+                        $query->inRandomOrder();
+                        break;
+                    default:
+                        // Default sorting option
+                        $query->orderBy('nama_produk');
+                        break;
+                }
+            })
+            ->paginate(15);
+
+
+        return view('reseller.page_supply', compact('list_kategori', 'supply', 'cek', 'filter', 'sort','notifikasi','jml_notif'));
     }
 
     public function profile()
     {
         $id = Auth::id();
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $user = User::find(Auth::user()->id);
         $list_kategori = kategori::paginate(5);
-        return view('reseller.page_profile', compact('user', 'list_kategori'));
+        return view('reseller.page_profile', compact('user', 'list_kategori','notifikasi','jml_notif'));
     }
 
     public function profile_update(Request $request)
@@ -288,6 +371,8 @@ class ResellerControler extends Controller
     public function indexPesanan()
     {
         $id = Auth::user()->id;
+        $notifikasi = notifikasi::where('users_id', $id)->get();
+        $jml_notif = notifikasi::where('users_id', $id)->count();
         $transaksi = transaksi::where('user_id', $id)->get();
         $transaksiModel = transaksi::whereHas('detail_transaksi', function ($query) use ($id) {
             $query->whereHas('produk', function ($query) use ($id) {
@@ -295,7 +380,7 @@ class ResellerControler extends Controller
             });
         })->with('detail_transaksi.produk')->paginate(10);
         $list_kategori = kategori::paginate(5);
-        return view('reseller.page_pesanan_saya', compact('list_kategori', 'transaksi', 'transaksiModel'));
+        return view('reseller.page_pesanan_saya', compact('list_kategori', 'transaksi', 'transaksiModel','notifikasi','jml_notif'));
     }
     public function invoice($id)
     {

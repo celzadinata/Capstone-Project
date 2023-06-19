@@ -16,24 +16,12 @@
                     </div>
                     <div class="col-md-5 col-lg-8">
                         <h5>{{ $r->users->username }}</h5>
-                        @if ($r->rate == 1)
-                            1 <i class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
-                        @elseif($r->rate == 2)
-                            2 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                style="color: #CE3ABD;"> </i>
-                        @elseif($r->rate == 3)
-                            3 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
-                        @elseif($r->rate == 4)
-                            4 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                                class="fa-solid fa-star" style="color: #CE3ABD;"> </i>
-                        @elseif($r->rate == 5)
-                            5 <i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                style="color: #CE3ABD;"></i><i class="fa-solid fa-star" style="color: #CE3ABD;"></i><i
-                                class="fa-solid fa-star" style="color: #CE3ABD;"></i><i class="fa-solid fa-star"
-                                style="color: #CE3ABD;"> </i>
-                        @endif
+                        <u>{{ str_replace('...', '', Str::limit($r->rate, 3)) }}</u>
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $r->rate)
+                                <i class="fa-solid fa-star fa-sm" style="color: #b500a0;"></i>
+                            @endif
+                        @endfor
                         <small class="text-muted" style="font-size: 12px"><i class="fa-solid fa-circle fa-2xs"></i>
                             {{ $r->created_at->diffForHumans() }}</small>
                         <p>{{ $r->review }}</p>

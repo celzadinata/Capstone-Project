@@ -65,7 +65,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($produks as $produk)
-                                            <tr style="color: #CE3ABD; background-color: white; font-weight: 500;">
+                                            <tr style="font-weight: 500;">
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ str_replace('_', ' ', Str::title($produk->jenis)) }}</td>
                                                 <td>{{ Str::title($produk->nama_produk) }}</td>

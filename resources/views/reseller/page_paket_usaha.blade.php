@@ -8,8 +8,8 @@
             <div class="row my-3">
                 <div class="col-md-3 col-lg-2 pe-5 side-panel-paket" data-aos="zoom-in" data-aos-delay="100">
                     <form class="d-flex mb-4" action="{{ route('search_paket') }}" method="get" role="search">
-                        <input class="form-control me-2" name="search" type="text" placeholder="Search"
-                            aria-label="Search">
+                        <input class="form-control me-2" onkeyup="filter()" name="search" id="value" type="text"
+                            placeholder="Search" aria-label="Search">
                         <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <h1>Kategori</h1>
@@ -50,29 +50,51 @@
                     </form>
                 </div>
                 <div class="col-md-9 col-lg-10">
-                    <div class="row row-cols-1 row-cols-md-5 g-4" data-aos="fade">
-                        @foreach ($paket as $p)
-                            @if ($p->status == 'Konfirmasi')
-                                @if ($p->tampilkan == 1)
-                                    <div class="col">
-                                        <div class="card h-100">
-                                            <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
-                                                class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h4 class="card-title">{{ Str::limit($p->nama_produk, 12) }}</h4>
-                                                <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
-                                                <a href="{{ route('produk_detail.reseller', $p->slug) }}"
-                                                    class="btn-resell">Resell</a>
-                                            </div>
+                    <div class="row row-cols-2 row-cols-md-5 g-4" data-aos="fade">
+                        @if ($cek == true)
+                            @foreach ($paket as $p)
+                                @if ($p->status == 'Konfirmasi')
+                                    @if ($p->tampilkan == 1)
+                                        <div class="col g-3">
+                                            <a class="konten" href="{{ route('produk_detail.reseller', $p->slug) }}">
+                                                <div class="card h-100">
+                                                    <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
+                                                        class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <p class="kategori">{{ $p->kategori->nama}}</p>
+                                                        <h4>{{ Str::limit($p->nama_produk, 12) }}</h4>
+                                                        <p>Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endif
-                            @endif
-                        @endforeach
+                            @endforeach
+                        @else
+                            @foreach ($filter as $p)
+                                @if ($p->status == 'Konfirmasi')
+                                    @if ($p->tampilkan == 1)
+                                        <div class="col g-3">
+                                            <a class="konten" href="{{ route('produk_detail.reseller', $p->slug) }}">
+                                                <div class="card h-100">
+                                                    <img src="{{ asset('assets/users/' . $p->users->role . '/' . $p->users_id . '/' . $p->foto) }}"
+                                                        class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <p class="kategori">{{ $p->kategori->nama}}</p>
+                                                        <h4>{{ Str::limit($p->nama_produk, 12) }}</h4>
+                                                        <p class="price">Rp {{ number_format($p->harga, 0, '.', '.') }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endif
                     </div>
-                    {{ $paket->links() }}
+                    {{ $filter->links() }}
                 </div>
-
             </div>
         </div>
     </section>

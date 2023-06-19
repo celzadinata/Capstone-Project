@@ -10,7 +10,6 @@ Paket Usaha page styles
 }
 
 .paket-usaha .card .card-body .card-text {
-    text-align: start;
     color: black;
 }
 
@@ -28,17 +27,42 @@ Paket Usaha page styles
     margin-bottom: 50px;
 }
 
+
+.paket-usaha .konten {
+    text-decoration: none;
+}
+
 .paket-usaha .card {
-    text-align: center;
-    border-radius: 10px;
+    box-shadow: 0px 0px 4px #c7c7c7;
+    text-align: start;
+    border-radius: 3px;
     border: 0;
 }
 
+.paket-usaha .card:hover {
+    border: 2px solid #CE3ABD;
+}
+
 .paket-usaha .card img {
-    border-radius: 8px 8px 0 0;
+    border-radius: 3px 3px 0 0;
     width: 100%;
     height: 150px;
     object-fit: cover;
+}
+
+.paket-usaha .card h4 {
+    font-weight: 1px;
+}
+
+.paket-usaha .card .kategori {
+    color: #B500A0;
+    background-color: #ce3abd5e;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.paket-usaha .card .jenis {
+    color: #B500A0;
 }
 
 .paket-usaha .btn-resell {
