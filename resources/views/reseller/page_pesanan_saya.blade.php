@@ -28,7 +28,6 @@
                         <a class="nav-link" id="tab-selesai" data-bs-toggle="tab" href="#content-selesai">Selesai</a>
                     </li>
                 </ul>
-
                 <div class="tab-content">
                     <div id="content-menunggu-pembayaran" class="tab-pane fade show active">
                         @php
