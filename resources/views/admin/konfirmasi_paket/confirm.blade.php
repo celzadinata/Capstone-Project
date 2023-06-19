@@ -154,7 +154,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="pesan">Masukkan Pesan</label>
-                            <textarea name="pesan" id="pesan" class="form-control" required></textarea>
+                            <input type="text" name="pesan" id="pesan" class="form-control">
                         </div>
                         <div class="form-group">
                             <input type="hidden" value="Produk Ditolak!!" name="judul">

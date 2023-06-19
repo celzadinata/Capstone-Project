@@ -65,7 +65,7 @@ class AdminSeeder extends Seeder
                 'password'      => bcrypt('qwer4321'),
                 'alamat'        => 'Jl durian runtuh no 21',
                 'no_hp'         => '082213429867',
-                'paypal_email' =>  null,
+                'paypal_email' =>  'mail@gmail.com',
                 'status'        => 'Aktif',
                 'latitude' => '-7.0281093',
                 'longitude' => '112.7410192'
@@ -77,12 +77,12 @@ class AdminSeeder extends Seeder
                 'nama_depan'    => 'Bang Saleh',
                 'nama_belakang' => 'amboyyy',
                 'username'      => 'SalehAmboyy',
-                'email'         => 'tehtarik3@gmail.com',
+                'email'         => 'saleh@gmail.com',
                 'jenis_kelamin' => 'Perempuan',
                 'password'      => bcrypt('qwer4321'),
                 'alamat'        => 'Jl durian bangkit no 66',
                 'no_hp'         => '089213247689',
-                'paypal_email' =>  null,
+                'paypal_email' =>  'saleh@gmail.com',
                 'status'        => 'Aktif',
                 'latitude' => '-7.0281093',
                 'longitude' => '112.7410192'

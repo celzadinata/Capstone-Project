@@ -73,6 +73,7 @@
                                                                                 {{ number_format($detailTransaksi->sub_total, 0, ',', '.') }}
                                                                             </h5>
                                                                         </div>
+                                                                        <span>Kirim Ke No Rekening BCA ini : 3452343223232</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -142,7 +143,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </>
                                                     </div>
                                                 </div>
                                             </div>

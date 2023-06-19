@@ -30,15 +30,27 @@
                             </a>
                         @else
                             @foreach ($notifikasi as $n)
-                                <a class="dropdown-item" href="{{ route('produk.edit', $n->produks_id) }}">
-                                    <div class="row">
-                                        <div class="col">
-                                            <b>{{ $n->produks->nama_produk }}</b> - <span><b>Admin</b></span>
+                                @if ($n->produks_id == null)
+                                    <a class="dropdown-item" href="{{ route('pengusaha.profile') }}">
+                                        <div class="row">
+                                            <div class="col">
+                                                <b>Admin</b>
+                                            </div>
+                                            <div class="w-100"></div>
+                                            <div class="col-lg-2">{{ Str::limit($n->pesan, 40) }}</div>
                                         </div>
-                                        <div class="w-100"></div>
-                                        <div class="col-lg-2">{{ Str::limit($n->pesan, 40) }}</div>
-                                    </div>
-                                </a>
+                                    </a>
+                                @else
+                                    <a class="dropdown-item" href="{{ route('produk.edit', $n->produks_id) }}">
+                                        <div class="row">
+                                            <div class="col">
+                                                <b>{{ $n->produks->nama_produk }}</b> - <span><b>Admin</b></span>
+                                            </div>
+                                            <div class="w-100"></div>
+                                            <div class="col-lg-2">{{ Str::limit($n->pesan, 40) }}</div>
+                                        </div>
+                                    </a>
+                                @endif
                             @endforeach
                             <hr>
                             <form action="{{ route('notif.destroy') }}" method="POST">

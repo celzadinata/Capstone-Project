@@ -45,6 +45,17 @@ svg .logo-white path {
     border-width: 2px;
 }
 
+.btn-notif {
+    border: 1px solid #CE3ABD;
+    background-color: #fff;
+    color: #B500A0;
+}
+
+.btn-notif:hover {
+    background-color: #CE3ABD;
+    color: #fff;
+}
+
 /* Navigation styles */
 .navbar-toggler {
     border: 2px solid var(--pink);
@@ -105,6 +116,7 @@ svg .logo-white path {
     .nav-item {
         margin-bottom: 5px;
     }
+
     .navbar-nav {
         margin-top: 10px;
     }
@@ -114,6 +126,7 @@ svg .logo-white path {
     .nav-item {
         margin-bottom: 5px;
     }
+
     .navbar-nav {
         margin-top: 10px;
     }
@@ -122,9 +135,9 @@ svg .logo-white path {
 @media (max-width: 576px) {
     .nav-item {
         margin-bottom: 5px;
-        
+
     }
-    
+
     .navbar-nav {
         margin-top: 10px;
     }
@@ -252,18 +265,18 @@ svg .logo-white path {
     overflow-y: auto;
     z-index: 1;
     color: #CE3ABD;
-  }
-  
-  .autocomplete-items div {
+}
+
+.autocomplete-items div {
     display: flex;
     align-items: center;
     padding: 10px;
     cursor: pointer;
-  }
-  
-  .autocomplete-items div:last-child {
+}
+
+.autocomplete-items div:last-child {
     border-bottom: none;
-  }
+}
 
 .autocomplete-items div:hover {
     background-color: #e9e9e9;
